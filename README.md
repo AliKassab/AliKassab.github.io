@@ -1,4 +1,4 @@
 ## 📄 Resume
 
 🔗 **Hosted CV:**  
-https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/
+https://AliKassab.github.io/AliKassab.githu.io/
