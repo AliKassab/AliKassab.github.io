@@ -1,4 +1,4 @@
 ## 📄 Resume
 
 🔗 **Hosted CV:**  
-https://AliKassab.github.io/AliKassab.github.io/
+https://AliKassab.github.io
