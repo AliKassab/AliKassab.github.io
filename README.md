@@ -1,4 +1,7 @@
-## 📄 Resume
+# Ali Kassab - Portfolio
 
-🔗 **Hosted CV:**  
-https://AliKassab.github.io
+Game Programmer Portfolio
+
+🔗 **Live Site:** https://AliKassab.github.io
+
+📄 **CV:** https://alikassab.github.io/AliKassabCV
