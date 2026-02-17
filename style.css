@@ -85,7 +85,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/god-of-war-banner.svg') center/cover no-repeat;
+    background: linear-gradient(135deg, #4a0000 0%, #2d1410 25%, #1f0808 50%, #0f0000 75%, #000000 100%);
     z-index: 0;
 }
 
