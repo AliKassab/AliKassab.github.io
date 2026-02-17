@@ -81,6 +81,29 @@ projectCards.forEach(card => {
     cardObserver.observe(card);
 });
 
+// ===== INTERSECTION OBSERVER FOR GAME CARDS =====
+const gameCards = document.querySelectorAll('.game-card');
+
+// Store card index as data attribute for proper stagger timing
+gameCards.forEach((card, index) => {
+    card.setAttribute('data-card-index', index);
+});
+
+const gameCardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            const cardIndex = parseInt(entry.target.getAttribute('data-card-index') || '0', 10);
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, cardIndex * 100);
+        }
+    });
+}, cardObserverOptions);
+
+gameCards.forEach(card => {
+    gameCardObserver.observe(card);
+});
+
 // ===== PROJECT CARD CLICK HANDLERS =====
 projectCards.forEach(card => {
     card.addEventListener('click', () => {
