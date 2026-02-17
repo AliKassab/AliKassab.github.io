@@ -1,216 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Ali Kassab | Game Programmer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="container">
 
-    <header>
-        <h1>Ali Kassab</h1>
-        <h2>Gameplay & Systems Engineer</h2>
-        <p class="meta">
-            Cairo, Egypt ·
-            <a href="mailto:ali.mohammed.kassab@gmail.com">ali.mohammed.kassab@gmail.com</a> ·
-            <a href="tel:+201097948346">+20 109 794 8346</a> ·
-            <a href="https://www.linkedin.com/in/ali-kassab-"> LinkedIn</a> ·
-            <a href="https://www.github.com/AliKassab">GitHub</a>
-        </p>
-    </header>
+<!-- Header Navigation -->
+<header class="header">
+    <div class="header-logo">ALI KASSAB</div>
+    <nav class="header-nav">
+        <a href="#home">HOME</a>
+        <a href="#works">WORKS</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+</header>
 
-    <section>
-        <h3>Summary</h3>
-        <p>
-            Gameplay and Systems Engineer with experience shipping cross-platform titles on PS5, PS4, PC,
-            Android, and iOS. Specialized in scalable gameplay architecture, multiplayer systems, AI behavior
-            design, and performance optimization for production-ready indie, AA, and AAA projects.
-            Strong focus on clean architecture, modular systems, and long-term maintainability.
-        </p>
-    </section>
-
-    <section>
-        <h3>Education</h3>
-        <div class="entry">
-            <div class="entry-header">
-                <strong>Dual Degree Program</strong>
-                <span>Oct 2020 – May 2024</span>
-            </div>
-            <p>
-                Ain Shams University – Bachelor of Computer and Information Sciences<br>
-                University of East London – BSc Software Engineering
-            </p>
-        </div>
-    </section>
-
-    <section>
-        <h3>Skills</h3>
-        <div class="skills-grid">
-            <div>
-                <strong>Core Technologies</strong>
-                <ul>
-                    <li>Unity, C#, C++, SFML</li>
-                    <li>Photon PUN, Photon Fusion</li>
-                    <li>Console, PC & Mobile Deployment</li>
-                </ul>
-            </div>
-            <div>
-                <strong>Systems & Architecture</strong>
-                <ul>
-                    <li>OOP, Design Patterns</li>
-                    <li>Modular Architecture</li>
-                    <li>Multithreading, Async Programming</li>
-                </ul>
-            </div>
-            <div>
-                <strong>Gameplay & Optimization</strong>
-                <ul>
-                    <li>Behavior Trees, FSM</li>
-                    <li>A*, BFS, DFS, NavMesh</li>
-                    <li>Multiplayer & Networking</li>
-                    <li>Performance Optimization</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h3>Professional Experience</h3>
-
-        <div class="entry">
-            <div class="entry-header">
-                <strong>
-                    Game Programmer 
-                    <a href="https://megacatstudios.com/" target="_blank" rel="noopener">
-                        Mega Cat Studios, Inc.
-                    </a>
-                </strong>
-                <span>November 2024 – Present</span>
-            </div>
-            <p class="location">Pittsburgh, Pennsylvania, USA</p>
-            <ul>
-                <li>
-                    Architected core systems for the Pit of Agonies mode in
-                    <a href="https://store.playstation.com/en-gb/concept/10012744/" target="_blank" rel="noopener">
-                        God of War Sons of Sparta
-                    </a>
-                    including reward seeding, items, shop UI, and progression, reworking legacy systems to support the mode.
-                </li>
-                <li>Developed modular NPC/Enemy behavior systems using Behavior Trees and FSMs, supporting 10+ archetypes across combat, patrol, and interaction for <a href="https://store.playstation.com/en-gb/concept/10012744/" target="_blank" rel="noopener">
-                        God of War Sons of Sparta
-                    </a>.</li>
-                <li>Implemented core gameplay feel systems (physics, camera, input, world-space UI) and a state-driven animation sequencing system for gameplay and cinematics.</li>
-                <li>
-                    Contributed to C++ porting pipelines for Android, supporting 5 shipped
-                    <a href="https://backyardsports.com/" target="_blank" rel="noopener">
-                        Backyard Sports
-                    </a>
-                    titles with performance and feature parity.
-                </li>
-                <li>Refactored and maintained internal engine libraries (multithreading, async, physics, networking), improving stability and long-term maintainability.</li>
-                <li>Built a data-driven gameplay balancing system using YAML configs, enabling designer-driven tuning without code changes.</li>
-                <li>Enforced visual/gameplay decoupling, improving reusability and reducing system coupling.</li>
-            </ul>
-        </div>
-
-        <div class="entry">
-            <div class="entry-header">
-                <strong>
-                    Unity Game Developer 
-                    <a href="https://www.genesiscreations.co/" target="_blank" rel="noopener">
-                        Genesis Creations S.A.E
-                    </a>
-                </strong>
-                <span>August 2023 – July 2024</span>
-            </div>
-            <p class="location">Cairo, Egypt</p>
-            <ul>
-                <li>
-                    Designed core game systems (error handling, notifier systems, UI, user access, command prompting) for the published mobile title
-                    <a href="https://www.sinaiheroes.com/" target="_blank" rel="noopener">
-                        Sinai Heroes
-                    </a>.
-                </li>
-                <li>Built VR hand pose tracking and object interaction features, increasing player immersion by 40%.</li>
-                <li>Integrated networking, multiplayer, and matchmaking with Photon PUN, reducing connection issues by 70%.</li>
-                <li>Optimized environments and meshes, reducing draw calls by 75%.</li>
-            </ul>
-        </div>
-    </section>
-<section>
-    <h3>Projects</h3>
-
-    <div class="entry">
-        <strong>
-            <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank" rel="noopener">
-                Dungeon Of The Skeletons
-            </a>
-        </strong> (SFML, C++) · May 2021
-        <p>2D Platformer | Developer | Team of 6</p>
-        <ul>
-            <li>Implemented UI and input systems.</li>
-            <li>Built player character animation and movement systems.</li>
-            <li>Architected collision systems to handle jump states and prevent overlapping.</li>
-            <li>Designed collectibles and progression via quest items.</li>
-            <li>Programmed hazards and enemies with patrol and turret behaviors.</li>
-            <li>Managed scene/state transitions for menus, controls, and cutscenes.</li>
-        </ul>
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">ALI KASSAB</h1>
+        <p class="hero-subtitle">GAME PROGRAMMER</p>
+        <p class="hero-description">Creating immersive experiences through code</p>
     </div>
-
-    <div class="entry">
-        <strong>
-            <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener">
-                Mystic Sands
-            </a>
-        </strong> (Unity, C#) · September 2024
-        <p>
-            ITI-BelMasry Tech Hackathon | 1st Place ·
-            <a href="https://belmasrytech.com/" target="_blank" rel="noopener">
-                BelMasry Tech
-            </a>
-        </p>
-        <p>Narrative-Driven Adventure | Team Lead | Team of 4</p>
-        <ul>
-            <li>Expanded maze regeneration using Recursive Backtracking, improving efficiency by 40%.</li>
-            <li>Integrated graph-based dialogue and quest systems, boosting engagement by 50%.</li>
-            <li>Created realistic NPC AI with NavMesh pathfinding, increasing responsiveness by 50%.</li>
-            <li>Structured modular UI with Command Design Pattern, reducing update time by 20%.</li>
-        </ul>
+    <div class="scroll-indicator">
+        <span>SCROLL</span>
+        <div class="scroll-arrow"></div>
     </div>
-
-    <div class="entry">
-        <strong>
-            <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener">
-                FakeOut BOSS
-            </a>
-        </strong> (Unity, C#) · February 2025
-        <p>GDA JAM | 1st Place · Stealth, Simulation, and Comedy | Team Lead | Team of 3</p>
-        <ul>
-            <li>Engineered an NPC awareness system, where AI-controlled coworkers detect suspicious behavior based on activity, movement, and reaction time, increasing challenge adaptation by 35%.</li>
-            <li>Integrated an adaptive time dilation mechanic, allowing players to slow time for precise decision-making during high-risk moments, improving last-second reaction success by 50%.</li>
-            <li>Constructed an unpredictable NPC patrol, customizable pathfinding system (BFS, DFS, A* and its variants) and gaze system, preventing static behavior by introducing randomized state transitions, fake-outs, and varying alert levels, increasing replayability.</li>
-            <li>Optimized task-balancing mechanics, forcing players to manage both in-game progress and workplace deception, leading to an increase in player engagement and multitasking efficiency.</li>
-        </ul>
-    </div>
-
-    <div class="entry">
-        <strong>
-            <a href="https://github.com/AliKassab/Senseless" target="_blank" rel="noopener">
-                Senseless
-            </a>
-        </strong> (Unity, C#) · August 2025
-        <p>Multiplayer Extraction Co-op Horror | Team Lead | Team of 3</p>
-        <ul>
-            <li>Implemented multiplayer functionality using Photon Fusion.</li>
-            <li>Designed area-based progression requiring key cards to unlock zones.</li>
-            <li>Developed monster AI FSM with A* pathfinding, supporting diverse behaviors.</li>
-        </ul>
-    </div>
-
 </section>
-    
-</div>
+
+<!-- Projects Section -->
+<section id="works" class="section">
+    <div class="container">
+        <h2 class="section-title">WORKS</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-project="mystic-sands">
+                <div class="project-image">
+                    <h3 class="project-image-title">Mystic Sands</h3>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Mystic Sands</h3>
+                    <p class="project-description">Narrative adventure with procedural maze regeneration and AI systems.</p>
+                    <span class="project-tech">Unity · C#</span>
+                </div>
+            </div>
+            
+            <div class="project-card" data-project="the-recurrent">
+                <div class="project-image">
+                    <h3 class="project-image-title">The Recurrent</h3>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">The Recurrent</h3>
+                    <p class="project-description">Horror escape room with looping structures and telepathy mechanics.</p>
+                    <span class="project-tech">Unity · C#</span>
+                </div>
+            </div>
+            
+            <div class="project-card" data-project="sacrifice">
+                <div class="project-image">
+                    <h3 class="project-image-title">Sacrifice</h3>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Sacrifice</h3>
+                    <p class="project-description">Fast-paced spaceship shooter with modular combat systems.</p>
+                    <span class="project-tech">Unity · C#</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section about-section">
+    <div class="container">
+        <h2 class="section-title">ABOUT</h2>
+        <p class="about-intro">
+            Game programmer focused on gameplay systems, architecture,
+            and performance. Drawn to immersive, atmospheric,
+            story-driven experiences.
+        </p>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>Mega Cat Studios</h3>
+                <p class="experience-role">Unity Game Developer</p>
+                <p class="experience-description">Working on core systems, optimization, and UI.</p>
+            </div>
+            <div class="experience-card">
+                <h3>Genesis Creations</h3>
+                <p class="experience-role">Junior Game Programmer</p>
+                <p class="experience-description">Focusing on gameplay, VR, and multiplayer systems.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact-section">
+    <div class="container">
+        <h2 class="section-title">CONTACT</h2>
+        <div class="contact-links">
+            <a href="mailto:ali.mohammed.kassab@gmail.com" class="contact-button">EMAIL</a>
+            <a href="https://github.com/AliKassab" target="_blank" class="contact-button">GITHUB</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2026 Ali Kassab. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
