@@ -173,6 +173,9 @@ body {
 }
 
 .project-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
     background: #141414;
     border: 1px solid #222222;
     overflow: hidden;

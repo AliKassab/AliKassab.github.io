@@ -104,15 +104,8 @@ gameCards.forEach(card => {
     gameCardObserver.observe(card);
 });
 
-// ===== PROJECT CARD CLICK HANDLERS =====
+// ===== PROJECT CARD HOVER EFFECT =====
 projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const project = card.getAttribute('data-project');
-        // Prepared for future linking to project details
-        console.log(`Clicked on project: ${project}`);
-        // Future implementation: window.location.href = `/projects/${project}`;
-    });
-    
     // Add hover effect enhancement
     card.addEventListener('mouseenter', () => {
         card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
