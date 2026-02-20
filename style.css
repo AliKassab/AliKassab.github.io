@@ -172,7 +172,10 @@ body {
     gap: 40px;
 }
 
-.project-card {
+.project-card,
+.project-card:visited,
+.project-card:hover,
+.project-card:active {
     display: block;
     text-decoration: none;
     color: inherit;
@@ -183,6 +186,12 @@ body {
     cursor: pointer;
     opacity: 0;
     transform: translateY(30px);
+}
+
+.project-card:hover {
+    opacity: 1;
+    transform: translateY(-10px);
+    border-color: #444444;
 }
 
 .project-card.visible {
