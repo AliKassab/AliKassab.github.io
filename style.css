@@ -15,6 +15,9 @@
     --gradient-start: #4a0a0a;
     --gradient-mid: #2a1030;
     --gradient-end: #0a1a4a;
+    --text-muted: #888888;
+    --text-light: #cccccc;
+    --timing-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 html {
@@ -73,7 +76,7 @@ body {
 }
 
 .header-nav a {
-    color: #888888;
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 0.85rem;
     letter-spacing: 2px;
@@ -234,7 +237,7 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border);
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s var(--timing-bounce);
     cursor: pointer;
     opacity: 0;
     transform: translateY(30px);
@@ -251,11 +254,6 @@ body {
     transform: translateY(0);
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    border-color: #444444;
-}
-
 .project-image {
     position: relative;
     height: 300px;
@@ -264,14 +262,6 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
-
-.project-image-title {
-    font-size: 2rem;
-    font-weight: 300;
-    letter-spacing: 4px;
-    color: #6a5060;
-    text-align: center;
 }
 
 .project-image img {
@@ -307,7 +297,7 @@ body {
 
 .project-description {
     font-size: 0.95rem;
-    color: #888888;
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 20px;
 }
@@ -330,7 +320,7 @@ body {
     text-align: center;
     font-size: 1.1rem;
     line-height: 2;
-    color: #999999;
+    color: var(--text-muted);
     letter-spacing: 1px;
 }
 
@@ -347,7 +337,7 @@ body {
     color: inherit;
     background: transparent;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s var(--timing-bounce);
     opacity: 0;
     transform: translateY(30px);
     cursor: pointer;
@@ -388,14 +378,6 @@ body {
     transform: scale(1.05);
 }
 
-.game-image-title {
-    font-size: 2rem;
-    font-weight: 300;
-    letter-spacing: 4px;
-    color: #6a5060;
-    text-align: center;
-}
-
 .game-info {
     padding: 30px;
     background: var(--bg-card);
@@ -411,23 +393,12 @@ body {
     box-shadow: 0 20px 40px var(--accent-glow);
 }
 
-.game-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    transition: color 0.3s ease;
-}
-
-.game-link:hover {
-    color: #ffffff;
-}
-
 .game-title {
     font-size: 1.5rem;
     font-weight: 500;
     letter-spacing: 3px;
     margin-bottom: 15px;
-    color: #cccccc;
+    color: var(--text-light);
     transition: color 0.3s ease;
 }
 
@@ -437,7 +408,7 @@ body {
 
 .game-description {
     font-size: 0.95rem;
-    color: #888888;
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 20px;
     flex: 1;
@@ -462,7 +433,7 @@ body {
     text-align: center;
     font-size: 1.3rem;
     line-height: 2;
-    color: #cccccc;
+    color: var(--text-light);
 }
 
 .experience-grid {
@@ -480,7 +451,7 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border);
     padding: 40px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s var(--timing-bounce);
 }
 
 .experience-card:hover {
@@ -511,7 +482,7 @@ body {
 
 .experience-description {
     font-size: 0.95rem;
-    color: #888888;
+    color: var(--text-muted);
     line-height: 1.8;
 }
 
@@ -535,7 +506,7 @@ body {
     text-decoration: none;
     font-size: 0.9rem;
     letter-spacing: 2px;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s var(--timing-bounce);
     position: relative;
     overflow: hidden;
 }
@@ -568,7 +539,7 @@ body {
     text-align: center;
     background: transparent;
     border-top: 1px solid var(--border);
-    color: #888888;
+    color: var(--text-muted);
     font-size: 0.85rem;
     letter-spacing: 1px;
 }

@@ -53,61 +53,28 @@ sections.forEach(section => {
     navObserver.observe(section);
 });
 
-// ===== INTERSECTION OBSERVER FOR PROJECT CARDS =====
-const projectCards = document.querySelectorAll('.project-card');
-
-// Store card index as data attribute for proper stagger timing
-projectCards.forEach((card, index) => {
-    card.setAttribute('data-card-index', index);
-});
-
-const cardObserverOptions = {
-    threshold: 0.15,
-    rootMargin: '0px'
-};
-
-const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            const cardIndex = parseInt(entry.target.getAttribute('data-card-index') || '0', 10);
-            setTimeout(() => {
-                entry.target.classList.add('visible');
-            }, cardIndex * 100);
-        }
+// ===== STAGGERED CARD REVEAL ANIMATION =====
+function initCardRevealAnimation(selector) {
+    const cards = document.querySelectorAll(selector);
+    
+    cards.forEach((card, index) => {
+        card.setAttribute('data-card-index', index);
     });
-}, cardObserverOptions);
 
-projectCards.forEach(card => {
-    cardObserver.observe(card);
-});
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const cardIndex = parseInt(entry.target.getAttribute('data-card-index') || '0', 10);
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, cardIndex * 100);
+            }
+        });
+    }, { threshold: 0.15 });
 
-// ===== INTERSECTION OBSERVER FOR GAME CARDS =====
-const gameCards = document.querySelectorAll('.game-card');
+    cards.forEach(card => observer.observe(card));
+}
 
-// Store card index as data attribute for proper stagger timing
-gameCards.forEach((card, index) => {
-    card.setAttribute('data-card-index', index);
-});
-
-const gameCardObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            const cardIndex = parseInt(entry.target.getAttribute('data-card-index') || '0', 10);
-            setTimeout(() => {
-                entry.target.classList.add('visible');
-            }, cardIndex * 100);
-        }
-    });
-}, cardObserverOptions);
-
-gameCards.forEach(card => {
-    gameCardObserver.observe(card);
-});
-
-// ===== PROJECT CARD HOVER EFFECT =====
-projectCards.forEach(card => {
-    // Add hover effect enhancement
-    card.addEventListener('mouseenter', () => {
-        card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-    });
-});
+// Initialize reveal animations for all card types
+initCardRevealAnimation('.project-card');
+initCardRevealAnimation('.game-card');
