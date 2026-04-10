@@ -1,192 +1,293 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Ali Kassab | Game Programmer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ali Kassab | Game Programmer</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#0f172a", 
+                      "on-surface": "#f1f5f9", 
+                      "on-surface-variant": "#94a3b8", 
+                      "outline": "#475569", 
+                      "outline-variant": "#334155", 
+                      "primary": "#cbd5e1", 
+                      "secondary": "#64748b", 
+                      "background": "#020617", 
+                      "surface-container": "#1e293b", 
+                      "surface-container-low": "#0f172a",
+                      "surface-container-lowest": "#020617"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Inter", "sans-serif"],
+                      "body": ["Inter", "sans-serif"],
+                      "label": ["Space Grotesk", "monospace"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #020617;
+            color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .text-headline { font-family: 'Inter', sans-serif; }
+        .text-label { font-family: 'Space Grotesk', monospace; }
+        
+        .blueprint-overlay {
+            background-image: linear-gradient(rgba(30, 41, 59, 0.4) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(30, 41, 59, 0.4) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .contain-fit { object-fit: contain !important; background: #000; }
+    </style>
 </head>
-<body>
-
-<!-- Header Navigation -->
-<header class="header">
-    <div class="header-logo">ALI KASSAB</div>
-    <nav class="header-nav">
-        <a href="#home">HOME</a>
-        <a href="#games">RELEASED GAMES</a>
-        <a href="#works">PERSONAL WORKS</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
-</header>
-
+<body class="bg-surface-container-lowest text-on-surface overflow-x-hidden selection:bg-slate-700 selection:text-slate-100">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/70 backdrop-blur-xl border-b border-slate-800/30">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1920px] mx-auto">
+<div class="text-xl font-headline tracking-[0.2em] uppercase text-slate-100">ALI KASSAB</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-light tracking-tight text-sm" href="#home">Home</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-light tracking-tight text-sm" href="#games">Games</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-light tracking-tight text-sm" href="#works">Works</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-light tracking-tight text-sm" href="#about">About</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-light tracking-tight text-sm" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="text-slate-400 hover:text-slate-200 transition-colors px-4 py-2 text-xs tracking-widest font-label uppercase" href="https://alikassab.github.io/AliKassabCV.github.io/" target="_blank">Resume</a>
+</div>
+</div>
+</nav>
+<main>
 <!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-background"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1 class="hero-title">ALI KASSAB</h1>
-        <p class="hero-subtitle">GAME PROGRAMMER</p>
-        <p class="hero-description">Creating immersive experiences through code</p>
-    </div>
-    <div class="scroll-indicator">
-        <span>SCROLL</span>
-        <div class="scroll-arrow"></div>
-    </div>
+<section class="relative min-h-screen flex items-center justify-start overflow-hidden pt-20" id="home">
+<!-- Background -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 blueprint-overlay opacity-30"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/90 to-transparent"></div>
+</div>
+<!-- Content Area -->
+<div class="relative z-10 max-w-[1920px] mx-auto px-12 w-full">
+<div class="max-w-4xl">
+<span class="text-label text-secondary text-xs tracking-[0.4em] uppercase mb-8 block">Game Programmer</span>
+<h1 class="text-headline text-6xl md:text-8xl font-light leading-tight tracking-tight mb-10 text-slate-100">
+                    Creating <span class="italic font-normal border-b border-slate-700 pb-2">Immersive</span><br/>Experiences.
+                </h1>
+<div class="flex flex-col gap-8 max-w-2xl">
+<p class="text-body text-lg md:text-xl text-on-surface-variant leading-relaxed font-light">
+                        Engineering digital worlds through code. Shipped titles including <span class="text-slate-200 border-b border-slate-700">God of War: Sons of Sparta</span> and performance-critical systems for <span class="text-slate-200 border-b border-slate-700">Backyard Sports</span>.
+                    </p>
+<div class="flex items-center gap-10 pt-6">
+<a class="bg-slate-100 text-slate-900 px-12 py-5 rounded-sm font-label text-xs tracking-[0.2em] font-bold hover:bg-white transition-all active:scale-[0.98] uppercase text-center" href="#games">
+                            Released Games
+                        </a>
+<a class="text-slate-400 hover:text-slate-100 transition-colors font-label text-xs tracking-[0.2em] uppercase flex items-center gap-3" href="#works">
+                            Personal Projects <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Scroll HUD -->
+<div class="absolute bottom-12 right-12 z-10 flex flex-col items-end gap-4">
+<span class="text-label text-[10px] tracking-[0.5em] text-slate-600 uppercase">Scroll to descend</span>
+<div class="w-[1px] h-16 bg-slate-800"></div>
+</div>
 </section>
-
 <!-- Released Games Section -->
-<section id="games" class="section games-section">
-    <div class="container">
-        <h2 class="section-title">RELEASED GAMES</h2>
-        <p class="games-intro">
-            Professional shipped titles developed at leading game studios
+<section class="py-40 px-12 max-w-[1920px] mx-auto border-t border-slate-900" id="games">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+<div class="lg:col-span-4 sticky top-32">
+<h2 class="text-headline text-5xl font-light mb-10 tracking-tight">Released<br/>Games</h2>
+<p class="text-body text-on-surface-variant text-lg leading-relaxed mb-12 font-light">
+                    Professional shipped titles developed at leading studios, focusing on core systems, optimization, and gameplay architecture.
+                </p>
+<div class="space-y-8 py-8 border-t border-slate-800">
+<div class="flex justify-between items-baseline group cursor-default">
+<span class="text-label text-[10px] text-slate-500 tracking-widest uppercase">Mega Cat Studios</span>
+<span class="text-headline text-lg group-hover:text-slate-200 transition-colors">God of War: SOS</span>
+</div>
+<div class="flex justify-between items-baseline group cursor-default">
+<span class="text-label text-[10px] text-slate-500 tracking-widest uppercase">Mega Cat Studios</span>
+<span class="text-headline text-lg group-hover:text-slate-200 transition-colors">Backyard Sports</span>
+</div>
+<div class="flex justify-between items-baseline group cursor-default">
+<span class="text-label text-[10px] text-slate-500 tracking-widest uppercase">Genesis Creations</span>
+<span class="text-headline text-lg group-hover:text-slate-200 transition-colors">Sinai Heroes</span>
+</div>
+</div>
+</div>
+<!-- Games Grid -->
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Game 1 -->
+<a class="group relative bg-slate-900/50 p-2 rounded-sm overflow-hidden aspect-[3/4]" href="https://store.playstation.com/en-gb/concept/10012744/" target="_blank">
+<img alt="God of War: Sons of Sparta" class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC9ju30UP7EmHFVEUOFgadNalRywinOFgHwEL18vyW9rcIWrhbPMPd1NoVHqJrCbFyEcvEEgzCwaOjbZBQZ66mhGd1ivJyQ9NwQTWkfbf4DEBtpKY8G8eFVFzjlVs-ksI6keDdxxkAkYMAX7D_VV_m4l_ugE3S0hEzsIAtR2U0dYpw1NKBdjog--xlwTulTy9AJn8M_YJn9Tv1U0a7fcwgzwpBHBNo8vZ3_g_7_3DGEbWCv7SpXND7nnwyCjAInr5cQ2OBEuQv6f8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-10">
+<span class="text-label text-[10px] text-slate-400 tracking-[0.4em] uppercase mb-3 block">Systems &amp; UI</span>
+<h3 class="text-headline text-3xl font-light">God of War: Sons of Sparta</h3>
+</div>
+</a>
+<!-- Game 2 -->
+<a class="group relative bg-slate-900/50 p-2 rounded-sm overflow-hidden aspect-[3/4] md:mt-24" href="https://backyardsports.com/" target="_blank">
+<img alt="Backyard Sports" class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-1000 contain-fit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoS74kedHMfSFeseZ3wN56JlHv6B6vvnZQMgLOc3suyta4zt_NaPQelzFdad0N0DDOwn5mZ8nD-MLlpl-fM9ZELLFPYGVnxGSyh9Sf5neJaDTWc1Fb5YOk69-5Zi5Xm5PQgYnFagMYG3UJQqVp8V5OoSKEgtyuCTJbel9CnGbRuqJH_yrr7jfjjZrGuTuI27mWKgrj-Neqtg_qFiAtfwKTSF4ogJg_WvMr6dSvKzqORpB86axsRfe2IlbiqDDXvFZ8bEGG70fW7I8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-10">
+<span class="text-label text-[10px] text-slate-400 tracking-[0.4em] uppercase mb-3 block">Gameplay Mechanics</span>
+<h3 class="text-headline text-3xl font-light">Backyard Sports</h3>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Technical Arsenal / About -->
+<section class="py-40 bg-slate-950" id="about">
+<div class="max-w-[1920px] mx-auto px-12">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-24 gap-12">
+<div class="max-w-2xl">
+<h2 class="text-headline text-5xl font-light mb-6 tracking-tight text-slate-100">Technical Domain</h2>
+<p class="text-body text-slate-400 font-light leading-relaxed text-lg">
+                        Game programmer focused on gameplay systems, architecture, and performance. Drawn to immersive, atmospheric, and story-driven experiences.
+                    </p>
+</div>
+<div class="text-label text-[10px] text-slate-600 tracking-[0.5em] uppercase italic">Core Competency</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="border-l border-slate-800 pl-8 py-4 group hover:border-slate-400 transition-colors">
+<span class="material-symbols-outlined text-slate-500 mb-6 group-hover:text-slate-100 transition-colors">code</span>
+<h4 class="text-label text-xs tracking-widest uppercase font-bold mb-3 text-slate-300">Unity · C#</h4>
+<p class="text-body text-xs text-slate-500 leading-relaxed font-light">Architecting scalable game systems and gameplay logic within the Unity ecosystem.</p>
+</div>
+<div class="border-l border-slate-800 pl-8 py-4 group hover:border-slate-400 transition-colors">
+<span class="material-symbols-outlined text-slate-500 mb-6 group-hover:text-slate-100 transition-colors">terminal</span>
+<h4 class="text-label text-xs tracking-widest uppercase font-bold mb-3 text-slate-300">SFML · C++</h4>
+<p class="text-body text-xs text-slate-500 leading-relaxed font-light">Low-level engine development and physics simulation with performance in mind.</p>
+</div>
+<div class="border-l border-slate-800 pl-8 py-4 group hover:border-slate-400 transition-colors">
+<span class="material-symbols-outlined text-slate-500 mb-6 group-hover:text-slate-100 transition-colors">vr_passthrough</span>
+<h4 class="text-label text-xs tracking-widest uppercase font-bold mb-3 text-slate-300">VR &amp; Multiplayer</h4>
+<p class="text-body text-xs text-slate-500 leading-relaxed font-light">Developing immersive virtual reality experiences and synchronized network systems.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Personal Works Section -->
+<section class="py-40 px-12 max-w-[1920px] mx-auto" id="works">
+<h2 class="text-headline text-5xl font-light mb-24 tracking-tight text-center">Personal Works</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+<!-- Project 1 -->
+<a class="group flex flex-col gap-6" href="https://github.com/AliKassab/Mystic-Sands" target="_blank">
+<div class="aspect-video bg-slate-900 overflow-hidden rounded-sm relative">
+<img alt="Mystic Sands" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAASTZJKJtwk5orFceOWuf6Acs29nNQjFbiQeEO7w_4PTNpKQLhJxX01ke1AXDR9mGh7DWZFyj3rH-qhe5Kc8aRXrLcuOQENcySrekKhoH9jkUmkf_bDEwaHsvOEzzMFh7T_w8Nnabn45o77AX_QzbVkVVlLjVv2iAx3DFlbj3vznO9yJDd4anRc3FGqSvhaoyPEt7v-rXCLNo4xoFNAFolQBmIku9bAVha-YSp1YGj_IHgiD9rfJn15fzWv6FPmo3e6kdA7ajLA0k"/>
+<div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-label text-[10px] text-slate-500 tracking-widest uppercase">Unity · C#</span>
+<span class="text-label text-[10px] text-slate-600">Lead Programmer</span>
+</div>
+<h3 class="text-headline text-2xl font-light group-hover:text-slate-200 transition-colors">Mystic Sands</h3>
+<p class="text-body text-sm text-slate-400 font-light leading-relaxed">Narrative adventure with procedural maze regeneration and AI systems.</p>
+</div>
+</a>
+<!-- Project 2 -->
+<a class="group flex flex-col gap-6" href="https://github.com/AliKassab/OfficeBoy" target="_blank">
+<div class="aspect-video bg-slate-900 overflow-hidden rounded-sm relative">
+<img alt="FakeOutBoss" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvlYTnJSaYgBpUiSii1DSvKI1iuQqn7MnaCVgGWiAd5TL_gbVWnFQJj0Sg5Bg8Pcim2WWXp-iC9Dv_ayVVdKDJ0AqpdCh5SViQfnQkhV-RQzE3srM5dEw4ELnIrYhwRjz4hv-KcQfbyx6G1NRG24bHWwXmp38oSrQbLy38R1k-ElDgphedyIH-y499rbCsE3gx3kGZtoLIioV-msCz-gT4sWj8WGUJICBr6Oyfll00b7iEaSiO7EmkdNconplhdFfIqqJjKoGCBW4"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-label text-[10px] text-slate-500 tracking-widest uppercase">Unity · C#</span>
+<span class="text-label text-[10px] text-slate-600">Lead Programmer</span>
+</div>
+<h3 class="text-headline text-2xl font-light group-hover:text-slate-200 transition-colors">FakeOutBoss</h3>
+<p class="text-body text-sm text-slate-400 font-light leading-relaxed">Office comedy stealth game with complex AI behavior systems.</p>
+</div>
+</a>
+<!-- Project 3 -->
+<a class="group flex flex-col gap-6" href="https://github.com/AliKassab/Senseless" target="_blank">
+<div class="aspect-video bg-slate-900 overflow-hidden rounded-sm relative">
+<img alt="Senseless" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQZoYoflYR5gXrbSJSlMJaYct3KQyLXbUoEvegb9PuJxG0AxqpRZcm76l-uEwyxjy67qmiAkJzL_SoUd_W4OOZ6RSovaikZ-Z35Os5RK6NwBv6uKNJSAV3mTUU5bRs89eUtF0CDa5i3eHMtff_ScCEdO4q2YrzMN6YkGIRAINv_oDSKP6RNzBFDnCQ2RMS3ZrFESE-fmuEf8vvbOMrCbso01UqzWWuF1r7pNtX1BXozEg6HXJcKn2eMWn5yGDyXugYJcAWn7APnaU"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-label text-[10px] text-slate-500 tracking-widest uppercase">Unity · C#</span>
+<span class="text-label text-[10px] text-slate-600">Lead Programmer</span>
+</div>
+<h3 class="text-headline text-2xl font-light group-hover:text-slate-200 transition-colors">Senseless</h3>
+<p class="text-body text-sm text-slate-400 font-light leading-relaxed">Atmospheric experience with unique sensory mechanics.</p>
+</div>
+</a>
+</div>
+</section>
+<!-- Contact Section (Balanced CTA) -->
+<section class="py-60 flex flex-col items-center text-center px-12 bg-surface-container-lowest border-t border-slate-900" id="contact">
+<h2 class="text-headline text-5xl md:text-7xl font-light mb-12 tracking-tight text-slate-100">The Next<br/><span class="italic text-slate-400">Collaboration</span></h2>
+<p class="text-body text-slate-400 max-w-2xl mb-16 text-lg font-light">
+            I am always open to discussing new technical challenges and creative opportunities in game development.
         </p>
-        <div class="games-grid">
-            <a href="https://store.playstation.com/en-gb/concept/10012744/" target="_blank" class="game-card">
-                <div class="game-image">
-                    <img src="Images/GoWSoS_Logo.jpg" alt="God of War: Sons of Sparta">
-                </div>
-                <div class="game-info">
-                    <h3 class="game-title">God of War: Sons of Sparta</h3>
-                    <p class="game-description">Worked on core systems, optimization, and UI implementation at Mega Cat Studios.</p>
-                    <span class="game-studio">Mega Cat Studios</span>
-                </div>
-            </a>
-            
-            <a href="https://backyardsports.com/" target="_blank" class="game-card">
-                <div class="game-image">
-                    <img src="Images/byb.png" alt="Backyard Sports" class="contain-fit">
-                </div>
-                <div class="game-info">
-                    <h3 class="game-title">Backyard Sports</h3>
-                    <p class="game-description">Contributed to gameplay mechanics and system architecture at Mega Cat Studios.</p>
-                    <span class="game-studio">Mega Cat Studios</span>
-                </div>
-            </a>
-            
-            <a href="https://www.sinaiheroes.com/" target="_blank" class="game-card">
-                <div class="game-image">
-                    <img src="Images/sinaiheroes.jpg" alt="Sinai Heroes">
-                </div>
-                <div class="game-info">
-                    <h3 class="game-title">Sinai Heroes</h3>
-                    <p class="game-description">Developed gameplay, VR, and multiplayer systems at Genesis Creations.</p>
-                    <span class="game-studio">Genesis Creations</span>
-                </div>
-            </a>
-        </div>
-    </div>
+<div class="flex flex-wrap justify-center gap-12 mb-20">
+<a class="text-label text-xs tracking-[0.4em] font-bold text-slate-400 hover:text-slate-100 transition-colors uppercase" href="mailto:ali.mohammed.kassab@gmail.com">Email</a>
+<a class="text-label text-xs tracking-[0.4em] font-bold text-slate-400 hover:text-slate-100 transition-colors uppercase" href="https://github.com/AliKassab" target="_blank">GitHub</a>
+<a class="text-label text-xs tracking-[0.4em] font-bold text-slate-400 hover:text-slate-100 transition-colors uppercase" href="https://www.linkedin.com/in/ali-kassab-" target="_blank">LinkedIn</a>
+</div>
+<a class="group flex flex-col items-center gap-6" href="mailto:ali.mohammed.kassab@gmail.com">
+<div class="w-16 h-16 rounded-full border border-slate-800 flex items-center justify-center group-hover:border-slate-200 transition-all duration-500">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-slate-100 transition-colors">arrow_downward</span>
+</div>
+<span class="text-label text-xs tracking-[0.5em] font-bold text-slate-400 group-hover:text-slate-200 uppercase">Initiate Inquiry</span>
+</a>
 </section>
-
-<!-- Projects Section -->
-<section id="works" class="section">
-    <div class="container">
-        <h2 class="section-title">PERSONAL WORKS</h2>
-        <div class="projects-grid">
-            <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" class="project-card" data-project="mystic-sands">
-                <div class="project-image">
-                    <img src="Images/mystic.png" alt="Mystic Sands">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">Mystic Sands</h3>
-                    <p class="project-description">Narrative adventure with procedural maze regeneration and AI systems.<br>Team of 3.  Lead Programmer</p>
-                    <span class="project-tech">Unity · C#</span>
-                </div>
-            </a>
-            
-            <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" class="project-card" data-project="office-boy">
-                <div class="project-image">
-                    <img src="Images/fakeout.png" alt="FakeOutBoss">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">FakeOutBoss</h3>
-                    <p class="project-description">Office comedy stealth game with AI behavior systems.<br>Team of 2.  Lead Programmer</p>
-                    <span class="project-tech">Unity · C#</span>
-                </div>
-            </a>
-            
-            <a href="https://github.com/AliKassab/Senseless" target="_blank" class="project-card" data-project="senseless">
-                <div class="project-image">
-                    <img src="Images/ssn.png" alt="Senseless">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">Senseless</h3>
-                    <p class="project-description">Atmospheric experience with unique sensory mechanics.<br>Team of 3.  Lead Programmer</p>
-                    <span class="project-tech">Unity · C#</span>
-                </div>
-            </a>
-            
-            <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank" class="project-card" data-project="dungeon-skeletons">
-                <div class="project-image">
-                    <img src="Images/dungeon.png" alt="Dungeon of the Skeletons">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">Dungeon of the Skeletons</h3>
-                    <p class="project-description">Dungeon crawler with combat and exploration systems.<br>Team of 6.  Physics Developer</p>
-                    <span class="project-tech">SFML · C++</span>
-                </div>
-            </a>
-            
-                        <a href="https://github.com/AliKassab/FarmSky" target="_blank" class="project-card" data-project="bridging-harmony">
-                <div class="project-image">
-                    <img src="Images/bg.png" alt="Bridging Harmnony">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">Bridging Harmony</h3>
-                    <p class="project-description">Puzzle game with a small hopeful story tied to it.<br>Team of 4.  Lead Programmer</p>
-                    <span class="project-tech">Unity · C#</span>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="section about-section">
-    <div class="container">
-        <h2 class="section-title">ABOUT</h2>
-        <p class="about-intro">
-            Game programmer focused on gameplay systems, architecture,
-            and performance. Drawn to immersive, atmospheric,
-            story-driven experiences.
-        </p>
-        <div class="experience-grid">
-            <a href="https://megacatstudios.com/" target="_blank" class="experience-card">
-                <h3>Mega Cat Studios</h3>
-                <p class="experience-role">Unity Game Developer</p>
-                <p class="experience-description">Working on core systems, optimization, and UI.</p>
-            </a>
-            <a href="https://www.genesiscreations.co/" target="_blank" class="experience-card">
-                <h3>Genesis Creations</h3>
-                <p class="experience-role">Junior Game Programmer</p>
-                <p class="experience-description">Focusing on gameplay, VR, and multiplayer systems.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="section contact-section">
-    <div class="container">
-        <h2 class="section-title">CONTACT</h2>
-        <div class="contact-links">
-            <a href="mailto:ali.mohammed.kassab@gmail.com" class="contact-button">EMAIL</a>
-            <a href="https://github.com/AliKassab" target="_blank" class="contact-button">GITHUB</a>
-            <a href="https://www.linkedin.com/in/ali-kassab-" target="_blank" class="contact-button">LINKEDIN</a>
-            <a href="https://alikassab.github.io/AliKassabCV.github.io/" target="_blank" class="contact-button">RESUME</a>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <p>&copy; 2026 Ali Kassab. All rights reserved.</p>
+</main>
+<!-- Footer Component -->
+<footer class="w-full border-t border-slate-800/30 bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 max-w-[1920px] mx-auto">
+<div class="text-slate-100 font-headline font-light text-sm tracking-[0.2em] uppercase">ALI KASSAB</div>
+<div class="flex gap-12">
+<a class="font-body text-xs tracking-widest uppercase text-slate-500 hover:text-slate-300 transition-colors" href="#home">Home</a>
+<a class="font-body text-xs tracking-widest uppercase text-slate-500 hover:text-slate-300 transition-colors" href="#games">Games</a>
+<a class="font-body text-xs tracking-widest uppercase text-slate-500 hover:text-slate-300 transition-colors" href="#contact">Contact</a>
+</div>
+<p class="font-body text-xs tracking-widest uppercase text-slate-500">© 2026 ALI KASSAB. CURATED PRECISION.</p>
+</div>
 </footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+<script>
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('bg-slate-950/90');
+            nav.classList.remove('bg-slate-950/70');
+        } else {
+            nav.classList.add('bg-slate-950/70');
+            nav.classList.remove('bg-slate-950/90');
+        }
+    });
+</script>
+</body></html>
