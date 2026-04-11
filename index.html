@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ALI KASSAB // PORTFOLIO</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300..700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ALI KASSAB // PORTFOLIO</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300..700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -76,7 +82,7 @@
             },
         }
     </script>
-<style>
+    <style>
         body {
             background-color: #131313;
             color: #ffffff;
@@ -84,322 +90,424 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-        .serif-headline { font-family: 'Newsreader', serif; font-weight: 600; }
+
+        .serif-headline {
+            font-family: 'Newsreader', serif;
+            font-weight: 600;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
             vertical-align: middle;
         }
+
         .glass-panel {
             background: rgba(32, 31, 31, 0.6);
             backdrop-filter: blur(20px);
         }
+
         .ghost-border {
             border: 1px solid rgba(179, 174, 157, 0.25);
         }
+
         .edge-highlight {
             border-top: 1px solid rgba(242, 202, 80, 0.3);
         }
-        p, .text-on-surface-variant {
+
+        p,
+        .text-on-surface-variant {
             line-height: 1.7;
         }
+
         .vertical-text {
             writing-mode: vertical-rl;
             text-orientation: mixed;
         }
+
         .scroll-connector {
             background: linear-gradient(to bottom, transparent, rgba(242, 202, 80, 0.1), transparent);
         }
     </style>
 </head>
+
 <body class="selection:bg-primary selection:text-on-primary relative">
-<!-- Decorative BG elements -->
-<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-<span class="absolute top-[20%] -right-20 serif-headline text-[30vw] text-surface-container-high opacity-[0.03] select-none">CODE</span>
-<span class="absolute top-[50%] -left-20 serif-headline text-[30vw] text-surface-container-high opacity-[0.03] select-none">PLAY</span>
-<span class="absolute top-[80%] -right-20 serif-headline text-[30vw] text-surface-container-high opacity-[0.03] select-none">CORE</span>
-</div>
-<!-- TopNavBar -->
-<nav class="flex justify-between items-center px-8 h-16 w-full fixed top-0 z-50 bg-[#131313] bg-opacity-95 backdrop-blur-md border-b border-[#4d4635]/30">
-<div class="text-2xl serif-headline text-[#f2ca50] tracking-tighter font-bold">PORTFOLIO_24</div>
-<div class="hidden md:flex gap-8 font-body uppercase tracking-widest text-xs font-semibold">
-<a class="text-[#f2ca50] border-b-2 border-[#f2ca50] pb-1" href="#">Work</a>
-<a class="text-white/80 hover:text-[#f2ca50] transition-colors duration-300" href="#">Expertise</a>
-<a class="text-white/80 hover:text-[#f2ca50] transition-colors duration-300" href="#">About</a>
-<a class="text-white/80 hover:text-[#f2ca50] transition-colors duration-300" href="#">Contact</a>
-</div>
-<div class="text-[#f2ca50]">
-<span class="material-symbols-outlined">settings</span>
-</div>
-</nav>
-<main class="relative z-10">
-<!-- Hero Section: Profile - Extended to 100vh -->
-<section class="min-h-screen flex items-center justify-center px-6 md:px-20 max-w-7xl mx-auto pt-16">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-<!-- Left Stats -->
-<div class="lg:col-span-3 space-y-16 order-2 lg:order-1">
-<div class="space-y-4">
-<p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Experience</p>
-<h3 class="serif-headline text-4xl italic text-primary font-semibold leading-tight">Senior Game Programmer</h3>
-<div class="w-full h-1 bg-surface-container-highest mt-4">
-<div class="w-[85%] h-full bg-primary shadow-[0_0_10px_rgba(242,202,80,0.4)]"></div>
-</div>
-</div>
-<div class="space-y-4">
-<p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Role</p>
-<h3 class="serif-headline text-4xl text-on-surface font-semibold">Gameplay Architect</h3>
-<p class="text-base text-on-surface-variant font-normal leading-relaxed opacity-80">Specializing in systems architecture, high-performance gameplay logic, and engine-level optimization.</p>
-</div>
-</div>
-<!-- Character Portrait -->
-<div class="lg:col-span-6 flex justify-center relative order-1 lg:order-2">
-<div class="absolute -inset-10 bg-primary/5 rounded-full blur-[100px] -z-10"></div>
-<div class="w-full aspect-[4/5] max-w-lg overflow-hidden ghost-border relative">
-<img alt="Ali Kassab" class="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZmVW57JIwU20-qUs-vA9Mg_DOwjp36tXM2jbfEaB0cykJXsYJohJGFDKqdsy1c8vbed61igDH6tyxqwGmjmK7IpdN5bvnWclp9hhqTE4-w85odPokq674zALK0AZD7TzeW3us9eD2BMGYwbUNS0YwmVAHghTx90wxpFfLUBz4bselNLX0RBUX9Yr6ypikJ8AFS-tvV6_Ys0hRwjBAVp-wKGt7grxkqSda4jU01_44bX0o4sdr_iWFfa9LThkp3gWigCdpW9xvrt0"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10"></div>
-<div class="absolute bottom-8 left-8 z-20">
-<h1 class="serif-headline text-6xl tracking-tight text-white font-bold">Ali Kassab</h1>
-<p class="font-label text-[12px] font-bold tracking-[0.5em] text-primary mt-3 uppercase">SENIOR GAME PROGRAMMER</p>
-</div>
-</div>
-</div>
-<!-- Right Stats -->
-<div class="lg:col-span-3 space-y-16 order-3">
-<div class="space-y-4">
-<p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Professional Statistics</p>
-<h3 class="serif-headline text-4xl italic text-secondary font-semibold">8+ Years Exp.</h3>
-<div class="flex gap-2 mt-4">
-<div class="h-10 w-1.5 bg-secondary"></div>
-<div class="h-10 w-1.5 bg-secondary"></div>
-<div class="h-10 w-1.5 bg-secondary"></div>
-<div class="h-10 w-1.5 bg-secondary/30"></div>
-</div>
-</div>
-<div class="space-y-6">
-<p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Core Competencies</p>
-<div class="grid grid-cols-1 gap-4">
-<div class="p-4 bg-surface-container-low ghost-border flex justify-between items-center">
-<span class="text-[10px] block text-outline font-bold uppercase tracking-widest">C++ Engine Mastery</span>
-<span class="serif-headline text-xl font-semibold">Expert</span>
-</div>
-<div class="p-4 bg-surface-container-low ghost-border flex justify-between items-center">
-<span class="text-[10px] block text-outline font-bold uppercase tracking-widest">Unity Tech Stack</span>
-<span class="serif-headline text-xl font-semibold">Master</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Released Games & Professional Work - Large Padding -->
-<section class="py-48 px-6 md:px-20 max-w-7xl mx-auto relative">
-<div class="absolute left-0 top-0 h-full w-px scroll-connector opacity-30 ml-4 lg:ml-0"></div>
-<div class="flex flex-col lg:flex-row items-start gap-8 mb-32 relative">
-<div class="hidden lg:block">
-<span class="vertical-text text-primary text-[10px] font-bold tracking-[0.8em] uppercase opacity-50 mt-4">PROJECTS_01</span>
-</div>
-<div class="flex-grow">
-<div class="flex items-center gap-6 mb-4">
-<span class="serif-headline text-6xl text-primary/20 italic font-black">01</span>
-<h2 class="serif-headline text-5xl md:text-7xl text-white font-bold leading-none">Released Games</h2>
-</div>
-<div class="h-px w-32 bg-primary mb-4"></div>
-<p class="text-[11px] font-label font-bold uppercase tracking-[0.4em] text-outline">Professional Body of Work</p>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
-<!-- Quest 01 -->
-<div class="group relative bg-surface-container-low ghost-border edge-highlight p-1 h-fit md:mt-0">
-<div class="relative aspect-video overflow-hidden mb-8">
-<img alt="God of War" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6dBKn3G95FRpAGld9Lqwb_Zuxep8rAuM0VyGv0YwOkE8pt1nulDlzy0oB5EY3xuCQF93tcCoJ38rYK5rqVL17BQSfgpoWlnJW6sl2XgyhmdlAvWUQQPawlrFVZ5Aj5XYVDfjXDRJgEOYgufWlqT1x4rxRGwH1i8nLp3UAbXTmngAPrf2C5hmL_Ht1mLCbjqqbbbL3XNk_b_oXD3v3_InHygwhV9eLS5T2MORNWPhTFgDHOd4yCU2cGVYY4XX-DTuDgZ7o9lDXLhE"/>
-</div>
-<div class="p-8 pt-0">
-<p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">Santa Monica Studio</p>
-<h4 class="serif-headline text-3xl mb-6 group-hover:text-primary transition-colors font-semibold">God of War: Sons of Sparta</h4>
-<div class="space-y-4 text-sm font-body font-medium">
-<div class="flex justify-between border-b border-outline-variant/20 pb-3">
-<span class="text-outline">Role</span>
-<span class="text-white">Senior Systems Eng.</span>
-</div>
-<div class="flex justify-between border-b border-outline-variant/20 pb-3">
-<span class="text-outline">Focus</span>
-<span class="text-white">Combat &amp; AI</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Quest 02 - Staggered Down -->
-<div class="group relative bg-surface-container-low ghost-border edge-highlight p-1 h-fit md:mt-32">
-<div class="relative aspect-video overflow-hidden mb-8">
-<img alt="Backyard Sports" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCutvX3utadVdYc_ZDx4pJFWryUoFONVrCXOto1hk6fgSpdqA__EIXJ134YHVEF11EjlnEW2bJkoDmtjyD9Cce5a8QRfPA2yB0KHWsw8NsX573JCVUAxtMRfGLecvk0jaGIsQuU2B8c4kMT4FJhMstouDhRvMuT-7Sm3Sz1MD7fhh8sS-Xf1PgBPTUx2MCDTxF5tEiXa3fpzsy44153QPEVPfFl8Qmxr9gEsdJEwvAURiLy9TJ7JQXhhw5M6KkiIuw7MliU1pmqdl0"/>
-</div>
-<div class="p-8 pt-0">
-<p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">Humongous Ent.</p>
-<h4 class="serif-headline text-3xl mb-6 group-hover:text-primary transition-colors font-semibold">Backyard Sports</h4>
-<div class="space-y-4 text-sm font-body font-medium">
-<div class="flex justify-between border-b border-outline-variant/20 pb-3">
-<span class="text-outline">Role</span>
-<span class="text-white">Gameplay Dev</span>
-</div>
-<div class="flex justify-between border-b border-outline-variant/20 pb-3">
-<span class="text-outline">Focus</span>
-<span class="text-white">Physics Engine</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Quest 03 - Staggered Further -->
-<div class="group relative bg-surface-container-low ghost-border edge-highlight p-1 h-fit md:mt-64">
-<div class="relative aspect-video overflow-hidden mb-8">
-<img alt="Sinai Heroes" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9ywgNjMWgCR1iQT5nh0KImZrgf-k-U27d3ITercqWvcYED7TKTZ_kJUsK7-sKoOYnQ-a8Ko39KYoBaZH0xNYQ-jHgmJIwJXdWeAZUoOvguOt6blIqo_JqcJEUldkasuVYbLx3h4vwotcpf7QrFh61aAKSwn2YlsBH10q0OWNWKfQgu7aKj4bzZuUhVj26KgWcNOdZuikLHPf-KrNSrOESzrUYnnpjbdX4gJ4ZgHBiKyRKd4R6oWPOmmfETOzbbg-0rvrbWsHL9rI"/>
-</div>
-<div class="p-8 pt-0">
-<p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">Independent</p>
-<h4 class="serif-headline text-3xl mb-6 group-hover:text-primary transition-colors font-semibold">Sinai Heroes</h4>
-<div class="space-y-4 text-sm font-body font-medium">
-<div class="flex justify-between border-b border-outline-variant/20 pb-3">
-<span class="text-outline">Role</span>
-<span class="text-white">Lead Programmer</span>
-</div>
-<div class="flex justify-between border-b border-outline-variant/20 pb-3">
-<span class="text-outline">Focus</span>
-<span class="text-white">Optimization</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Technical Expertise - New Dramatic Layout -->
-<section class="py-48 px-6 md:px-20 max-w-7xl mx-auto relative overflow-hidden">
-<div class="absolute left-0 top-0 h-full w-px scroll-connector opacity-30 ml-4 lg:ml-0"></div>
-<div class="flex flex-col lg:flex-row items-start gap-8 mb-32 relative">
-<div class="hidden lg:block">
-<span class="vertical-text text-primary text-[10px] font-bold tracking-[0.8em] uppercase opacity-50 mt-4">EXPERTISE_02</span>
-</div>
-<div class="flex-grow">
-<div class="flex items-center gap-6 mb-4">
-<span class="serif-headline text-6xl text-primary/20 italic font-black">02</span>
-<h2 class="serif-headline text-5xl md:text-7xl text-white font-bold leading-none">Technical Expertise</h2>
-</div>
-<div class="h-px w-32 bg-primary mb-4"></div>
-<p class="text-[11px] font-label font-bold uppercase tracking-[0.4em] text-outline">Advanced Engineering Systems</p>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="p-8 bg-surface-container-high ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary">
-<div class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
-<span class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">code</span>
-</div>
-<div class="text-center">
-<p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Mastery</p>
-<p class="serif-headline text-2xl font-semibold mb-4 text-white">C++ / C#</p>
-<p class="text-xs text-on-surface-variant leading-relaxed opacity-70">Low-level optimization, memory management, and robust gameplay architecture.</p>
-</div>
-</div>
-<div class="p-8 bg-surface-container-high ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary lg:mt-16">
-<div class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
-<span class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">view_in_ar</span>
-</div>
-<div class="text-center">
-<p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Architect</p>
-<p class="serif-headline text-2xl font-semibold mb-4 text-white">Unreal Engine</p>
-<p class="text-xs text-on-surface-variant leading-relaxed opacity-70">Extensive experience with Blueprints, C++ API, and rendering pipelines.</p>
-</div>
-</div>
-<div class="p-8 bg-surface-container-high ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary">
-<div class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
-<span class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">precision_manufacturing</span>
-</div>
-<div class="text-center">
-<p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Efficiency</p>
-<p class="serif-headline text-2xl font-semibold mb-4 text-white">Optimization</p>
-<p class="text-xs text-on-surface-variant leading-relaxed opacity-70">CPU/GPU profiling, frame-rate stabilization, and resource loading systems.</p>
-</div>
-</div>
-<div class="p-8 bg-surface-container-high ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary lg:mt-16">
-<div class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
-<span class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">layers</span>
-</div>
-<div class="text-center">
-<p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Pipeline</p>
-<p class="serif-headline text-2xl font-semibold mb-4 text-white">Shaders/VFX</p>
-<p class="text-xs text-on-surface-variant leading-relaxed opacity-70">HLSL/GLSL authoring, procedural materials, and particle system logic.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Personal Projects - Staggered List -->
-<section class="py-48 px-6 md:px-20 max-w-7xl mx-auto relative">
-<div class="absolute left-0 top-0 h-full w-px scroll-connector opacity-30 ml-4 lg:ml-0"></div>
-<div class="flex flex-col lg:flex-row items-start gap-8 mb-32 relative">
-<div class="hidden lg:block">
-<span class="vertical-text text-primary text-[10px] font-bold tracking-[0.8em] uppercase opacity-50 mt-4">LABS_03</span>
-</div>
-<div class="flex-grow">
-<div class="flex items-center gap-6 mb-4">
-<span class="serif-headline text-6xl text-primary/20 italic font-black">03</span>
-<h2 class="serif-headline text-5xl md:text-7xl text-white font-bold leading-none">Personal Labs</h2>
-</div>
-<div class="h-px w-32 bg-primary mb-4"></div>
-<p class="text-[11px] font-label font-bold uppercase tracking-[0.4em] text-outline">R&amp;D and Experiments</p>
-</div>
-</div>
-<div class="grid grid-cols-1 gap-16 md:gap-32">
-<div class="md:w-3/4 bg-surface-container ghost-border p-10 flex items-center justify-between group hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
-<div class="flex gap-8 items-start">
-<span class="serif-headline text-4xl text-outline opacity-30 font-bold">01</span>
-<div>
-<h4 class="serif-headline text-3xl text-white font-semibold mb-3">Mystic Sands</h4>
-<p class="text-lg text-on-surface-variant font-normal italic leading-relaxed opacity-80 max-w-xl">Technical prototype investigating procedural desert deformation and granular physics interactions.</p>
-<div class="flex gap-4 mt-8">
-<span class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Procedural</span>
-<span class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Physics</span>
-</div>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline group-hover:text-primary text-4xl hidden md:block">arrow_forward</span>
-</div>
-<div class="md:w-3/4 md:ml-auto bg-surface-container ghost-border p-10 flex items-center justify-between group hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
-<div class="flex gap-8 items-start">
-<span class="serif-headline text-4xl text-outline opacity-30 font-bold">02</span>
-<div>
-<h4 class="serif-headline text-3xl text-white font-semibold mb-3">FakeOutBoss</h4>
-<p class="text-lg text-on-surface-variant font-normal italic leading-relaxed opacity-80 max-w-xl">High-speed combat logic framework for mobile action games focusing on input buffering and animation cancellation.</p>
-<div class="flex gap-4 mt-8">
-<span class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Combat Logic</span>
-<span class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Mobile</span>
-</div>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline group-hover:text-primary text-4xl hidden md:block">arrow_forward</span>
-</div>
-</div>
-</section>
-<!-- Final Quote/Status -->
-<section class="text-center py-64 relative overflow-hidden bg-surface-container-lowest/30">
-<div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
-<span class="serif-headline text-[40vw] select-none text-primary font-black">AK</span>
-</div>
-<div class="relative z-10 max-w-3xl mx-auto px-6">
-<span class="material-symbols-outlined text-primary text-6xl mb-12 opacity-50">format_quote</span>
-<blockquote class="serif-headline text-4xl md:text-5xl italic leading-tight text-white font-medium">
-                    "Precision in the shadows is where the most impactful gameplay emerges. Every line of code is a brushstroke in a player's memory."
+    <!-- Decorative BG elements -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <span
+            class="absolute top-[20%] -right-20 serif-headline text-[30vw] text-surface-container-high opacity-[0.03] select-none">CODE</span>
+        <span
+            class="absolute top-[50%] -left-20 serif-headline text-[30vw] text-surface-container-high opacity-[0.03] select-none">PLAY</span>
+        <span
+            class="absolute top-[80%] -right-20 serif-headline text-[30vw] text-surface-container-high opacity-[0.03] select-none">CORE</span>
+    </div>
+    <!-- TopNavBar -->
+    <nav
+        class="flex justify-between items-center px-8 h-16 w-full fixed top-0 z-50 bg-[#131313] bg-opacity-95 backdrop-blur-md border-b border-[#4d4635]/30">
+        <div class="text-2xl serif-headline text-[#f2ca50] tracking-tighter font-bold">PORTFOLIO_24</div>
+        <div class="hidden md:flex gap-8 font-body uppercase tracking-widest text-xs font-semibold">
+            <a class="text-[#f2ca50] border-b-2 border-[#f2ca50] pb-1" href="#">Work</a>
+            <a class="text-white/80 hover:text-[#f2ca50] transition-colors duration-300" href="#">Expertise</a>
+            <a class="text-white/80 hover:text-[#f2ca50] transition-colors duration-300" href="#">About</a>
+            <a class="text-white/80 hover:text-[#f2ca50] transition-colors duration-300" href="#">Contact</a>
+        </div>
+        <div class="text-[#f2ca50]">
+            <span class="material-symbols-outlined">settings</span>
+        </div>
+    </nav>
+    <main class="relative z-10">
+        <!-- Hero Section: Profile - Extended to 100vh -->
+        <section class="min-h-screen flex items-center justify-center relative pt-16">
+            <!-- Full section background image -->
+            <img alt="" aria-hidden="true"
+                class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+                src="Images/hero-bg.jpg" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/80 pointer-events-none"></div>
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full max-w-7xl mx-auto px-6 md:px-20">
+                <!-- Left Stats -->
+                <div class="lg:col-span-3 space-y-16 order-2 lg:order-1">
+                    <div class="space-y-4">
+                        <p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Role</p>
+                        <h3 class="serif-headline text-4xl italic text-primary font-semibold leading-tight">Game
+                            Programmer</h3>
+                        <div class="w-full h-1 bg-surface-container-highest mt-4">
+                            <div class="w-[85%] h-full bg-primary shadow-[0_0_10px_rgba(242,202,80,0.4)]"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Experience
+                        </p>
+                        <p class="text-base text-on-surface-variant font-normal leading-relaxed opacity-80">Gameplay and
+                            Systems Engineer with experience shipping cross-platform titles on PS5, PS4, PC, Android,
+                            and iOS.</p>
+                        <p class="text-base text-on-surface-variant font-normal leading-relaxed opacity-80">Specialized
+                            in scalable gameplay architecture, multiplayer systems, AI behavior design, and performance
+                            optimization for production-ready indie, AA, and AAA projects. Strong focus on clean
+                            architecture, modular systems, and long-term maintainability.</p>
+
+                    </div>
+                </div>
+                <!-- Character Portrait -->
+                <div class="lg:col-span-6 flex justify-center relative order-1 lg:order-2">
+                    <div class="text-center">
+                        <h1 class="serif-headline text-7xl md:text-8xl tracking-tight text-white font-bold">Ali Kassab</h1>
+                        <p class="font-label text-[12px] font-bold tracking-[0.5em] text-primary mt-4 uppercase">
+                            GAME PROGRAMMER</p>
+                    </div>
+                </div>
+                <!-- Right Stats -->
+                <div class="lg:col-span-3 space-y-16 order-3">
+                    <div class="space-y-4">
+                        <p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Professional
+                            Statistics</p>
+                        <h3 class="serif-headline text-4xl italic text-secondary font-semibold">3+ Years Exp.</h3>
+                        <div class="flex gap-2 mt-4">
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Core
+                            Competencies</p>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="p-4 bg-surface-container-low ghost-border flex justify-between items-center">
+                                <span class="text-[10px] block text-outline font-bold uppercase tracking-widest">C#
+                                    Mastery</span>
+                                <span class="serif-headline text-xl font-semibold">Expert</span>
+                            </div>
+                            <div class="p-4 bg-surface-container-low ghost-border flex justify-between items-center">
+                                <span class="text-[10px] block text-outline font-bold uppercase tracking-widest">Unity
+                                    Engine</span>
+                                <span class="serif-headline text-xl font-semibold">Master</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Released Games & Professional Work - Large Padding -->
+        <section class="py-48 px-6 md:px-20 max-w-7xl mx-auto relative">
+            <div class="absolute left-0 top-0 h-full w-px scroll-connector opacity-30 ml-4 lg:ml-0"></div>
+            <div class="flex flex-col lg:flex-row items-start gap-8 mb-32 relative">
+                <div class="hidden lg:block">
+                    <span
+                        class="vertical-text text-primary text-[10px] font-bold tracking-[0.8em] uppercase opacity-50 mt-4">PROJECTS_01</span>
+                </div>
+                <div class="flex-grow">
+                    <div class="flex items-center gap-6 mb-4">
+                        <span class="serif-headline text-6xl text-primary/20 italic font-black">01</span>
+                        <h2 class="serif-headline text-5xl md:text-7xl text-white font-bold leading-none">Released Games
+                        </h2>
+                    </div>
+                    <div class="h-px w-32 bg-primary mb-4"></div>
+                    <p class="text-[11px] font-label font-bold uppercase tracking-[0.4em] text-outline">Professional
+                        Body of Work</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
+                <!-- Quest 01 -->
+                <div class="group relative bg-surface-container-low ghost-border edge-highlight p-1 h-fit md:mt-0">
+                    <div class="relative aspect-video overflow-hidden mb-8 bg-background flex items-center justify-center">
+                        <img alt="God of War: Sons of Sparta"
+                            class="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-700"
+                            src="Images/GoWSoS_Logo.jpg" />
+                    </div>
+                    <div class="p-8 pt-0">
+                        <p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">Mega Cat
+                            Studios</p>
+                        <p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">Santa
+                            Monica Studios</p>
+                        <h4
+                            class="serif-headline text-3xl mb-6 group-hover:text-primary transition-colors font-semibold">
+                            God of War: Sons of Sparta</h4>
+                        <div class="space-y-4 text-sm font-body font-medium">
+                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
+                                <span class="text-outline">Role</span>
+                                <span class="text-white">Game Programmer</span>
+                            </div>
+                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
+                                <span class="text-outline">Focus</span>
+                                <span class="text-white">Pit Mode, AI &amp; Localization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Quest 02 - Staggered Down -->
+                <div class="group relative bg-surface-container-low ghost-border edge-highlight p-1 h-fit md:mt-32">
+                    <div class="relative aspect-video overflow-hidden mb-8 bg-background flex items-center justify-center">
+                        <img alt="Backyard Sports"
+                            class="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-700"
+                            src="Images/byb.png" />
+                    </div>
+                    <div class="p-8 pt-0">
+                        <p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">Mega Cat
+                            Studios</p>
+                        <h4
+                            class="serif-headline text-3xl mb-6 group-hover:text-primary transition-colors font-semibold">
+                            Backyard Sports</h4>
+                        <div class="space-y-4 text-sm font-body font-medium">
+                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
+                                <span class="text-outline">Role</span>
+                                <span class="text-white">Junior Game Programmer</span>
+                            </div>
+                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
+                                <span class="text-outline">Focus</span>
+                                <span class="text-white">Physics, Gameplay &amp; AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Quest 03 - Staggered Further -->
+                <div class="group relative bg-surface-container-low ghost-border edge-highlight p-1 h-fit md:mt-64">
+                    <div class="relative aspect-video overflow-hidden mb-8 bg-background flex items-center justify-center">
+                        <img alt="Sinai Heroes"
+                            class="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-700"
+                            src="Images/sinaiheroes.jpg" />
+                    </div>
+                    <div class="p-8 pt-0">
+                        <p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">
+                            Genesis Creations S.A.E</p>
+                        <h4
+                            class="serif-headline text-3xl mb-6 group-hover:text-primary transition-colors font-semibold">
+                            Sinai Heroes</h4>
+                        <div class="space-y-4 text-sm font-body font-medium">
+                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
+                                <span class="text-outline">Role</span>
+                                <span class="text-white">Junior Game Programmer</span>
+                            </div>
+                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
+                                <span class="text-outline">Focus</span>
+                                <span class="text-white">Networking &amp; Gameplay</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Technical Expertise - New Dramatic Layout -->
+        <section class="py-48 px-6 md:px-20 max-w-7xl mx-auto relative overflow-hidden">
+            <div class="absolute left-0 top-0 h-full w-px scroll-connector opacity-30 ml-4 lg:ml-0"></div>
+            <div class="flex flex-col lg:flex-row items-start gap-8 mb-32 relative">
+                <div class="hidden lg:block">
+                    <span
+                        class="vertical-text text-primary text-[10px] font-bold tracking-[0.8em] uppercase opacity-50 mt-4">EXPERTISE_02</span>
+                </div>
+                <div class="flex-grow">
+                    <div class="flex items-center gap-6 mb-4">
+                        <span class="serif-headline text-6xl text-primary/20 italic font-black">02</span>
+                        <h2 class="serif-headline text-5xl md:text-7xl text-white font-bold leading-none">Technical
+                            Expertise</h2>
+                    </div>
+                    <div class="h-px w-32 bg-primary mb-4"></div>
+                    <p class="text-[11px] font-label font-bold uppercase tracking-[0.4em] text-outline">Advanced
+                        Engineering Systems</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div
+                    class="p-8 bg-surface-container-high ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary">
+                    <div
+                        class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
+                        <span
+                            class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">code</span>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Mastery</p>
+                        <p class="serif-headline text-2xl font-semibold mb-4 text-white">C++ / C#</p>
+                        <p class="text-xs text-on-surface-variant leading-relaxed opacity-70">Low-level optimization,
+                            memory management, and robust gameplay architecture.</p>
+                    </div>
+                </div>
+                <div
+                    class="p-8 bg-surface-container-high ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary lg:mt-16">
+                    <div
+                        class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
+                        <span
+                            class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">view_in_ar</span>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Architect</p>
+                        <p class="serif-headline text-2xl font-semibold mb-4 text-white">Unity Engine</p>
+                        <p class="text-xs text-on-surface-variant leading-relaxed opacity-70">Extensive experience with
+                            optimization, C# API, and tooling pipelines.</p>
+                    </div>
+                </div>
+                <div
+                    class="p-8 bg-surface-container-high ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary">
+                    <div
+                        class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
+                        <span
+                            class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">precision_manufacturing</span>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Efficiency</p>
+                        <p class="serif-headline text-2xl font-semibold mb-4 text-white">Optimization</p>
+                        <p class="text-xs text-on-surface-variant leading-relaxed opacity-70">CPU/GPU profiling,
+                            frame-rate stabilization, and resource loading systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Personal Projects - Staggered List -->
+        <section class="py-48 px-6 md:px-20 max-w-7xl mx-auto relative">
+            <div class="absolute left-0 top-0 h-full w-px scroll-connector opacity-30 ml-4 lg:ml-0"></div>
+            <div class="flex flex-col lg:flex-row items-start gap-8 mb-32 relative">
+                <div class="hidden lg:block">
+                    <span
+                        class="vertical-text text-primary text-[10px] font-bold tracking-[0.8em] uppercase opacity-50 mt-4">LABS_03</span>
+                </div>
+                <div class="flex-grow">
+                    <div class="flex items-center gap-6 mb-4">
+                        <span class="serif-headline text-6xl text-primary/20 italic font-black">03</span>
+                        <h2 class="serif-headline text-5xl md:text-7xl text-white font-bold leading-none">Personal Labs
+                        </h2>
+                    </div>
+                    <div class="h-px w-32 bg-primary mb-4"></div>
+                    <p class="text-[11px] font-label font-bold uppercase tracking-[0.4em] text-outline">R&amp;D and
+                        Experiments</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 gap-16 md:gap-32">
+                <div
+                    class="md:w-3/4 bg-surface-container ghost-border p-10 flex items-center justify-between group hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
+                    <div class="flex gap-8 items-start">
+                        <span class="serif-headline text-4xl text-outline opacity-30 font-bold">01</span>
+                        <div>
+                            <h4 class="serif-headline text-3xl text-white font-semibold mb-3">Mystic Sands</h4>
+                            <p
+                                class="text-lg text-on-surface-variant font-normal italic leading-relaxed opacity-80 max-w-xl">
+                                Technical prototype investigating procedural desert deformation and granular physics
+                                interactions.</p>
+                            <div class="flex gap-4 mt-8">
+                                <span
+                                    class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Procedural</span>
+                                <span
+                                    class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Physics</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline group-hover:text-primary text-4xl hidden md:block">arrow_forward</span>
+                </div>
+                <div
+                    class="md:w-3/4 md:ml-auto bg-surface-container ghost-border p-10 flex items-center justify-between group hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
+                    <div class="flex gap-8 items-start">
+                        <span class="serif-headline text-4xl text-outline opacity-30 font-bold">02</span>
+                        <div>
+                            <h4 class="serif-headline text-3xl text-white font-semibold mb-3">FakeOutBoss</h4>
+                            <p
+                                class="text-lg text-on-surface-variant font-normal italic leading-relaxed opacity-80 max-w-xl">
+                                High-speed combat logic framework for mobile action games focusing on input buffering
+                                and animation cancellation.</p>
+                            <div class="flex gap-4 mt-8">
+                                <span
+                                    class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Combat
+                                    Logic</span>
+                                <span
+                                    class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Mobile</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline group-hover:text-primary text-4xl hidden md:block">arrow_forward</span>
+                </div>
+                    <div
+                    class="md:w-3/4 bg-surface-container ghost-border p-10 flex items-center justify-between group hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
+                    <div class="flex gap-8 items-start">
+                        <span class="serif-headline text-4xl text-outline opacity-30 font-bold">03</span>
+                        <div>
+                            <h4 class="serif-headline text-3xl text-white font-semibold mb-3">Table For None</h4>
+                            <p
+                                class="text-lg text-on-surface-variant font-normal italic leading-relaxed opacity-80 max-w-xl">
+                                High-speed combat logic framework for mobile action games focusing on input buffering
+                                and animation cancellation.</p>
+                            <div class="flex gap-4 mt-8">
+                                <span
+                                    class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Combat
+                                    Logic</span>
+                                <span
+                                    class="text-[10px] px-3 py-1 bg-surface-container-high border border-outline/20 text-outline uppercase font-bold tracking-widest">Mobile</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline group-hover:text-primary text-4xl hidden md:block">arrow_forward</span>
+                </div>
+            </div>
+        </section>
+        <!-- Final Quote/Status -->
+        <section class="text-center py-64 relative overflow-hidden bg-surface-container-lowest/30">
+            <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
+                <span class="serif-headline text-[40vw] select-none text-primary font-black">AK</span>
+            </div>
+            <div class="relative z-10 max-w-3xl mx-auto px-6">
+                <span class="material-symbols-outlined text-primary text-6xl mb-12 opacity-50">format_quote</span>
+                <blockquote class="serif-headline text-4xl md:text-5xl italic leading-tight text-white font-medium">
+                    "Precision in the shadows is where the most impactful gameplay emerges. Every line of code is a
+                    brushstroke in a player's memory."
                 </blockquote>
-<div class="mt-20 flex flex-wrap justify-center gap-12">
-<a class="bg-primary text-on-primary px-12 py-6 text-[12px] font-body font-bold uppercase tracking-[0.2em] hover:brightness-110 transition-all active:scale-95 shadow-[0_10px_30px_rgba(242,202,80,0.15)]" href="mailto:ali.kassab@example.com">Send Dispatch</a>
-<a class="border border-outline px-12 py-6 text-[12px] font-body font-bold uppercase tracking-[0.2em] text-white hover:bg-surface-container-high transition-all active:scale-95" href="#">Download Dossier</a>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full py-20 px-12 flex flex-col items-center gap-10 mt-auto border-t border-outline-variant/20 relative z-10 bg-background">
-<div class="text-[12px] font-bold text-white tracking-[0.3em] font-body uppercase opacity-80">ALI KASSAB // SENIOR GAME PROGRAMMER</div>
-<div class="flex gap-16">
-<a class="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors" href="#">LinkedIn</a>
-<a class="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors" href="#">GitHub</a>
-<a class="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors" href="#">Source Code</a>
-</div>
-<p class="font-body text-[10px] font-medium uppercase tracking-[0.3em] text-white/30 text-center">© 2024 CHIAROSCURO ARCHIVE // DATA ENCRYPTED // TERMINAL ACCESS GRANTED</p>
-</footer>
-</body></html>
+                <div class="mt-20 flex flex-wrap justify-center gap-12">
+                    <a class="bg-primary text-on-primary px-12 py-6 text-[12px] font-body font-bold uppercase tracking-[0.2em] hover:brightness-110 transition-all active:scale-95 shadow-[0_10px_30px_rgba(242,202,80,0.15)]"
+                        href="mailto:ali.kassab@example.com">Send Dispatch</a>
+                    <a class="border border-outline px-12 py-6 text-[12px] font-body font-bold uppercase tracking-[0.2em] text-white hover:bg-surface-container-high transition-all active:scale-95"
+                        href="#">Download Dossier</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="w-full py-20 px-12 flex flex-col items-center gap-10 mt-auto border-t border-outline-variant/20 relative z-10 bg-background">
+        <div class="text-[12px] font-bold text-white tracking-[0.3em] font-body uppercase opacity-80">ALI KASSAB //
+            SENIOR GAME PROGRAMMER</div>
+        <div class="flex gap-16">
+            <a class="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors"
+                href="#">LinkedIn</a>
+            <a class="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors"
+                href="#">GitHub</a>
+            <a class="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors"
+                href="#">Source Code</a>
+        </div>
+        <p class="font-body text-[10px] font-medium uppercase tracking-[0.3em] text-white/30 text-center">© 2024
+            CHIAROSCURO ARCHIVE // DATA ENCRYPTED // TERMINAL ACCESS GRANTED</p>
+    </footer>
+</body>
+
+</html>
