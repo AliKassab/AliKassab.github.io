@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -13,150 +13,265 @@
     <meta property="og:title" content="Ali Kassab // Unity Game Developer" />
     <meta property="og:description"
         content="Gameplay and systems engineer shipping cross-platform titles, specializing in scalable gameplay architecture, multiplayer systems, and AI behavior design." />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300..700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
         rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "outline": "#8a7750",
-                        "error": "#d38b78",
-                        "outline-variant": "#443822",
-                        "secondary-fixed": "#ddd5c5",
-                        "on-surface-variant": "#bcae8f",
-                        "surface-tint": "#c8aa67",
-                        "secondary-fixed-dim": "#bdb29b",
-                        "surface-container-highest": "#2a2419",
-                        "on-secondary-fixed-variant": "#433625",
-                        "surface-container-high": "#1f1a12",
-                        "surface-bright": "#2b261d",
-                        "tertiary-container": "#b5a27d",
-                        "primary-fixed-dim": "#b89555",
-                        "on-tertiary-container": "#2a2217",
-                        "on-tertiary": "#16120c",
-                        "surface-container": "#15110d",
-                        "surface": "#0f0d0a",
-                        "tertiary-fixed": "#ddd1b6",
-                        "background": "#0b0a08",
-                        "surface-container-lowest": "#070605",
-                        "on-primary": "#171107",
-                        "tertiary-fixed-dim": "#c3b392",
-                        "on-surface": "#f2ead9",
-                        "on-tertiary-fixed-variant": "#463927",
-                        "inverse-on-surface": "#2d261b",
-                        "inverse-surface": "#efe3ca",
-                        "on-secondary": "#1b1711",
-                        "secondary-container": "#2b241a",
-                        "primary-container": "#c8aa67",
-                        "on-primary-fixed-variant": "#4f3e1c",
-                        "primary-fixed": "#e0c285",
-                        "secondary": "#d7ccb7",
-                        "surface-container-low": "#120f0c",
-                        "tertiary": "#c9bb9e",
-                        "inverse-primary": "#8d713d",
-                        "on-tertiary-fixed": "#19140d",
-                        "primary": "#c8aa67",
-                        "on-primary-container": "#261c0a",
-                        "on-error-container": "#f2d2c8",
-                        "on-primary-fixed": "#1b1407",
-                        "on-secondary-fixed": "#1a150f",
-                        "on-secondary-container": "#d9ceba",
-                        "error-container": "#5b2b20",
-                        "surface-variant": "#201a13",
-                        "on-background": "#f2ead9",
-                        "surface-dim": "#0b0a08",
-                        "on-error": "#1b0c08"
+                    colors: {
+                        parchment: "#e8ddc4",
+                        "parchment-2": "#e1d4b6",
+                        "parchment-3": "#d8c9a6",
+                        ink: "#2b2117",
+                        "ink-soft": "#5a4a35",
+                        faded: "#7c6a4d",
+                        oxblood: "#7c2f25",
+                        gold: "#9a7a35",
+                        "gold-bright": "#b08d3c"
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0px",
-                        "lg": "0px",
-                        "xl": "0px",
-                        "full": "9999px"
+                    borderRadius: {
+                        DEFAULT: "0px",
+                        lg: "0px",
+                        xl: "0px",
+                        full: "9999px"
                     },
-                    "fontFamily": {
-                        "headline": ["Newsreader", "serif"],
-                        "body": ["Inter", "sans-serif"],
-                        "label": ["Inter", "sans-serif"]
+                    fontFamily: {
+                        display: ['"UnifrakturMaguntia"', "serif"],
+                        heading: ['"Cormorant Garamond"', "serif"],
+                        body: ['"EB Garamond"', "serif"],
+                        label: ['"EB Garamond"', "serif"]
                     }
-                },
-            },
+                }
+            }
         }
     </script>
     <style>
-        body {
-            background-color: #0b0a08;
-            background-image:
-                radial-gradient(circle at 18% 18%, rgba(126, 104, 57, 0.12), transparent 24%),
-                radial-gradient(circle at 82% 12%, rgba(92, 86, 48, 0.10), transparent 22%),
-                radial-gradient(circle at 50% 100%, rgba(200, 170, 103, 0.08), transparent 28%),
-                linear-gradient(180deg, #100e0b 0%, #090806 100%);
-            color: #f2ead9;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
+        html {
+            scroll-behavior: smooth;
         }
 
-        body::before,
+        body {
+            background-color: #e8ddc4;
+            background-image:
+                radial-gradient(120% 80% at 50% -10%, rgba(255, 251, 240, 0.55), transparent 60%),
+                radial-gradient(90% 70% at 100% 100%, rgba(96, 70, 38, 0.16), transparent 55%),
+                radial-gradient(90% 70% at 0% 100%, rgba(96, 70, 38, 0.14), transparent 55%),
+                radial-gradient(140% 120% at 50% 50%, transparent 55%, rgba(54, 40, 22, 0.18));
+            color: #2b2117;
+            font-family: 'EB Garamond', serif;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+
+        /* Faint parchment fibre */
         body::after {
             content: "";
             position: fixed;
             inset: 0;
-            pointer-events: none;
             z-index: 0;
+            pointer-events: none;
+            opacity: 0.05;
+            mix-blend-mode: multiply;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        body::before {
-            background:
-                linear-gradient(115deg, rgba(255, 255, 255, 0.02), transparent 25%),
-                radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.24));
-            mix-blend-mode: screen;
-            opacity: 0.45;
+        ::selection {
+            background: #7c2f25;
+            color: #f3ead6;
         }
 
-        body::after {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.035) 0.7px, transparent 0.7px);
-            background-size: 18px 18px;
-            opacity: 0.08;
-        }
-
-        .serif-headline {
-            font-family: 'Cormorant Garamond', 'Newsreader', serif;
-            font-weight: 600;
+        .blackletter {
+            font-family: 'UnifrakturMaguntia', serif;
+            font-weight: 400;
             letter-spacing: 0.01em;
         }
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
+        .label {
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.34em;
+            font-weight: 600;
+            font-size: 0.7rem;
+            color: #7c6a4d;
         }
 
-        .glass-panel {
-            background: linear-gradient(180deg, rgba(28, 23, 17, 0.78), rgba(14, 11, 8, 0.72));
-            backdrop-filter: blur(24px);
+        /* Manuscript folio panel with inset rule */
+        .folio {
+            position: relative;
+            background:
+                linear-gradient(180deg, rgba(255, 252, 244, 0.5), rgba(216, 201, 166, 0.18));
+            border: 1px solid rgba(43, 33, 23, 0.55);
+            box-shadow: 0 2px 0 rgba(43, 33, 23, 0.12);
         }
 
-        .ghost-border {
-            border: 1px solid rgba(200, 170, 103, 0.20);
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+        .folio::before {
+            content: "";
+            position: absolute;
+            inset: 5px;
+            border: 1px solid rgba(122, 47, 37, 0.28);
+            pointer-events: none;
         }
 
-        .edge-highlight {
-            border-top: 1px solid rgba(200, 170, 103, 0.42);
+        /* Page frame around the hero */
+        .manuscript-frame {
+            position: relative;
+            border: 1.5px solid rgba(43, 33, 23, 0.6);
+            box-shadow: inset 0 0 0 5px rgba(232, 221, 196, 0.6), inset 0 0 0 6px rgba(122, 47, 37, 0.3);
         }
 
-        p,
-        .text-on-surface-variant {
-            line-height: 1.7;
+        .manuscript-frame::before,
+        .manuscript-frame::after {
+            content: "\271C";
+            position: absolute;
+            font-size: 1.25rem;
+            color: #7c2f25;
+            line-height: 1;
+        }
+
+        .manuscript-frame::before {
+            top: -0.7rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e8ddc4;
+            padding: 0 0.6rem;
+        }
+
+        .manuscript-frame::after {
+            bottom: -0.7rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e8ddc4;
+            padding: 0 0.6rem;
+        }
+
+        /* Drop cap (illuminated initial) */
+        .drop-cap::first-letter {
+            font-family: 'UnifrakturMaguntia', serif;
+            float: left;
+            font-size: 3.6rem;
+            line-height: 0.78;
+            padding: 0.1rem 0.6rem 0 0;
+            color: #7c2f25;
+        }
+
+        /* Ornamental divider: line — fleuron — line */
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            color: #9a7a35;
+        }
+
+        .ornament::before,
+        .ornament::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, transparent, rgba(43, 33, 23, 0.5), transparent);
+        }
+
+        .ornament span {
+            font-size: 1.1rem;
+            color: #7c2f25;
+        }
+
+        .numeral {
+            font-family: 'Cormorant Garamond', serif;
+            color: rgba(122, 47, 37, 0.85);
+            font-weight: 600;
+        }
+
+        /* Table-of-contents style dotted leader */
+        .leader {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .leader .dots {
+            flex: 1;
+            border-bottom: 1px dotted rgba(43, 33, 23, 0.45);
+            transform: translateY(-0.25rem);
+        }
+
+        .plate {
+            border: 1px solid rgba(43, 33, 23, 0.5);
+            background:
+                radial-gradient(circle at center, rgba(255, 252, 244, 0.6), rgba(216, 201, 166, 0.25)),
+                #ded0b0;
+        }
+
+        .plate img {
+            filter: sepia(0.32) saturate(0.85) contrast(0.96);
+            mix-blend-mode: multiply;
+        }
+
+        .nav-link {
+            position: relative;
+            color: #5a4a35;
+            transition: color 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: #7c2f25;
+        }
+
+        .nav-link.active {
+            color: #2b2117;
+        }
+
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -0.4rem;
+            height: 1px;
+            background: #7c2f25;
+        }
+
+        .chip {
+            border: 1px solid rgba(43, 33, 23, 0.4);
+            color: #5a4a35;
+            background: rgba(255, 252, 244, 0.35);
+        }
+
+        .btn-seal {
+            display: inline-block;
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            font-weight: 600;
+            font-size: 0.72rem;
+            transition: all 0.25s ease;
+        }
+
+        .btn-seal-primary {
+            background: #2b2117;
+            color: #ece3cf;
+            border: 1px solid #2b2117;
+        }
+
+        .btn-seal-primary:hover {
+            background: #7c2f25;
+            border-color: #7c2f25;
+        }
+
+        .btn-seal-secondary {
+            background: transparent;
+            color: #2b2117;
+            border: 1px solid rgba(43, 33, 23, 0.6);
+        }
+
+        .btn-seal-secondary:hover {
+            background: rgba(43, 33, 23, 0.06);
+            border-color: #2b2117;
         }
 
         .vertical-text {
@@ -164,601 +279,313 @@
             text-orientation: mixed;
         }
 
-        .scroll-connector {
-            background: linear-gradient(to bottom, transparent, rgba(200, 170, 103, 0.18), transparent);
+        .card-link {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .nav-ornate {
-            background: linear-gradient(180deg, rgba(19, 16, 12, 0.88), rgba(10, 9, 7, 0.76));
-            border-bottom: 1px solid rgba(200, 170, 103, 0.16);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.30);
+        .card-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 0 rgba(43, 33, 23, 0.1);
         }
 
-        .ornate-panel {
-            position: relative;
-            background: linear-gradient(180deg, rgba(26, 21, 16, 0.84), rgba(13, 11, 8, 0.74));
-            border: 1px solid rgba(200, 170, 103, 0.18);
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
-            backdrop-filter: blur(20px);
-        }
-
-        .hero-grid {
-            align-items: stretch;
-        }
-
-        .hero-side-card {
-            position: relative;
-            min-height: 100%;
-            padding: 2.5rem 2rem;
-            background:
-                linear-gradient(180deg, rgba(22, 18, 13, 0.58), rgba(9, 8, 6, 0.42));
-            border: none;
-            box-shadow: none;
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-        }
-
-        .hero-side-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(90deg, rgba(200, 170, 103, 0.18), rgba(200, 170, 103, 0.18)) top/100% 1px no-repeat,
-                linear-gradient(90deg, rgba(200, 170, 103, 0.14), rgba(200, 170, 103, 0.14)) bottom/100% 1px no-repeat,
-                linear-gradient(to bottom, transparent, rgba(200, 170, 103, 0.12), transparent) left/1px 100% no-repeat,
-                linear-gradient(to bottom, transparent, rgba(200, 170, 103, 0.08), transparent) right/1px 100% no-repeat;
-            pointer-events: none;
-        }
-
-        .hero-side-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at top left, rgba(200, 170, 103, 0.08), transparent 28%),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 30%, transparent 70%, rgba(200, 170, 103, 0.03));
-            opacity: 0.9;
-            pointer-events: none;
-        }
-
-        @media (min-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: minmax(22rem, 1.25fr) minmax(26rem, 1.35fr) minmax(18rem, 0.95fr);
-                gap: 2rem;
-            }
-        }
-
-        .ornate-panel::before,
-        .expedition-card::before,
-        .hero-monolith::before {
-            content: "";
-            position: absolute;
-            inset: 6px;
-            border: 1px solid rgba(255, 248, 225, 0.05);
-            pointer-events: none;
-        }
-
-        .hero-monolith {
-            position: relative;
-            min-height: 24rem;
-            width: 100%;
-            max-width: 42rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 3.5rem 2rem;
-            background:
-                radial-gradient(circle at top, rgba(200, 170, 103, 0.10), transparent 35%),
-                linear-gradient(180deg, rgba(25, 20, 15, 0.74), rgba(11, 9, 7, 0.80));
-            border: 1px solid rgba(200, 170, 103, 0.18);
-            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.35);
-            overflow: hidden;
-        }
-
-        .hero-monolith::after {
-            content: "";
-            position: absolute;
-            inset: auto 12% 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(200, 170, 103, 0.55), transparent);
-            box-shadow: 0 0 18px rgba(200, 170, 103, 0.25);
-        }
-
-        .title-glow {
-            text-shadow: 0 0 24px rgba(255, 241, 199, 0.08), 0 6px 24px rgba(0, 0, 0, 0.45);
-        }
-
-        .expedition-card {
-            position: relative;
-            background: linear-gradient(180deg, rgba(24, 20, 15, 0.94), rgba(14, 12, 9, 0.94));
-            border: 1px solid rgba(200, 170, 103, 0.18);
-            box-shadow: 0 28px 90px rgba(0, 0, 0, 0.24);
-            overflow: hidden;
-        }
-
-        .expedition-card:hover {
-            border-color: rgba(200, 170, 103, 0.36);
-            box-shadow: 0 32px 110px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(200, 170, 103, 0.10);
-        }
-
-        .expedition-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 22%, transparent 78%, rgba(200, 170, 103, 0.04));
-            pointer-events: none;
-        }
-
-        .image-stage {
-            background:
-                radial-gradient(circle at center, rgba(200, 170, 103, 0.06), transparent 50%),
-                #0b0a08;
-        }
-
-        .section-number {
-            color: rgba(200, 170, 103, 0.22);
-            text-shadow: 0 0 18px rgba(200, 170, 103, 0.08);
-        }
-
-        .expedition-chip {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(200, 170, 103, 0.14);
-            color: #cbbd9c;
-        }
-
-        .btn-ornate-primary {
-            background: linear-gradient(135deg, #ccb06f, #927439);
-            color: #1d1608;
-            box-shadow: 0 18px 42px rgba(146, 116, 57, 0.24);
-        }
-
-        .btn-ornate-secondary {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(200, 170, 103, 0.24);
-            color: #f2ead9;
-        }
-
-        .quote-shell {
-            background: linear-gradient(180deg, rgba(24, 20, 15, 0.84), rgba(12, 10, 8, 0.82));
-            border: 1px solid rgba(200, 170, 103, 0.18);
-            box-shadow: 0 32px 120px rgba(0, 0, 0, 0.24);
-        }
-
-        .hero-panel-copy {
-            font-size: 0.96rem;
-            line-height: 1.95;
-            font-weight: 300;
-            letter-spacing: 0.01em;
-            color: rgba(217, 204, 176, 0.88);
-            text-wrap: pretty;
-        }
-
-        .hero-panel-copy-strong {
-            color: rgba(242, 234, 217, 0.96);
-        }
-
-        .section-fade-top,
-        .section-fade-bottom {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .section-fade-top {
-            top: 0;
-            height: 9rem;
-            background: linear-gradient(to bottom, #050403 0%, rgba(5, 4, 3, 0.88) 22%, rgba(5, 4, 3, 0) 100%);
-        }
-
-        .section-fade-bottom {
-            bottom: 0;
-            height: 11rem;
-            background: linear-gradient(to top, #050403 0%, rgba(5, 4, 3, 0.92) 28%, rgba(5, 4, 3, 0) 100%);
+        .watermark {
+            font-family: 'UnifrakturMaguntia', serif;
+            color: rgba(122, 47, 37, 0.06);
+            user-select: none;
         }
     </style>
 </head>
 
-<body class="selection:bg-primary selection:text-on-primary relative">
-    <!-- Decorative BG elements -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <span
-            class="absolute top-[20%] -right-20 serif-headline text-[30vw] text-surface-container-high opacity-[0.03] select-none">CODE</span>
-        <span
-            class="absolute top-[50%] -left-20 serif-headline text-[30vw] text-surface-container-high opacity-[0.03] select-none">PLAY</span>
-        <span
-            class="absolute top-[80%] -right-20 serif-headline text-[30vw] text-surface-container-high opacity-[0.03] select-none">CORE</span>
-    </div>
+<body class="relative">
     <!-- TopNavBar -->
-    <nav
-        class="nav-ornate flex justify-between items-center px-8 h-16 w-full fixed top-0 z-50 backdrop-blur-md">
-        <div class="text-2xl serif-headline text-[#ccb06f] tracking-[0.08em] font-semibold">ALI KASSAB</div>
-        <div class="hidden md:flex gap-8 font-body uppercase tracking-widest text-xs font-semibold">
-            <a class="text-[#ccb06f] border-b border-[#ccb06f]/70 pb-1" href="#work">Work</a>
-            <a class="text-white/75 hover:text-[#ccb06f] transition-colors duration-300" href="#expertise">Expertise</a>
-            <a class="text-white/75 hover:text-[#ccb06f] transition-colors duration-300" href="#labs">Labs</a>
-            <a class="text-white/75 hover:text-[#ccb06f] transition-colors duration-300" href="#contact">Contact</a>
+    <nav class="flex justify-between items-center px-6 md:px-10 h-16 w-full fixed top-0 z-50 bg-parchment/90 backdrop-blur-sm border-b border-ink/40">
+        <a href="#top" class="blackletter text-3xl text-ink leading-none">Ali Kassab</a>
+        <div class="hidden md:flex gap-10 label text-[0.66rem]">
+            <a class="nav-link active" href="#work">Work</a>
+            <a class="nav-link" href="#expertise">Expertise</a>
+            <a class="nav-link" href="#labs">Labs</a>
+            <a class="nav-link" href="#contact">Contact</a>
         </div>
-        <div class="text-[#ccb06f] opacity-80">
-            <span class="material-symbols-outlined">settings</span>
-        </div>
+        <span class="text-oxblood text-lg" aria-hidden="true">&#10070;</span>
     </nav>
-    <main class="relative z-10">
-        <!-- Hero Section: Profile - Extended to 100vh -->
-        <section class="min-h-screen flex items-center justify-center relative pt-24 pb-14 md:pt-28 md:pb-20 overflow-hidden">
-            <!-- Full section background image -->
-            <img alt="" aria-hidden="true"
-                class="absolute inset-0 w-full h-full object-cover opacity-24 pointer-events-none saturate-[0.75]"
-                src="Images/hero-bg.jpg" />
-            <div class="section-fade-top"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-[#0b0a08]/70 via-[#100d09]/62 to-[#090806] pointer-events-none"></div>
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,170,103,0.12),transparent_38%)] pointer-events-none"></div>
-            <div class="section-fade-bottom"></div>
-            <div class="hero-grid relative z-10 grid grid-cols-1 gap-12 w-full max-w-[96rem] mx-auto px-6 md:px-12 lg:px-16">
-                <!-- Left Stats -->
-                <div class="hero-side-card space-y-16 order-2 lg:order-1">
-                    <div class="space-y-4">
-                        <p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Role</p>
-                        <h3 class="serif-headline text-4xl italic text-primary font-semibold leading-tight">Unity Game
-                            Developer</h3>
-                        <p class="text-[11px] font-label font-semibold uppercase tracking-[0.25em] text-on-surface-variant">Cairo, Egypt</p>
-                        <div class="w-full h-1 bg-surface-container-highest mt-4">
-                            <div class="w-[85%] h-full bg-primary shadow-[0_0_10px_rgba(242,202,80,0.4)]"></div>
-                        </div>
-                    </div>
-                    <div class="space-y-4">
-                        <p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Experience
-                        </p>
-                        <p class="hero-panel-copy"><span class="hero-panel-copy-strong">Gameplay and
-                            Systems Engineer with experience shipping cross-platform titles on PS5, PS4, PC, Android,
-                            and iOS.</span></p>
-                        <p class="hero-panel-copy">Specialized
-                            in scalable gameplay architecture, multiplayer systems, AI behavior design, and performance
-                            optimization for production-ready indie, AA, and AAA projects. Strong focus on clean
-                            architecture, modular systems, and long-term maintainability.</p>
 
-                    </div>
-                </div>
-                <!-- Right Stats -->
-                <div class="hero-side-card space-y-16 order-3">
-                    <div class="space-y-4">
-                        <p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Professional
-                            Statistics</p>
-                        <h3 class="serif-headline text-4xl italic text-secondary font-semibold">3+ Years Exp.</h3>
-                    </div>
-                    <div class="space-y-6">
-                        <p class="text-[11px] font-label font-bold uppercase tracking-[0.3em] text-outline">Core
-                            Competencies</p>
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="p-4 bg-white/[0.02] ghost-border flex justify-between items-center">
-                                <span class="text-[10px] block text-outline font-bold uppercase tracking-widest">C#
-                                    Mastery</span>
-                                <span class="serif-headline text-xl font-semibold">Expert</span>
-                            </div>
-                            <div class="p-4 bg-white/[0.02] ghost-border flex justify-between items-center">
-                                <span class="text-[10px] block text-outline font-bold uppercase tracking-widest">Unity
-                                    Engine</span>
-                                <span class="serif-headline text-xl font-semibold">Master</span>
-                            </div>
+    <main id="top" class="relative z-10">
+        <!-- Hero / Frontispiece -->
+        <section class="min-h-screen flex items-center justify-center relative px-5 md:px-10 pt-24 pb-16">
+            <div class="manuscript-frame w-full max-w-6xl mx-auto px-6 py-12 md:px-14 md:py-16">
+                <!-- Title block -->
+                <header class="text-center mb-14">
+                    <p class="label mb-5">Portfolio &amp; Chronicle of Works</p>
+                    <h1 class="blackletter text-6xl md:text-8xl text-ink leading-[0.95]">Ali Kassab</h1>
+                    <div class="ornament max-w-md mx-auto my-7"><span aria-hidden="true">&#10086;</span></div>
+                    <p class="font-heading text-2xl md:text-3xl italic text-oxblood">Unity Game Developer</p>
+                    <p class="label mt-3">Cairo, Egypt</p>
+                </header>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+                    <!-- Of His Profession -->
+                    <article class="folio p-8 md:p-10">
+                        <p class="label mb-5">Of His Profession</p>
+                        <p class="drop-cap font-body text-ink-soft text-[1.08rem]">Gameplay and Systems Engineer with
+                            experience shipping cross-platform titles on PS5, PS4, PC, Android, and iOS.</p>
+                        <p class="font-body text-ink-soft mt-4">Specialised in scalable gameplay architecture, multiplayer
+                            systems, AI behaviour design, and performance optimisation for production-ready indie, AA, and
+                            AAA projects — with a steadfast focus on clean architecture, modular systems, and long-term
+                            maintainability.</p>
+                    </article>
+
+                    <!-- His Competencies -->
+                    <article class="folio p-8 md:p-10">
+                        <div class="flex items-baseline justify-between mb-6">
+                            <p class="label">His Competencies</p>
+                            <p class="font-heading text-2xl italic text-oxblood">3+ Years</p>
                         </div>
-                    </div>
+                        <ul class="space-y-4 font-body text-ink">
+                            <li class="leader"><span>C&#35; / .NET</span><span class="dots"></span><span class="font-heading italic text-faded">Expert</span></li>
+                            <li class="leader"><span>Unity Engine</span><span class="dots"></span><span class="font-heading italic text-faded">Master</span></li>
+                            <li class="leader"><span>C++ / SFML</span><span class="dots"></span><span class="font-heading italic text-faded">Proficient</span></li>
+                            <li class="leader"><span>Multiplayer &mdash; Photon, Netcode</span><span class="dots"></span><span class="font-heading italic text-faded">Advanced</span></li>
+                            <li class="leader"><span>AI &mdash; Behaviour Trees, FSM, A*</span><span class="dots"></span><span class="font-heading italic text-faded">Advanced</span></li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </section>
-        <!-- Released Games & Professional Work - Large Padding -->
-        <section id="work" class="py-48 px-6 md:px-20 max-w-7xl mx-auto relative overflow-hidden scroll-mt-20">
-            <div class="section-fade-top opacity-90"></div>
-            <div class="absolute left-0 top-0 h-full w-px scroll-connector opacity-30 ml-4 lg:ml-0"></div>
-            <div class="flex flex-col lg:flex-row items-start gap-8 mb-32 relative">
-                <div class="hidden lg:block">
-                    <span
-                        class="vertical-text text-primary text-[10px] font-bold tracking-[0.8em] uppercase opacity-50 mt-4">PROJECTS_01</span>
-                </div>
-                <div class="flex-grow">
-                    <div class="flex items-center gap-6 mb-4">
-                        <span class="serif-headline section-number text-6xl italic font-black">01</span>
-                        <h2 class="serif-headline text-5xl md:text-7xl text-white font-bold leading-none">Released Games
-                        </h2>
-                    </div>
-                    <div class="h-px w-32 bg-primary mb-4"></div>
-                    <p class="text-[11px] font-label font-bold uppercase tracking-[0.4em] text-outline">Professional
-                        Body of Work</p>
-                </div>
+
+        <!-- I. Released Games -->
+        <section id="work" class="py-28 md:py-36 px-6 md:px-16 max-w-7xl mx-auto relative scroll-mt-20">
+            <div class="hidden lg:block absolute left-0 top-24">
+                <span class="vertical-text label text-[0.6rem] opacity-70">Liber Primus</span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
-                <!-- Quest 01 -->
-                <div class="group relative expedition-card edge-highlight p-1 h-fit md:mt-0">
-                    <div class="image-stage relative aspect-video overflow-hidden mb-8 bg-background flex items-center justify-center">
-                        <img alt="God of War: Sons of Sparta"
-                            class="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-700"
+            <header class="text-center mb-16 md:mb-20">
+                <p class="numeral text-5xl mb-2">I</p>
+                <h2 class="blackletter text-5xl md:text-6xl text-ink">Released Games</h2>
+                <div class="ornament max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
+                <p class="label">Professional Body of Work</p>
+            </header>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
+                <!-- God of War: Sons of Sparta -->
+                <article class="folio card-link p-1">
+                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
+                        <img alt="God of War: Sons of Sparta" class="w-full h-full object-contain p-4"
                             src="Images/GoWSoS_Logo.jpg" />
                     </div>
-                    <div class="p-8 pt-0">
-                        <p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">Mega Cat
-                            Studios</p>
-                        <h4
-                            class="serif-headline text-3xl mb-6 group-hover:text-primary transition-colors font-semibold">
-                            God of War: Sons of Sparta</h4>
-                        <p class="text-[10px] font-body font-semibold text-outline uppercase tracking-[0.3em] -mt-4 mb-6">Nov 2024 — Present</p>
-                        <div class="space-y-4 text-sm font-body font-medium">
-                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
-                                <span class="text-outline">Role</span>
-                                <span class="text-white">Game Programmer</span>
+                    <div class="p-7 pt-6">
+                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
+                        <h3 class="font-heading text-3xl font-semibold text-ink leading-tight">God of War: Sons of Sparta</h3>
+                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 &mdash; Present</p>
+                        <dl class="font-body text-[0.98rem]">
+                            <div class="flex justify-between border-b border-ink/20 py-2">
+                                <dt class="text-faded">Role</dt>
+                                <dd class="text-ink">Game Programmer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
-                                <span class="text-outline">Focus</span>
-                                <span class="text-white">Pit of Agonies, AI &amp; Progression</span>
+                            <div class="flex justify-between border-b border-ink/20 py-2">
+                                <dt class="text-faded">Focus</dt>
+                                <dd class="text-ink text-right">Pit of Agonies, AI &amp; Progression</dd>
                             </div>
-                        </div>
+                        </dl>
                     </div>
-                </div>
-                <!-- Quest 02 - Staggered Down -->
-                <div class="group relative expedition-card edge-highlight p-1 h-fit md:mt-32">
-                    <div class="image-stage relative aspect-video overflow-hidden mb-8 bg-background flex items-center justify-center">
-                        <img alt="Backyard Sports"
-                            class="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-700"
-                            src="Images/byb.png" />
+                </article>
+                <!-- Backyard Sports -->
+                <article class="folio card-link p-1 md:mt-12">
+                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
+                        <img alt="Backyard Sports" class="w-full h-full object-contain p-4" src="Images/byb.png" />
                     </div>
-                    <div class="p-8 pt-0">
-                        <p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">Mega Cat
-                            Studios</p>
-                        <h4
-                            class="serif-headline text-3xl mb-6 group-hover:text-primary transition-colors font-semibold">
-                            Backyard Sports</h4>
-                        <p class="text-[10px] font-body font-semibold text-outline uppercase tracking-[0.3em] -mt-4 mb-6">Nov 2024 — Present</p>
-                        <div class="space-y-4 text-sm font-body font-medium">
-                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
-                                <span class="text-outline">Role</span>
-                                <span class="text-white">Game Programmer</span>
+                    <div class="p-7 pt-6">
+                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
+                        <h3 class="font-heading text-3xl font-semibold text-ink leading-tight">Backyard Sports</h3>
+                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 &mdash; Present</p>
+                        <dl class="font-body text-[0.98rem]">
+                            <div class="flex justify-between border-b border-ink/20 py-2">
+                                <dt class="text-faded">Role</dt>
+                                <dd class="text-ink">Game Programmer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
-                                <span class="text-outline">Focus</span>
-                                <span class="text-white">Gameplay Feel &amp; C++ Porting</span>
+                            <div class="flex justify-between border-b border-ink/20 py-2">
+                                <dt class="text-faded">Focus</dt>
+                                <dd class="text-ink text-right">Gameplay Feel &amp; C++ Porting</dd>
                             </div>
-                        </div>
+                        </dl>
                     </div>
-                </div>
-                <!-- Quest 03 - Staggered Further -->
-                <div class="group relative expedition-card edge-highlight p-1 h-fit md:mt-64">
-                    <div class="image-stage relative aspect-video overflow-hidden mb-8 bg-background flex items-center justify-center">
-                        <img alt="Sinai Heroes"
-                            class="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-700"
-                            src="Images/sinaiheroes.jpg" />
+                </article>
+                <!-- Sinai Heroes -->
+                <article class="folio card-link p-1 md:mt-24">
+                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
+                        <img alt="Sinai Heroes" class="w-full h-full object-contain p-4" src="Images/sinaiheroes.jpg" />
                     </div>
-                    <div class="p-8 pt-0">
-                        <p class="text-[11px] font-body font-bold text-primary uppercase tracking-[0.3em] mb-4">
-                            Genesis Creations S.A.E</p>
-                        <h4
-                            class="serif-headline text-3xl mb-6 group-hover:text-primary transition-colors font-semibold">
-                            Sinai Heroes</h4>
-                        <p class="text-[10px] font-body font-semibold text-outline uppercase tracking-[0.3em] -mt-4 mb-6">Aug 2023 — Jul 2024</p>
-                        <div class="space-y-4 text-sm font-body font-medium">
-                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
-                                <span class="text-outline">Role</span>
-                                <span class="text-white">Unity Game Developer</span>
+                    <div class="p-7 pt-6">
+                        <p class="label text-oxblood/90 mb-3">Genesis Creations S.A.E</p>
+                        <h3 class="font-heading text-3xl font-semibold text-ink leading-tight">Sinai Heroes</h3>
+                        <p class="label text-[0.6rem] mt-2 mb-5">Aug 2023 &mdash; Jul 2024</p>
+                        <dl class="font-body text-[0.98rem]">
+                            <div class="flex justify-between border-b border-ink/20 py-2">
+                                <dt class="text-faded">Role</dt>
+                                <dd class="text-ink">Unity Game Developer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-outline-variant/20 pb-3">
-                                <span class="text-outline">Focus</span>
-                                <span class="text-white">Core Systems, Networking &amp; VR</span>
+                            <div class="flex justify-between border-b border-ink/20 py-2">
+                                <dt class="text-faded">Focus</dt>
+                                <dd class="text-ink text-right">Core Systems, Networking &amp; VR</dd>
                             </div>
-                        </div>
+                        </dl>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
-        <!-- Technical Expertise - New Dramatic Layout -->
-        <section id="expertise" class="py-48 px-6 md:px-20 max-w-7xl mx-auto relative overflow-hidden scroll-mt-20">
-            <div class="absolute left-0 top-0 h-full w-px scroll-connector opacity-30 ml-4 lg:ml-0"></div>
-            <div class="flex flex-col lg:flex-row items-start gap-8 mb-32 relative">
-                <div class="hidden lg:block">
-                    <span
-                        class="vertical-text text-primary text-[10px] font-bold tracking-[0.8em] uppercase opacity-50 mt-4">EXPERTISE_02</span>
-                </div>
-                <div class="flex-grow">
-                    <div class="flex items-center gap-6 mb-4">
-                        <span class="serif-headline section-number text-6xl italic font-black">02</span>
-                        <h2 class="serif-headline text-5xl md:text-7xl text-white font-bold leading-none">Technical
-                            Expertise</h2>
-                    </div>
-                    <div class="h-px w-32 bg-primary mb-4"></div>
-                    <p class="text-[11px] font-label font-bold uppercase tracking-[0.4em] text-outline">Advanced
-                        Engineering Systems</p>
-                </div>
+
+        <!-- II. Technical Expertise -->
+        <section id="expertise" class="py-28 md:py-36 px-6 md:px-16 max-w-7xl mx-auto relative scroll-mt-20">
+            <div class="hidden lg:block absolute left-0 top-24">
+                <span class="vertical-text label text-[0.6rem] opacity-70">Liber Secundus</span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div
-                    class="p-8 expedition-card ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary">
-                    <div
-                        class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
-                        <span
-                            class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">code</span>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Mastery</p>
-                        <p class="serif-headline text-2xl font-semibold mb-4 text-white">C++ / C#</p>
-                        <p class="text-xs text-on-surface-variant leading-relaxed opacity-70">Low-level optimization,
-                            memory management, and robust gameplay architecture.</p>
-                    </div>
-                </div>
-                <div
-                    class="p-8 expedition-card ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary lg:mt-16">
-                    <div
-                        class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
-                        <span
-                            class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">view_in_ar</span>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Architect</p>
-                        <p class="serif-headline text-2xl font-semibold mb-4 text-white">Unity Engine</p>
-                        <p class="text-xs text-on-surface-variant leading-relaxed opacity-70">Extensive experience with
-                            optimization, C# API, and tooling pipelines.</p>
-                    </div>
-                </div>
-                <div
-                    class="p-8 expedition-card ghost-border group hover:bg-primary/5 transition-all duration-500 border-t-2 border-t-primary/20 hover:border-t-primary">
-                    <div
-                        class="w-16 h-16 border border-primary/30 flex items-center justify-center rotate-45 group-hover:rotate-90 transition-all duration-700 mb-10 mx-auto">
-                        <span
-                            class="material-symbols-outlined -rotate-45 group-hover:-rotate-90 transition-all text-primary text-3xl">precision_manufacturing</span>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-[11px] text-outline font-bold uppercase tracking-widest mb-2">Efficiency</p>
-                        <p class="serif-headline text-2xl font-semibold mb-4 text-white">Optimization</p>
-                        <p class="text-xs text-on-surface-variant leading-relaxed opacity-70">CPU/GPU profiling,
-                            frame-rate stabilization, and resource loading systems.</p>
-                    </div>
-                </div>
+            <header class="text-center mb-16 md:mb-20">
+                <p class="numeral text-5xl mb-2">II</p>
+                <h2 class="blackletter text-5xl md:text-6xl text-ink">Technical Expertise</h2>
+                <div class="ornament max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
+                <p class="label">Advanced Engineering Systems</p>
+            </header>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <article class="folio p-9 text-center">
+                    <p class="blackletter text-4xl text-oxblood mb-5" aria-hidden="true">&#10070;</p>
+                    <p class="label mb-2">Mastery</p>
+                    <h3 class="font-heading text-2xl font-semibold text-ink mb-4">C++ / C&#35;</h3>
+                    <p class="font-body text-ink-soft text-[0.98rem]">Low-level optimisation, memory management, and robust
+                        gameplay architecture.</p>
+                </article>
+                <article class="folio p-9 text-center md:mt-10">
+                    <p class="blackletter text-4xl text-oxblood mb-5" aria-hidden="true">&#10070;</p>
+                    <p class="label mb-2">Architect</p>
+                    <h3 class="font-heading text-2xl font-semibold text-ink mb-4">Unity Engine</h3>
+                    <p class="font-body text-ink-soft text-[0.98rem]">Extensive experience with optimisation, the C# API,
+                        and tooling pipelines.</p>
+                </article>
+                <article class="folio p-9 text-center">
+                    <p class="blackletter text-4xl text-oxblood mb-5" aria-hidden="true">&#10070;</p>
+                    <p class="label mb-2">Efficiency</p>
+                    <h3 class="font-heading text-2xl font-semibold text-ink mb-4">Optimisation</h3>
+                    <p class="font-body text-ink-soft text-[0.98rem]">CPU/GPU profiling, frame-rate stabilisation, and
+                        resource loading systems.</p>
+                </article>
             </div>
         </section>
-        <!-- Personal Projects - Staggered List -->
-        <section id="labs" class="py-48 px-6 md:px-20 max-w-7xl mx-auto relative scroll-mt-20">
-            <div class="absolute left-0 top-0 h-full w-px scroll-connector opacity-30 ml-4 lg:ml-0"></div>
-            <div class="flex flex-col lg:flex-row items-start gap-8 mb-32 relative">
-                <div class="hidden lg:block">
-                    <span
-                        class="vertical-text text-primary text-[10px] font-bold tracking-[0.8em] uppercase opacity-50 mt-4">LABS_03</span>
-                </div>
-                <div class="flex-grow">
-                    <div class="flex items-center gap-6 mb-4">
-                        <span class="serif-headline section-number text-6xl italic font-black">03</span>
-                        <h2 class="serif-headline text-5xl md:text-7xl text-white font-bold leading-none">Personal Labs
-                        </h2>
-                    </div>
-                    <div class="h-px w-32 bg-primary mb-4"></div>
-                    <p class="text-[11px] font-label font-bold uppercase tracking-[0.4em] text-outline">R&amp;D and
-                        Experiments</p>
-                </div>
+
+        <!-- III. Personal Labs -->
+        <section id="labs" class="py-28 md:py-36 px-6 md:px-16 max-w-7xl mx-auto relative scroll-mt-20">
+            <div class="hidden lg:block absolute left-0 top-24">
+                <span class="vertical-text label text-[0.6rem] opacity-70">Liber Tertius</span>
             </div>
-            <div class="grid grid-cols-1 gap-16 md:gap-32">
-                <div
-                    class="md:w-3/4 expedition-card ghost-border p-10 flex items-center justify-between group hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
-                    <div class="flex gap-8 items-start">
-                        <span class="serif-headline text-4xl text-outline opacity-30 font-bold">01</span>
+            <header class="text-center mb-16 md:mb-20">
+                <p class="numeral text-5xl mb-2">III</p>
+                <h2 class="blackletter text-5xl md:text-6xl text-ink">Personal Labs</h2>
+                <div class="ornament max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
+                <p class="label">Research &amp; Experiments</p>
+            </header>
+            <div class="grid grid-cols-1 gap-10 md:gap-14">
+                <!-- Mystic Sands -->
+                <article class="folio card-link md:w-4/5 p-8 md:p-10 flex items-start justify-between gap-6">
+                    <div class="flex gap-7 items-start">
+                        <span class="numeral text-4xl leading-none">i</span>
                         <div>
-                            <h4 class="serif-headline text-3xl text-white font-semibold mb-3">Mystic Sands</h4>
-                            <p
-                                class="text-lg text-on-surface-variant font-normal italic leading-relaxed opacity-80 max-w-xl">
-                                Narrative-driven adventure (ITI-BelMasry Tech Hackathon, 1st Place). Maze generation via
-                                recursive backtracking, graph-based dialogue &amp; quest systems, and NavMesh-driven NPC
-                                AI.</p>
-                            <div class="flex gap-4 mt-8">
-                                <span
-                                    class="expedition-chip text-[10px] px-3 py-1 uppercase font-bold tracking-widest">Procedural</span>
-                                <span
-                                    class="expedition-chip text-[10px] px-3 py-1 uppercase font-bold tracking-widest">AI</span>
-                                <span
-                                    class="expedition-chip text-[10px] px-3 py-1 uppercase font-bold tracking-widest">Narrative</span>
+                            <h3 class="font-heading text-3xl font-semibold text-ink mb-3">Mystic Sands</h3>
+                            <p class="font-body italic text-ink-soft max-w-2xl">Narrative-driven adventure
+                                (ITI-BelMasry Tech Hackathon, 1st Place). Maze generation via recursive backtracking,
+                                graph-based dialogue &amp; quest systems, and NavMesh-driven NPC AI.</p>
+                            <div class="flex flex-wrap gap-3 mt-6">
+                                <span class="chip label text-[0.58rem] px-3 py-1">Procedural</span>
+                                <span class="chip label text-[0.58rem] px-3 py-1">AI</span>
+                                <span class="chip label text-[0.58rem] px-3 py-1">Narrative</span>
                             </div>
                         </div>
                     </div>
-                    <span
-                        class="material-symbols-outlined text-outline group-hover:text-primary text-4xl hidden md:block">arrow_forward</span>
-                </div>
-                <div
-                    class="md:w-3/4 md:ml-auto expedition-card ghost-border p-10 flex items-center justify-between group hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
-                    <div class="flex gap-8 items-start">
-                        <span class="serif-headline text-4xl text-outline opacity-30 font-bold">02</span>
+                    <span class="text-oxblood text-3xl hidden md:block" aria-hidden="true">&#10148;</span>
+                </article>
+                <!-- FakeOut BOSS -->
+                <article class="folio card-link md:w-4/5 md:ml-auto p-8 md:p-10 flex items-start justify-between gap-6">
+                    <div class="flex gap-7 items-start">
+                        <span class="numeral text-4xl leading-none">ii</span>
                         <div>
-                            <h4 class="serif-headline text-3xl text-white font-semibold mb-3">FakeOut BOSS</h4>
-                            <p
-                                class="text-lg text-on-surface-variant font-normal italic leading-relaxed opacity-80 max-w-xl">
-                                Stealth-comedy simulation (GDA JAM, 1st Place). NPC awareness and gaze systems, adaptive
-                                time dilation, and customizable pathfinding (A*, BFS, DFS).</p>
-                            <div class="flex gap-4 mt-8">
-                                <span
-                                    class="expedition-chip text-[10px] px-3 py-1 uppercase font-bold tracking-widest">Stealth
-                                    AI</span>
-                                <span
-                                    class="expedition-chip text-[10px] px-3 py-1 uppercase font-bold tracking-widest">Pathfinding</span>
+                            <h3 class="font-heading text-3xl font-semibold text-ink mb-3">FakeOut BOSS</h3>
+                            <p class="font-body italic text-ink-soft max-w-2xl">Stealth-comedy simulation (GDA JAM,
+                                1st Place). NPC awareness and gaze systems, adaptive time dilation, and customisable
+                                pathfinding (A*, BFS, DFS).</p>
+                            <div class="flex flex-wrap gap-3 mt-6">
+                                <span class="chip label text-[0.58rem] px-3 py-1">Stealth AI</span>
+                                <span class="chip label text-[0.58rem] px-3 py-1">Pathfinding</span>
                             </div>
                         </div>
                     </div>
-                    <span
-                        class="material-symbols-outlined text-outline group-hover:text-primary text-4xl hidden md:block">arrow_forward</span>
-                </div>
-                <div
-                    class="md:w-3/4 expedition-card ghost-border p-10 flex items-center justify-between group hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
-                    <div class="flex gap-8 items-start">
-                        <span class="serif-headline text-4xl text-outline opacity-30 font-bold">03</span>
+                    <span class="text-oxblood text-3xl hidden md:block" aria-hidden="true">&#10148;</span>
+                </article>
+                <!-- Table For None -->
+                <article class="folio card-link md:w-4/5 p-8 md:p-10 flex items-start justify-between gap-6">
+                    <div class="flex gap-7 items-start">
+                        <span class="numeral text-4xl leading-none">iii</span>
                         <div>
-                            <h4 class="serif-headline text-3xl text-white font-semibold mb-3">Table For None</h4>
-                            <p
-                                class="text-lg text-on-surface-variant font-normal italic leading-relaxed opacity-80 max-w-xl">
-                                Multiplayer detective co-op. Lead programmer (team of 3) — multiplayer via Unity Netcode,
-                                FSM-driven customer AI, and a flexible cooking-actions system.</p>
-                            <div class="flex gap-4 mt-8">
-                                <span
-                                    class="expedition-chip text-[10px] px-3 py-1 uppercase font-bold tracking-widest">Multiplayer</span>
-                                <span
-                                    class="expedition-chip text-[10px] px-3 py-1 uppercase font-bold tracking-widest">Netcode</span>
+                            <h3 class="font-heading text-3xl font-semibold text-ink mb-3">Table For None</h3>
+                            <p class="font-body italic text-ink-soft max-w-2xl">Multiplayer detective co-op. Lead
+                                programmer (team of 3) — multiplayer via Unity Netcode, FSM-driven customer AI, and a
+                                flexible cooking-actions system.</p>
+                            <div class="flex flex-wrap gap-3 mt-6">
+                                <span class="chip label text-[0.58rem] px-3 py-1">Multiplayer</span>
+                                <span class="chip label text-[0.58rem] px-3 py-1">Netcode</span>
                             </div>
                         </div>
                     </div>
-                    <span
-                        class="material-symbols-outlined text-outline group-hover:text-primary text-4xl hidden md:block">arrow_forward</span>
-                </div>
-                <div
-                    class="md:w-3/4 md:ml-auto expedition-card ghost-border p-10 flex items-center justify-between group hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
-                    <div class="flex gap-8 items-start">
-                        <span class="serif-headline text-4xl text-outline opacity-30 font-bold">04</span>
+                    <span class="text-oxblood text-3xl hidden md:block" aria-hidden="true">&#10148;</span>
+                </article>
+                <!-- Dungeon of the Skeletons -->
+                <article class="folio card-link md:w-4/5 md:ml-auto p-8 md:p-10 flex items-start justify-between gap-6">
+                    <div class="flex gap-7 items-start">
+                        <span class="numeral text-4xl leading-none">iv</span>
                         <div>
-                            <h4 class="serif-headline text-3xl text-white font-semibold mb-3">Dungeon of the Skeletons</h4>
-                            <p
-                                class="text-lg text-on-surface-variant font-normal italic leading-relaxed opacity-80 max-w-xl">
-                                2D platformer built in C++ / SFML (team of 6). Collision handling for jump states,
-                                character animation &amp; movement, and patrol/turret enemy behaviors.</p>
-                            <div class="flex gap-4 mt-8">
-                                <span
-                                    class="expedition-chip text-[10px] px-3 py-1 uppercase font-bold tracking-widest">C++ /
-                                    SFML</span>
-                                <span
-                                    class="expedition-chip text-[10px] px-3 py-1 uppercase font-bold tracking-widest">2D
-                                    Platformer</span>
+                            <h3 class="font-heading text-3xl font-semibold text-ink mb-3">Dungeon of the Skeletons</h3>
+                            <p class="font-body italic text-ink-soft max-w-2xl">2D platformer built in C++ / SFML (team
+                                of 6). Collision handling for jump states, character animation &amp; movement, and
+                                patrol/turret enemy behaviours.</p>
+                            <div class="flex flex-wrap gap-3 mt-6">
+                                <span class="chip label text-[0.58rem] px-3 py-1">C++ / SFML</span>
+                                <span class="chip label text-[0.58rem] px-3 py-1">2D Platformer</span>
                             </div>
                         </div>
                     </div>
-                    <span
-                        class="material-symbols-outlined text-outline group-hover:text-primary text-4xl hidden md:block">arrow_forward</span>
-                </div>
+                    <span class="text-oxblood text-3xl hidden md:block" aria-hidden="true">&#10148;</span>
+                </article>
             </div>
         </section>
-        <!-- Final Quote/Status -->
-        <section id="contact" class="text-center py-64 relative overflow-hidden scroll-mt-20">
-            <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
-                <span class="serif-headline text-[40vw] select-none text-primary font-black">AK</span>
+
+        <!-- Colophon / Contact -->
+        <section id="contact" class="relative py-28 md:py-40 px-6 overflow-hidden scroll-mt-20">
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span class="watermark text-[40vw] leading-none">AK</span>
             </div>
-            <div class="quote-shell relative z-10 max-w-4xl mx-auto px-6 py-16 md:px-12">
-                <span class="material-symbols-outlined text-primary text-6xl mb-12 opacity-50">format_quote</span>
-                <blockquote class="serif-headline text-4xl md:text-5xl italic leading-tight text-white font-medium">
-                    "Precision in the shadows is where the most impactful gameplay emerges. Every line of code is a
-                    brushstroke in a player's memory."
+            <div class="folio relative z-10 max-w-3xl mx-auto px-8 py-16 md:px-16 text-center">
+                <p class="blackletter text-6xl text-oxblood leading-none mb-6" aria-hidden="true">&#8220;</p>
+                <blockquote class="font-heading text-3xl md:text-4xl italic leading-snug text-ink">
+                    Precision in the shadows is where the most impactful gameplay emerges. Every line of code is a
+                    brushstroke in a player's memory.
                 </blockquote>
-                <div class="mt-20 flex flex-wrap justify-center gap-12">
-                    <a class="btn-ornate-primary px-12 py-6 text-[12px] font-body font-bold uppercase tracking-[0.2em] hover:brightness-110 transition-all active:scale-95"
-                        href="mailto:ali.mohammed.kassab@gmail.com">Send Dispatch</a>
-                    <a class="btn-ornate-secondary px-12 py-6 text-[12px] font-body font-bold uppercase tracking-[0.2em] hover:bg-white/[0.04] transition-all active:scale-95"
-                        href="#">Download Dossier</a>
+                <div class="ornament max-w-xs mx-auto my-10"><span aria-hidden="true">&#10086;</span></div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a class="btn-seal btn-seal-primary px-10 py-4" href="mailto:ali.mohammed.kassab@gmail.com">Send
+                        Dispatch</a>
+                    <a class="btn-seal btn-seal-secondary px-10 py-4"
+                        href="https://github.com/AliKassab" target="_blank" rel="noopener noreferrer">View the Workshop</a>
                 </div>
             </div>
         </section>
     </main>
-    <!-- Footer -->
-    <footer
-        class="w-full py-20 px-12 flex flex-col items-center gap-10 mt-auto border-t border-outline-variant/20 relative z-10 bg-background">
-        <div class="text-[12px] font-bold text-white tracking-[0.3em] font-body uppercase opacity-80">ALI KASSAB //
-            UNITY GAME DEVELOPER</div>
-        <div class="flex gap-16">
-            <a class="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors"
-                href="mailto:ali.mohammed.kassab@gmail.com">Email</a>
-            <a class="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors"
-                href="https://github.com/AliKassab" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a class="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors"
-                href="https://github.com/AliKassab/AliKassab.github.io" target="_blank" rel="noopener noreferrer">Source Code</a>
+
+    <!-- Footer / Colophon -->
+    <footer class="relative z-10 border-t border-ink/40 bg-parchment-2/60 py-16 px-8 flex flex-col items-center gap-8">
+        <p class="blackletter text-3xl text-ink">Ali Kassab</p>
+        <p class="label text-[0.6rem]">Unity Game Developer</p>
+        <div class="flex flex-wrap justify-center gap-10 label text-[0.62rem]">
+            <a class="nav-link" href="mailto:ali.mohammed.kassab@gmail.com">Email</a>
+            <a class="nav-link" href="https://github.com/AliKassab" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="nav-link" href="https://github.com/AliKassab/AliKassab.github.io" target="_blank"
+                rel="noopener noreferrer">Source Code</a>
         </div>
-        <p class="font-body text-[10px] font-medium uppercase tracking-[0.3em] text-white/30 text-center">© 2026
-            CHIAROSCURO ARCHIVE // DATA ENCRYPTED // TERMINAL ACCESS GRANTED</p>
+        <div class="ornament max-w-[10rem]"><span aria-hidden="true">&#10087;</span></div>
+        <p class="font-body italic text-faded text-sm text-center">Anno Domini MMXXVI &middot; Scriptorium of Ali Kassab
+            &middot; Cairo, Egypt</p>
     </footer>
 </body>
 
