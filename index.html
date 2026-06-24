@@ -262,11 +262,10 @@
             background: #c8a868;
         }
         .plate img {
-            filter: sepia(0.3) saturate(0.85) contrast(1.02);
-            opacity: 0.82;
-            transition: opacity 0.5s ease;
+            opacity: 1;
+            transition: transform 0.5s ease;
         }
-        .group:hover .plate img { opacity: 1; }
+        .group:hover .plate img { transform: scale(1.03); }
 
         /* ── Nav links ── */
         .nav-link {
