@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
         rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
@@ -41,7 +41,7 @@
                         full: "9999px"
                     },
                     fontFamily: {
-                        display: ['"UnifrakturMaguntia"', "serif"],
+                        display: ['"Cinzel Decorative"', "serif"],
                         heading: ['"Cormorant Garamond"', "serif"],
                         body: ['"EB Garamond"', "serif"],
                         label: ['"EB Garamond"', "serif"]
@@ -87,9 +87,16 @@
         }
 
         .blackletter {
-            font-family: 'UnifrakturMaguntia', serif;
-            font-weight: 400;
-            letter-spacing: 0.01em;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .brand {
+            font-family: 'Cinzel Decorative', serif;
+            font-weight: 700;
+            letter-spacing: 0.04em;
         }
 
         .label {
@@ -152,11 +159,11 @@
 
         /* Drop cap (illuminated initial) */
         .drop-cap::first-letter {
-            font-family: 'UnifrakturMaguntia', serif;
+            font-family: 'Cinzel Decorative', serif;
             float: left;
-            font-size: 3.6rem;
-            line-height: 0.78;
-            padding: 0.1rem 0.6rem 0 0;
+            font-size: 3.2rem;
+            line-height: 0.88;
+            padding: 0.05rem 0.55rem 0 0;
             color: #7c2f25;
         }
 
@@ -289,7 +296,7 @@
         }
 
         .watermark {
-            font-family: 'UnifrakturMaguntia', serif;
+            font-family: 'Cinzel Decorative', serif;
             color: rgba(122, 47, 37, 0.06);
             user-select: none;
         }
@@ -299,7 +306,7 @@
 <body class="relative">
     <!-- TopNavBar -->
     <nav class="flex justify-between items-center px-6 md:px-10 h-16 w-full fixed top-0 z-50 bg-parchment/90 backdrop-blur-sm border-b border-ink/40">
-        <a href="#top" class="blackletter text-3xl text-ink leading-none">Ali Kassab</a>
+        <a href="#top" class="brand text-xl text-ink leading-none">Ali Kassab</a>
         <div class="hidden md:flex gap-10 label text-[0.66rem]">
             <a class="nav-link active" href="#work">Work</a>
             <a class="nav-link" href="#expertise">Expertise</a>
@@ -316,7 +323,7 @@
                 <!-- Title block -->
                 <header class="text-center mb-14">
                     <p class="label mb-5">Portfolio &amp; Chronicle of Works</p>
-                    <h1 class="blackletter text-6xl md:text-8xl text-ink leading-[0.95]">Ali Kassab</h1>
+                    <h1 class="brand text-4xl md:text-6xl text-ink leading-tight">Ali Kassab</h1>
                     <div class="ornament max-w-md mx-auto my-7"><span aria-hidden="true">&#10086;</span></div>
                     <p class="font-heading text-2xl md:text-3xl italic text-oxblood">Unity Game Developer</p>
                     <p class="label mt-3">Cairo, Egypt</p>
@@ -557,7 +564,7 @@
                 <span class="watermark text-[40vw] leading-none">AK</span>
             </div>
             <div class="folio relative z-10 max-w-3xl mx-auto px-8 py-16 md:px-16 text-center">
-                <p class="blackletter text-6xl text-oxblood leading-none mb-6" aria-hidden="true">&#8220;</p>
+                <p class="font-heading text-8xl text-oxblood leading-none mb-2 opacity-60" aria-hidden="true">&#8220;</p>
                 <blockquote class="font-heading text-3xl md:text-4xl italic leading-snug text-ink">
                     Precision in the shadows is where the most impactful gameplay emerges. Every line of code is a
                     brushstroke in a player's memory.
@@ -575,7 +582,7 @@
 
     <!-- Footer / Colophon -->
     <footer class="relative z-10 border-t border-ink/40 bg-parchment-2/60 py-16 px-8 flex flex-col items-center gap-8">
-        <p class="blackletter text-3xl text-ink">Ali Kassab</p>
+        <p class="brand text-2xl text-ink">Ali Kassab</p>
         <p class="label text-[0.6rem]">Unity Game Developer</p>
         <div class="flex flex-wrap justify-center gap-10 label text-[0.62rem]">
             <a class="nav-link" href="mailto:ali.mohammed.kassab@gmail.com">Email</a>
