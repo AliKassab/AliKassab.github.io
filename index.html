@@ -25,14 +25,14 @@
                 extend: {
                     colors: {
                         parchment: "#e8ddc4",
-                        "parchment-2": "#e1d4b6",
+                        "parchment-2": "#1a1510",
                         "parchment-3": "#d8c9a6",
-                        ink: "#2b2117",
-                        "ink-soft": "#5a4a35",
-                        faded: "#7c6a4d",
-                        oxblood: "#7c2f25",
-                        gold: "#9a7a35",
-                        "gold-bright": "#b08d3c"
+                        ink: "#e0d4bc",
+                        "ink-soft": "#c4b89a",
+                        faded: "#8a7860",
+                        oxblood: "#c0483a",
+                        gold: "#b08d3c",
+                        "gold-bright": "#cca84e"
                     },
                     borderRadius: {
                         DEFAULT: "0px",
@@ -56,28 +56,27 @@
         }
 
         body {
-            background-color: #e8ddc4;
+            background-color: #100d09;
             background-image:
-                radial-gradient(120% 80% at 50% -10%, rgba(255, 251, 240, 0.55), transparent 60%),
-                radial-gradient(90% 70% at 100% 100%, rgba(96, 70, 38, 0.16), transparent 55%),
-                radial-gradient(90% 70% at 0% 100%, rgba(96, 70, 38, 0.14), transparent 55%),
-                radial-gradient(140% 120% at 50% 50%, transparent 55%, rgba(54, 40, 22, 0.18));
-            color: #2b2117;
+                radial-gradient(110% 60% at 50% 0%, rgba(60, 40, 18, 0.7), transparent 55%),
+                radial-gradient(80% 50% at 100% 100%, rgba(80, 30, 18, 0.18), transparent 55%),
+                radial-gradient(80% 50% at 0% 100%, rgba(60, 40, 18, 0.14), transparent 55%);
+            color: #e0d4bc;
             font-family: 'EB Garamond', serif;
             font-size: 1.05rem;
             line-height: 1.75;
             overflow-x: hidden;
         }
 
-        /* Faint parchment fibre */
+        /* Faint grain texture */
         body::after {
             content: "";
             position: fixed;
             inset: 0;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.05;
-            mix-blend-mode: multiply;
+            opacity: 0.12;
+            mix-blend-mode: screen;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
@@ -105,31 +104,30 @@
             letter-spacing: 0.34em;
             font-weight: 600;
             font-size: 0.7rem;
-            color: #7c6a4d;
+            color: #8a7860;
         }
 
         /* Manuscript folio panel with inset rule */
         .folio {
             position: relative;
-            background:
-                linear-gradient(180deg, rgba(255, 252, 244, 0.5), rgba(216, 201, 166, 0.18));
-            border: 1px solid rgba(43, 33, 23, 0.55);
-            box-shadow: 0 2px 0 rgba(43, 33, 23, 0.12);
+            background: linear-gradient(180deg, rgba(38, 28, 18, 0.9), rgba(22, 16, 10, 0.85));
+            border: 1px solid rgba(176, 141, 60, 0.3);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
         }
 
         .folio::before {
             content: "";
             position: absolute;
             inset: 5px;
-            border: 1px solid rgba(122, 47, 37, 0.28);
+            border: 1px solid rgba(192, 72, 58, 0.2);
             pointer-events: none;
         }
 
         /* Page frame around the hero */
         .manuscript-frame {
             position: relative;
-            border: 1.5px solid rgba(43, 33, 23, 0.6);
-            box-shadow: inset 0 0 0 5px rgba(232, 221, 196, 0.6), inset 0 0 0 6px rgba(122, 47, 37, 0.3);
+            border: 1.5px solid rgba(176, 141, 60, 0.45);
+            box-shadow: inset 0 0 0 5px rgba(16, 13, 9, 0.7), inset 0 0 0 6px rgba(176, 141, 60, 0.2);
         }
 
         .manuscript-frame::before,
@@ -137,7 +135,7 @@
             content: "\271C";
             position: absolute;
             font-size: 1.25rem;
-            color: #7c2f25;
+            color: #c0483a;
             line-height: 1;
         }
 
@@ -145,7 +143,7 @@
             top: -0.7rem;
             left: 50%;
             transform: translateX(-50%);
-            background: #e8ddc4;
+            background: #100d09;
             padding: 0 0.6rem;
         }
 
@@ -153,7 +151,7 @@
             bottom: -0.7rem;
             left: 50%;
             transform: translateX(-50%);
-            background: #e8ddc4;
+            background: #100d09;
             padding: 0 0.6rem;
         }
 
@@ -164,7 +162,7 @@
             font-size: 3.2rem;
             line-height: 0.88;
             padding: 0.05rem 0.55rem 0 0;
-            color: #7c2f25;
+            color: #c0483a;
         }
 
         /* Ornamental divider: line — fleuron — line */
@@ -172,7 +170,6 @@
             display: flex;
             align-items: center;
             gap: 0.9rem;
-            color: #9a7a35;
         }
 
         .ornament::before,
@@ -180,17 +177,17 @@
             content: "";
             height: 1px;
             flex: 1;
-            background: linear-gradient(90deg, transparent, rgba(43, 33, 23, 0.5), transparent);
+            background: linear-gradient(90deg, transparent, rgba(176, 141, 60, 0.5), transparent);
         }
 
         .ornament span {
             font-size: 1.1rem;
-            color: #7c2f25;
+            color: #c0483a;
         }
 
         .numeral {
             font-family: 'Cormorant Garamond', serif;
-            color: rgba(122, 47, 37, 0.85);
+            color: rgba(192, 72, 58, 0.8);
             font-weight: 600;
         }
 
@@ -203,34 +200,40 @@
 
         .leader .dots {
             flex: 1;
-            border-bottom: 1px dotted rgba(43, 33, 23, 0.45);
+            border-bottom: 1px dotted rgba(176, 141, 60, 0.35);
             transform: translateY(-0.25rem);
         }
 
         .plate {
-            border: 1px solid rgba(43, 33, 23, 0.5);
+            border: 1px solid rgba(176, 141, 60, 0.25);
             background:
-                radial-gradient(circle at center, rgba(255, 252, 244, 0.6), rgba(216, 201, 166, 0.25)),
-                #ded0b0;
+                radial-gradient(circle at center, rgba(40, 30, 18, 0.8), rgba(18, 14, 9, 0.9)),
+                #1a140e;
         }
 
         .plate img {
-            filter: sepia(0.32) saturate(0.85) contrast(0.96);
-            mix-blend-mode: multiply;
+            filter: sepia(0.2) saturate(0.9) contrast(1.05);
+            mix-blend-mode: normal;
+            opacity: 0.85;
+            transition: opacity 0.5s ease;
+        }
+
+        .group:hover .plate img {
+            opacity: 1;
         }
 
         .nav-link {
             position: relative;
-            color: #5a4a35;
+            color: #8a7860;
             transition: color 0.25s ease;
         }
 
         .nav-link:hover {
-            color: #7c2f25;
+            color: #c0483a;
         }
 
         .nav-link.active {
-            color: #2b2117;
+            color: #e0d4bc;
         }
 
         .nav-link.active::after {
@@ -240,13 +243,13 @@
             right: 0;
             bottom: -0.4rem;
             height: 1px;
-            background: #7c2f25;
+            background: #c0483a;
         }
 
         .chip {
-            border: 1px solid rgba(43, 33, 23, 0.4);
-            color: #5a4a35;
-            background: rgba(255, 252, 244, 0.35);
+            border: 1px solid rgba(176, 141, 60, 0.3);
+            color: #8a7860;
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .btn-seal {
@@ -260,25 +263,25 @@
         }
 
         .btn-seal-primary {
-            background: #2b2117;
-            color: #ece3cf;
-            border: 1px solid #2b2117;
+            background: #c0483a;
+            color: #f0e6d0;
+            border: 1px solid #c0483a;
         }
 
         .btn-seal-primary:hover {
-            background: #7c2f25;
-            border-color: #7c2f25;
+            background: #a03d31;
+            border-color: #a03d31;
         }
 
         .btn-seal-secondary {
             background: transparent;
-            color: #2b2117;
-            border: 1px solid rgba(43, 33, 23, 0.6);
+            color: #e0d4bc;
+            border: 1px solid rgba(176, 141, 60, 0.4);
         }
 
         .btn-seal-secondary:hover {
-            background: rgba(43, 33, 23, 0.06);
-            border-color: #2b2117;
+            background: rgba(176, 141, 60, 0.07);
+            border-color: rgba(176, 141, 60, 0.6);
         }
 
         .vertical-text {
@@ -297,7 +300,7 @@
 
         .watermark {
             font-family: 'Cinzel Decorative', serif;
-            color: rgba(122, 47, 37, 0.06);
+            color: rgba(176, 141, 60, 0.05);
             user-select: none;
         }
     </style>
@@ -305,7 +308,7 @@
 
 <body class="relative">
     <!-- TopNavBar -->
-    <nav class="flex justify-between items-center px-6 md:px-10 h-16 w-full fixed top-0 z-50 bg-parchment/90 backdrop-blur-sm border-b border-ink/40">
+    <nav class="flex justify-between items-center px-6 md:px-10 h-16 w-full fixed top-0 z-50 bg-[#0c0906]/95 backdrop-blur-sm border-b border-[#b08d3c]/25">
         <a href="#top" class="brand text-xl text-ink leading-none">Ali Kassab</a>
         <div class="hidden md:flex gap-10 label text-[0.66rem]">
             <a class="nav-link active" href="#work">Work</a>
@@ -581,7 +584,7 @@
     </main>
 
     <!-- Footer / Colophon -->
-    <footer class="relative z-10 border-t border-ink/40 bg-parchment-2/60 py-16 px-8 flex flex-col items-center gap-8">
+    <footer class="relative z-10 border-t border-[#b08d3c]/20 bg-[#0a0806] py-16 px-8 flex flex-col items-center gap-8">
         <p class="brand text-2xl text-ink">Ali Kassab</p>
         <p class="label text-[0.6rem]">Unity Game Developer</p>
         <div class="flex flex-wrap justify-center gap-10 label text-[0.62rem]">
