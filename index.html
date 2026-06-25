@@ -837,6 +837,31 @@
         <div class="ornament ornament-dark max-w-[10rem]"><span aria-hidden="true">&#10087;</span></div>
         <p class="font-body italic text-[#7a6438] text-sm text-center">&copy; 2026 Ali Kassab &middot; Cairo, Egypt</p>
     </footer>
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = ['work', 'expertise', 'labs', 'contact'].map(id => document.getElementById(id));
+
+        function setActive(id) {
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActive(entry.target.id);
+            });
+        }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(s => s && observer.observe(s));
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const id = link.getAttribute('href').slice(1);
+                setActive(id);
+            });
+        });
+    </script>
 </body>
 
 </html>
