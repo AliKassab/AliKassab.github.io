@@ -284,12 +284,6 @@
             background: #9a7c32;
         }
 
-        /* ── Horizontal scroll snap (mobile) ── */
-        .h-scroll { scrollbar-width: none; -ms-overflow-style: none; }
-        .h-scroll::-webkit-scrollbar { display: none; }
-        @media (max-width: 767px) {
-            .h-scroll .plate { aspect-ratio: auto; height: 9rem; }
-        }
 
         /* ── Chips ── */
         .chip {
@@ -413,9 +407,9 @@
                 <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
                 <p class="label">Professional Work</p>
             </header>
-            <div class="h-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 -mx-6 px-6 pb-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-3 md:gap-10 lg:gap-12">
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-6 px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-3 md:gap-10 lg:gap-12">
                 <!-- God of War: Sons of Sparta -->
-                <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[64vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
+                <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[52vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img alt="God of War: Sons of Sparta" class="w-full h-full object-contain p-4"
                             src="Images/GoWSoS_Logo.jpg" />
@@ -441,7 +435,7 @@
                     </div>
                 </a>
                 <!-- Sinai Heroes -->
-                <a href="https://www.sinaiheroes.com" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[64vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
+                <a href="https://www.sinaiheroes.com" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[52vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img alt="Sinai Heroes" class="w-full h-full object-contain p-4" src="Images/sinaiheroes.jpg" />
                     </div>
@@ -466,7 +460,7 @@
                     </div>
                 </a>
                 <!-- Backyard Baseball 2026 -->
-                <a href="https://store.steampowered.com/app/3935020/Backyard_Baseball/" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[64vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
+                <a href="https://store.steampowered.com/app/3935020/Backyard_Baseball/" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[52vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img alt="Backyard Baseball 2026" class="w-full h-full object-cover" src="Images/backyard-baseball-2026.jpg" />
                     </div>
@@ -493,7 +487,7 @@
                     </div>
                 </a>
                 <!-- Maximum Apocalypse -->
-                <a href="https://store.steampowered.com/app/2434310/Maximum_Apocalypse/" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[64vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
+                <a href="https://store.steampowered.com/app/2434310/Maximum_Apocalypse/" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[52vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img alt="Maximum Apocalypse" class="w-full h-full object-cover" src="Images/maximum-apocalypse.jpg" />
                     </div>
@@ -518,7 +512,7 @@
                     </div>
                 </a>
                 <!-- Backyard Soccer '98 -->
-                <a href="https://www.backyardsports.com/games/soccer98" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[64vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
+                <a href="https://www.backyardsports.com/games/soccer98" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[52vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img alt="Backyard Soccer '98" class="w-full h-full object-cover" src="Images/backyard-soccer-98.jpg" />
                     </div>
@@ -544,7 +538,7 @@
                     </div>
                 </a>
                 <!-- Backyard Baseball '97 -->
-                <a href="https://www.backyardsports.com/games/baseball97" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[64vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
+                <a href="https://www.backyardsports.com/games/baseball97" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[52vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img alt="Backyard Baseball '97" class="w-full h-full object-cover" src="Images/backyard-baseball-97.jpg" />
                     </div>
@@ -570,7 +564,7 @@
                     </div>
                 </a>
                 <!-- Backyard Baseball '01 -->
-                <a href="https://www.backyardsports.com/games/baseball01" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[64vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
+                <a href="https://www.backyardsports.com/games/baseball01" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[52vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img alt="Backyard Baseball '01" class="w-full h-full object-cover" src="Images/backyard-baseball-01.jpg" />
                     </div>
@@ -596,7 +590,7 @@
                     </div>
                 </a>
                 <!-- Backyard Basketball '01 -->
-                <a href="https://www.backyardsports.com/games/basketball01" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[64vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
+                <a href="https://www.backyardsports.com/games/basketball01" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[52vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img alt="Backyard Basketball '01" class="w-full h-full object-cover" src="Images/backyard-basketball-01.jpg" />
                     </div>
@@ -622,7 +616,7 @@
                     </div>
                 </a>
                 <!-- Backyard Football '99 -->
-                <a href="https://www.backyardsports.com/games/football99" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[64vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
+                <a href="https://www.backyardsports.com/games/football99" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-[52vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img alt="Backyard Football '99" class="w-full h-full object-cover" src="Images/backyard-football-99.jpg" />
                     </div>
@@ -738,9 +732,9 @@
                 <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
                 <p class="label">Personal Projects</p>
             </header>
-            <div class="h-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 -mx-6 px-6 pb-4 md:mx-0 md:px-0 md:grid md:grid-cols-1 md:overflow-visible md:gap-14">
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-6 px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:grid md:grid-cols-1 md:overflow-visible md:gap-14">
                 <!-- Mystic Sands -->
-                <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener noreferrer" class="notice card-link min-w-[72vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink md:w-4/5 p-8 md:p-10 flex items-start justify-between gap-6 block">
+                <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener noreferrer" class="notice card-link min-w-[60vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink md:w-4/5 p-8 md:p-10 flex items-start justify-between gap-6 block">
                     <div class="flex gap-7 items-start">
                         <span class="numeral text-4xl leading-none">i</span>
                         <div>
@@ -758,7 +752,7 @@
                     <span class="text-oxblood text-3xl hidden md:block" aria-hidden="true">&#10148;</span>
                 </a>
                 <!-- FakeOut BOSS -->
-                <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener noreferrer" class="notice card-link min-w-[72vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
+                <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener noreferrer" class="notice card-link min-w-[60vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
                         <img src="Images/fakeout-boss.gif" alt="FakeOut BOSS gameplay" class="w-full h-full object-cover" />
                     </div>
@@ -780,7 +774,7 @@
                     </div>
                 </a>
                 <!-- Table For None -->
-                <a href="https://youtu.be/9nGm4p8mKxk?si=D745AnGGadAqQOpV" target="_blank" rel="noopener noreferrer" class="notice card-link min-w-[72vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink md:w-4/5 block overflow-hidden">
+                <a href="https://youtu.be/9nGm4p8mKxk?si=D745AnGGadAqQOpV" target="_blank" rel="noopener noreferrer" class="notice card-link min-w-[60vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink md:w-4/5 block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
                         <img src="Images/table-for-none.gif" alt="Table For None gameplay" class="w-full h-full object-cover" />
                     </div>
@@ -802,7 +796,7 @@
                     </div>
                 </a>
                 <!-- Dungeon of the Skeletons -->
-                <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank" rel="noopener noreferrer" class="notice card-link min-w-[72vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
+                <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank" rel="noopener noreferrer" class="notice card-link min-w-[60vw] flex-shrink-0 snap-center md:min-w-0 md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
                         <img src="Images/dungeon.gif" alt="Dungeon Of The Skeletons gameplay" class="w-full h-full object-cover" />
                     </div>
