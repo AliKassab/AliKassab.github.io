@@ -287,6 +287,9 @@
         /* ── Horizontal scroll snap (mobile) ── */
         .h-scroll { scrollbar-width: none; -ms-overflow-style: none; }
         .h-scroll::-webkit-scrollbar { display: none; }
+        @media (max-width: 767px) {
+            .h-scroll .plate { aspect-ratio: auto; height: 9rem; }
+        }
 
         /* ── Chips ── */
         .chip {
