@@ -285,6 +285,12 @@
         }
 
 
+        /* ── Mobile swipe carousel: keep whole card within one screen ── */
+        @media (max-width: 767px) {
+            .card-scroll .plate { aspect-ratio: auto; height: 30vh; max-height: 220px; }
+            .card-scroll .plate img.object-contain { padding: 1.25rem; }
+        }
+
         /* ── Chips ── */
         .chip {
             border: 1px solid rgba(20,12,4,0.28);
@@ -407,7 +413,7 @@
                 <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
                 <p class="label">Professional Work</p>
             </header>
-            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 -mx-6 px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-3 md:gap-10 lg:gap-12">
+            <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 -mx-6 px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-3 md:gap-10 lg:gap-12">
                 <!-- God of War: Sons of Sparta -->
                 <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank" rel="noopener noreferrer" class="notice card-link p-1 block min-w-full flex-shrink-0 snap-center md:min-w-0 md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
@@ -732,7 +738,7 @@
                 <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
                 <p class="label">Personal Projects</p>
             </header>
-            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 -mx-6 px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:block md:space-y-14 md:overflow-visible">
+            <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 -mx-6 px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:block md:space-y-14 md:overflow-visible">
                 <!-- Mystic Sands -->
                 <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener noreferrer" class="notice card-link min-w-full flex-shrink-0 snap-center md:min-w-0 md:flex-shrink md:w-4/5 p-8 md:p-10 flex items-start justify-between gap-6 block">
                     <div class="flex gap-7 items-start">
