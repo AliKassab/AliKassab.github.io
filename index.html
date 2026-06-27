@@ -427,6 +427,37 @@
             background: rgba(20, 12, 4, 0.06);
         }
 
+        /* ── In-card CTA button ── */
+        .btn-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-weight: 600;
+            font-size: 0.62rem;
+            padding: 0.6rem 1.4rem;
+            color: #7a2818;
+            border: 1px solid rgba(122, 40, 24, 0.55);
+            background: rgba(122, 40, 24, 0.05);
+            transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+        }
+
+        .btn-card:hover {
+            background: #7a2818;
+            color: #f4ead6;
+            transform: translateY(-2px);
+        }
+
+        .btn-card span {
+            transition: transform 0.25s ease;
+        }
+
+        .btn-card:hover span {
+            transform: translateX(3px);
+        }
+
         /* ── Misc ── */
         .vertical-text {
             writing-mode: vertical-rl;
@@ -551,9 +582,7 @@
             </header>
             <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-3 md:gap-10 lg:gap-12">
                 <!-- God of War: Sons of Sparta -->
-                <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank"
-                    rel="noopener noreferrer"
-                    class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
+                <article class="notice p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" alt="God of War: Sons of Sparta" class="w-full h-full object-contain p-4"
                             src="Images/GoWSoS_Logo.jpg" />
@@ -577,11 +606,11 @@
                             <span class="chip label text-[0.55rem] px-2.5 py-1">PS4</span>
                             <span class="chip label text-[0.55rem] px-2.5 py-1">PS5</span>
                         </div>
+                        <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">View on PlayStation <span aria-hidden="true">&#10148;</span></a>
                     </div>
-                </a>
+                </article>
                 <!-- Sinai Heroes -->
-                <a href="https://www.sinaiheroes.com" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
+                <article class="notice p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" alt="Sinai Heroes" class="w-full h-full object-contain p-4" src="Images/sinaiheroes.jpg" />
                     </div>
@@ -603,12 +632,11 @@
                             <span class="chip label text-[0.55rem] px-2.5 py-1">Android</span>
                             <span class="chip label text-[0.55rem] px-2.5 py-1">iOS</span>
                         </div>
+                        <a href="https://www.sinaiheroes.com" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
                     </div>
-                </a>
+                </article>
                 <!-- Backyard Baseball 2026 -->
-                <a href="https://store.steampowered.com/app/3935020/Backyard_Baseball/" target="_blank"
-                    rel="noopener noreferrer"
-                    class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
+                <article class="notice p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" alt="Backyard Baseball 2026" class="w-full h-full object-cover" src="Images/backyard-baseball-2026.jpg" />
                     </div>
@@ -633,12 +661,11 @@
                             <span class="chip label text-[0.55rem] px-2.5 py-1">PlayStation</span>
                             <span class="chip label text-[0.55rem] px-2.5 py-1">Xbox</span>
                         </div>
+                        <a href="https://store.steampowered.com/app/3935020/Backyard_Baseball/" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">View on Steam <span aria-hidden="true">&#10148;</span></a>
                     </div>
-                </a>
+                </article>
                 <!-- Maximum Apocalypse -->
-                <a href="https://store.steampowered.com/app/2434310/Maximum_Apocalypse/" target="_blank"
-                    rel="noopener noreferrer"
-                    class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
+                <article class="notice p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" alt="Maximum Apocalypse" class="w-full h-full object-cover" src="Images/maximum-apocalypse.jpg" />
                     </div>
@@ -661,11 +688,11 @@
                             <span class="chip label text-[0.55rem] px-2.5 py-1">PC</span>
                             <span class="chip label text-[0.55rem] px-2.5 py-1">Steam Deck</span>
                         </div>
+                        <a href="https://store.steampowered.com/app/2434310/Maximum_Apocalypse/" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">View on Steam <span aria-hidden="true">&#10148;</span></a>
                     </div>
-                </a>
+                </article>
                 <!-- Backyard Soccer '98 -->
-                <a href="https://www.backyardsports.com/games/soccer98" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
+                <article class="notice p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" alt="Backyard Soccer '98" class="w-full h-full object-cover" src="Images/backyard-soccer-98.jpg" />
                     </div>
@@ -689,11 +716,11 @@
                             <span class="chip label text-[0.55rem] px-2.5 py-1">Nintendo</span>
                             <span class="chip label text-[0.55rem] px-2.5 py-1">iOS</span>
                         </div>
+                        <a href="https://www.backyardsports.com/games/soccer98" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
                     </div>
-                </a>
+                </article>
                 <!-- Backyard Baseball '97 -->
-                <a href="https://www.backyardsports.com/games/baseball97" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
+                <article class="notice p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" alt="Backyard Baseball '97" class="w-full h-full object-cover" src="Images/backyard-baseball-97.jpg" />
                     </div>
@@ -717,11 +744,11 @@
                             <span class="chip label text-[0.55rem] px-2.5 py-1">Nintendo</span>
                             <span class="chip label text-[0.55rem] px-2.5 py-1">iOS</span>
                         </div>
+                        <a href="https://www.backyardsports.com/games/baseball97" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
                     </div>
-                </a>
+                </article>
                 <!-- Backyard Baseball '01 -->
-                <a href="https://www.backyardsports.com/games/baseball01" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
+                <article class="notice p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" alt="Backyard Baseball '01" class="w-full h-full object-cover" src="Images/backyard-baseball-01.jpg" />
                     </div>
@@ -745,11 +772,11 @@
                             <span class="chip label text-[0.55rem] px-2.5 py-1">Nintendo</span>
                             <span class="chip label text-[0.55rem] px-2.5 py-1">iOS</span>
                         </div>
+                        <a href="https://www.backyardsports.com/games/baseball01" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
                     </div>
-                </a>
+                </article>
                 <!-- Backyard Basketball '01 -->
-                <a href="https://www.backyardsports.com/games/basketball01" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
+                <article class="notice p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" alt="Backyard Basketball '01" class="w-full h-full object-cover" src="Images/backyard-basketball-01.jpg" />
                     </div>
@@ -773,11 +800,11 @@
                             <span class="chip label text-[0.55rem] px-2.5 py-1">Nintendo</span>
                             <span class="chip label text-[0.55rem] px-2.5 py-1">iOS</span>
                         </div>
+                        <a href="https://www.backyardsports.com/games/basketball01" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
                     </div>
-                </a>
+                </article>
                 <!-- Backyard Football '99 -->
-                <a href="https://www.backyardsports.com/games/football99" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
+                <article class="notice p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" alt="Backyard Football '99" class="w-full h-full object-cover" src="Images/backyard-football-99.jpg" />
                     </div>
@@ -801,8 +828,9 @@
                             <span class="chip label text-[0.55rem] px-2.5 py-1">Nintendo</span>
                             <span class="chip label text-[0.55rem] px-2.5 py-1">iOS</span>
                         </div>
+                        <a href="https://www.backyardsports.com/games/football99" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
                     </div>
-                </a>
+                </article>
             </div>
         </section>
 
@@ -896,10 +924,9 @@
             </header>
             <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:block md:space-y-14 md:overflow-visible">
                 <!-- Mystic Sands -->
-                <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
+                <article class="notice min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
-                        <img src="Images/mysticsands.gif" alt="Mystic Sands gameplay"
+                        <img loading="lazy" decoding="async" src="Images/mysticsands.gif" alt="Mystic Sands gameplay"
                             class="w-full h-full object-cover" />
                     </div>
                     <div class="p-8 md:p-10 flex items-start justify-between gap-6">
@@ -916,14 +943,13 @@
                                     <span class="chip label text-[0.58rem] px-3 py-1">AI</span>
                                     <span class="chip label text-[0.58rem] px-3 py-1">Narrative</span>
                                 </div>
+                                <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check the Repo <span aria-hidden="true">&#10148;</span></a>
                             </div>
                         </div>
                     </div>
-                    <span class="text-oxblood text-3xl hidden md:block" aria-hidden="true">&#10148;</span>
-                </a>
+                </article>
                 <!-- FakeOut BOSS -->
-                <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 block overflow-hidden">
+                <article class="notice min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" src="Images/fakeout-boss.gif" alt="FakeOut BOSS gameplay" class="w-full h-full object-cover" />
                     </div>
@@ -939,14 +965,13 @@
                                     <span class="chip label text-[0.58rem] px-3 py-1">Stealth AI</span>
                                     <span class="chip label text-[0.58rem] px-3 py-1">Pathfinding</span>
                                 </div>
+                                <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check the Repo <span aria-hidden="true">&#10148;</span></a>
                             </div>
                         </div>
-                        <span class="text-oxblood text-3xl hidden md:block" aria-hidden="true">&#10148;</span>
                     </div>
-                </a>
+                </article>
                 <!-- Table For None -->
-                <a href="https://youtu.be/9nGm4p8mKxk?si=D745AnGGadAqQOpV" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
+                <article class="notice min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" src="Images/table-for-none.gif" alt="Table For None gameplay" class="w-full h-full object-cover" />
                     </div>
@@ -963,14 +988,13 @@
                                     <span class="chip label text-[0.58rem] px-3 py-1">Multiplayer</span>
                                     <span class="chip label text-[0.58rem] px-3 py-1">Netcode</span>
                                 </div>
+                                <a href="https://youtu.be/9nGm4p8mKxk?si=D745AnGGadAqQOpV" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Watch the Trailer <span aria-hidden="true">&#10148;</span></a>
                             </div>
                         </div>
-                        <span class="text-oxblood text-3xl hidden md:block" aria-hidden="true">&#10148;</span>
                     </div>
-                </a>
+                </article>
                 <!-- Dungeon of the Skeletons -->
-                <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank" rel="noopener noreferrer"
-                    class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 block overflow-hidden">
+                <article class="notice min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
                         <img loading="lazy" decoding="async" src="Images/dungeon.gif" alt="Dungeon Of The Skeletons gameplay" class="w-full h-full object-cover" />
                     </div>
@@ -988,11 +1012,11 @@
                                     <span class="chip label text-[0.58rem] px-3 py-1">C++ / SFML</span>
                                     <span class="chip label text-[0.58rem] px-3 py-1">2D Platformer</span>
                                 </div>
+                                <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check the Repo <span aria-hidden="true">&#10148;</span></a>
                             </div>
                         </div>
-                        <span class="text-oxblood text-3xl hidden md:block" aria-hidden="true">&#10148;</span>
                     </div>
-                </a>
+                </article>
             </div>
         </section>
 
