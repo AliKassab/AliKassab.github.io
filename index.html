@@ -369,6 +369,19 @@
         .to-top.show { opacity: 1; pointer-events: auto; }
         .to-top:hover { transform: translateY(-3px); }
 
+        /* ── Desktop-only warning toast ── */
+        #mobile-warning {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+        #mobile-warning.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             .reveal { opacity: 1; transform: none; transition: none; }
@@ -984,7 +997,7 @@
                                     <span class="chip label text-[0.58rem] px-3 py-1">Pathfinding</span>
                                 </div>
                                 <div class="flex flex-wrap gap-3 mt-6">
-                                    <a href="https://alikassab.dev/FakeOutBoss/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary">Play the Game <span aria-hidden="true">&#10148;</span></a>
+                                    <a href="https://alikassab.dev/FakeOutBoss/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary" data-desktop-only>Play the Game <span aria-hidden="true">&#10148;</span></a>
                                     <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener noreferrer" class="btn-card">Check the Repo <span aria-hidden="true">&#10148;</span></a>
                                 </div>
                             </div>
@@ -1034,7 +1047,7 @@
                                     <span class="chip label text-[0.58rem] px-3 py-1">2D Platformer</span>
                                 </div>
                                 <div class="flex flex-wrap gap-3 mt-6">
-                                    <a href="https://alikassab.dev/DungeonOfTheSkeletons/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary">Play the Game <span aria-hidden="true">&#10148;</span></a>
+                                    <a href="https://alikassab.dev/DungeonOfTheSkeletons/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary" data-desktop-only>Play the Game <span aria-hidden="true">&#10148;</span></a>
                                     <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank" rel="noopener noreferrer" class="btn-card">Check the Repo <span aria-hidden="true">&#10148;</span></a>
                                 </div>
                             </div>
@@ -1069,6 +1082,16 @@
     <button id="to-top"
         class="to-top fixed bottom-6 right-6 z-40 w-12 h-12 flex items-center justify-center bg-[#7a2818] text-[#f4ead6] border border-[#9a7c32]/50 text-xl shadow-[0_6px_24px_rgba(0,0,0,0.55)] hover:bg-[#601e12]"
         aria-label="Back to top">&#8593;</button>
+
+    <!-- Desktop-only warning toast -->
+    <div id="mobile-warning" role="alert" aria-live="assertive"
+        class="fixed inset-x-0 bottom-6 z-[60] flex justify-center px-4 pointer-events-none">
+        <div class="notice max-w-sm px-7 py-5 text-center pointer-events-auto">
+            <p class="label text-oxblood mb-2">Hold On, Traveller</p>
+            <p class="font-body text-ink text-[0.96rem] leading-snug">The playable build runs on desktop only. Open this
+                page on a computer to play &mdash; or check the repo to browse the source.</p>
+        </div>
+    </div>
 
     <!-- Footer / Colophon -->
     <footer class="relative z-10 border-t border-[#7a6438]/25 bg-[#080604] py-16 px-8 flex flex-col items-center gap-8">
@@ -1149,6 +1172,32 @@
         toTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Block desktop-only links (playable builds) on mobile / touch devices
+        function isMobileDevice() {
+            return window.matchMedia('(max-width: 768px)').matches
+                || (window.matchMedia('(pointer: coarse)').matches && window.matchMedia('(hover: none)').matches);
+        }
+
+        const warning = document.getElementById('mobile-warning');
+        let warnTimer;
+        function showWarning() {
+            warning.classList.add('show');
+            clearTimeout(warnTimer);
+            warnTimer = setTimeout(() => warning.classList.remove('show'), 4500);
+        }
+
+        document.querySelectorAll('[data-desktop-only]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                if (isMobileDevice()) {
+                    e.preventDefault();
+                    showWarning();
+                }
+            });
+        });
+
+        // Dismiss the warning when tapping it
+        warning.addEventListener('click', () => warning.classList.remove('show'));
     </script>
 </body>
 
