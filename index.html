@@ -9,6 +9,8 @@
     <meta name="description"
         content="Ali Kassab — Unity Game Developer based in Cairo, Egypt. Gameplay and systems engineer shipping cross-platform titles on PS5, PS4, PC, Android, and iOS, specializing in scalable gameplay architecture, multiplayer systems, and AI behavior design." />
     <meta name="author" content="Ali Kassab" />
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230e0a05'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23c8a060' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Ali Kassab // Unity Game Developer" />
     <meta property="og:description"
@@ -345,6 +347,34 @@
         }
 
 
+        /* ── Mobile nav menu ── */
+        #nav-toggle { font-size: 1.5rem; line-height: 1; color: #c8a060; }
+        #mobile-menu { transition: opacity 0.25s ease; }
+
+        /* ── Scroll reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            will-change: opacity, transform;
+        }
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ── Back-to-top seal ── */
+        .to-top {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.25s ease, background 0.25s ease;
+        }
+        .to-top.show { opacity: 1; pointer-events: auto; }
+        .to-top:hover { transform: translateY(-3px); }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .to-top { transition: opacity 0.3s ease; }
+        }
+
         /* ── Mobile swipe carousel: keep whole card within one screen ── */
         @media (max-width: 767px) {
             .card-scroll .plate {
@@ -431,8 +461,21 @@
             <a class="nav-link" href="#labs">Labs</a>
             <a class="nav-link" href="#contact">Contact</a>
         </div>
-        <span class="text-oxblood text-lg" aria-hidden="true">&#10070;</span>
+        <span class="hidden md:inline text-oxblood text-lg" aria-hidden="true">&#10070;</span>
+        <button id="nav-toggle" class="md:hidden" aria-label="Open navigation" aria-expanded="false"
+            aria-controls="mobile-menu">&#9776;</button>
     </nav>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu"
+        class="md:hidden fixed top-16 left-0 right-0 z-40 bg-[#090705]/98 backdrop-blur-sm border-b border-[#7a6438]/30 hidden">
+        <div class="flex flex-col items-center py-4 label text-[0.78rem]">
+            <a class="nav-link py-3" href="#work">Work</a>
+            <a class="nav-link py-3" href="#expertise">Expertise</a>
+            <a class="nav-link py-3" href="#labs">Labs</a>
+            <a class="nav-link py-3" href="#contact">Contact</a>
+        </div>
+    </div>
 
     <main id="top" class="relative z-10">
         <!-- Hero / Frontispiece -->
@@ -500,20 +543,19 @@
             <div class="hidden lg:block absolute left-0 top-24">
                 <span class="vertical-text label text-[0.6rem] opacity-70">Vol. I</span>
             </div>
-            <header class="text-center mb-16 md:mb-20">
+            <header class="text-center mb-16 md:mb-20 reveal">
                 <p class="numeral text-5xl mb-2">I</p>
                 <h2 class="blackletter text-5xl md:text-6xl text-[#c8b080]">Released Games</h2>
                 <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
                 <p class="label">Professional Work</p>
             </header>
-            <div
-                class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-3 md:gap-10 lg:gap-12">
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-3 md:gap-10 lg:gap-12">
                 <!-- God of War: Sons of Sparta -->
                 <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank"
                     rel="noopener noreferrer"
                     class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img alt="God of War: Sons of Sparta" class="w-full h-full object-contain p-4"
+                        <img loading="lazy" decoding="async" alt="God of War: Sons of Sparta" class="w-full h-full object-contain p-4"
                             src="Images/GoWSoS_Logo.jpg" />
                     </div>
                     <div class="p-7 pt-6">
@@ -541,7 +583,7 @@
                 <a href="https://www.sinaiheroes.com" target="_blank" rel="noopener noreferrer"
                     class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img alt="Sinai Heroes" class="w-full h-full object-contain p-4" src="Images/sinaiheroes.jpg" />
+                        <img loading="lazy" decoding="async" alt="Sinai Heroes" class="w-full h-full object-contain p-4" src="Images/sinaiheroes.jpg" />
                     </div>
                     <div class="p-7 pt-6">
                         <p class="label text-oxblood/90 mb-3">Genesis Creations S.A.E</p>
@@ -568,8 +610,7 @@
                     rel="noopener noreferrer"
                     class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img alt="Backyard Baseball 2026" class="w-full h-full object-cover"
-                            src="Images/backyard-baseball-2026.jpg" />
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball 2026" class="w-full h-full object-cover" src="Images/backyard-baseball-2026.jpg" />
                     </div>
                     <div class="p-7 pt-6">
                         <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
@@ -599,8 +640,7 @@
                     rel="noopener noreferrer"
                     class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img alt="Maximum Apocalypse" class="w-full h-full object-cover"
-                            src="Images/maximum-apocalypse.jpg" />
+                        <img loading="lazy" decoding="async" alt="Maximum Apocalypse" class="w-full h-full object-cover" src="Images/maximum-apocalypse.jpg" />
                     </div>
                     <div class="p-7 pt-6">
                         <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
@@ -627,8 +667,7 @@
                 <a href="https://www.backyardsports.com/games/soccer98" target="_blank" rel="noopener noreferrer"
                     class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img alt="Backyard Soccer '98" class="w-full h-full object-cover"
-                            src="Images/backyard-soccer-98.jpg" />
+                        <img loading="lazy" decoding="async" alt="Backyard Soccer '98" class="w-full h-full object-cover" src="Images/backyard-soccer-98.jpg" />
                     </div>
                     <div class="p-7 pt-6">
                         <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
@@ -656,8 +695,7 @@
                 <a href="https://www.backyardsports.com/games/baseball97" target="_blank" rel="noopener noreferrer"
                     class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img alt="Backyard Baseball '97" class="w-full h-full object-cover"
-                            src="Images/backyard-baseball-97.jpg" />
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball '97" class="w-full h-full object-cover" src="Images/backyard-baseball-97.jpg" />
                     </div>
                     <div class="p-7 pt-6">
                         <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
@@ -685,8 +723,7 @@
                 <a href="https://www.backyardsports.com/games/baseball01" target="_blank" rel="noopener noreferrer"
                     class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img alt="Backyard Baseball '01" class="w-full h-full object-cover"
-                            src="Images/backyard-baseball-01.jpg" />
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball '01" class="w-full h-full object-cover" src="Images/backyard-baseball-01.jpg" />
                     </div>
                     <div class="p-7 pt-6">
                         <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
@@ -714,8 +751,7 @@
                 <a href="https://www.backyardsports.com/games/basketball01" target="_blank" rel="noopener noreferrer"
                     class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img alt="Backyard Basketball '01" class="w-full h-full object-cover"
-                            src="Images/backyard-basketball-01.jpg" />
+                        <img loading="lazy" decoding="async" alt="Backyard Basketball '01" class="w-full h-full object-cover" src="Images/backyard-basketball-01.jpg" />
                     </div>
                     <div class="p-7 pt-6">
                         <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
@@ -743,8 +779,7 @@
                 <a href="https://www.backyardsports.com/games/football99" target="_blank" rel="noopener noreferrer"
                     class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img alt="Backyard Football '99" class="w-full h-full object-cover"
-                            src="Images/backyard-football-99.jpg" />
+                        <img loading="lazy" decoding="async" alt="Backyard Football '99" class="w-full h-full object-cover" src="Images/backyard-football-99.jpg" />
                     </div>
                     <div class="p-7 pt-6">
                         <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
@@ -776,14 +811,14 @@
             <div class="hidden lg:block absolute left-0 top-24">
                 <span class="vertical-text label text-[0.6rem] opacity-70">Vol. II</span>
             </div>
-            <header class="text-center mb-16 md:mb-20">
+            <header class="text-center mb-16 md:mb-20 reveal">
                 <p class="numeral text-5xl mb-2">II</p>
                 <h2 class="blackletter text-5xl md:text-6xl text-[#c8b080]">Technical Expertise</h2>
                 <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
                 <p class="label">Technical Skills</p>
             </header>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <article class="notice p-9">
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:overflow-visible md:gap-8 max-w-6xl mx-auto">
+                <article class="notice p-9 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <p class="blackletter text-4xl text-[#7a2818] mb-4" aria-hidden="true">&#10070;</p>
                     <p class="label mb-2">Languages &amp; Engines</p>
                     <h3 class="font-heading text-2xl font-semibold text-ink mb-4">Core Technologies</h3>
@@ -799,7 +834,7 @@
                         <span class="chip label text-[0.58rem] px-3 py-1">Unity Netcode</span>
                     </div>
                 </article>
-                <article class="notice p-9 md:mt-10">
+                <article class="notice p-9 md:mt-10 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <p class="blackletter text-4xl text-[#7a2818] mb-4" aria-hidden="true">&#10070;</p>
                     <p class="label mb-2">Systems &amp; Architecture</p>
                     <h3 class="font-heading text-2xl font-semibold text-ink mb-4">Scalable Design</h3>
@@ -814,7 +849,7 @@
                         <span class="chip label text-[0.58rem] px-3 py-1">Data-Driven Tooling</span>
                     </div>
                 </article>
-                <article class="notice p-9">
+                <article class="notice p-9 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <p class="blackletter text-4xl text-[#7a2818] mb-4" aria-hidden="true">&#10070;</p>
                     <p class="label mb-2">Gameplay, AI &amp; Networking</p>
                     <h3 class="font-heading text-2xl font-semibold text-ink mb-4">Systems in Motion</h3>
@@ -832,7 +867,7 @@
                     </div>
                 </article>
             </div>
-            <div class="notice notice-hero max-w-6xl mx-auto mt-10 px-8 py-6 text-center">
+            <div class="notice notice-hero reveal max-w-6xl mx-auto mt-10 px-8 py-6 text-center">
                 <p class="label mb-3">Shipped Across</p>
                 <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 font-heading text-xl text-ink">
                     <span>PlayStation&nbsp;5</span>
@@ -853,14 +888,13 @@
             <div class="hidden lg:block absolute left-0 top-24">
                 <span class="vertical-text label text-[0.6rem] opacity-70">Vol. III</span>
             </div>
-            <header class="text-center mb-16 md:mb-20">
+            <header class="text-center mb-16 md:mb-20 reveal">
                 <p class="numeral text-5xl mb-2">III</p>
                 <h2 class="blackletter text-5xl md:text-6xl text-[#c8b080]">Personal Labs</h2>
                 <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
                 <p class="label">Personal Projects</p>
             </header>
-            <div
-                class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:block md:space-y-14 md:overflow-visible">
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:block md:space-y-14 md:overflow-visible">
                 <!-- Mystic Sands -->
                 <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener noreferrer"
                     class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
@@ -891,8 +925,7 @@
                 <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener noreferrer"
                     class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
-                        <img src="Images/fakeout-boss.gif" alt="FakeOut BOSS gameplay"
-                            class="w-full h-full object-cover" />
+                        <img loading="lazy" decoding="async" src="Images/fakeout-boss.gif" alt="FakeOut BOSS gameplay" class="w-full h-full object-cover" />
                     </div>
                     <div class="p-8 md:p-10 flex items-start justify-between gap-6">
                         <div class="flex gap-7 items-start">
@@ -915,8 +948,7 @@
                 <a href="https://youtu.be/9nGm4p8mKxk?si=D745AnGGadAqQOpV" target="_blank" rel="noopener noreferrer"
                     class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
-                        <img src="Images/table-for-none.gif" alt="Table For None gameplay"
-                            class="w-full h-full object-cover" />
+                        <img loading="lazy" decoding="async" src="Images/table-for-none.gif" alt="Table For None gameplay" class="w-full h-full object-cover" />
                     </div>
                     <div class="p-8 md:p-10 flex items-start justify-between gap-6">
                         <div class="flex gap-7 items-start">
@@ -940,8 +972,7 @@
                 <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank" rel="noopener noreferrer"
                     class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
-                        <img src="Images/dungeon.gif" alt="Dungeon Of The Skeletons gameplay"
-                            class="w-full h-full object-cover" />
+                        <img loading="lazy" decoding="async" src="Images/dungeon.gif" alt="Dungeon Of The Skeletons gameplay" class="w-full h-full object-cover" />
                     </div>
                     <div class="p-8 md:p-10 flex items-start justify-between gap-6">
                         <div class="flex gap-7 items-start">
@@ -970,9 +1001,8 @@
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <span class="watermark text-[40vw] leading-none">AK</span>
             </div>
-            <div class="notice relative z-10 max-w-3xl mx-auto px-8 py-16 md:px-16 text-center">
-                <p class="font-heading text-8xl text-oxblood leading-none mb-2 opacity-60" aria-hidden="true">&#8220;
-                </p>
+            <div class="notice reveal relative z-10 max-w-3xl mx-auto px-8 py-16 md:px-16 text-center">
+                <p class="font-heading text-8xl text-oxblood leading-none mb-2 opacity-60" aria-hidden="true">&#8220;</p>
                 <blockquote class="font-heading text-3xl md:text-4xl italic leading-snug text-ink">
                     Precision in the shadows is where the most impactful gameplay emerges. Every line of code is a
                     brushstroke in a player's memory.
@@ -986,6 +1016,11 @@
             </div>
         </section>
     </main>
+
+    <!-- Back to top -->
+    <button id="to-top"
+        class="to-top fixed bottom-6 right-6 z-40 w-12 h-12 flex items-center justify-center bg-[#7a2818] text-[#f4ead6] border border-[#9a7c32]/50 text-xl shadow-[0_6px_24px_rgba(0,0,0,0.55)] hover:bg-[#601e12]"
+        aria-label="Back to top">&#8593;</button>
 
     <!-- Footer / Colophon -->
     <footer class="relative z-10 border-t border-[#7a6438]/25 bg-[#080604] py-16 px-8 flex flex-col items-center gap-8">
@@ -1020,11 +1055,51 @@
 
         sections.forEach(s => s && observer.observe(s));
 
+        // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.innerHTML = '&#9776;';
+        }
+        function openMenu() {
+            mobileMenu.classList.remove('hidden');
+            navToggle.setAttribute('aria-expanded', 'true');
+            navToggle.innerHTML = '&#10005;';
+        }
+        navToggle.addEventListener('click', () => {
+            mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu();
+        });
+
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                const id = link.getAttribute('href').slice(1);
-                setActive(id);
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) setActive(href.slice(1));
+                closeMenu();
             });
+        });
+
+        // Scroll-reveal for sections and cards
+        const revealEls = document.querySelectorAll('.reveal');
+        const revObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        revealEls.forEach(el => revObserver.observe(el));
+
+        // Back-to-top button
+        const toTop = document.getElementById('to-top');
+        window.addEventListener('scroll', () => {
+            toTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
+        }, { passive: true });
+        toTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
