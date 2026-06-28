@@ -1,16 +1,68 @@
 {
-  "updated": null,
+  "updated": "2026-06-28T14:30:53.575Z",
   "profile": {
-    "name": "Ali Kassab",
-    "avatar": null,
+    "name": "Ali",
+    "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
     "url": "https://steamcommunity.com/profiles/76561198980920161/",
-    "memberSince": null,
+    "memberSince": 2019,
     "country": null,
-    "level": null,
-    "gameCount": null,
-    "totalHours": null,
-    "achievements": null
+    "level": 11,
+    "gameCount": 55,
+    "totalHours": 1642,
+    "achievements": 489
   },
-  "recent": [],
-  "mostPlayed": []
+  "recent": [
+    {
+      "appid": 2434310,
+      "name": "Maximum Apocalypse",
+      "hours2w": 42.5,
+      "hoursTotal": 373,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
+    },
+    {
+      "appid": 431960,
+      "name": "Wallpaper Engine",
+      "hours2w": 0,
+      "hoursTotal": 7,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/431960/capsule_231x87.jpg"
+    }
+  ],
+  "mostPlayed": [
+    {
+      "appid": 359550,
+      "name": "Tom Clancy's Rainbow Six Siege",
+      "hoursTotal": 478,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
+    },
+    {
+      "appid": 2434310,
+      "name": "Maximum Apocalypse",
+      "hoursTotal": 373,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
+    },
+    {
+      "appid": 2622380,
+      "name": "ELDEN RING NIGHTREIGN",
+      "hoursTotal": 100,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622380/capsule_231x87.jpg"
+    },
+    {
+      "appid": 1903340,
+      "name": "Clair Obscur: Expedition 33",
+      "hoursTotal": 85,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1903340/capsule_231x87.jpg"
+    },
+    {
+      "appid": 1245620,
+      "name": "ELDEN RING",
+      "hoursTotal": 77,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/capsule_231x87.jpg"
+    },
+    {
+      "appid": 1091500,
+      "name": "Cyberpunk 2077",
+      "hoursTotal": 77,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
+    }
+  ]
 }
