@@ -388,6 +388,24 @@
             .to-top { transition: opacity 0.3s ease; }
         }
 
+        /* ── Visible scrollbar on horizontal carousels (shows only when scrollable) ── */
+        .card-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #8a6e28 rgba(122, 100, 56, 0.15);
+        }
+        .card-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .card-scroll::-webkit-scrollbar-track {
+            background: rgba(122, 100, 56, 0.15);
+        }
+        .card-scroll::-webkit-scrollbar-thumb {
+            background: #8a6e28;
+        }
+        .card-scroll::-webkit-scrollbar-thumb:hover {
+            background: #a88432;
+        }
+
         /* ── Mobile swipe carousel: keep whole card within one screen ── */
         @media (max-width: 767px) {
             .card-scroll .plate {
@@ -558,7 +576,7 @@
                     <p class="label on-parchment mt-3">Cairo, Egypt</p>
                 </header>
 
-                <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:gap-8">
+                <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 md:gap-8">
                     <!-- About -->
                     <article class="notice p-8 md:p-10 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[24rem] md:max-w-[24rem]">
                         <p class="label on-parchment mb-5">About</p>
@@ -660,7 +678,7 @@
                 <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
                 <p class="label">Professional Work</p>
             </header>
-            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:gap-8">
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 md:gap-8">
                 <!-- God of War: Sons of Sparta -->
                 <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
                     <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
@@ -945,7 +963,7 @@
                 <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
                 <p class="label">Technical Skills</p>
             </header>
-            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:overflow-visible md:gap-8 max-w-6xl mx-auto">
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 md:grid md:grid-cols-3 md:overflow-visible md:gap-8 max-w-6xl mx-auto">
                 <article class="notice p-9 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
                     <p class="blackletter text-4xl text-[#7a2818] mb-4" aria-hidden="true">&#10070;</p>
                     <p class="label mb-2">Languages &amp; Engines</p>
@@ -1025,7 +1043,7 @@
                     built cross-platform and deployed on the web so you can play instantly, no download
                     required.</p>
             </header>
-            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:block md:space-y-14 md:overflow-visible">
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 md:block md:space-y-14 md:overflow-visible">
                 <!-- Mystic Sands -->
                 <article class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink md:w-4/5 md:ml-auto block overflow-hidden">
                     <div class="plate aspect-video overflow-hidden m-3 mb-0">
