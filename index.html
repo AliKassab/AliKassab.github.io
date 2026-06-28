@@ -518,6 +518,7 @@
             <a class="nav-link active" href="#work">Work</a>
             <a class="nav-link" href="#expertise">Expertise</a>
             <a class="nav-link" href="#labs">Labs</a>
+            <a class="nav-link" href="#steam">Steam</a>
             <a class="nav-link" href="#contact">Contact</a>
         </div>
         <span class="hidden md:inline text-oxblood text-lg" aria-hidden="true">&#10070;</span>
@@ -532,6 +533,7 @@
             <a class="nav-link py-3" href="#work">Work</a>
             <a class="nav-link py-3" href="#expertise">Expertise</a>
             <a class="nav-link py-3" href="#labs">Labs</a>
+            <a class="nav-link py-3" href="#steam">Steam</a>
             <a class="nav-link py-3" href="#contact">Contact</a>
         </div>
     </div>
@@ -1077,6 +1079,57 @@
             </div>
         </section>
 
+        <!-- IV. On Steam -->
+        <section id="steam" class="py-28 md:py-36 px-6 md:px-16 max-w-7xl mx-auto relative scroll-mt-20">
+            <div class="hidden lg:block absolute left-0 top-24">
+                <span class="vertical-text label text-[0.6rem] opacity-70">Vol. IV</span>
+            </div>
+            <header class="text-center mb-16 md:mb-20 reveal">
+                <p class="numeral text-5xl mb-2">IV</p>
+                <h2 class="blackletter text-5xl md:text-6xl text-[#c8b080]">On Steam</h2>
+                <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
+                <p class="label">Live Profile</p>
+            </header>
+
+            <div class="notice reveal max-w-4xl mx-auto p-8 md:p-12">
+                <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                    <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
+                        class="w-24 h-24 border border-ink/40 shadow-md object-cover hidden" />
+                    <div class="text-center sm:text-left">
+                        <p class="label text-oxblood/90 mb-2">Steam Community</p>
+                        <h3 id="steam-name" class="font-heading text-3xl font-semibold text-ink leading-tight">Ali
+                            Kassab</h3>
+                        <p id="steam-state" class="font-body italic text-ink-soft mt-1"></p>
+                    </div>
+                </div>
+
+                <div id="steam-stats" class="grid grid-cols-3 gap-4 mt-8 hidden">
+                    <div class="text-center border border-ink/20 py-4">
+                        <p id="steam-level" class="font-heading text-3xl text-oxblood">--</p>
+                        <p class="label text-[0.55rem] mt-1">Level</p>
+                    </div>
+                    <div class="text-center border border-ink/20 py-4">
+                        <p id="steam-games" class="font-heading text-3xl text-oxblood">--</p>
+                        <p class="label text-[0.55rem] mt-1">Games</p>
+                    </div>
+                    <div class="text-center border border-ink/20 py-4">
+                        <p id="steam-hours" class="font-heading text-3xl text-oxblood">--</p>
+                        <p class="label text-[0.55rem] mt-1">Hours</p>
+                    </div>
+                </div>
+
+                <div id="steam-recent-wrap" class="mt-8 hidden">
+                    <p class="label mb-4">Recently Played</p>
+                    <div id="steam-recent" class="flex flex-wrap gap-4"></div>
+                </div>
+
+                <div class="mt-8 text-center sm:text-left">
+                    <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary">View Full Profile <span aria-hidden="true">&#10148;</span></a>
+                </div>
+                <p id="steam-updated" class="label text-[0.5rem] mt-6 opacity-60"></p>
+            </div>
+        </section>
+
         <!-- Colophon / Contact -->
         <section id="contact" class="relative py-28 md:py-40 px-6 overflow-hidden scroll-mt-20">
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -1130,7 +1183,7 @@
     </footer>
     <script>
         const navLinks = document.querySelectorAll('.nav-link');
-        const sections = ['work', 'expertise', 'labs', 'contact'].map(id => document.getElementById(id));
+        const sections = ['work', 'expertise', 'labs', 'steam', 'contact'].map(id => document.getElementById(id));
 
         function setActive(id) {
             navLinks.forEach(link => {
@@ -1218,6 +1271,43 @@
 
         // Dismiss the warning when tapping it
         warning.addEventListener('click', () => warning.classList.remove('show'));
+
+        // Steam showcase: data refreshed daily by a GitHub Action into steam-data.json
+        (function () {
+            const el = id => document.getElementById(id);
+            const esc = s => String(s).replace(/[&<>"']/g, c =>
+                ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            fetch('steam-data.json', { cache: 'no-cache' })
+                .then(r => r.ok ? r.json() : Promise.reject())
+                .then(d => {
+                    const p = d.profile || {};
+                    if (p.name) el('steam-name').textContent = p.name;
+                    if (p.avatar) { const a = el('steam-avatar'); a.src = p.avatar; a.classList.remove('hidden'); }
+                    if (p.memberSince) el('steam-state').textContent = 'Steam member since ' + p.memberSince;
+                    if (p.level != null || p.gameCount != null || p.totalHours != null) {
+                        if (p.level != null) el('steam-level').textContent = p.level;
+                        if (p.gameCount != null) el('steam-games').textContent = p.gameCount.toLocaleString();
+                        if (p.totalHours != null) el('steam-hours').textContent = p.totalHours.toLocaleString();
+                        el('steam-stats').classList.remove('hidden');
+                    }
+                    if (Array.isArray(d.recent) && d.recent.length) {
+                        el('steam-recent').innerHTML = d.recent.map(g => `
+                            <a href="https://store.steampowered.com/app/${encodeURIComponent(g.appid)}/" target="_blank" rel="noopener noreferrer" class="block border border-ink/30 overflow-hidden w-[160px]">
+                                <img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy" decoding="async" class="w-full h-auto" />
+                                <div class="px-2 py-2">
+                                    <p class="font-body text-ink text-[0.8rem] leading-tight">${esc(g.name)}</p>
+                                    <p class="label text-[0.5rem] text-faded mt-1">${esc(g.hours2w)}h past 2 weeks</p>
+                                </div>
+                            </a>`).join('');
+                        el('steam-recent-wrap').classList.remove('hidden');
+                    }
+                    if (d.updated) {
+                        el('steam-updated').textContent = 'Updated ' +
+                            new Date(d.updated).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                    }
+                })
+                .catch(() => { /* keep static fallback (name + View Profile button) */ });
+        })();
     </script>
 </body>
 
