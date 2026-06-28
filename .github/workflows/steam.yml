@@ -22,6 +22,16 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Verify secret is present
+        env:
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+        run: |
+          if [[ -z "${STEAM_API_KEY}" ]]; then
+            echo "::error::STEAM_API_KEY is empty. Add it under Settings -> Secrets and variables -> Actions -> the Secrets tab (not Variables), named exactly STEAM_API_KEY."
+            exit 1
+          fi
+          echo "STEAM_API_KEY is present (length: ${#STEAM_API_KEY})."
+
       - name: Fetch Steam data
         env:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
