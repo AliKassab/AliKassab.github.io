@@ -420,6 +420,26 @@
             background: #a88432;
             cursor: grabbing;
         }
+        .card-hscroll,
+        .card-vscroll {
+            scrollbar-width: none;
+        }
+        .card-hscroll::-webkit-scrollbar,
+        .card-vscroll::-webkit-scrollbar {
+            display: none;
+        }
+        .card-scrollbar-v {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            margin-top: 0;
+        }
+        .card-scrollbar-v .card-scrollbar-thumb {
+            min-width: 0;
+            width: 100%;
+        }
 
         /* ── Mobile swipe carousel: keep whole card within one screen ── */
         @media (max-width: 767px) {
@@ -633,7 +653,8 @@
                             <p class="label on-parchment">On Steam</p>
                             <p id="steam-updated" class="label text-[0.5rem] opacity-60"></p>
                         </div>
-                        <div class="overflow-y-auto flex-1 pr-2 [scrollbar-width:thin]">
+                        <div class="relative flex-1 min-h-0">
+                            <div class="card-vscroll h-full overflow-y-auto pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                             <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
                                 <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
                                     class="w-20 h-20 border border-ink/40 shadow-md object-cover hidden" />
@@ -665,16 +686,17 @@
 
                             <div id="steam-featured-wrap" class="mt-6 hidden">
                                 <p class="label mb-3">Most Played</p>
-                                <div id="steam-featured" class="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"></div>
+                                <div id="steam-featured" class="card-hscroll flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"></div>
                             </div>
 
                             <div id="steam-recent-wrap" class="mt-6 hidden">
                                 <p class="label mb-3">Recently Played</p>
-                                <div id="steam-recent" class="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"></div>
+                                <div id="steam-recent" class="card-hscroll flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"></div>
                             </div>
 
                             <div class="mt-6">
                                 <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary">View Full Profile <span aria-hidden="true">&#10148;</span></a>
+                            </div>
                             </div>
                         </div>
                     </article>
@@ -1351,54 +1373,71 @@
                         el('steam-updated').textContent = 'Updated ' +
                             new Date(d.updated).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
                     }
+                    // Recompute the Steam card's custom scrollbars now that content is in
+                    document.querySelectorAll('.card-hscroll, .card-vscroll')
+                        .forEach(s => s.dispatchEvent(new Event('sb-refresh')));
                 })
                 .catch(() => { /* keep static fallback (name + View Profile button) */ });
         })();
 
-        // Custom always-visible scrollbars for the horizontal carousels
-        document.querySelectorAll('.card-scroll').forEach(scroller => {
+        // Custom always-visible scrollbars (both axes) that stay shown when scrollable
+        function attachScrollbar(scroller, axis) {
+            const horizontal = axis !== 'y';
             const bar = document.createElement('div');
-            bar.className = 'card-scrollbar';
+            bar.className = 'card-scrollbar' + (horizontal ? '' : ' card-scrollbar-v');
             const thumb = document.createElement('div');
             thumb.className = 'card-scrollbar-thumb';
             bar.appendChild(thumb);
-            scroller.after(bar);
+            if (horizontal) scroller.after(bar);
+            else scroller.parentElement.appendChild(bar);
 
             const update = () => {
-                const { scrollWidth, clientWidth, scrollLeft } = scroller;
-                if (scrollWidth <= clientWidth + 1) { bar.style.display = 'none'; return; }
+                const size = horizontal ? scroller.scrollWidth : scroller.scrollHeight;
+                const view = horizontal ? scroller.clientWidth : scroller.clientHeight;
+                const pos = horizontal ? scroller.scrollLeft : scroller.scrollTop;
+                if (size <= view + 1) { bar.style.display = 'none'; return; }
                 bar.style.display = 'block';
-                const trackW = bar.clientWidth;
-                const thumbW = Math.max(trackW * (clientWidth / scrollWidth), 28);
-                const maxScroll = scrollWidth - clientWidth;
-                const maxThumb = trackW - thumbW;
-                const left = maxScroll > 0 ? (scrollLeft / maxScroll) * maxThumb : 0;
-                thumb.style.width = thumbW + 'px';
-                thumb.style.transform = 'translateX(' + left + 'px)';
+                const track = horizontal ? bar.clientWidth : bar.clientHeight;
+                const t = Math.max(track * (view / size), 28);
+                const maxScroll = size - view;
+                const maxThumb = track - t;
+                const offset = maxScroll > 0 ? (pos / maxScroll) * maxThumb : 0;
+                if (horizontal) {
+                    thumb.style.width = t + 'px';
+                    thumb.style.transform = 'translateX(' + offset + 'px)';
+                } else {
+                    thumb.style.height = t + 'px';
+                    thumb.style.transform = 'translateY(' + offset + 'px)';
+                }
             };
 
             scroller.addEventListener('scroll', update, { passive: true });
             window.addEventListener('resize', update);
             window.addEventListener('load', update);
+            scroller.addEventListener('sb-refresh', update);
             setTimeout(update, 300);
             update();
 
             // Drag the thumb to scroll
-            let startX = 0, startScroll = 0, dragging = false;
+            let start = 0, startScroll = 0, dragging = false;
             thumb.addEventListener('pointerdown', e => {
                 dragging = true;
-                startX = e.clientX;
-                startScroll = scroller.scrollLeft;
+                start = horizontal ? e.clientX : e.clientY;
+                startScroll = horizontal ? scroller.scrollLeft : scroller.scrollTop;
                 thumb.classList.add('dragging');
                 thumb.setPointerCapture(e.pointerId);
                 e.preventDefault();
             });
             thumb.addEventListener('pointermove', e => {
                 if (!dragging) return;
-                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-                const maxThumb = bar.clientWidth - thumb.offsetWidth;
-                const scrollDelta = maxThumb > 0 ? ((e.clientX - startX) / maxThumb) * maxScroll : 0;
-                scroller.scrollLeft = startScroll + scrollDelta;
+                const size = horizontal ? scroller.scrollWidth : scroller.scrollHeight;
+                const view = horizontal ? scroller.clientWidth : scroller.clientHeight;
+                const track = horizontal ? bar.clientWidth : bar.clientHeight;
+                const maxThumb = track - thumb[horizontal ? 'offsetWidth' : 'offsetHeight'];
+                const delta = (horizontal ? e.clientX : e.clientY) - start;
+                const scrollDelta = maxThumb > 0 ? (delta / maxThumb) * (size - view) : 0;
+                if (horizontal) scroller.scrollLeft = startScroll + scrollDelta;
+                else scroller.scrollTop = startScroll + scrollDelta;
             });
             const endDrag = () => { dragging = false; thumb.classList.remove('dragging'); };
             thumb.addEventListener('pointerup', endDrag);
@@ -1407,11 +1446,18 @@
             // Click the track to jump
             bar.addEventListener('pointerdown', e => {
                 if (e.target === thumb) return;
-                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-                const clickX = e.clientX - bar.getBoundingClientRect().left;
-                scroller.scrollTo({ left: (clickX / bar.clientWidth) * maxScroll - scroller.clientWidth / 2, behavior: 'smooth' });
+                const size = horizontal ? scroller.scrollWidth : scroller.scrollHeight;
+                const view = horizontal ? scroller.clientWidth : scroller.clientHeight;
+                const rect = bar.getBoundingClientRect();
+                const click = horizontal ? e.clientX - rect.left : e.clientY - rect.top;
+                const track = horizontal ? bar.clientWidth : bar.clientHeight;
+                const target = (click / track) * (size - view) - view / 2;
+                scroller.scrollTo(horizontal ? { left: target, behavior: 'smooth' } : { top: target, behavior: 'smooth' });
             });
-        });
+        }
+
+        document.querySelectorAll('.card-scroll, .card-hscroll').forEach(s => attachScrollbar(s, 'x'));
+        document.querySelectorAll('.card-vscroll').forEach(s => attachScrollbar(s, 'y'));
     </script>
 </body>
 
