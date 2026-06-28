@@ -558,7 +558,7 @@
                     <p class="label on-parchment mt-3">Cairo, Egypt</p>
                 </header>
 
-                <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:grid lg:grid-cols-2 lg:overflow-visible lg:gap-14">
+                <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:grid lg:grid-cols-3 lg:overflow-visible lg:gap-8">
                     <!-- About -->
                     <article class="notice p-8 md:p-10 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start lg:min-w-0 lg:max-w-none lg:flex-shrink">
                         <p class="label on-parchment mb-5">About</p>
@@ -593,56 +593,58 @@
                             </li>
                         </ul>
                     </article>
-                </div>
 
-                <!-- Steam profile showcase -->
-                <div class="notice w-full p-8 md:p-10 mt-10 lg:mt-14">
-                    <div class="flex items-baseline justify-between mb-6">
-                        <p class="label on-parchment">On Steam</p>
-                        <p id="steam-updated" class="label text-[0.5rem] opacity-60"></p>
-                    </div>
-                    <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
-                        <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
-                            class="w-20 h-20 border border-ink/40 shadow-md object-cover hidden" />
-                        <div class="text-center sm:text-left">
-                            <h3 id="steam-name" class="font-heading text-2xl font-semibold text-ink leading-tight">Ali
-                                Kassab</h3>
-                            <p id="steam-state" class="font-body italic text-ink-soft mt-1"></p>
+                    <!-- Steam profile showcase -->
+                    <article class="notice min-w-[82%] max-w-[82%] flex-shrink-0 snap-start lg:min-w-0 lg:max-w-none lg:flex-shrink flex flex-col max-h-[30rem] p-8 md:p-10">
+                        <div class="flex items-baseline justify-between mb-5 flex-shrink-0">
+                            <p class="label on-parchment">On Steam</p>
+                            <p id="steam-updated" class="label text-[0.5rem] opacity-60"></p>
                         </div>
-                    </div>
+                        <div class="overflow-y-auto flex-1 pr-2 [scrollbar-width:thin]">
+                            <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
+                                <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
+                                    class="w-20 h-20 border border-ink/40 shadow-md object-cover hidden" />
+                                <div class="text-center sm:text-left">
+                                    <h3 id="steam-name" class="font-heading text-2xl font-semibold text-ink leading-tight">
+                                        Ali Kassab</h3>
+                                    <p id="steam-state" class="font-body italic text-ink-soft mt-1"></p>
+                                </div>
+                            </div>
 
-                    <div id="steam-stats" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-7 hidden">
-                        <div class="text-center border border-ink/20 py-4">
-                            <p id="steam-level" class="font-heading text-3xl text-oxblood">--</p>
-                            <p class="label text-[0.55rem] mt-1">Level</p>
-                        </div>
-                        <div class="text-center border border-ink/20 py-4">
-                            <p id="steam-games" class="font-heading text-3xl text-oxblood">--</p>
-                            <p class="label text-[0.55rem] mt-1">Games</p>
-                        </div>
-                        <div class="text-center border border-ink/20 py-4">
-                            <p id="steam-hours" class="font-heading text-3xl text-oxblood">--</p>
-                            <p class="label text-[0.55rem] mt-1">Hours</p>
-                        </div>
-                        <div id="steam-ach-tile" class="text-center border border-ink/20 py-4 hidden">
-                            <p id="steam-ach" class="font-heading text-3xl text-oxblood">--</p>
-                            <p class="label text-[0.55rem] mt-1">Achievements</p>
-                        </div>
-                    </div>
+                            <div id="steam-stats" class="grid grid-cols-2 gap-3 mt-6 hidden">
+                                <div class="text-center border border-ink/20 py-3">
+                                    <p id="steam-level" class="font-heading text-2xl text-oxblood">--</p>
+                                    <p class="label text-[0.5rem] mt-1">Level</p>
+                                </div>
+                                <div class="text-center border border-ink/20 py-3">
+                                    <p id="steam-games" class="font-heading text-2xl text-oxblood">--</p>
+                                    <p class="label text-[0.5rem] mt-1">Games</p>
+                                </div>
+                                <div class="text-center border border-ink/20 py-3">
+                                    <p id="steam-hours" class="font-heading text-2xl text-oxblood">--</p>
+                                    <p class="label text-[0.5rem] mt-1">Hours</p>
+                                </div>
+                                <div id="steam-ach-tile" class="text-center border border-ink/20 py-3 hidden">
+                                    <p id="steam-ach" class="font-heading text-2xl text-oxblood">--</p>
+                                    <p class="label text-[0.5rem] mt-1">Achievements</p>
+                                </div>
+                            </div>
 
-                    <div id="steam-featured-wrap" class="mt-7 hidden">
-                        <p class="label mb-4">Most Played</p>
-                        <div id="steam-featured" class="flex flex-wrap gap-4"></div>
-                    </div>
+                            <div id="steam-featured-wrap" class="mt-6 hidden">
+                                <p class="label mb-3">Most Played</p>
+                                <div id="steam-featured" class="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"></div>
+                            </div>
 
-                    <div id="steam-recent-wrap" class="mt-7 hidden">
-                        <p class="label mb-4">Recently Played</p>
-                        <div id="steam-recent" class="flex flex-wrap gap-4"></div>
-                    </div>
+                            <div id="steam-recent-wrap" class="mt-6 hidden">
+                                <p class="label mb-3">Recently Played</p>
+                                <div id="steam-recent" class="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"></div>
+                            </div>
 
-                    <div class="mt-7 text-center sm:text-left">
-                        <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary">View Full Profile <span aria-hidden="true">&#10148;</span></a>
-                    </div>
+                            <div class="mt-6">
+                                <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary">View Full Profile <span aria-hidden="true">&#10148;</span></a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1295,7 +1297,7 @@
                         el('steam-stats').classList.remove('hidden');
                     }
                     const gameCard = (g, meta) => `
-                        <a href="https://store.steampowered.com/app/${encodeURIComponent(g.appid)}/" target="_blank" rel="noopener noreferrer" class="block border border-ink/30 overflow-hidden w-[160px]">
+                        <a href="https://store.steampowered.com/app/${encodeURIComponent(g.appid)}/" target="_blank" rel="noopener noreferrer" class="block flex-shrink-0 border border-ink/30 overflow-hidden w-[150px]">
                             <img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy" decoding="async" class="w-full h-auto" />
                             <div class="px-2 py-2">
                                 <p class="font-body text-ink text-[0.8rem] leading-tight">${esc(g.name)}</p>
