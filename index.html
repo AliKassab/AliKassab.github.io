@@ -518,7 +518,6 @@
             <a class="nav-link active" href="#work">Work</a>
             <a class="nav-link" href="#expertise">Expertise</a>
             <a class="nav-link" href="#labs">Labs</a>
-            <a class="nav-link" href="#steam">Steam</a>
             <a class="nav-link" href="#contact">Contact</a>
         </div>
         <span class="hidden md:inline text-oxblood text-lg" aria-hidden="true">&#10070;</span>
@@ -533,7 +532,6 @@
             <a class="nav-link py-3" href="#work">Work</a>
             <a class="nav-link py-3" href="#expertise">Expertise</a>
             <a class="nav-link py-3" href="#labs">Labs</a>
-            <a class="nav-link py-3" href="#steam">Steam</a>
             <a class="nav-link py-3" href="#contact">Contact</a>
         </div>
     </div>
@@ -595,6 +593,56 @@
                             </li>
                         </ul>
                     </article>
+                </div>
+
+                <!-- Steam profile showcase -->
+                <div class="notice w-full p-8 md:p-10 mt-10 lg:mt-14">
+                    <div class="flex items-baseline justify-between mb-6">
+                        <p class="label on-parchment">On Steam</p>
+                        <p id="steam-updated" class="label text-[0.5rem] opacity-60"></p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                        <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
+                            class="w-20 h-20 border border-ink/40 shadow-md object-cover hidden" />
+                        <div class="text-center sm:text-left">
+                            <h3 id="steam-name" class="font-heading text-2xl font-semibold text-ink leading-tight">Ali
+                                Kassab</h3>
+                            <p id="steam-state" class="font-body italic text-ink-soft mt-1"></p>
+                        </div>
+                    </div>
+
+                    <div id="steam-stats" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-7 hidden">
+                        <div class="text-center border border-ink/20 py-4">
+                            <p id="steam-level" class="font-heading text-3xl text-oxblood">--</p>
+                            <p class="label text-[0.55rem] mt-1">Level</p>
+                        </div>
+                        <div class="text-center border border-ink/20 py-4">
+                            <p id="steam-games" class="font-heading text-3xl text-oxblood">--</p>
+                            <p class="label text-[0.55rem] mt-1">Games</p>
+                        </div>
+                        <div class="text-center border border-ink/20 py-4">
+                            <p id="steam-hours" class="font-heading text-3xl text-oxblood">--</p>
+                            <p class="label text-[0.55rem] mt-1">Hours</p>
+                        </div>
+                        <div id="steam-ach-tile" class="text-center border border-ink/20 py-4 hidden">
+                            <p id="steam-ach" class="font-heading text-3xl text-oxblood">--</p>
+                            <p class="label text-[0.55rem] mt-1">Achievements</p>
+                        </div>
+                    </div>
+
+                    <div id="steam-featured-wrap" class="mt-7 hidden">
+                        <p class="label mb-4">Most Played</p>
+                        <div id="steam-featured" class="flex flex-wrap gap-4"></div>
+                    </div>
+
+                    <div id="steam-recent-wrap" class="mt-7 hidden">
+                        <p class="label mb-4">Recently Played</p>
+                        <div id="steam-recent" class="flex flex-wrap gap-4"></div>
+                    </div>
+
+                    <div class="mt-7 text-center sm:text-left">
+                        <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary">View Full Profile <span aria-hidden="true">&#10148;</span></a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1079,66 +1127,6 @@
             </div>
         </section>
 
-        <!-- IV. On Steam -->
-        <section id="steam" class="py-28 md:py-36 px-6 md:px-16 max-w-7xl mx-auto relative scroll-mt-20">
-            <div class="hidden lg:block absolute left-0 top-24">
-                <span class="vertical-text label text-[0.6rem] opacity-70">Vol. IV</span>
-            </div>
-            <header class="text-center mb-16 md:mb-20 reveal">
-                <p class="numeral text-5xl mb-2">IV</p>
-                <h2 class="blackletter text-5xl md:text-6xl text-[#c8b080]">On Steam</h2>
-                <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
-                <p class="label">Live Profile</p>
-            </header>
-
-            <div class="notice reveal max-w-4xl mx-auto p-8 md:p-12">
-                <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
-                    <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
-                        class="w-24 h-24 border border-ink/40 shadow-md object-cover hidden" />
-                    <div class="text-center sm:text-left">
-                        <p class="label text-oxblood/90 mb-2">Steam Community</p>
-                        <h3 id="steam-name" class="font-heading text-3xl font-semibold text-ink leading-tight">Ali
-                            Kassab</h3>
-                        <p id="steam-state" class="font-body italic text-ink-soft mt-1"></p>
-                    </div>
-                </div>
-
-                <div id="steam-stats" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 hidden">
-                    <div class="text-center border border-ink/20 py-4">
-                        <p id="steam-level" class="font-heading text-3xl text-oxblood">--</p>
-                        <p class="label text-[0.55rem] mt-1">Level</p>
-                    </div>
-                    <div class="text-center border border-ink/20 py-4">
-                        <p id="steam-games" class="font-heading text-3xl text-oxblood">--</p>
-                        <p class="label text-[0.55rem] mt-1">Games</p>
-                    </div>
-                    <div class="text-center border border-ink/20 py-4">
-                        <p id="steam-hours" class="font-heading text-3xl text-oxblood">--</p>
-                        <p class="label text-[0.55rem] mt-1">Hours</p>
-                    </div>
-                    <div id="steam-ach-tile" class="text-center border border-ink/20 py-4 hidden">
-                        <p id="steam-ach" class="font-heading text-3xl text-oxblood">--</p>
-                        <p class="label text-[0.55rem] mt-1">Achievements</p>
-                    </div>
-                </div>
-
-                <div id="steam-featured-wrap" class="mt-8 hidden">
-                    <p class="label mb-4">Most Played</p>
-                    <div id="steam-featured" class="flex flex-wrap gap-4"></div>
-                </div>
-
-                <div id="steam-recent-wrap" class="mt-8 hidden">
-                    <p class="label mb-4">Recently Played</p>
-                    <div id="steam-recent" class="flex flex-wrap gap-4"></div>
-                </div>
-
-                <div class="mt-8 text-center sm:text-left">
-                    <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary">View Full Profile <span aria-hidden="true">&#10148;</span></a>
-                </div>
-                <p id="steam-updated" class="label text-[0.5rem] mt-6 opacity-60"></p>
-            </div>
-        </section>
-
         <!-- Colophon / Contact -->
         <section id="contact" class="relative py-28 md:py-40 px-6 overflow-hidden scroll-mt-20">
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -1192,7 +1180,7 @@
     </footer>
     <script>
         const navLinks = document.querySelectorAll('.nav-link');
-        const sections = ['work', 'expertise', 'labs', 'steam', 'contact'].map(id => document.getElementById(id));
+        const sections = ['work', 'expertise', 'labs', 'contact'].map(id => document.getElementById(id));
 
         function setActive(id) {
             navLinks.forEach(link => {
