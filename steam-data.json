@@ -5,9 +5,12 @@
     "avatar": null,
     "url": "https://steamcommunity.com/profiles/76561198980920161/",
     "memberSince": null,
+    "country": null,
     "level": null,
     "gameCount": null,
-    "totalHours": null
+    "totalHours": null,
+    "achievements": null
   },
-  "recent": []
+  "recent": [],
+  "mostPlayed": []
 }

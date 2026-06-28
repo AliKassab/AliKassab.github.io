@@ -1103,7 +1103,7 @@
                     </div>
                 </div>
 
-                <div id="steam-stats" class="grid grid-cols-3 gap-4 mt-8 hidden">
+                <div id="steam-stats" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 hidden">
                     <div class="text-center border border-ink/20 py-4">
                         <p id="steam-level" class="font-heading text-3xl text-oxblood">--</p>
                         <p class="label text-[0.55rem] mt-1">Level</p>
@@ -1116,6 +1116,15 @@
                         <p id="steam-hours" class="font-heading text-3xl text-oxblood">--</p>
                         <p class="label text-[0.55rem] mt-1">Hours</p>
                     </div>
+                    <div id="steam-ach-tile" class="text-center border border-ink/20 py-4 hidden">
+                        <p id="steam-ach" class="font-heading text-3xl text-oxblood">--</p>
+                        <p class="label text-[0.55rem] mt-1">Achievements</p>
+                    </div>
+                </div>
+
+                <div id="steam-featured-wrap" class="mt-8 hidden">
+                    <p class="label mb-4">Most Played</p>
+                    <div id="steam-featured" class="flex flex-wrap gap-4"></div>
                 </div>
 
                 <div id="steam-recent-wrap" class="mt-8 hidden">
@@ -1283,22 +1292,36 @@
                     const p = d.profile || {};
                     if (p.name) el('steam-name').textContent = p.name;
                     if (p.avatar) { const a = el('steam-avatar'); a.src = p.avatar; a.classList.remove('hidden'); }
-                    if (p.memberSince) el('steam-state').textContent = 'Steam member since ' + p.memberSince;
-                    if (p.level != null || p.gameCount != null || p.totalHours != null) {
+                    const sub = [];
+                    if (p.memberSince) sub.push('Steam member since ' + p.memberSince);
+                    if (p.country && p.country.name) sub.push((p.country.flag ? p.country.flag + ' ' : '') + p.country.name);
+                    if (sub.length) el('steam-state').textContent = sub.join('  ·  ');
+                    if (p.level != null || p.gameCount != null || p.totalHours != null || p.achievements != null) {
                         if (p.level != null) el('steam-level').textContent = p.level;
                         if (p.gameCount != null) el('steam-games').textContent = p.gameCount.toLocaleString();
                         if (p.totalHours != null) el('steam-hours').textContent = p.totalHours.toLocaleString();
+                        if (p.achievements != null) {
+                            el('steam-ach').textContent = p.achievements.toLocaleString();
+                            el('steam-ach-tile').classList.remove('hidden');
+                        }
                         el('steam-stats').classList.remove('hidden');
                     }
+                    const gameCard = (g, meta) => `
+                        <a href="https://store.steampowered.com/app/${encodeURIComponent(g.appid)}/" target="_blank" rel="noopener noreferrer" class="block border border-ink/30 overflow-hidden w-[160px]">
+                            <img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy" decoding="async" class="w-full h-auto" />
+                            <div class="px-2 py-2">
+                                <p class="font-body text-ink text-[0.8rem] leading-tight">${esc(g.name)}</p>
+                                <p class="label text-[0.5rem] text-faded mt-1">${meta}</p>
+                            </div>
+                        </a>`;
+                    if (Array.isArray(d.mostPlayed) && d.mostPlayed.length) {
+                        el('steam-featured').innerHTML = d.mostPlayed
+                            .map(g => gameCard(g, esc(g.hoursTotal.toLocaleString()) + 'h total')).join('');
+                        el('steam-featured-wrap').classList.remove('hidden');
+                    }
                     if (Array.isArray(d.recent) && d.recent.length) {
-                        el('steam-recent').innerHTML = d.recent.map(g => `
-                            <a href="https://store.steampowered.com/app/${encodeURIComponent(g.appid)}/" target="_blank" rel="noopener noreferrer" class="block border border-ink/30 overflow-hidden w-[160px]">
-                                <img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy" decoding="async" class="w-full h-auto" />
-                                <div class="px-2 py-2">
-                                    <p class="font-body text-ink text-[0.8rem] leading-tight">${esc(g.name)}</p>
-                                    <p class="label text-[0.5rem] text-faded mt-1">${esc(g.hours2w)}h past 2 weeks</p>
-                                </div>
-                            </a>`).join('');
+                        el('steam-recent').innerHTML = d.recent
+                            .map(g => gameCard(g, esc(g.hours2w) + 'h past 2 weeks')).join('');
                         el('steam-recent-wrap').classList.remove('hidden');
                     }
                     if (d.updated) {

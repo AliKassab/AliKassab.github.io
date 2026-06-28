@@ -18,6 +18,44 @@ const api = async (path) => {
     return res.json();
 };
 
+const capsule = (appid) =>
+    `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/capsule_231x87.jpg`;
+
+const flagEmoji = (cc) =>
+    cc ? cc.toUpperCase().replace(/./g, (c) => String.fromCodePoint(127397 + c.charCodeAt(0))) : null;
+
+const regionNames = (() => {
+    try { return new Intl.DisplayNames(['en'], { type: 'region' }); } catch { return null; }
+})();
+
+// Sum unlocked achievements across played games that expose stats.
+// No single endpoint exists, so we query per game with bounded concurrency.
+const sumAchievements = async (games) => {
+    const candidates = games
+        .filter((g) => (g.playtime_forever || 0) > 0 && g.has_community_visible_stats)
+        .sort((a, b) => (b.playtime_forever || 0) - (a.playtime_forever || 0))
+        .slice(0, 500);
+
+    let total = 0;
+    let gotAny = false;
+    const batchSize = 8;
+    for (let i = 0; i < candidates.length; i += batchSize) {
+        const batch = candidates.slice(i, i + batchSize);
+        const results = await Promise.allSettled(
+            batch.map((g) => api(`ISteamUserStats/GetPlayerAchievements/v1/?steamid=${STEAMID}&appid=${g.appid}`))
+        );
+        for (const r of results) {
+            if (r.status !== 'fulfilled') continue;
+            const list = r.value?.playerstats?.achievements;
+            if (Array.isArray(list)) {
+                gotAny = true;
+                total += list.filter((a) => a.achieved === 1).length;
+            }
+        }
+    }
+    return gotAny ? total : null;
+};
+
 const main = async () => {
     const [sum, lvl, owned, recent] = await Promise.all([
         api(`ISteamUser/GetPlayerSummaries/v2/?steamids=${STEAMID}`),
@@ -30,6 +68,27 @@ const main = async () => {
     const games = owned.response?.games || [];
     const totalMinutes = games.reduce((acc, g) => acc + (g.playtime_forever || 0), 0);
 
+    const country = player.loccountrycode
+        ? {
+            code: player.loccountrycode,
+            name: regionNames ? regionNames.of(player.loccountrycode) : player.loccountrycode,
+            flag: flagEmoji(player.loccountrycode),
+        }
+        : null;
+
+    const achievements = await sumAchievements(games);
+
+    const mostPlayed = [...games]
+        .sort((a, b) => (b.playtime_forever || 0) - (a.playtime_forever || 0))
+        .slice(0, 6)
+        .filter((g) => (g.playtime_forever || 0) > 0)
+        .map((g) => ({
+            appid: g.appid,
+            name: g.name,
+            hoursTotal: Math.round((g.playtime_forever || 0) / 60),
+            img: capsule(g.appid),
+        }));
+
     const data = {
         updated: new Date().toISOString(),
         profile: {
@@ -37,17 +96,20 @@ const main = async () => {
             avatar: player.avatarfull || null,
             url: player.profileurl || `https://steamcommunity.com/profiles/${STEAMID}/`,
             memberSince: player.timecreated ? new Date(player.timecreated * 1000).getFullYear() : null,
+            country,
             level: lvl.response?.player_level ?? null,
             gameCount: owned.response?.game_count ?? (games.length || null),
             totalHours: totalMinutes ? Math.round(totalMinutes / 60) : null,
+            achievements,
         },
         recent: (recent.response?.games || []).slice(0, 6).map((g) => ({
             appid: g.appid,
             name: g.name,
             hours2w: Math.round(((g.playtime_2weeks || 0) / 60) * 10) / 10,
             hoursTotal: Math.round((g.playtime_forever || 0) / 60),
-            img: `https://cdn.cloudflare.steamstatic.com/steam/apps/${g.appid}/capsule_231x87.jpg`,
+            img: capsule(g.appid),
         })),
+        mostPlayed,
     };
 
     await writeFile('steam-data.json', JSON.stringify(data, null, 2) + '\n');
