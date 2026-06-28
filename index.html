@@ -388,22 +388,37 @@
             .to-top { transition: opacity 0.3s ease; }
         }
 
-        /* ── Visible scrollbar on horizontal carousels (shows only when scrollable) ── */
+        /* ── Custom always-visible scrollbar for horizontal carousels ── */
         .card-scroll {
-            scrollbar-width: thin;
-            scrollbar-color: #8a6e28 rgba(122, 100, 56, 0.15);
+            scrollbar-width: none;
         }
         .card-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .card-scrollbar {
+            position: relative;
             height: 8px;
+            margin-top: 0.25rem;
+            background: rgba(122, 100, 56, 0.16);
+            border: 1px solid rgba(20, 12, 4, 0.18);
         }
-        .card-scroll::-webkit-scrollbar-track {
-            background: rgba(122, 100, 56, 0.15);
-        }
-        .card-scroll::-webkit-scrollbar-thumb {
+        .card-scrollbar-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            min-width: 28px;
             background: #8a6e28;
+            cursor: grab;
+            transition: background 0.2s ease;
+            touch-action: none;
         }
-        .card-scroll::-webkit-scrollbar-thumb:hover {
+        .card-scrollbar-thumb:hover {
             background: #a88432;
+        }
+        .card-scrollbar-thumb.dragging {
+            background: #a88432;
+            cursor: grabbing;
         }
 
         /* ── Mobile swipe carousel: keep whole card within one screen ── */
@@ -1339,6 +1354,64 @@
                 })
                 .catch(() => { /* keep static fallback (name + View Profile button) */ });
         })();
+
+        // Custom always-visible scrollbars for the horizontal carousels
+        document.querySelectorAll('.card-scroll').forEach(scroller => {
+            const bar = document.createElement('div');
+            bar.className = 'card-scrollbar';
+            const thumb = document.createElement('div');
+            thumb.className = 'card-scrollbar-thumb';
+            bar.appendChild(thumb);
+            scroller.after(bar);
+
+            const update = () => {
+                const { scrollWidth, clientWidth, scrollLeft } = scroller;
+                if (scrollWidth <= clientWidth + 1) { bar.style.display = 'none'; return; }
+                bar.style.display = 'block';
+                const trackW = bar.clientWidth;
+                const thumbW = Math.max(trackW * (clientWidth / scrollWidth), 28);
+                const maxScroll = scrollWidth - clientWidth;
+                const maxThumb = trackW - thumbW;
+                const left = maxScroll > 0 ? (scrollLeft / maxScroll) * maxThumb : 0;
+                thumb.style.width = thumbW + 'px';
+                thumb.style.transform = 'translateX(' + left + 'px)';
+            };
+
+            scroller.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            window.addEventListener('load', update);
+            setTimeout(update, 300);
+            update();
+
+            // Drag the thumb to scroll
+            let startX = 0, startScroll = 0, dragging = false;
+            thumb.addEventListener('pointerdown', e => {
+                dragging = true;
+                startX = e.clientX;
+                startScroll = scroller.scrollLeft;
+                thumb.classList.add('dragging');
+                thumb.setPointerCapture(e.pointerId);
+                e.preventDefault();
+            });
+            thumb.addEventListener('pointermove', e => {
+                if (!dragging) return;
+                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                const maxThumb = bar.clientWidth - thumb.offsetWidth;
+                const scrollDelta = maxThumb > 0 ? ((e.clientX - startX) / maxThumb) * maxScroll : 0;
+                scroller.scrollLeft = startScroll + scrollDelta;
+            });
+            const endDrag = () => { dragging = false; thumb.classList.remove('dragging'); };
+            thumb.addEventListener('pointerup', endDrag);
+            thumb.addEventListener('pointercancel', endDrag);
+
+            // Click the track to jump
+            bar.addEventListener('pointerdown', e => {
+                if (e.target === thumb) return;
+                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                const clickX = e.clientX - bar.getBoundingClientRect().left;
+                scroller.scrollTo({ left: (clickX / bar.clientWidth) * maxScroll - scroller.clientWidth / 2, behavior: 'smooth' });
+            });
+        });
     </script>
 </body>
 
