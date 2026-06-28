@@ -441,6 +441,32 @@
             width: 100%;
         }
 
+        /* ── Dot pagination for horizontal carousels ── */
+        .card-dots {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: 0.85rem;
+        }
+        .card-dot {
+            width: 9px;
+            height: 9px;
+            padding: 0;
+            border-radius: 9999px;
+            background: rgba(122, 100, 56, 0.28);
+            border: 1px solid rgba(20, 12, 4, 0.3);
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .card-dot:hover {
+            background: rgba(138, 110, 40, 0.65);
+        }
+        .card-dot.active {
+            background: #8a6e28;
+            transform: scale(1.4);
+        }
+
         /* ── Mobile swipe carousel: keep whole card within one screen ── */
         @media (max-width: 767px) {
             .card-scroll .plate {
@@ -1456,7 +1482,51 @@
             });
         }
 
-        document.querySelectorAll('.card-scroll, .card-hscroll').forEach(s => attachScrollbar(s, 'x'));
+        // Dot pagination indicators for horizontal carousels (one dot per card)
+        function attachDots(scroller) {
+            const dots = document.createElement('div');
+            dots.className = 'card-dots';
+            scroller.after(dots);
+            let count = -1;
+
+            const setActive = () => {
+                const n = dots.children.length;
+                if (!n) return;
+                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                const idx = maxScroll > 0 ? Math.round((scroller.scrollLeft / maxScroll) * (n - 1)) : 0;
+                Array.from(dots.children).forEach((dot, i) => dot.classList.toggle('active', i === idx));
+            };
+
+            const build = () => {
+                const n = scroller.children.length;
+                if (n !== count) {
+                    count = n;
+                    dots.innerHTML = '';
+                    for (let i = 0; i < n; i++) {
+                        const dot = document.createElement('button');
+                        dot.type = 'button';
+                        dot.className = 'card-dot';
+                        dot.setAttribute('aria-label', 'Go to item ' + (i + 1));
+                        dot.addEventListener('click', () => {
+                            const max = scroller.scrollWidth - scroller.clientWidth;
+                            scroller.scrollTo({ left: n > 1 ? (i / (n - 1)) * max : 0, behavior: 'smooth' });
+                        });
+                        dots.appendChild(dot);
+                    }
+                }
+                dots.style.display = (n <= 1 || scroller.scrollWidth <= scroller.clientWidth + 1) ? 'none' : 'flex';
+                setActive();
+            };
+
+            scroller.addEventListener('scroll', setActive, { passive: true });
+            window.addEventListener('resize', build);
+            window.addEventListener('load', build);
+            scroller.addEventListener('sb-refresh', build);
+            setTimeout(build, 300);
+            build();
+        }
+
+        document.querySelectorAll('.card-scroll, .card-hscroll').forEach(attachDots);
         document.querySelectorAll('.card-vscroll').forEach(s => attachScrollbar(s, 'y'));
     </script>
 </body>
