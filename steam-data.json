@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T07:50:42.779Z",
+  "updated": "2026-07-02T07:29:22.365Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,15 +8,15 @@
     "country": null,
     "level": 11,
     "gameCount": 55,
-    "totalHours": 1653,
+    "totalHours": 1659,
     "achievements": 489
   },
   "recent": [
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 44.4,
-      "hoursTotal": 384,
+      "hours2w": 47.9,
+      "hoursTotal": 390,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
@@ -37,7 +37,7 @@
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hoursTotal": 384,
+      "hoursTotal": 390,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
