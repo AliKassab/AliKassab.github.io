@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-02T07:29:22.365Z",
+  "updated": "2026-07-03T07:28:02.751Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,16 +8,23 @@
     "country": null,
     "level": 11,
     "gameCount": 55,
-    "totalHours": 1659,
+    "totalHours": 1669,
     "achievements": 489
   },
   "recent": [
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 47.9,
-      "hoursTotal": 390,
+      "hours2w": 51.5,
+      "hoursTotal": 398,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
+    },
+    {
+      "appid": 1091500,
+      "name": "Cyberpunk 2077",
+      "hours2w": 0.6,
+      "hoursTotal": 78,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
     },
     {
       "appid": 431960,
@@ -37,7 +44,7 @@
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hoursTotal": 390,
+      "hoursTotal": 398,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
@@ -53,16 +60,16 @@
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1903340/capsule_231x87.jpg"
     },
     {
+      "appid": 1091500,
+      "name": "Cyberpunk 2077",
+      "hoursTotal": 78,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
+    },
+    {
       "appid": 1245620,
       "name": "ELDEN RING",
       "hoursTotal": 77,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/capsule_231x87.jpg"
-    },
-    {
-      "appid": 1091500,
-      "name": "Cyberpunk 2077",
-      "hoursTotal": 77,
-      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
     }
   ]
 }
