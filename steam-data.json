@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04T07:18:23.058Z",
+  "updated": "2026-07-05T07:28:37.027Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -22,8 +22,8 @@
     {
       "appid": 1091500,
       "name": "Cyberpunk 2077",
-      "hours2w": 2.3,
-      "hoursTotal": 79,
+      "hours2w": 2.8,
+      "hoursTotal": 80,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
     }
   ],
@@ -55,7 +55,7 @@
     {
       "appid": 1091500,
       "name": "Cyberpunk 2077",
-      "hoursTotal": 79,
+      "hoursTotal": 80,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
     },
     {
