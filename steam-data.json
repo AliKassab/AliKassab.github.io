@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11T07:01:43.330Z",
+  "updated": "2026-07-12T07:10:33.509Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,7 +8,7 @@
     "country": null,
     "level": 11,
     "gameCount": 55,
-    "totalHours": 1701,
+    "totalHours": 1704,
     "achievements": 489
   },
   "recent": [
@@ -22,8 +22,8 @@
     {
       "appid": 1091500,
       "name": "Cyberpunk 2077",
-      "hours2w": 4,
-      "hoursTotal": 81,
+      "hours2w": 7.2,
+      "hoursTotal": 84,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
     }
   ],
@@ -55,7 +55,7 @@
     {
       "appid": 1091500,
       "name": "Cyberpunk 2077",
-      "hoursTotal": 81,
+      "hoursTotal": 84,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
     },
     {
