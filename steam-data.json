@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-25T07:04:44.028Z",
+  "updated": "2026-07-26T07:12:14.482Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,22 +8,22 @@
     "country": null,
     "level": 11,
     "gameCount": 55,
-    "totalHours": 1735,
+    "totalHours": 1737,
     "achievements": 491
   },
   "recent": [
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 23.8,
+      "hours2w": 24.6,
       "hoursTotal": 451,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
       "appid": 1091500,
       "name": "Cyberpunk 2077",
-      "hours2w": 10.8,
-      "hoursTotal": 92,
+      "hours2w": 8.4,
+      "hoursTotal": 93,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
     }
   ],
@@ -49,7 +49,7 @@
     {
       "appid": 1091500,
       "name": "Cyberpunk 2077",
-      "hoursTotal": 92,
+      "hoursTotal": 93,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
     },
     {
