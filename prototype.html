@@ -9,6 +9,16 @@
     <meta name="description"
         content="Ali Kassab, Unity Game Developer based in Cairo, Egypt. Gameplay and systems engineer shipping cross-platform titles on PS5, PS4, PC, Android, and iOS." />
     <meta name="author" content="Ali Kassab" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+        // Set the theme before first paint so there is no flash
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) { }
+            var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1815'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23c9744f' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,16 +32,16 @@
             theme: {
                 extend: {
                     colors: {
-                        canvas: "#f7f5f1",
-                        "canvas-2": "#efebe4",
-                        surface: "#fffefc",
-                        ink: "#1a1815",
-                        body: "#4d4740",
-                        muted: "#8b8378",
-                        line: "#e4dfd6",
-                        accent: "#a4523a",
-                        "accent-deep": "#83402d",
-                        brass: "#8f7d55"
+                        canvas: "rgb(var(--c-canvas) / <alpha-value>)",
+                        "canvas-2": "rgb(var(--c-canvas-2) / <alpha-value>)",
+                        surface: "rgb(var(--c-surface) / <alpha-value>)",
+                        ink: "rgb(var(--c-ink) / <alpha-value>)",
+                        body: "rgb(var(--c-body) / <alpha-value>)",
+                        muted: "rgb(var(--c-muted) / <alpha-value>)",
+                        line: "rgb(var(--c-line) / <alpha-value>)",
+                        accent: "rgb(var(--c-accent) / <alpha-value>)",
+                        "accent-deep": "rgb(var(--c-accent-deep) / <alpha-value>)",
+                        brass: "rgb(var(--c-brass) / <alpha-value>)"
                     },
                     borderRadius: { DEFAULT: "6px", sm: "4px", lg: "10px", xl: "14px" },
                     fontFamily: {
@@ -43,19 +53,60 @@
         }
     </script>
     <style>
+        /* ── Theme tokens (RGB triplets so Tailwind opacity modifiers work) ── */
+        :root,
+        :root[data-theme="light"] {
+            color-scheme: light;
+            --c-canvas: 247 245 241;
+            --c-canvas-2: 239 235 228;
+            --c-surface: 255 254 252;
+            --c-ink: 26 24 21;
+            --c-body: 77 71 64;
+            --c-muted: 139 131 120;
+            --c-line: 228 223 214;
+            --c-line-strong: 213 202 187;
+            --c-hover: 242 239 233;
+            --c-accent: 164 82 58;
+            --c-accent-deep: 131 64 45;
+            --c-on-accent: 255 254 252;
+            --c-brass: 143 125 85;
+            --shadow-card: 0 1px 2px rgba(26, 24, 21, 0.04), 0 8px 24px rgba(26, 24, 21, 0.04);
+            --shadow-card-hover: 0 2px 4px rgba(26, 24, 21, 0.05), 0 18px 40px rgba(26, 24, 21, 0.10);
+        }
+
+        :root[data-theme="dark"] {
+            color-scheme: dark;
+            --c-canvas: 20 18 15;
+            --c-canvas-2: 28 25 22;
+            --c-surface: 32 28 24;
+            --c-ink: 242 237 229;
+            --c-body: 184 176 164;
+            --c-muted: 138 129 117;
+            --c-line: 50 44 38;
+            --c-line-strong: 68 60 51;
+            --c-hover: 40 35 30;
+            --c-accent: 201 116 79;
+            --c-accent-deep: 221 139 100;
+            --c-on-accent: 20 18 15;
+            --c-brass: 176 154 109;
+            --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.30), 0 8px 24px rgba(0, 0, 0, 0.35);
+            --shadow-card-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 18px 40px rgba(0, 0, 0, 0.50);
+        }
+
         html { scroll-behavior: smooth; }
 
         body {
-            background-color: #f7f5f1;
-            color: #4d4740;
+            background-color: rgb(var(--c-canvas));
+            color: rgb(var(--c-body));
             font-family: 'Inter', system-ui, sans-serif;
             font-size: 1rem;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        ::selection { background: rgba(164, 82, 58, 0.16); color: #1a1815; }
+        ::selection { background: rgb(var(--c-accent) / 0.2); color: rgb(var(--c-ink)); }
 
         /* ── Eyebrow label ── */
         .eyebrow {
@@ -63,21 +114,21 @@
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: #8f7d55;
+            color: rgb(var(--c-brass));
         }
 
         /* ── Card ── */
         .card {
-            background: #fffefc;
-            border: 1px solid #e4dfd6;
+            background: rgb(var(--c-surface));
+            border: 1px solid rgb(var(--c-line));
             border-radius: 10px;
-            box-shadow: 0 1px 2px rgba(26, 24, 21, 0.04), 0 8px 24px rgba(26, 24, 21, 0.04);
-            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.3s ease;
         }
         .card-hover:hover {
             transform: translateY(-4px);
-            border-color: #d5cabb;
-            box-shadow: 0 2px 4px rgba(26, 24, 21, 0.05), 0 18px 40px rgba(26, 24, 21, 0.10);
+            border-color: rgb(var(--c-line-strong));
+            box-shadow: var(--shadow-card-hover);
         }
 
         /* ── Chips ── */
@@ -86,9 +137,9 @@
             font-size: 0.7rem;
             font-weight: 500;
             letter-spacing: 0.01em;
-            color: #5d564d;
-            background: #f2efe9;
-            border: 1px solid #e4dfd6;
+            color: rgb(var(--c-body));
+            background: rgb(var(--c-hover));
+            border: 1px solid rgb(var(--c-line));
             border-radius: 9999px;
             padding: 0.2rem 0.65rem;
             white-space: nowrap;
@@ -108,34 +159,67 @@
             transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
         }
         .btn:active { transform: translateY(1px); }
-        .btn-primary { background: #a4523a; color: #fffefc; border: 1px solid #a4523a; }
-        .btn-primary:hover { background: #83402d; border-color: #83402d; }
-        .btn-outline { background: transparent; color: #1a1815; border: 1px solid #d5cabb; }
-        .btn-outline:hover { background: #f2efe9; border-color: #b9ab97; }
+        .btn-primary {
+            background: rgb(var(--c-accent));
+            color: rgb(var(--c-on-accent));
+            border: 1px solid rgb(var(--c-accent));
+        }
+        .btn-primary:hover { background: rgb(var(--c-accent-deep)); border-color: rgb(var(--c-accent-deep)); }
+        .btn-outline {
+            background: transparent;
+            color: rgb(var(--c-ink));
+            border: 1px solid rgb(var(--c-line-strong));
+        }
+        .btn-outline:hover { background: rgb(var(--c-hover)); border-color: rgb(var(--c-muted)); }
         .btn .arrow { transition: transform 0.2s ease; }
         .btn:hover .arrow { transform: translateX(3px); }
 
         /* ── Section rule ── */
-        .rule { height: 1px; background: linear-gradient(90deg, #d5cabb, rgba(213, 202, 187, 0)); }
+        .rule {
+            height: 1px;
+            background: linear-gradient(90deg, rgb(var(--c-line-strong)), rgb(var(--c-line-strong) / 0));
+        }
 
         /* ── Nav ── */
         .nav-link {
             position: relative;
             font-size: 0.82rem;
             font-weight: 500;
-            color: #8b8378;
+            color: rgb(var(--c-muted));
             transition: color 0.2s ease;
         }
-        .nav-link:hover { color: #1a1815; }
-        .nav-link.active { color: #a4523a; }
+        .nav-link:hover { color: rgb(var(--c-ink)); }
+        .nav-link.active { color: rgb(var(--c-accent)); }
         .nav-link.active::after {
             content: "";
             position: absolute;
             left: 0; right: 0; bottom: -0.45rem;
             height: 2px;
             border-radius: 2px;
-            background: #a4523a;
+            background: rgb(var(--c-accent));
         }
+
+        /* ── Theme toggle ── */
+        .theme-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px; height: 34px;
+            border-radius: 8px;
+            border: 1px solid rgb(var(--c-line));
+            background: transparent;
+            color: rgb(var(--c-muted));
+            cursor: pointer;
+            transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+        .theme-btn:hover {
+            color: rgb(var(--c-ink));
+            background: rgb(var(--c-hover));
+            border-color: rgb(var(--c-line-strong));
+        }
+        .theme-btn .moon { display: none; }
+        :root[data-theme="dark"] .theme-btn .sun { display: none; }
+        :root[data-theme="dark"] .theme-btn .moon { display: block; }
 
         /* ── Scroll reveal ── */
         .reveal {
@@ -176,28 +260,28 @@
         .card-dot {
             width: 7px; height: 7px; padding: 0;
             border-radius: 9999px;
-            background: #d5cabb;
+            background: rgb(var(--c-line-strong));
             border: none;
             cursor: pointer;
             transition: background 0.2s ease, transform 0.2s ease;
         }
-        .card-dot:hover { background: #b9ab97; }
-        .card-dot.active { background: #a4523a; transform: scale(1.45); }
+        .card-dot:hover { background: rgb(var(--c-muted)); }
+        .card-dot.active { background: rgb(var(--c-accent)); transform: scale(1.45); }
 
         .card-scrollbar-v {
             position: absolute; top: 0; right: 0;
             width: 5px; height: 100%;
-            background: #efebe4;
+            background: rgb(var(--c-hover));
             border-radius: 9999px;
         }
         .card-scrollbar-thumb {
             position: absolute; top: 0; left: 0;
             width: 100%; min-height: 24px;
-            background: #cbbfae;
+            background: rgb(var(--c-line-strong));
             border-radius: 9999px;
             cursor: grab;
         }
-        .card-scrollbar-thumb.dragging { background: #a4523a; cursor: grabbing; }
+        .card-scrollbar-thumb.dragging { background: rgb(var(--c-accent)); cursor: grabbing; }
 
         /* ── Toast ── */
         #mobile-warning {
@@ -219,14 +303,27 @@
     <nav class="fixed top-0 inset-x-0 z-50 h-16 bg-canvas/90 backdrop-blur-md border-b border-line">
         <div class="max-w-6xl mx-auto h-full px-6 flex items-center justify-between">
             <a href="#top" class="font-display text-lg font-600 text-ink tracking-tight">Ali Kassab</a>
-            <div class="hidden md:flex gap-8">
-                <a class="nav-link active" href="#work">Work</a>
-                <a class="nav-link" href="#expertise">Expertise</a>
-                <a class="nav-link" href="#projects">Projects</a>
-                <a class="nav-link" href="#contact">Contact</a>
+            <div class="flex items-center gap-5 md:gap-8">
+                <div class="hidden md:flex gap-8">
+                    <a class="nav-link active" href="#work">Work</a>
+                    <a class="nav-link" href="#expertise">Expertise</a>
+                    <a class="nav-link" href="#projects">Projects</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </div>
+                <button id="theme-toggle" class="theme-btn" type="button" aria-label="Switch to dark mode">
+                    <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4.2" />
+                        <path d="M12 2.6v2.2M12 19.2v2.2M21.4 12h-2.2M4.8 12H2.6M18.6 5.4l-1.6 1.6M7 17l-1.6 1.6M18.6 18.6L17 17M7 7L5.4 5.4" />
+                    </svg>
+                    <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a6.9 6.9 0 0 0 11.1 11.1Z" />
+                    </svg>
+                </button>
+                <button id="nav-toggle" class="md:hidden text-ink text-xl leading-none" aria-label="Open navigation"
+                    aria-expanded="false" aria-controls="mobile-menu">&#9776;</button>
             </div>
-            <button id="nav-toggle" class="md:hidden text-ink text-xl leading-none" aria-label="Open navigation"
-                aria-expanded="false" aria-controls="mobile-menu">&#9776;</button>
         </div>
     </nav>
 
@@ -866,6 +963,30 @@
     </footer>
 
     <script>
+        // Theme toggle (initial value is set by the inline script in <head>)
+        const themeToggle = document.getElementById('theme-toggle');
+        const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            themeToggle.setAttribute('aria-label',
+                theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+        applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+
+        themeToggle.addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            try { localStorage.setItem('theme', next); } catch (e) { }
+            applyTheme(next);
+        });
+
+        // Follow the system setting until the visitor picks a side
+        darkQuery.addEventListener('change', e => {
+            let stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (err) { }
+            if (!stored) applyTheme(e.matches ? 'dark' : 'light');
+        });
+
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = ['work', 'expertise', 'projects', 'contact'].map(id => document.getElementById(id));
 
