@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ali Kassab // Portfolio (Prototype)</title>
+    <meta name="description"
+        content="Ali Kassab, Unity Game Developer based in Cairo, Egypt. Gameplay and systems engineer shipping cross-platform titles on PS5, PS4, PC, Android, and iOS." />
+    <meta name="author" content="Ali Kassab" />
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1815'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23c9744f' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: "#f7f5f1",
+                        "canvas-2": "#efebe4",
+                        surface: "#fffefc",
+                        ink: "#1a1815",
+                        body: "#4d4740",
+                        muted: "#8b8378",
+                        line: "#e4dfd6",
+                        accent: "#a4523a",
+                        "accent-deep": "#83402d",
+                        brass: "#8f7d55"
+                    },
+                    borderRadius: { DEFAULT: "6px", sm: "4px", lg: "10px", xl: "14px" },
+                    fontFamily: {
+                        display: ['Fraunces', 'Georgia', 'serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: #f7f5f1;
+            color: #4d4740;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: rgba(164, 82, 58, 0.16); color: #1a1815; }
+
+        /* ── Eyebrow label ── */
+        .eyebrow {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #8f7d55;
+        }
+
+        /* ── Card ── */
+        .card {
+            background: #fffefc;
+            border: 1px solid #e4dfd6;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(26, 24, 21, 0.04), 0 8px 24px rgba(26, 24, 21, 0.04);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            border-color: #d5cabb;
+            box-shadow: 0 2px 4px rgba(26, 24, 21, 0.05), 0 18px 40px rgba(26, 24, 21, 0.10);
+        }
+
+        /* ── Chips ── */
+        .chip {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            color: #5d564d;
+            background: #f2efe9;
+            border: 1px solid #e4dfd6;
+            border-radius: 9999px;
+            padding: 0.2rem 0.65rem;
+            white-space: nowrap;
+        }
+
+        /* ── Buttons ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.6rem 1.15rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+        }
+        .btn:active { transform: translateY(1px); }
+        .btn-primary { background: #a4523a; color: #fffefc; border: 1px solid #a4523a; }
+        .btn-primary:hover { background: #83402d; border-color: #83402d; }
+        .btn-outline { background: transparent; color: #1a1815; border: 1px solid #d5cabb; }
+        .btn-outline:hover { background: #f2efe9; border-color: #b9ab97; }
+        .btn .arrow { transition: transform 0.2s ease; }
+        .btn:hover .arrow { transform: translateX(3px); }
+
+        /* ── Section rule ── */
+        .rule { height: 1px; background: linear-gradient(90deg, #d5cabb, rgba(213, 202, 187, 0)); }
+
+        /* ── Nav ── */
+        .nav-link {
+            position: relative;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #8b8378;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover { color: #1a1815; }
+        .nav-link.active { color: #a4523a; }
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: -0.45rem;
+            height: 2px;
+            border-radius: 2px;
+            background: #a4523a;
+        }
+
+        /* ── Scroll reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ── Back to top ── */
+        .to-top {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.2s ease, background 0.2s ease;
+        }
+        .to-top.show { opacity: 1; pointer-events: auto; }
+        .to-top:hover { transform: translateY(-3px); }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .card-hover:hover { transform: none; }
+        }
+
+        /* ── Carousels ── */
+        .card-scroll, .card-hscroll, .card-vscroll { scrollbar-width: none; }
+        .card-scroll::-webkit-scrollbar,
+        .card-hscroll::-webkit-scrollbar,
+        .card-vscroll::-webkit-scrollbar { display: none; }
+
+        .card-dots {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 1rem;
+        }
+        .card-dot {
+            width: 7px; height: 7px; padding: 0;
+            border-radius: 9999px;
+            background: #d5cabb;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .card-dot:hover { background: #b9ab97; }
+        .card-dot.active { background: #a4523a; transform: scale(1.45); }
+
+        .card-scrollbar-v {
+            position: absolute; top: 0; right: 0;
+            width: 5px; height: 100%;
+            background: #efebe4;
+            border-radius: 9999px;
+        }
+        .card-scrollbar-thumb {
+            position: absolute; top: 0; left: 0;
+            width: 100%; min-height: 24px;
+            background: #cbbfae;
+            border-radius: 9999px;
+            cursor: grab;
+        }
+        .card-scrollbar-thumb.dragging { background: #a4523a; cursor: grabbing; }
+
+        /* ── Toast ── */
+        #mobile-warning {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+        #mobile-warning.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        @media (max-width: 767px) {
+            .card-scroll .media { height: 30vh; max-height: 200px; }
+        }
+    </style>
+</head>
+
+<body class="relative">
+    <!-- Nav -->
+    <nav class="fixed top-0 inset-x-0 z-50 h-16 bg-canvas/90 backdrop-blur-md border-b border-line">
+        <div class="max-w-6xl mx-auto h-full px-6 flex items-center justify-between">
+            <a href="#top" class="font-display text-lg font-600 text-ink tracking-tight">Ali Kassab</a>
+            <div class="hidden md:flex gap-8">
+                <a class="nav-link active" href="#work">Work</a>
+                <a class="nav-link" href="#expertise">Expertise</a>
+                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="#contact">Contact</a>
+            </div>
+            <button id="nav-toggle" class="md:hidden text-ink text-xl leading-none" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobile-menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="md:hidden fixed top-16 inset-x-0 z-40 bg-canvas border-b border-line hidden">
+        <div class="flex flex-col px-6 py-3">
+            <a class="nav-link py-3" href="#work">Work</a>
+            <a class="nav-link py-3" href="#expertise">Expertise</a>
+            <a class="nav-link py-3" href="#projects">Projects</a>
+            <a class="nav-link py-3" href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <main id="top" class="relative">
+        <!-- Hero -->
+        <section class="max-w-6xl mx-auto px-6 pt-32 pb-16 md:pt-44 md:pb-24">
+            <p class="eyebrow mb-4">Cairo, Egypt</p>
+            <h1 class="font-display text-4xl md:text-6xl font-600 text-ink leading-[1.08] tracking-tight max-w-3xl">
+                Gameplay &amp; Systems Engineer building cross-platform games.</h1>
+            <p class="mt-6 text-lg text-body max-w-2xl">Three years shipping production titles on PlayStation, PC,
+                Nintendo, Xbox, Android, and iOS. I focus on scalable gameplay architecture, multiplayer systems, and AI
+                behaviour that holds up at frame rate.</p>
+            <div class="mt-9 flex flex-wrap gap-3">
+                <a class="btn btn-primary" href="mailto:ali.mohammed.kassab@gmail.com">Get in touch</a>
+                <a class="btn btn-outline" href="https://alikassab.dev/CV/" target="_blank"
+                    rel="noopener noreferrer">View CV</a>
+                <a class="btn btn-outline" href="https://github.com/AliKassab" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </div>
+
+            <!-- Quick stats -->
+            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line rounded-lg overflow-hidden">
+                <div class="bg-surface px-5 py-6">
+                    <p class="font-display text-3xl text-accent">10</p>
+                    <p class="eyebrow mt-1">Titles shipped</p>
+                </div>
+                <div class="bg-surface px-5 py-6">
+                    <p class="font-display text-3xl text-accent">6</p>
+                    <p class="eyebrow mt-1">Platforms</p>
+                </div>
+                <div class="bg-surface px-5 py-6">
+                    <p class="font-display text-3xl text-accent">3+</p>
+                    <p class="eyebrow mt-1">Years</p>
+                </div>
+                <div class="bg-surface px-5 py-6">
+                    <p class="font-display text-3xl text-accent">4</p>
+                    <p class="eyebrow mt-1">Personal builds</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Skills / Steam -->
+        <section class="max-w-6xl mx-auto px-6 pb-20 md:pb-28">
+            <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6">
+                <!-- About -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
+                    <p class="eyebrow mb-4">About</p>
+                    <p class="text-body">Gameplay and Systems Engineer with experience shipping cross-platform titles on
+                        PS5, PS4, PC, Android, and iOS.</p>
+                    <p class="text-body mt-4">Specialised in scalable gameplay architecture, multiplayer systems, AI
+                        behaviour design, and performance optimisation for indie, AA, and AAA projects, with a focus on
+                        clean architecture, modular systems, and long-term maintainability.</p>
+                </article>
+
+                <!-- Core skills -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
+                    <div class="flex items-baseline justify-between mb-5">
+                        <p class="eyebrow">Core skills</p>
+                        <p class="text-xs text-muted">3+ years</p>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex justify-between gap-4 border-b border-line pb-3"><span class="text-ink">C# / .NET</span><span class="text-muted">Expert</span></li>
+                        <li class="flex justify-between gap-4 border-b border-line pb-3"><span class="text-ink">Unity Engine</span><span class="text-muted">Expert</span></li>
+                        <li class="flex justify-between gap-4 border-b border-line pb-3"><span class="text-ink">C++ / SFML</span><span class="text-muted">Proficient</span></li>
+                        <li class="flex justify-between gap-4 border-b border-line pb-3"><span class="text-ink">Photon, Unity Netcode</span><span class="text-muted">Advanced</span></li>
+                        <li class="flex justify-between gap-4"><span class="text-ink">Behaviour Trees, FSM, A*</span><span class="text-muted">Advanced</span></li>
+                    </ul>
+                </article>
+
+                <!-- Steam -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem] flex flex-col max-h-[28rem]">
+                    <div class="flex items-baseline justify-between mb-5 flex-shrink-0">
+                        <p class="eyebrow">On Steam</p>
+                        <p id="steam-updated" class="text-[0.62rem] text-muted"></p>
+                    </div>
+                    <div class="relative flex-1 min-h-0">
+                        <div class="card-vscroll h-full overflow-y-auto pr-4">
+                            <div class="flex items-center gap-4">
+                                <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
+                                    class="w-14 h-14 rounded-lg border border-line object-cover hidden" />
+                                <div>
+                                    <h3 id="steam-name" class="font-display text-lg text-ink leading-tight">Ali Kassab</h3>
+                                    <p id="steam-state" class="text-xs text-muted mt-0.5"></p>
+                                </div>
+                            </div>
+
+                            <div id="steam-stats" class="grid grid-cols-2 gap-3 mt-6 hidden">
+                                <div class="border border-line rounded py-3 text-center">
+                                    <p id="steam-level" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Level</p>
+                                </div>
+                                <div class="border border-line rounded py-3 text-center">
+                                    <p id="steam-games" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Games</p>
+                                </div>
+                                <div class="border border-line rounded py-3 text-center">
+                                    <p id="steam-hours" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Hours</p>
+                                </div>
+                                <div id="steam-ach-tile" class="border border-line rounded py-3 text-center hidden">
+                                    <p id="steam-ach" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Achievements</p>
+                                </div>
+                            </div>
+
+                            <div id="steam-featured-wrap" class="mt-6 hidden">
+                                <p class="eyebrow mb-3">Most played</p>
+                                <div id="steam-featured" class="card-hscroll flex gap-3 overflow-x-auto pb-1"></div>
+                            </div>
+
+                            <div id="steam-recent-wrap" class="mt-6 hidden">
+                                <p class="eyebrow mb-3">Recently played</p>
+                                <div id="steam-recent" class="card-hscroll flex gap-3 overflow-x-auto pb-1"></div>
+                            </div>
+
+                            <div class="mt-6">
+                                <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank"
+                                    rel="noopener noreferrer" class="btn btn-outline">View profile <span class="arrow">&rarr;</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Work -->
+        <section id="work" class="max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
+            <header class="reveal mb-10 md:mb-12">
+                <p class="eyebrow mb-3">01 &nbsp;/&nbsp; Professional work</p>
+                <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Released titles</h2>
+                <div class="rule mt-6"></div>
+            </header>
+
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6">
+                <!-- God of War -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 flex items-center justify-center overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="God of War: Sons of Sparta"
+                            class="w-full h-full object-contain p-5" src="Images/GoWSoS_Logo.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">God of War: Sons of Sparta</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Game Programmer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">PS4, PS5</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Pit of Agonies</span><span class="chip">AI</span>
+                            <span class="chip">Progression</span><span class="chip">Localization</span>
+                        </div>
+                        <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">View on PlayStation <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Sinai Heroes -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 flex items-center justify-center overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Sinai Heroes" class="w-full h-full object-contain p-5"
+                            src="Images/sinaiheroes.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Genesis Creations S.A.E</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Sinai Heroes</h3>
+                        <p class="text-xs text-muted mt-1">Aug 2023 &ndash; Jul 2024</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Unity Game Developer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">Android, iOS</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Core Systems</span><span class="chip">Networking</span>
+                        </div>
+                        <a href="https://www.sinaiheroes.com" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- VR Surgical -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="VR Surgical Clean Room Training Simulation"
+                            class="w-full h-full object-cover"
+                            src="https://img.youtube.com/vi/mTNFCkmr_Sk/maxresdefault.jpg"
+                            onerror="this.onerror=null;this.src='https://img.youtube.com/vi/mTNFCkmr_Sk/hqdefault.jpg'" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Genesis Creations SAE</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">VR Surgical Clean Room Training</h3>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">VR Developer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">VR</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Architecture</span><span class="chip">Interactions</span>
+                        </div>
+                        <a href="https://youtu.be/mTNFCkmr_Sk?si=rF7hWUe8dwzE3wgJ" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">Watch the demo <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Backyard Baseball 2026 -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball 2026" class="w-full h-full object-cover"
+                            src="Images/backyard-baseball-2026.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball 2026</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Gameplay Programmer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">PC, Nintendo, PlayStation, Xbox</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Game Feel</span><span class="chip">Physics</span><span class="chip">Gameplay</span>
+                        </div>
+                        <a href="https://store.steampowered.com/app/3935020/Backyard_Baseball/" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">View on Steam <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Maximum Apocalypse -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Maximum Apocalypse" class="w-full h-full object-cover"
+                            src="Images/maximum-apocalypse.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Maximum Apocalypse</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Gameplay Programmer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">PC, Steam Deck</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Gameplay</span><span class="chip">Input</span><span class="chip">Localization</span>
+                        </div>
+                        <a href="https://store.steampowered.com/app/2434310/Maximum_Apocalypse/" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">View on Steam <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Backyard Soccer '98 -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Soccer '98" class="w-full h-full object-cover"
+                            src="Images/backyard-soccer-98.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Soccer '98</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/soccer98" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Backyard Baseball '97 -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball '97" class="w-full h-full object-cover"
+                            src="Images/backyard-baseball-97.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball '97</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/baseball97" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Backyard Baseball '01 -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball '01" class="w-full h-full object-cover"
+                            src="Images/backyard-baseball-01.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball '01</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/baseball01" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Backyard Basketball '01 -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Basketball '01" class="w-full h-full object-cover"
+                            src="Images/backyard-basketball-01.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Basketball '01</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/basketball01" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Backyard Football '99 -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Football '99" class="w-full h-full object-cover"
+                            src="Images/backyard-football-99.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Football '99</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
+                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
+                            </div>
+                        </dl>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/football99" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Expertise -->
+        <section id="expertise" class="bg-canvas-2 border-y border-line scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+                <header class="reveal mb-10 md:mb-12">
+                    <p class="eyebrow mb-3">02 &nbsp;/&nbsp; Capabilities</p>
+                    <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Expertise</h2>
+                    <div class="rule mt-6"></div>
+                </header>
+
+                <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-5 md:grid md:grid-cols-3 md:gap-6">
+                    <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none">
+                        <p class="eyebrow">Languages &amp; engines</p>
+                        <h3 class="font-display text-xl text-ink mt-2 mb-3">Core technologies</h3>
+                        <p class="text-sm text-body mb-5">Production work in Unity and C#, with low-level C++ for engine
+                            and porting work.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="chip">Unity</span><span class="chip">C#</span><span class="chip">C++</span>
+                            <span class="chip">SFML</span><span class="chip">Photon PUN</span>
+                            <span class="chip">Photon Fusion</span><span class="chip">Unity Netcode</span>
+                        </div>
+                    </article>
+
+                    <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none">
+                        <p class="eyebrow">Systems &amp; architecture</p>
+                        <h3 class="font-display text-xl text-ink mt-2 mb-3">Scalable design</h3>
+                        <p class="text-sm text-body mb-5">Modular, maintainable systems built on clean architecture and
+                            proven design patterns.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="chip">OOP</span><span class="chip">Design Patterns</span>
+                            <span class="chip">System Architecture</span><span class="chip">Multithreading</span>
+                            <span class="chip">Async</span><span class="chip">Data-Driven Tooling</span>
+                        </div>
+                    </article>
+
+                    <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none">
+                        <p class="eyebrow">Gameplay, AI &amp; networking</p>
+                        <h3 class="font-display text-xl text-ink mt-2 mb-3">Systems in motion</h3>
+                        <p class="text-sm text-body mb-5">AI behaviour, multiplayer, and the performance tuning that
+                            keeps it all shipping at frame rate.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="chip">Behaviour Trees</span><span class="chip">FSM</span>
+                            <span class="chip">Pathfinding A*</span><span class="chip">BFS / DFS</span>
+                            <span class="chip">Multiplayer</span><span class="chip">Networking</span>
+                            <span class="chip">Localisation</span><span class="chip">Performance</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="reveal mt-8 card px-7 py-6">
+                    <p class="eyebrow mb-3">Shipped across</p>
+                    <div class="flex flex-wrap gap-x-6 gap-y-2 text-ink">
+                        <span>PlayStation 5</span><span class="text-line">|</span>
+                        <span>PlayStation 4</span><span class="text-line">|</span>
+                        <span>PC</span><span class="text-line">|</span>
+                        <span>Nintendo</span><span class="text-line">|</span>
+                        <span>Xbox</span><span class="text-line">|</span>
+                        <span>Android</span><span class="text-line">|</span>
+                        <span>iOS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
+            <header class="reveal mb-10 md:mb-12">
+                <p class="eyebrow mb-3">03 &nbsp;/&nbsp; Personal work</p>
+                <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Projects</h2>
+                <p class="mt-4 text-body max-w-2xl">Every title is built cross-platform and deployed on the web, so you
+                    can play instantly with no download.</p>
+                <div class="rule mt-6"></div>
+            </header>
+
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6">
+                <!-- Mystic Sands -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[25rem] md:max-w-[25rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/mysticsands.gif" alt="Mystic Sands gameplay"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-display text-xl text-ink">Mystic Sands</h3>
+                            <span class="chip">1st place</span>
+                        </div>
+                        <p class="text-sm text-body mt-3">Narrative-driven adventure built at the ITI-BelMasry Tech
+                            Hackathon. Maze generation via recursive backtracking, graph-based dialogue and quest
+                            systems, and NavMesh-driven NPC AI.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Procedural</span><span class="chip">AI</span><span class="chip">Narrative</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5 mt-6">
+                            <a href="https://ali-kassab.itch.io/mystic-sands" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-primary" data-desktop-only>Play <span class="arrow">&rarr;</span></a>
+                            <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-outline">View source</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- FakeOut BOSS -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[25rem] md:max-w-[25rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/fakeout-boss.gif" alt="FakeOut BOSS gameplay"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-display text-xl text-ink">FakeOut BOSS</h3>
+                            <span class="chip">1st place</span>
+                        </div>
+                        <p class="text-sm text-body mt-3">Stealth-comedy simulation built at GDA JAM. NPC awareness and
+                            gaze systems, adaptive time dilation, and customisable pathfinding (A*, BFS, DFS).</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Stealth AI</span><span class="chip">Pathfinding</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5 mt-6">
+                            <a href="https://alikassab.dev/FakeOutBoss/" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-primary" data-desktop-only>Play <span class="arrow">&rarr;</span></a>
+                            <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-outline">View source</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Table For None -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[25rem] md:max-w-[25rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/table-for-none.gif" alt="Table For None gameplay"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl text-ink">Table For None</h3>
+                        <p class="text-sm text-body mt-3">Multiplayer detective co-op. Lead programmer on a team of
+                            three: multiplayer via Unity Netcode, FSM-driven customer AI, and a flexible cooking-actions
+                            system.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Multiplayer</span><span class="chip">Netcode</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5 mt-6">
+                            <a href="https://youtu.be/9nGm4p8mKxk?si=D745AnGGadAqQOpV" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-outline">Watch the trailer <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Dungeon of the Skeletons -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[25rem] md:max-w-[25rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/dungeon.gif"
+                            alt="Dungeon Of The Skeletons gameplay" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl text-ink">Dungeon of the Skeletons</h3>
+                        <p class="text-sm text-body mt-3">2D platformer built in C++ and SFML with a team of six.
+                            Collision handling for jump states, character animation and movement, and patrol/turret
+                            enemy behaviours.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">C++ / SFML</span><span class="chip">2D Platformer</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5 mt-6">
+                            <a href="https://alikassab.dev/DungeonOfTheSkeletons/" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-primary" data-desktop-only>Play <span class="arrow">&rarr;</span></a>
+                            <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-outline">View source</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="bg-canvas-2 border-t border-line scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+                <div class="reveal max-w-2xl">
+                    <p class="eyebrow mb-3">04 &nbsp;/&nbsp; Contact</p>
+                    <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Open to gameplay and
+                        systems roles.</h2>
+                    <p class="mt-5 text-body">If you are building something that needs solid architecture and gameplay
+                        that feels right, I would like to hear about it.</p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a class="btn btn-primary" href="mailto:ali.mohammed.kassab@gmail.com">ali.mohammed.kassab@gmail.com</a>
+                        <a class="btn btn-outline" href="https://www.linkedin.com/in/ali-kassab-" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to top -->
+    <button id="to-top"
+        class="to-top fixed bottom-6 right-6 z-40 w-11 h-11 flex items-center justify-center rounded-lg bg-ink text-canvas shadow-lg"
+        aria-label="Back to top">&#8593;</button>
+
+    <!-- Desktop-only toast -->
+    <div id="mobile-warning" role="alert" aria-live="assertive"
+        class="fixed inset-x-0 bottom-6 z-[60] flex justify-center px-4 pointer-events-none">
+        <div class="card max-w-sm px-6 py-4 text-center pointer-events-auto">
+            <p class="eyebrow mb-1.5">Desktop only</p>
+            <p class="text-sm text-body">This build runs on desktop. Open the page on a computer to play, or view the
+                source on GitHub.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-line bg-canvas">
+        <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <p class="font-display text-base text-ink">Ali Kassab</p>
+            <div class="flex flex-wrap justify-center gap-6 text-sm">
+                <a class="nav-link" href="mailto:ali.mohammed.kassab@gmail.com">Email</a>
+                <a class="nav-link" href="https://www.linkedin.com/in/ali-kassab-" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <a class="nav-link" href="https://github.com/AliKassab" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+                <a class="nav-link" href="https://alikassab.dev/CV/" target="_blank" rel="noopener noreferrer">CV</a>
+            </div>
+            <p class="text-xs text-muted">&copy; 2026 &middot; Cairo, Egypt</p>
+        </div>
+    </footer>
+
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = ['work', 'expertise', 'projects', 'contact'].map(id => document.getElementById(id));
+
+        function setActive(id) {
+            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); });
+        }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+        sections.forEach(s => s && observer.observe(s));
+
+        // Mobile menu
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.innerHTML = '&#9776;';
+        }
+        function openMenu() {
+            mobileMenu.classList.remove('hidden');
+            navToggle.setAttribute('aria-expanded', 'true');
+            navToggle.innerHTML = '&#10005;';
+        }
+        navToggle.addEventListener('click', () => {
+            mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu();
+        });
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) setActive(href.slice(1));
+                closeMenu();
+            });
+        });
+
+        // Scroll reveal
+        const revObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('in'); obs.unobserve(entry.target); }
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => revObserver.observe(el));
+
+        // Back to top
+        const toTop = document.getElementById('to-top');
+        window.addEventListener('scroll', () => {
+            toTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
+        }, { passive: true });
+        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Desktop-only guard
+        function isMobileDevice() {
+            return window.matchMedia('(max-width: 768px)').matches
+                || (window.matchMedia('(pointer: coarse)').matches && window.matchMedia('(hover: none)').matches);
+        }
+        const warning = document.getElementById('mobile-warning');
+        let warnTimer;
+        document.querySelectorAll('[data-desktop-only]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                if (isMobileDevice()) {
+                    e.preventDefault();
+                    warning.classList.add('show');
+                    clearTimeout(warnTimer);
+                    warnTimer = setTimeout(() => warning.classList.remove('show'), 4500);
+                }
+            });
+        });
+        warning.addEventListener('click', () => warning.classList.remove('show'));
+
+        // Steam showcase
+        (function () {
+            const el = id => document.getElementById(id);
+            const esc = s => String(s).replace(/[&<>"']/g, c =>
+                ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            fetch('steam-data.json', { cache: 'no-cache' })
+                .then(r => r.ok ? r.json() : Promise.reject())
+                .then(d => {
+                    const p = d.profile || {};
+                    if (p.name) el('steam-name').textContent = p.name;
+                    if (p.avatar) { const a = el('steam-avatar'); a.src = p.avatar; a.classList.remove('hidden'); }
+                    const sub = [];
+                    if (p.memberSince) sub.push('Member since ' + p.memberSince);
+                    if (p.country && p.country.name) sub.push((p.country.flag ? p.country.flag + ' ' : '') + p.country.name);
+                    if (sub.length) el('steam-state').textContent = sub.join('  ·  ');
+                    if (p.level != null || p.gameCount != null || p.totalHours != null || p.achievements != null) {
+                        if (p.level != null) el('steam-level').textContent = p.level;
+                        if (p.gameCount != null) el('steam-games').textContent = p.gameCount.toLocaleString();
+                        if (p.totalHours != null) el('steam-hours').textContent = p.totalHours.toLocaleString();
+                        if (p.achievements != null) {
+                            el('steam-ach').textContent = p.achievements.toLocaleString();
+                            el('steam-ach-tile').classList.remove('hidden');
+                        }
+                        el('steam-stats').classList.remove('hidden');
+                    }
+                    const gameCard = (g, meta) => `
+                        <a href="https://store.steampowered.com/app/${encodeURIComponent(g.appid)}/" target="_blank" rel="noopener noreferrer" class="block flex-shrink-0 w-[140px] rounded border border-line overflow-hidden">
+                            <img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy" decoding="async" class="w-full h-auto" />
+                            <div class="px-2 py-2">
+                                <p class="text-[0.72rem] text-ink leading-tight">${esc(g.name)}</p>
+                                <p class="text-[0.62rem] text-muted mt-0.5">${meta}</p>
+                            </div>
+                        </a>`;
+                    if (Array.isArray(d.mostPlayed) && d.mostPlayed.length) {
+                        el('steam-featured').innerHTML = d.mostPlayed
+                            .map(g => gameCard(g, esc(g.hoursTotal.toLocaleString()) + 'h total')).join('');
+                        el('steam-featured-wrap').classList.remove('hidden');
+                    }
+                    if (Array.isArray(d.recent) && d.recent.length) {
+                        el('steam-recent').innerHTML = d.recent
+                            .map(g => gameCard(g, esc(g.hours2w) + 'h past 2 weeks')).join('');
+                        el('steam-recent-wrap').classList.remove('hidden');
+                    }
+                    if (d.updated) {
+                        el('steam-updated').textContent = 'Updated ' +
+                            new Date(d.updated).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                    }
+                    document.querySelectorAll('.card-hscroll, .card-vscroll')
+                        .forEach(s => s.dispatchEvent(new Event('sb-refresh')));
+                })
+                .catch(() => { });
+        })();
+
+        // Dot pagination for horizontal carousels
+        function attachDots(scroller) {
+            const dots = document.createElement('div');
+            dots.className = 'card-dots';
+            scroller.after(dots);
+            let count = -1;
+
+            const setActiveDot = () => {
+                const n = dots.children.length;
+                if (!n) return;
+                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                const idx = maxScroll > 0 ? Math.round((scroller.scrollLeft / maxScroll) * (n - 1)) : 0;
+                Array.from(dots.children).forEach((dot, i) => dot.classList.toggle('active', i === idx));
+            };
+
+            const build = () => {
+                const n = scroller.children.length;
+                if (n !== count) {
+                    count = n;
+                    dots.innerHTML = '';
+                    for (let i = 0; i < n; i++) {
+                        const dot = document.createElement('button');
+                        dot.type = 'button';
+                        dot.className = 'card-dot';
+                        dot.setAttribute('aria-label', 'Go to item ' + (i + 1));
+                        dot.addEventListener('click', () => {
+                            const max = scroller.scrollWidth - scroller.clientWidth;
+                            scroller.scrollTo({ left: n > 1 ? (i / (n - 1)) * max : 0, behavior: 'smooth' });
+                        });
+                        dots.appendChild(dot);
+                    }
+                }
+                dots.style.display = (n <= 1 || scroller.scrollWidth <= scroller.clientWidth + 1) ? 'none' : 'flex';
+                setActiveDot();
+            };
+
+            scroller.addEventListener('scroll', setActiveDot, { passive: true });
+            window.addEventListener('resize', build);
+            window.addEventListener('load', build);
+            scroller.addEventListener('sb-refresh', build);
+            setTimeout(build, 300);
+            build();
+        }
+
+        // Vertical scrollbar for the Steam card
+        function attachVScrollbar(scroller) {
+            const bar = document.createElement('div');
+            bar.className = 'card-scrollbar-v';
+            const thumb = document.createElement('div');
+            thumb.className = 'card-scrollbar-thumb';
+            bar.appendChild(thumb);
+            scroller.parentElement.appendChild(bar);
+
+            const update = () => {
+                const { scrollHeight, clientHeight, scrollTop } = scroller;
+                if (scrollHeight <= clientHeight + 1) { bar.style.display = 'none'; return; }
+                bar.style.display = 'block';
+                const track = bar.clientHeight;
+                const t = Math.max(track * (clientHeight / scrollHeight), 24);
+                const maxScroll = scrollHeight - clientHeight;
+                const offset = maxScroll > 0 ? (scrollTop / maxScroll) * (track - t) : 0;
+                thumb.style.height = t + 'px';
+                thumb.style.transform = 'translateY(' + offset + 'px)';
+            };
+
+            scroller.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            window.addEventListener('load', update);
+            scroller.addEventListener('sb-refresh', update);
+            setTimeout(update, 300);
+            update();
+
+            let start = 0, startScroll = 0, dragging = false;
+            thumb.addEventListener('pointerdown', e => {
+                dragging = true; start = e.clientY; startScroll = scroller.scrollTop;
+                thumb.classList.add('dragging'); thumb.setPointerCapture(e.pointerId); e.preventDefault();
+            });
+            thumb.addEventListener('pointermove', e => {
+                if (!dragging) return;
+                const maxThumb = bar.clientHeight - thumb.offsetHeight;
+                const delta = e.clientY - start;
+                scroller.scrollTop = startScroll + (maxThumb > 0 ? (delta / maxThumb) * (scroller.scrollHeight - scroller.clientHeight) : 0);
+            });
+            const endDrag = () => { dragging = false; thumb.classList.remove('dragging'); };
+            thumb.addEventListener('pointerup', endDrag);
+            thumb.addEventListener('pointercancel', endDrag);
+        }
+
+        document.querySelectorAll('.card-scroll, .card-hscroll').forEach(attachDots);
+        document.querySelectorAll('.card-vscroll').forEach(attachVScrollbar);
+    </script>
+</body>
+
+</html>
