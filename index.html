@@ -5,1230 +5,942 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>ALI KASSAB // PORTFOLIO</title>
+    <title>Ali Kassab // Game Developer</title>
     <meta name="description"
-        content="Ali Kassab, Unity Game Developer based in Cairo, Egypt. Gameplay and systems engineer shipping cross-platform titles on PS5, PS4, PC, Android, and iOS, specializing in scalable gameplay architecture, multiplayer systems, and AI behavior design." />
+        content="Ali Kassab, Game Developer based in Cairo, Egypt. Shipping cross-platform titles on PS5, PS4, PC, Android, and iOS, with a focus on gameplay architecture, multiplayer systems, and AI behaviour." />
     <meta name="author" content="Ali Kassab" />
-    <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230e0a05'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23c8a060' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href="https://alikassab.dev/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Ali Kassab // Unity Game Developer" />
+    <meta property="og:url" content="https://alikassab.dev/" />
+    <meta property="og:title" content="Ali Kassab // Game Developer" />
     <meta property="og:description"
-        content="Gameplay and systems engineer shipping cross-platform titles, specializing in scalable gameplay architecture, multiplayer systems, and AI behavior design." />
+        content="Game Developer shipping cross-platform titles on PS5, PS4, PC, Android, and iOS. Gameplay architecture, multiplayer systems, and AI behaviour." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ali Kassab // Game Developer" />
+    <meta name="twitter:description"
+        content="Game Developer shipping cross-platform titles on PS5, PS4, PC, Android, and iOS. Gameplay architecture, multiplayer systems, and AI behaviour." />
+    <script>
+        // Set the theme before first paint so there is no flash
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) { }
+            var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1815'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23c9744f' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet" />
-    <script id="tailwind-config">
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        parchment: "#d8c494",
-                        "parchment-2": "#c9b47e",
-                        "parchment-3": "#e8ddc4",
-                        ink: "#1c1208",
-                        "ink-soft": "#3a2c18",
-                        faded: "#6b5738",
-                        oxblood: "#8a2e22",
-                        gold: "#8a6e28",
-                        "gold-bright": "#a88432"
+                        canvas: "rgb(var(--c-canvas) / <alpha-value>)",
+                        "canvas-2": "rgb(var(--c-canvas-2) / <alpha-value>)",
+                        surface: "rgb(var(--c-surface) / <alpha-value>)",
+                        ink: "rgb(var(--c-ink) / <alpha-value>)",
+                        body: "rgb(var(--c-body) / <alpha-value>)",
+                        muted: "rgb(var(--c-muted) / <alpha-value>)",
+                        line: "rgb(var(--c-line) / <alpha-value>)",
+                        accent: "rgb(var(--c-accent) / <alpha-value>)",
+                        "accent-deep": "rgb(var(--c-accent-deep) / <alpha-value>)",
+                        brass: "rgb(var(--c-brass) / <alpha-value>)"
                     },
-                    borderRadius: {
-                        DEFAULT: "0px",
-                        lg: "0px",
-                        xl: "0px",
-                        full: "9999px"
-                    },
+                    borderRadius: { DEFAULT: "6px", sm: "4px", lg: "10px", xl: "14px" },
                     fontFamily: {
-                        display: ['"Cinzel Decorative"', "serif"],
-                        heading: ['"Cormorant Garamond"', "serif"],
-                        body: ['"EB Garamond"', "serif"],
-                        label: ['"EB Garamond"', "serif"]
+                        display: ['Fraunces', 'Georgia', 'serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     <style>
-        html {
-            scroll-behavior: smooth;
+        /* ── Theme tokens (RGB triplets so Tailwind opacity modifiers work) ── */
+        :root,
+        :root[data-theme="light"] {
+            color-scheme: light;
+            --c-canvas: 247 245 241;
+            --c-canvas-2: 239 235 228;
+            --c-surface: 255 254 252;
+            --c-ink: 26 24 21;
+            --c-body: 77 71 64;
+            --c-muted: 139 131 120;
+            --c-line: 228 223 214;
+            --c-line-strong: 213 202 187;
+            --c-hover: 242 239 233;
+            --c-accent: 164 82 58;
+            --c-accent-deep: 131 64 45;
+            --c-on-accent: 255 254 252;
+            --c-brass: 143 125 85;
+            --shadow-card: 0 1px 2px rgba(26, 24, 21, 0.04), 0 8px 24px rgba(26, 24, 21, 0.04);
+            --shadow-card-hover: 0 2px 4px rgba(26, 24, 21, 0.05), 0 18px 40px rgba(26, 24, 21, 0.10);
         }
 
-        /* ── Dark wood-board background ── */
+        :root[data-theme="dark"] {
+            color-scheme: dark;
+            --c-canvas: 20 18 15;
+            --c-canvas-2: 28 25 22;
+            --c-surface: 32 28 24;
+            --c-ink: 242 237 229;
+            --c-body: 184 176 164;
+            --c-muted: 138 129 117;
+            --c-line: 50 44 38;
+            --c-line-strong: 68 60 51;
+            --c-hover: 40 35 30;
+            --c-accent: 201 116 79;
+            --c-accent-deep: 221 139 100;
+            --c-on-accent: 20 18 15;
+            --c-brass: 176 154 109;
+            --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.30), 0 8px 24px rgba(0, 0, 0, 0.35);
+            --shadow-card-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 18px 40px rgba(0, 0, 0, 0.50);
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: #0e0a05;
-            background-image:
-                /* subtle vertical wood-grain streaks */
-                repeating-linear-gradient(92deg,
-                    transparent 0px,
-                    transparent 38px,
-                    rgba(255, 230, 160, 0.018) 38px,
-                    rgba(255, 230, 160, 0.018) 40px,
-                    transparent 40px,
-                    transparent 80px,
-                    rgba(0, 0, 0, 0.06) 80px,
-                    rgba(0, 0, 0, 0.06) 82px),
-                /* wide warm vignette from top */
-                radial-gradient(ellipse 120% 50% at 50% 0%, rgba(52, 34, 12, 0.75), transparent 60%),
-                /* dark corners */
-                radial-gradient(ellipse 80% 60% at 0% 100%, rgba(8, 5, 2, 0.55), transparent 55%),
-                radial-gradient(ellipse 80% 60% at 100% 100%, rgba(8, 5, 2, 0.55), transparent 55%);
-            color: #c8b080;
-            font-family: 'EB Garamond', serif;
-            font-size: 1.05rem;
-            line-height: 1.75;
+            background-color: rgb(var(--c-canvas));
+            color: rgb(var(--c-body));
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Fine noise over the whole board */
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.09;
-            mix-blend-mode: soft-light;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
+        ::selection { background: rgb(var(--c-accent) / 0.2); color: rgb(var(--c-ink)); }
 
-        ::selection {
-            background: #7a2818;
-            color: #f4ead6;
-        }
-
-        /* ── Typography ── */
-        .brand {
-            font-family: 'Cinzel Decorative', serif;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-        }
-
-        .blackletter {
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        /* Section labels on the dark board */
-        .label {
-            font-family: 'EB Garamond', serif;
-            text-transform: uppercase;
-            letter-spacing: 0.34em;
-            font-weight: 600;
+        /* ── Eyebrow label ── */
+        .eyebrow {
             font-size: 0.68rem;
-            color: #7a6438;
-        }
-
-        /* Labels that sit on parchment */
-        .on-parchment {
-            color: #5c4420;
-        }
-
-        /* ── Notice / parchment card ── */
-        .notice {
-            position: relative;
-            background:
-                /* faint paper fibre */
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.06'/%3E%3C/svg%3E"),
-                linear-gradient(168deg, #f0e4c0 0%, #e4d0a0 45%, #d8c090 100%);
-            border: 1px solid rgba(20, 12, 4, 0.5);
-            /* multi-layer shadow: tight edge + deep cast shadow */
-            box-shadow:
-                0 1px 0 rgba(255, 248, 220, 0.35) inset,
-                0 -1px 0 rgba(20, 12, 4, 0.15) inset,
-                3px 6px 18px rgba(0, 0, 0, 0.55),
-                6px 12px 40px rgba(0, 0, 0, 0.35);
-            color: #1e1408;
-        }
-
-        /* Inset ruling line (inner frame) */
-        .notice::before {
-            content: "";
-            position: absolute;
-            inset: 6px;
-            border: 1px solid rgba(120, 42, 28, 0.22);
-            pointer-events: none;
-        }
-
-        /* Nail / pin at top-center */
-        .notice::after {
-            content: "";
-            position: absolute;
-            top: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #b0906a, #5c3c1c 70%);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(20, 10, 4, 0.6);
-            z-index: 2;
-        }
-
-        /* Hero notice - larger frame variant */
-        .notice-hero {
-            position: relative;
-            background:
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.06'/%3E%3C/svg%3E"),
-                linear-gradient(168deg, #f0e4c0 0%, #e4d0a0 45%, #d8c090 100%);
-            border: 1.5px solid rgba(20, 12, 4, 0.55);
-            box-shadow:
-                0 1px 0 rgba(255, 248, 220, 0.4) inset,
-                4px 8px 24px rgba(0, 0, 0, 0.6),
-                8px 16px 60px rgba(0, 0, 0, 0.4);
-            color: #1e1408;
-        }
-
-        /* Corner cross ornaments on the hero frame */
-        .notice-hero .frame-corner {
-            position: absolute;
-            font-size: 0.85rem;
-            color: rgba(120, 42, 28, 0.55);
-            line-height: 1;
-        }
-
-        .notice-hero .frame-corner.tl {
-            top: 8px;
-            left: 10px;
-        }
-
-        .notice-hero .frame-corner.tr {
-            top: 8px;
-            right: 10px;
-        }
-
-        .notice-hero .frame-corner.bl {
-            bottom: 8px;
-            left: 10px;
-        }
-
-        .notice-hero .frame-corner.br {
-            bottom: 8px;
-            right: 10px;
-        }
-
-        /* Nails on hero - four corners */
-        .notice-hero .nail {
-            position: absolute;
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #b89060, #4c3018 70%);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(20, 10, 4, 0.7);
-            z-index: 2;
-        }
-
-        .notice-hero .nail.tl {
-            top: -5px;
-            left: 24px;
-        }
-
-        .notice-hero .nail.tr {
-            top: -5px;
-            right: 24px;
-        }
-
-        .notice-hero .nail.bl {
-            bottom: -5px;
-            left: 24px;
-        }
-
-        .notice-hero .nail.br {
-            bottom: -5px;
-            right: 24px;
-        }
-
-        /* ── Drop cap ── */
-        .drop-cap::first-letter {
-            font-family: 'Cinzel Decorative', serif;
-            float: left;
-            font-size: 3.2rem;
-            line-height: 0.88;
-            padding: 0.05rem 0.55rem 0 0;
-            color: #7a2818;
-        }
-
-        /* ── Ornamental rule: line - glyph - line ── */
-        .ornament {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        /* On the dark board */
-        .ornament-dark::before,
-        .ornament-dark::after {
-            content: "";
-            height: 1px;
-            flex: 1;
-            background: linear-gradient(90deg, transparent, rgba(160, 124, 44, 0.4), transparent);
-        }
-
-        .ornament-dark span {
-            color: #9a7c32;
-        }
-
-        /* On parchment */
-        .ornament-light::before,
-        .ornament-light::after {
-            content: "";
-            height: 1px;
-            flex: 1;
-            background: linear-gradient(90deg, transparent, rgba(20, 12, 4, 0.4), transparent);
-        }
-
-        .ornament-light span {
-            color: #7a2818;
-        }
-
-        /* ── Numerals ── */
-        .numeral {
-            font-family: 'Cormorant Garamond', serif;
-            color: rgba(154, 124, 50, 0.85);
             font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgb(var(--c-brass));
         }
 
-        /* ── Leader (dotted table-of-contents line) ── */
-        .leader {
-            display: flex;
-            align-items: baseline;
-            gap: 0.5rem;
+        /* ── Card ── */
+        .card {
+            background: rgb(var(--c-surface));
+            border: 1px solid rgb(var(--c-line));
+            border-radius: 10px;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgb(var(--c-line-strong));
+            box-shadow: var(--shadow-card-hover);
         }
 
-        .leader .dots {
-            flex: 1;
-            border-bottom: 1px dotted rgba(20, 12, 4, 0.3);
-            transform: translateY(-0.25rem);
+        /* ── Chips ── */
+        .chip {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            color: rgb(var(--c-body));
+            background: rgb(var(--c-hover));
+            border: 1px solid rgb(var(--c-line));
+            border-radius: 9999px;
+            padding: 0.2rem 0.65rem;
+            white-space: nowrap;
         }
 
-        /* ── Image plate ── */
-        .plate {
-            border: 1px solid rgba(20, 12, 4, 0.45);
-            background: #c8a868;
+        /* ── Buttons ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.6rem 1.15rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+        }
+        .btn:active { transform: translateY(1px); }
+        .btn-primary {
+            background: rgb(var(--c-accent));
+            color: rgb(var(--c-on-accent));
+            border: 1px solid rgb(var(--c-accent));
+        }
+        .btn-primary:hover { background: rgb(var(--c-accent-deep)); border-color: rgb(var(--c-accent-deep)); }
+        .btn-outline {
+            background: transparent;
+            color: rgb(var(--c-ink));
+            border: 1px solid rgb(var(--c-line-strong));
+        }
+        .btn-outline:hover { background: rgb(var(--c-hover)); border-color: rgb(var(--c-muted)); }
+        .btn .arrow { transition: transform 0.2s ease; }
+        .btn:hover .arrow { transform: translateX(3px); }
+
+        /* ── Section rule ── */
+        .rule {
+            height: 1px;
+            background: linear-gradient(90deg, rgb(var(--c-line-strong)), rgb(var(--c-line-strong) / 0));
         }
 
-        .plate img {
-            opacity: 1;
-            transition: transform 0.5s ease;
-        }
-
-        .group:hover .plate img {
-            transform: scale(1.03);
-        }
-
-        /* ── Nav links ── */
+        /* ── Nav ── */
         .nav-link {
             position: relative;
-            color: #7a6438;
-            transition: color 0.25s ease;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: rgb(var(--c-muted));
+            transition: color 0.2s ease;
         }
-
-        .nav-link:hover {
-            color: #c8a060;
-        }
-
-        .nav-link.active {
-            color: #e0c888;
-        }
-
+        .nav-link:hover { color: rgb(var(--c-ink)); }
+        .nav-link.active { color: rgb(var(--c-accent)); }
         .nav-link.active::after {
             content: "";
             position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -0.4rem;
-            height: 1px;
-            background: #9a7c32;
+            left: 0; right: 0; bottom: -0.45rem;
+            height: 2px;
+            border-radius: 2px;
+            background: rgb(var(--c-accent));
         }
 
-
-        /* ── Mobile nav menu ── */
-        #nav-toggle { font-size: 1.5rem; line-height: 1; color: #c8a060; }
-        #mobile-menu { transition: opacity 0.25s ease; }
+        /* ── Theme toggle ── */
+        .theme-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px; height: 34px;
+            border-radius: 8px;
+            border: 1px solid rgb(var(--c-line));
+            background: transparent;
+            color: rgb(var(--c-muted));
+            cursor: pointer;
+            transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+        .theme-btn:hover {
+            color: rgb(var(--c-ink));
+            background: rgb(var(--c-hover));
+            border-color: rgb(var(--c-line-strong));
+        }
+        .theme-btn .moon { display: none; }
+        :root[data-theme="dark"] .theme-btn .sun { display: none; }
+        :root[data-theme="dark"] .theme-btn .moon { display: block; }
 
         /* ── Scroll reveal ── */
         .reveal {
             opacity: 0;
-            transform: translateY(26px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-            will-change: opacity, transform;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .reveal.in { opacity: 1; transform: none; }
 
-        /* ── Back-to-top seal ── */
+        /* ── Back to top ── */
         .to-top {
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.3s ease, transform 0.25s ease, background 0.25s ease;
+            transition: opacity 0.3s ease, transform 0.2s ease, background 0.2s ease;
         }
         .to-top.show { opacity: 1; pointer-events: auto; }
         .to-top:hover { transform: translateY(-3px); }
 
-        /* ── Desktop-only warning toast ── */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .card-hover:hover { transform: none; }
+        }
+
+        /* ── Carousels ── */
+        .card-scroll, .card-hscroll, .card-vscroll { scrollbar-width: none; }
+        .card-scroll::-webkit-scrollbar,
+        .card-hscroll::-webkit-scrollbar,
+        .card-vscroll::-webkit-scrollbar { display: none; }
+
+        .card-dots {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 1rem;
+        }
+        .card-dot {
+            width: 7px; height: 7px; padding: 0;
+            border-radius: 9999px;
+            background: rgb(var(--c-line-strong));
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .card-dot:hover { background: rgb(var(--c-muted)); }
+        .card-dot.active { background: rgb(var(--c-accent)); transform: scale(1.45); }
+
+        .card-scrollbar-v {
+            position: absolute; top: 0; right: 0;
+            width: 5px; height: 100%;
+            background: rgb(var(--c-hover));
+            border-radius: 9999px;
+        }
+        .card-scrollbar-thumb {
+            position: absolute; top: 0; left: 0;
+            width: 100%; min-height: 24px;
+            background: rgb(var(--c-line-strong));
+            border-radius: 9999px;
+            cursor: grab;
+        }
+        .card-scrollbar-thumb.dragging { background: rgb(var(--c-accent)); cursor: grabbing; }
+
+        /* ── Toast ── */
         #mobile-warning {
             opacity: 0;
             visibility: hidden;
             transform: translateY(12px);
             transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
         }
-        #mobile-warning.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        #mobile-warning.show { opacity: 1; visibility: visible; transform: translateY(0); }
 
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .reveal { opacity: 1; transform: none; transition: none; }
-            .to-top { transition: opacity 0.3s ease; }
-        }
-
-        /* ── Custom always-visible scrollbar for horizontal carousels ── */
-        .card-scroll {
-            scrollbar-width: none;
-        }
-        .card-scroll::-webkit-scrollbar {
-            display: none;
-        }
-        .card-scrollbar {
-            position: relative;
-            height: 8px;
-            margin-top: 0.25rem;
-            background: rgba(122, 100, 56, 0.16);
-            border: 1px solid rgba(20, 12, 4, 0.18);
-        }
-        .card-scrollbar-thumb {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            min-width: 28px;
-            background: #8a6e28;
-            cursor: grab;
-            transition: background 0.2s ease;
-            touch-action: none;
-        }
-        .card-scrollbar-thumb:hover {
-            background: #a88432;
-        }
-        .card-scrollbar-thumb.dragging {
-            background: #a88432;
-            cursor: grabbing;
-        }
-        .card-hscroll,
-        .card-vscroll {
-            scrollbar-width: none;
-        }
-        .card-hscroll::-webkit-scrollbar,
-        .card-vscroll::-webkit-scrollbar {
-            display: none;
-        }
-        .card-scrollbar-v {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 8px;
-            height: 100%;
-            margin-top: 0;
-        }
-        .card-scrollbar-v .card-scrollbar-thumb {
-            min-width: 0;
-            width: 100%;
-        }
-
-        /* ── Dot pagination for horizontal carousels ── */
-        .card-dots {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-top: 0.85rem;
-        }
-        .card-dot {
-            width: 9px;
-            height: 9px;
-            padding: 0;
-            border-radius: 9999px;
-            background: rgba(122, 100, 56, 0.28);
-            border: 1px solid rgba(20, 12, 4, 0.3);
-            cursor: pointer;
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
-        .card-dot:hover {
-            background: rgba(138, 110, 40, 0.65);
-        }
-        .card-dot.active {
-            background: #8a6e28;
-            transform: scale(1.4);
-        }
-
-        /* ── Mobile swipe carousel: keep whole card within one screen ── */
         @media (max-width: 767px) {
-            .card-scroll .plate {
-                aspect-ratio: auto;
-                height: 30vh;
-                max-height: 220px;
-            }
-
-            .card-scroll .plate img.object-contain {
-                padding: 1.25rem;
-            }
-        }
-
-        /* ── Chips ── */
-        .chip {
-            border: 1px solid rgba(20, 12, 4, 0.28);
-            color: #3c2c14;
-            background: rgba(255, 248, 210, 0.18);
-        }
-
-        /* ── Buttons ── */
-        .btn-seal {
-            display: inline-block;
-            font-family: 'EB Garamond', serif;
-            text-transform: uppercase;
-            letter-spacing: 0.28em;
-            font-weight: 600;
-            font-size: 0.72rem;
-            transition: all 0.25s ease;
-        }
-
-        .btn-seal-primary {
-            background: #7a2818;
-            color: #f4ead6;
-            border: 1px solid #7a2818;
-        }
-
-        .btn-seal-primary:hover {
-            background: #601e12;
-            border-color: #601e12;
-        }
-
-        .btn-seal-secondary {
-            background: transparent;
-            color: #1e1408;
-            border: 1px solid rgba(20, 12, 4, 0.4);
-        }
-
-        .btn-seal-secondary:hover {
-            background: rgba(20, 12, 4, 0.06);
-        }
-
-        /* ── In-card CTA button ── */
-        .btn-card {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'EB Garamond', serif;
-            text-transform: uppercase;
-            letter-spacing: 0.22em;
-            font-weight: 600;
-            font-size: 0.62rem;
-            padding: 0.6rem 1.4rem;
-            color: #7a2818;
-            border: 1px solid rgba(122, 40, 24, 0.55);
-            background: rgba(122, 40, 24, 0.05);
-            transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
-        }
-
-        .btn-card:hover {
-            background: #7a2818;
-            color: #f4ead6;
-            transform: translateY(-2px);
-        }
-
-        .btn-card span {
-            transition: transform 0.25s ease;
-        }
-
-        .btn-card:hover span {
-            transform: translateX(3px);
-        }
-
-        .btn-card.is-primary {
-            background: #7a2818;
-            color: #f4ead6;
-        }
-
-        .btn-card.is-primary:hover {
-            background: #601e12;
-            color: #f4ead6;
-            transform: translateY(-2px);
-        }
-
-        /* ── Misc ── */
-        .vertical-text {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-        }
-
-        .card-link {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card-link:hover {
-            transform: translateY(-6px);
-            border-color: rgba(122, 40, 24, 0.7);
-            box-shadow:
-                0 1px 0 rgba(255, 248, 220, 0.5) inset,
-                4px 16px 52px rgba(0, 0, 0, 0.7),
-                8px 26px 72px rgba(0, 0, 0, 0.38);
-        }
-
-        .watermark {
-            font-family: 'Cinzel Decorative', serif;
-            color: rgba(154, 124, 50, 0.055);
-            user-select: none;
+            .card-scroll .media { height: 30vh; max-height: 200px; }
         }
     </style>
 </head>
 
 <body class="relative">
-    <!-- TopNavBar -->
-    <nav
-        class="flex justify-between items-center px-6 md:px-10 h-16 w-full fixed top-0 z-50 bg-[#090705]/96 backdrop-blur-sm border-b border-[#7a6438]/30">
-        <a href="#top" class="brand text-xl text-[#c8a060] leading-none">Ali Kassab</a>
-        <div class="hidden md:flex gap-10 label text-[0.66rem]">
-            <a class="nav-link active" href="#work">Work</a>
-            <a class="nav-link" href="#expertise">Expertise</a>
-            <a class="nav-link" href="#labs">Labs</a>
-            <a class="nav-link" href="#contact">Contact</a>
+    <!-- Nav -->
+    <nav class="fixed top-0 inset-x-0 z-50 h-16 bg-canvas/90 backdrop-blur-md border-b border-line">
+        <div class="max-w-6xl mx-auto h-full px-6 flex items-center justify-between">
+            <a href="#top" class="font-display text-lg font-600 text-ink tracking-tight">Ali Kassab</a>
+            <div class="flex items-center gap-5 md:gap-8">
+                <div class="hidden md:flex gap-8">
+                    <a class="nav-link active" href="#work">Work</a>
+                    <a class="nav-link" href="#expertise">Expertise</a>
+                    <a class="nav-link" href="#projects">Projects</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </div>
+                <button id="theme-toggle" class="theme-btn" type="button" aria-label="Switch to dark mode">
+                    <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4.2" />
+                        <path d="M12 2.6v2.2M12 19.2v2.2M21.4 12h-2.2M4.8 12H2.6M18.6 5.4l-1.6 1.6M7 17l-1.6 1.6M18.6 18.6L17 17M7 7L5.4 5.4" />
+                    </svg>
+                    <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a6.9 6.9 0 0 0 11.1 11.1Z" />
+                    </svg>
+                </button>
+                <button id="nav-toggle" class="md:hidden text-ink text-xl leading-none" aria-label="Open navigation"
+                    aria-expanded="false" aria-controls="mobile-menu">&#9776;</button>
+            </div>
         </div>
-        <span class="hidden md:inline text-oxblood text-lg" aria-hidden="true">&#10070;</span>
-        <button id="nav-toggle" class="md:hidden" aria-label="Open navigation" aria-expanded="false"
-            aria-controls="mobile-menu">&#9776;</button>
     </nav>
 
-    <!-- Mobile dropdown menu -->
-    <div id="mobile-menu"
-        class="md:hidden fixed top-16 left-0 right-0 z-40 bg-[#090705]/98 backdrop-blur-sm border-b border-[#7a6438]/30 hidden">
-        <div class="flex flex-col items-center py-4 label text-[0.78rem]">
+    <div id="mobile-menu" class="md:hidden fixed top-16 inset-x-0 z-40 bg-canvas border-b border-line hidden">
+        <div class="flex flex-col px-6 py-3">
             <a class="nav-link py-3" href="#work">Work</a>
             <a class="nav-link py-3" href="#expertise">Expertise</a>
-            <a class="nav-link py-3" href="#labs">Labs</a>
+            <a class="nav-link py-3" href="#projects">Projects</a>
             <a class="nav-link py-3" href="#contact">Contact</a>
         </div>
     </div>
 
-    <main id="top" class="relative z-10">
-        <!-- Hero / Frontispiece -->
-        <section class="min-h-screen flex items-center justify-center relative px-5 md:px-10 pt-28 pb-20">
-            <div class="notice-hero w-full max-w-6xl mx-auto px-6 py-12 md:px-14 md:py-16">
-                <!-- Corner nails -->
-                <span class="nail tl"></span><span class="nail tr"></span>
-                <span class="nail bl"></span><span class="nail br"></span>
-                <!-- Corner ornaments -->
-                <span class="frame-corner tl" aria-hidden="true">&#10010;</span>
-                <span class="frame-corner tr" aria-hidden="true">&#10010;</span>
-                <span class="frame-corner bl" aria-hidden="true">&#10010;</span>
-                <span class="frame-corner br" aria-hidden="true">&#10010;</span>
-                <!-- Title block -->
-                <header class="text-center mb-14">
-                    <p class="label on-parchment mb-5">Portfolio</p>
-                    <h1 class="brand text-4xl md:text-6xl text-[#1e1408] leading-tight">Ali Kassab</h1>
-                    <div class="ornament ornament-light max-w-md mx-auto my-7"><span aria-hidden="true">&#10086;</span>
+    <main id="top" class="relative">
+        <!-- Hero -->
+        <section class="max-w-6xl mx-auto px-6 pt-32 pb-16 md:pt-44 md:pb-24">
+            <p class="eyebrow mb-4">Cairo, Egypt</p>
+            <h1 class="font-display text-4xl md:text-6xl font-600 text-ink leading-[1.08] tracking-tight max-w-3xl">
+                Game Developer building cross-platform titles.</h1>
+            <p class="mt-6 text-lg text-body max-w-2xl">Three years shipping production titles on PlayStation, PC,
+                Android, and iOS. I focus on scalable gameplay architecture, multiplayer systems, and AI behaviour that
+                holds up at frame rate.</p>
+            <div class="mt-9 flex flex-wrap gap-3">
+                <a class="btn btn-primary" href="#contact">Get in touch</a>
+                <a class="btn btn-outline" href="https://alikassab.dev/CV/" target="_blank"
+                    rel="noopener noreferrer">View CV <span class="arrow">&rarr;</span></a>
+            </div>
+
+            <!-- Quick stats -->
+            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line rounded-lg overflow-hidden">
+                <div class="bg-surface px-5 py-6">
+                    <p class="font-display text-3xl text-accent">10</p>
+                    <p class="eyebrow mt-1">Titles shipped</p>
+                </div>
+                <div class="bg-surface px-5 py-6">
+                    <p class="font-display text-3xl text-accent">5</p>
+                    <p class="eyebrow mt-1">Platforms</p>
+                </div>
+                <div class="bg-surface px-5 py-6">
+                    <p class="font-display text-3xl text-accent">3+</p>
+                    <p class="eyebrow mt-1">Years</p>
+                </div>
+                <div class="bg-surface px-5 py-6">
+                    <p class="font-display text-3xl text-accent">4</p>
+                    <p class="eyebrow mt-1">Personal builds</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Skills / Steam -->
+        <section class="max-w-6xl mx-auto px-6 pb-20 md:pb-28">
+            <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6">
+                <!-- About -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
+                    <p class="eyebrow mb-4">About</p>
+                    <p class="text-body">Game Developer with experience shipping cross-platform titles on PS5, PS4, PC,
+                        Android, and iOS.</p>
+                    <p class="text-body mt-4">Specialised in scalable gameplay architecture, multiplayer systems, AI
+                        behaviour design, and performance optimisation for indie, AA, and AAA projects, with a focus on
+                        clean architecture, modular systems, and long-term maintainability.</p>
+                </article>
+
+                <!-- Core skills -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
+                    <div class="flex items-baseline justify-between mb-5">
+                        <p class="eyebrow">Core skills</p>
+                        <p class="text-xs text-muted">3+ years</p>
                     </div>
-                    <p class="font-heading text-2xl md:text-3xl italic text-[#7a2818]">Unity Game Developer</p>
-                    <p class="label on-parchment mt-3">Cairo, Egypt</p>
-                </header>
-
-                <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 md:gap-8">
-                    <!-- About -->
-                    <article class="notice p-8 md:p-10 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[24rem] md:max-w-[24rem]">
-                        <p class="label on-parchment mb-5">About</p>
-                        <p class="drop-cap font-body text-[#3a2c18] text-[1.08rem]">Gameplay and Systems Engineer with
-                            experience shipping cross-platform titles on PS5, PS4, PC, Android, and iOS.</p>
-                        <p class="font-body text-[#3a2c18] mt-4">Specialised in scalable gameplay architecture,
-                            multiplayer
-                            systems, AI behaviour design, and performance optimisation for production-ready indie, AA,
-                            and
-                            AAA projects, with a steadfast focus on clean architecture, modular systems, and long-term
-                            maintainability.</p>
-                    </article>
-
-                    <!-- Skills -->
-                    <article class="notice p-8 md:p-10 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[24rem] md:max-w-[24rem]">
-                        <div class="flex items-baseline justify-between mb-6">
-                            <p class="label on-parchment">Core Skills</p>
-                            <p class="font-heading text-2xl italic text-[#7a2818]">3+ Years</p>
+                    <dl class="space-y-4 text-sm">
+                        <div>
+                            <dt class="eyebrow text-[0.6rem] mb-1">Languages</dt>
+                            <dd class="text-ink">C# / .NET</dd>
                         </div>
-                        <ul class="space-y-4 font-body text-[#1e1408]">
-                            <li class="leader"><span>C&#35; / .NET</span><span class="dots"></span><span
-                                    class="font-heading italic text-[#6b5738]">Expert</span></li>
-                            <li class="leader"><span>Unity Engine</span><span class="dots"></span><span
-                                    class="font-heading italic text-[#6b5738]">Master</span></li>
-                            <li class="leader"><span>C++ / SFML</span><span class="dots"></span><span
-                                    class="font-heading italic text-[#6b5738]">Proficient</span></li>
-                            <li class="leader"><span>Multiplayer: Photon, Netcode</span><span
-                                    class="dots"></span><span class="font-heading italic text-[#6b5738]">Advanced</span>
-                            </li>
-                            <li class="leader"><span>AI: Behaviour Trees, FSM, A*</span><span
-                                    class="dots"></span><span class="font-heading italic text-[#6b5738]">Advanced</span>
-                            </li>
-                        </ul>
-                    </article>
-
-                    <!-- Steam profile showcase -->
-                    <article class="notice min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[24rem] md:max-w-[24rem] flex flex-col max-h-[30rem] p-8 md:p-10">
-                        <div class="flex items-baseline justify-between mb-5 flex-shrink-0">
-                            <p class="label on-parchment">On Steam</p>
-                            <p id="steam-updated" class="label text-[0.5rem] opacity-60"></p>
+                        <div>
+                            <dt class="eyebrow text-[0.6rem] mb-1">Engines</dt>
+                            <dd class="text-ink">Unity</dd>
                         </div>
-                        <div class="relative flex-1 min-h-0">
-                            <div class="card-vscroll h-full overflow-y-auto pr-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                            <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
+                        <div>
+                            <dt class="eyebrow text-[0.6rem] mb-1">Multiplayer</dt>
+                            <dd class="text-ink">Photon PUN, Photon Fusion, Unity Netcode</dd>
+                        </div>
+                        <div>
+                            <dt class="eyebrow text-[0.6rem] mb-1">AI &amp; gameplay</dt>
+                            <dd class="text-ink">Behaviour Trees, FSM, Pathfinding A*, BFS / DFS</dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <!-- Steam -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem] flex flex-col max-h-[28rem]">
+                    <div class="flex items-baseline justify-between mb-5 flex-shrink-0">
+                        <p class="eyebrow">On Steam</p>
+                        <p id="steam-updated" class="text-[0.62rem] text-muted"></p>
+                    </div>
+                    <div class="relative flex-1 min-h-0">
+                        <div class="card-vscroll h-full overflow-y-auto pr-4">
+                            <div class="flex items-center gap-4">
                                 <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
-                                    class="w-20 h-20 border border-ink/40 shadow-md object-cover hidden" />
-                                <div class="text-center sm:text-left">
-                                    <h3 id="steam-name" class="font-heading text-2xl font-semibold text-ink leading-tight">
-                                        Ali Kassab</h3>
-                                    <p id="steam-state" class="font-body italic text-ink-soft mt-1"></p>
+                                    class="w-14 h-14 rounded-lg border border-line object-cover hidden" />
+                                <div>
+                                    <h3 id="steam-name" class="font-display text-lg text-ink leading-tight">Ali Kassab</h3>
+                                    <p id="steam-state" class="text-xs text-muted mt-0.5"></p>
                                 </div>
                             </div>
 
                             <div id="steam-stats" class="grid grid-cols-2 gap-3 mt-6 hidden">
-                                <div class="text-center border border-ink/20 py-3">
-                                    <p id="steam-level" class="font-heading text-2xl text-oxblood">--</p>
-                                    <p class="label text-[0.5rem] mt-1">Level</p>
+                                <div class="border border-line rounded py-3 text-center">
+                                    <p id="steam-level" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Level</p>
                                 </div>
-                                <div class="text-center border border-ink/20 py-3">
-                                    <p id="steam-games" class="font-heading text-2xl text-oxblood">--</p>
-                                    <p class="label text-[0.5rem] mt-1">Games</p>
+                                <div class="border border-line rounded py-3 text-center">
+                                    <p id="steam-games" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Games</p>
                                 </div>
-                                <div class="text-center border border-ink/20 py-3">
-                                    <p id="steam-hours" class="font-heading text-2xl text-oxblood">--</p>
-                                    <p class="label text-[0.5rem] mt-1">Hours</p>
+                                <div class="border border-line rounded py-3 text-center">
+                                    <p id="steam-hours" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Hours</p>
                                 </div>
-                                <div id="steam-ach-tile" class="text-center border border-ink/20 py-3 hidden">
-                                    <p id="steam-ach" class="font-heading text-2xl text-oxblood">--</p>
-                                    <p class="label text-[0.5rem] mt-1">Achievements</p>
+                                <div id="steam-ach-tile" class="border border-line rounded py-3 text-center hidden">
+                                    <p id="steam-ach" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Achievements</p>
                                 </div>
                             </div>
 
                             <div id="steam-featured-wrap" class="mt-6 hidden">
-                                <p class="label mb-3">Most Played</p>
-                                <div id="steam-featured" class="card-hscroll flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"></div>
+                                <p class="eyebrow mb-3">Most played</p>
+                                <div id="steam-featured" class="card-hscroll flex gap-3 overflow-x-auto pb-1"></div>
                             </div>
 
                             <div id="steam-recent-wrap" class="mt-6 hidden">
-                                <p class="label mb-3">Recently Played</p>
-                                <div id="steam-recent" class="card-hscroll flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"></div>
+                                <p class="eyebrow mb-3">Recently played</p>
+                                <div id="steam-recent" class="card-hscroll flex gap-3 overflow-x-auto pb-1"></div>
                             </div>
 
                             <div class="mt-6">
-                                <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary">View Full Profile <span aria-hidden="true">&#10148;</span></a>
-                            </div>
+                                <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank"
+                                    rel="noopener noreferrer" class="btn btn-outline">View profile <span class="arrow">&rarr;</span></a>
                             </div>
                         </div>
-                    </article>
-                </div>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <!-- I. Released Games -->
-        <section id="work" class="py-28 md:py-36 px-6 md:px-16 max-w-7xl mx-auto relative scroll-mt-20">
-            <div class="hidden lg:block absolute left-0 top-24">
-                <span class="vertical-text label text-[0.6rem] opacity-70">Vol. I</span>
-            </div>
-            <header class="text-center mb-16 md:mb-20 reveal">
-                <p class="numeral text-5xl mb-2">I</p>
-                <h2 class="blackletter text-5xl md:text-6xl text-[#c8b080]">Released Games</h2>
-                <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
-                <p class="label">Professional Work</p>
+        <!-- Work -->
+        <section id="work" class="max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
+            <header class="reveal mb-10 md:mb-12">
+                <p class="eyebrow mb-3">01 &nbsp;/&nbsp; Professional work</p>
+                <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Released titles</h2>
+                <div class="rule mt-6"></div>
             </header>
-            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 md:gap-8">
-                <!-- God of War: Sons of Sparta -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" alt="God of War: Sons of Sparta" class="w-full h-full object-contain p-4"
-                            src="Images/GoWSoS_Logo.jpg" />
+
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6">
+                <!-- God of War -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 flex items-center justify-center overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="God of War: Sons of Sparta"
+                            class="w-full h-full object-contain p-5" src="Images/GoWSoS_Logo.jpg" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">God of War: Sons of
-                            Sparta</h3>
-                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 - Present</p>
-                        <dl class="font-body text-[0.98rem]">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">Game Programmer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">God of War: Sons of Sparta</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Game Programmer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">PS4, PS5</dd>
                             </div>
                         </dl>
                         <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Pit of Agonies</span>
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">AI</span>
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Progression</span>
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Localization</span>
+                            <span class="chip">Pit of Agonies</span><span class="chip">AI</span>
+                            <span class="chip">Progression</span><span class="chip">Localization</span>
                         </div>
-                        <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">View on PlayStation <span aria-hidden="true">&#10148;</span></a>
+                        <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">View on PlayStation <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
+
                 <!-- Sinai Heroes -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" alt="Sinai Heroes" class="w-full h-full object-contain p-4" src="Images/sinaiheroes.jpg" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 flex items-center justify-center overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Sinai Heroes" class="w-full h-full object-contain p-5"
+                            src="Images/sinaiheroes.jpg" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Genesis Creations S.A.E</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">Sinai Heroes</h3>
-                        <p class="label text-[0.6rem] mt-2 mb-5">Aug 2023 - Jul 2024</p>
-                        <dl class="font-body text-[0.98rem]">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">Unity Game Developer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Genesis Creations S.A.E</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Sinai Heroes</h3>
+                        <p class="text-xs text-muted mt-1">Aug 2023 &ndash; Jul 2024</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Unity Game Developer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">Android, iOS</dd>
                             </div>
                         </dl>
                         <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Core Systems</span>
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Networking</span>
+                            <span class="chip">Core Systems</span><span class="chip">Networking</span>
                         </div>
-                        <a href="https://www.sinaiheroes.com" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
+                        <a href="https://www.sinaiheroes.com" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
-                <!-- VR Surgical Clean Room Training Simulation -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
+
+                <!-- VR Surgical -->
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
                         <img loading="lazy" decoding="async" alt="VR Surgical Clean Room Training Simulation"
-                            class="w-full h-full object-cover" src="https://img.youtube.com/vi/mTNFCkmr_Sk/maxresdefault.jpg"
+                            class="w-full h-full object-cover"
+                            src="https://img.youtube.com/vi/mTNFCkmr_Sk/maxresdefault.jpg"
                             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/mTNFCkmr_Sk/hqdefault.jpg'" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Genesis Creations SAE</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">VR Surgical Clean
-                            Room Training Simulation</h3>
-                        <dl class="font-body text-[0.98rem] mt-5">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">VR Developer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Genesis Creations SAE</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">VR Surgical Clean Room Training</h3>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">VR Developer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">VR</dd>
                             </div>
                         </dl>
                         <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Architecture</span>
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Interactions</span>
+                            <span class="chip">Architecture</span><span class="chip">Interactions</span>
                         </div>
-                        <a href="https://youtu.be/mTNFCkmr_Sk?si=rF7hWUe8dwzE3wgJ" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Watch the Demo <span aria-hidden="true">&#10148;</span></a>
+                        <a href="https://youtu.be/mTNFCkmr_Sk?si=rF7hWUe8dwzE3wgJ" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">Watch the demo <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
+
                 <!-- Backyard Baseball 2026 -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" alt="Backyard Baseball 2026" class="w-full h-full object-cover" src="Images/backyard-baseball-2026.jpg" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball 2026" class="w-full h-full object-cover"
+                            src="Images/backyard-baseball-2026.jpg" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">Backyard Baseball
-                            2026</h3>
-                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 - Present</p>
-                        <dl class="font-body text-[0.98rem]">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">Gameplay Programmer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball 2026</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Gameplay Programmer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">PC, Nintendo, PlayStation, Xbox</dd>
                             </div>
                         </dl>
                         <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Game Feel</span>
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Physics</span>
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Gameplay</span>
+                            <span class="chip">Game Feel</span><span class="chip">Physics</span><span class="chip">Gameplay</span>
                         </div>
-                        <a href="https://store.steampowered.com/app/3935020/Backyard_Baseball/" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">View on Steam <span aria-hidden="true">&#10148;</span></a>
+                        <a href="https://store.steampowered.com/app/3935020/Backyard_Baseball/" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">View on Steam <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
+
                 <!-- Maximum Apocalypse -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" alt="Maximum Apocalypse" class="w-full h-full object-cover" src="Images/maximum-apocalypse.jpg" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Maximum Apocalypse" class="w-full h-full object-cover"
+                            src="Images/maximum-apocalypse.jpg" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">Maximum Apocalypse
-                        </h3>
-                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 - Present</p>
-                        <dl class="font-body text-[0.98rem]">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">Gameplay Programmer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Maximum Apocalypse</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Gameplay Programmer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">PC, Steam Deck</dd>
                             </div>
                         </dl>
                         <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Gameplay</span>
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Input</span>
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Localization</span>
+                            <span class="chip">Gameplay</span><span class="chip">Input</span><span class="chip">Localization</span>
                         </div>
-                        <a href="https://store.steampowered.com/app/2434310/Maximum_Apocalypse/" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">View on Steam <span aria-hidden="true">&#10148;</span></a>
+                        <a href="https://store.steampowered.com/app/2434310/Maximum_Apocalypse/" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">View on Steam <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
+
                 <!-- Backyard Soccer '98 -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" alt="Backyard Soccer '98" class="w-full h-full object-cover" src="Images/backyard-soccer-98.jpg" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Soccer '98" class="w-full h-full object-cover"
+                            src="Images/backyard-soccer-98.jpg" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">Backyard Soccer
-                            &rsquo;98</h3>
-                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 - Present</p>
-                        <dl class="font-body text-[0.98rem]">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">Porting Engineer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Soccer '98</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
                             </div>
                         </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Android Port (C++)</span>
-                        </div>
-                        <a href="https://www.backyardsports.com/games/soccer98" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/soccer98" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
+
                 <!-- Backyard Baseball '97 -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" alt="Backyard Baseball '97" class="w-full h-full object-cover" src="Images/backyard-baseball-97.jpg" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball '97" class="w-full h-full object-cover"
+                            src="Images/backyard-baseball-97.jpg" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">Backyard Baseball
-                            &rsquo;97</h3>
-                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 - Present</p>
-                        <dl class="font-body text-[0.98rem]">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">Porting Engineer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball '97</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
                             </div>
                         </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Android Port (C++)</span>
-                        </div>
-                        <a href="https://www.backyardsports.com/games/baseball97" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/baseball97" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
+
                 <!-- Backyard Baseball '01 -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" alt="Backyard Baseball '01" class="w-full h-full object-cover" src="Images/backyard-baseball-01.jpg" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball '01" class="w-full h-full object-cover"
+                            src="Images/backyard-baseball-01.jpg" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">Backyard Baseball
-                            &rsquo;01</h3>
-                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 - Present</p>
-                        <dl class="font-body text-[0.98rem]">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">Porting Engineer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball '01</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
                             </div>
                         </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Android Port (C++)</span>
-                        </div>
-                        <a href="https://www.backyardsports.com/games/baseball01" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/baseball01" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
+
                 <!-- Backyard Basketball '01 -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" alt="Backyard Basketball '01" class="w-full h-full object-cover" src="Images/backyard-basketball-01.jpg" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Basketball '01" class="w-full h-full object-cover"
+                            src="Images/backyard-basketball-01.jpg" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">Backyard Basketball
-                            &rsquo;01</h3>
-                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 - Present</p>
-                        <dl class="font-body text-[0.98rem]">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">Porting Engineer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Basketball '01</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
                             </div>
                         </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Android Port (C++)</span>
-                        </div>
-                        <a href="https://www.backyardsports.com/games/basketball01" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/basketball01" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
+
                 <!-- Backyard Football '99 -->
-                <article class="notice card-link p-1 block min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[22rem] md:max-w-[22rem]">
-                    <div class="plate aspect-video flex items-center justify-center overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" alt="Backyard Football '99" class="w-full h-full object-cover" src="Images/backyard-football-99.jpg" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Football '99" class="w-full h-full object-cover"
+                            src="Images/backyard-football-99.jpg" />
                     </div>
-                    <div class="p-7 pt-6">
-                        <p class="label text-oxblood/90 mb-3">Mega Cat Studios</p>
-                        <h3 class="font-heading text-3xl font-semibold text-[#1e1408] leading-tight">Backyard Football
-                            &rsquo;99</h3>
-                        <p class="label text-[0.6rem] mt-2 mb-5">Nov 2024 - Present</p>
-                        <dl class="font-body text-[0.98rem]">
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Role</dt>
-                                <dd class="text-ink">Porting Engineer</dd>
+                    <div class="p-6">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Football '99</h3>
+                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
+                        <dl class="mt-5 text-sm">
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Role</dt>
+                                <dd class="text-ink text-right">Porting Engineer</dd>
                             </div>
-                            <div class="flex justify-between border-b border-ink/20 py-2">
-                                <dt class="text-faded">Platforms</dt>
+                            <div class="flex justify-between gap-4 py-2 border-t border-line">
+                                <dt class="text-muted">Platforms</dt>
                                 <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
                             </div>
                         </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip label text-[0.55rem] px-2.5 py-1">Android Port (C++)</span>
-                        </div>
-                        <a href="https://www.backyardsports.com/games/football99" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Check It Out <span aria-hidden="true">&#10148;</span></a>
+                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
+                        <a href="https://www.backyardsports.com/games/football99" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- II. Technical Expertise -->
-        <section id="expertise" class="py-28 md:py-36 px-6 md:px-16 max-w-7xl mx-auto relative scroll-mt-20">
-            <div class="hidden lg:block absolute left-0 top-24">
-                <span class="vertical-text label text-[0.6rem] opacity-70">Vol. II</span>
-            </div>
-            <header class="text-center mb-16 md:mb-20 reveal">
-                <p class="numeral text-5xl mb-2">II</p>
-                <h2 class="blackletter text-5xl md:text-6xl text-[#c8b080]">Technical Expertise</h2>
-                <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
-                <p class="label">Technical Skills</p>
-            </header>
-            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 md:grid md:grid-cols-3 md:overflow-visible md:gap-8 max-w-6xl mx-auto">
-                <article class="notice p-9 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
-                    <p class="blackletter text-4xl text-[#7a2818] mb-4" aria-hidden="true">&#10070;</p>
-                    <p class="label mb-2">Languages &amp; Engines</p>
-                    <h3 class="font-heading text-2xl font-semibold text-ink mb-4">Core Technologies</h3>
-                    <p class="font-body text-[#3a2c18] text-[0.98rem] mb-5">Production work in Unity and C#, with
-                        low-level C++ for engine and porting work.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="chip label text-[0.58rem] px-3 py-1">Unity</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">C&#35;</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">C++</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">SFML</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Photon PUN</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Photon Fusion</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Unity Netcode</span>
+        <!-- Expertise -->
+        <section id="expertise" class="bg-canvas-2 border-y border-line scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+                <header class="reveal mb-10 md:mb-12">
+                    <p class="eyebrow mb-3">02 &nbsp;/&nbsp; Capabilities</p>
+                    <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Expertise</h2>
+                    <div class="rule mt-6"></div>
+                </header>
+
+                <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-5 md:grid md:grid-cols-3 md:gap-6">
+                    <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none">
+                        <p class="eyebrow">Languages &amp; engines</p>
+                        <h3 class="font-display text-xl text-ink mt-2 mb-3">Core technologies</h3>
+                        <p class="text-sm text-body mb-5">Production work in Unity and C# across console, PC, and mobile
+                            releases.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="chip">Unity</span><span class="chip">C#</span>
+                            <span class="chip">Photon PUN</span><span class="chip">Photon Fusion</span>
+                            <span class="chip">Unity Netcode</span>
+                        </div>
+                    </article>
+
+                    <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none">
+                        <p class="eyebrow">Systems &amp; architecture</p>
+                        <h3 class="font-display text-xl text-ink mt-2 mb-3">Scalable design</h3>
+                        <p class="text-sm text-body mb-5">Modular, maintainable systems built on clean architecture and
+                            proven design patterns.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="chip">OOP</span><span class="chip">Design Patterns</span>
+                            <span class="chip">System Architecture</span><span class="chip">Multithreading</span>
+                            <span class="chip">Async</span><span class="chip">Data-Driven Tooling</span>
+                        </div>
+                    </article>
+
+                    <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none">
+                        <p class="eyebrow">Gameplay, AI &amp; networking</p>
+                        <h3 class="font-display text-xl text-ink mt-2 mb-3">Systems in motion</h3>
+                        <p class="text-sm text-body mb-5">AI behaviour, multiplayer, and the performance tuning that
+                            keeps it all shipping at frame rate.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="chip">Behaviour Trees</span><span class="chip">FSM</span>
+                            <span class="chip">Pathfinding A*</span><span class="chip">BFS / DFS</span>
+                            <span class="chip">Multiplayer</span><span class="chip">Networking</span>
+                            <span class="chip">Localisation</span><span class="chip">Performance</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="reveal mt-8 card px-7 py-6">
+                    <p class="eyebrow mb-3">Shipped across</p>
+                    <div class="flex flex-wrap gap-x-6 gap-y-2 text-ink">
+                        <span>PlayStation 5</span><span class="text-line">|</span>
+                        <span>PlayStation 4</span><span class="text-line">|</span>
+                        <span>PC</span><span class="text-line">|</span>
+                        <span>Android</span><span class="text-line">|</span>
+                        <span>iOS</span>
                     </div>
-                </article>
-                <article class="notice p-9 md:mt-10 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
-                    <p class="blackletter text-4xl text-[#7a2818] mb-4" aria-hidden="true">&#10070;</p>
-                    <p class="label mb-2">Systems &amp; Architecture</p>
-                    <h3 class="font-heading text-2xl font-semibold text-ink mb-4">Scalable Design</h3>
-                    <p class="font-body text-[#3a2c18] text-[0.98rem] mb-5">Modular, maintainable systems built on
-                        clean architecture and proven design patterns.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="chip label text-[0.58rem] px-3 py-1">OOP</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Design Patterns</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">System Architecture</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Multithreading</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Async</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Data-Driven Tooling</span>
-                    </div>
-                </article>
-                <article class="notice p-9 min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none md:flex-shrink">
-                    <p class="blackletter text-4xl text-[#7a2818] mb-4" aria-hidden="true">&#10070;</p>
-                    <p class="label mb-2">Gameplay, AI &amp; Networking</p>
-                    <h3 class="font-heading text-2xl font-semibold text-ink mb-4">Systems in Motion</h3>
-                    <p class="font-body text-[#3a2c18] text-[0.98rem] mb-5">AI behaviour, multiplayer, and the
-                        performance tuning that keeps it all shipping at frame rate.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="chip label text-[0.58rem] px-3 py-1">Behaviour Trees</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">FSM</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Pathfinding A&#42;</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">BFS / DFS</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Multiplayer</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Networking</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Localisation</span>
-                        <span class="chip label text-[0.58rem] px-3 py-1">Performance Optimisation</span>
-                    </div>
-                </article>
-            </div>
-            <div class="notice notice-hero reveal max-w-6xl mx-auto mt-10 px-8 py-6 text-center">
-                <p class="label mb-3">Shipped Across</p>
-                <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 font-heading text-xl text-ink">
-                    <span>PlayStation&nbsp;5</span>
-                    <span class="text-faded" aria-hidden="true">&middot;</span>
-                    <span>PlayStation&nbsp;4</span>
-                    <span class="text-faded" aria-hidden="true">&middot;</span>
-                    <span>PC</span>
-                    <span class="text-faded" aria-hidden="true">&middot;</span>
-                    <span>Android</span>
-                    <span class="text-faded" aria-hidden="true">&middot;</span>
-                    <span>iOS</span>
                 </div>
             </div>
         </section>
 
-        <!-- III. Personal Labs -->
-        <section id="labs" class="py-28 md:py-36 px-6 md:px-16 max-w-7xl mx-auto relative scroll-mt-20">
-            <div class="hidden lg:block absolute left-0 top-24">
-                <span class="vertical-text label text-[0.6rem] opacity-70">Vol. III</span>
-            </div>
-            <header class="text-center mb-16 md:mb-20 reveal">
-                <p class="numeral text-5xl mb-2">III</p>
-                <h2 class="blackletter text-5xl md:text-6xl text-[#c8b080]">Personal Labs</h2>
-                <div class="ornament ornament-dark max-w-xs mx-auto my-6"><span aria-hidden="true">&#10087;</span></div>
-                <p class="label">Personal Projects</p>
-                <p class="font-heading italic text-lg md:text-xl text-[#a8895a] mt-5 max-w-xl mx-auto">Every title is
-                    built cross-platform and deployed on the web so you can play instantly, no download
-                    required.</p>
+        <!-- Projects -->
+        <section id="projects" class="max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
+            <header class="reveal mb-10 md:mb-12">
+                <p class="eyebrow mb-3">03 &nbsp;/&nbsp; Personal work</p>
+                <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Projects</h2>
+                <p class="mt-4 text-body max-w-2xl">Every title is built cross-platform and deployed on the web, so you
+                    can play instantly with no download.</p>
+                <div class="rule mt-6"></div>
             </header>
-            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 md:gap-8">
+
+            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6">
                 <!-- Mystic Sands -->
-                <article class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[26rem] md:max-w-[26rem] block overflow-hidden">
-                    <div class="plate aspect-video overflow-hidden m-3 mb-0">
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[25rem] md:max-w-[25rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
                         <img loading="lazy" decoding="async" src="Images/mysticsands.gif" alt="Mystic Sands gameplay"
                             class="w-full h-full object-cover" />
                     </div>
-                    <div class="p-8 md:p-10 flex items-start justify-between gap-6">
-                        <div class="flex gap-7 items-start">
-                            <span class="numeral text-4xl leading-none">i</span>
-                            <div>
-                                <h3 class="font-heading text-3xl font-semibold text-ink mb-3">Mystic Sands</h3>
-                                <p class="font-body italic text-ink-soft max-w-2xl">Narrative-driven adventure
-                                    (ITI-BelMasry Tech Hackathon, 1st Place). Maze generation via recursive
-                                    backtracking,
-                                    graph-based dialogue &amp; quest systems, and NavMesh-driven NPC AI.</p>
-                                <div class="flex flex-wrap gap-3 mt-6">
-                                    <span class="chip label text-[0.58rem] px-3 py-1">Procedural</span>
-                                    <span class="chip label text-[0.58rem] px-3 py-1">AI</span>
-                                    <span class="chip label text-[0.58rem] px-3 py-1">Narrative</span>
-                                </div>
-                                <div class="flex flex-wrap gap-3 mt-6">
-                                    <a href="https://ali-kassab.itch.io/mystic-sands" target="_blank" rel="noopener noreferrer" class="btn-card is-primary" data-desktop-only>Play the Game <span aria-hidden="true">&#10148;</span></a>
-                                    <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener noreferrer" class="btn-card">Check the Repo <span aria-hidden="true">&#10148;</span></a>
-                                </div>
-                            </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-display text-xl text-ink">Mystic Sands</h3>
+                            <span class="chip">1st place</span>
+                        </div>
+                        <p class="text-sm text-body mt-3">Narrative-driven adventure built at the ITI-BelMasry Tech
+                            Hackathon. Maze generation via recursive backtracking, graph-based dialogue and quest
+                            systems, and NavMesh-driven NPC AI.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Procedural</span><span class="chip">AI</span><span class="chip">Narrative</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5 mt-6">
+                            <a href="https://ali-kassab.itch.io/mystic-sands" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-primary" data-desktop-only>Play <span class="arrow">&rarr;</span></a>
+                            <a href="https://github.com/AliKassab/Mystic-Sands" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-outline">View source</a>
                         </div>
                     </div>
                 </article>
+
                 <!-- FakeOut BOSS -->
-                <article class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[26rem] md:max-w-[26rem] block overflow-hidden">
-                    <div class="plate aspect-video overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" src="Images/fakeout-boss.gif" alt="FakeOut BOSS gameplay" class="w-full h-full object-cover" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[25rem] md:max-w-[25rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/fakeout-boss.gif" alt="FakeOut BOSS gameplay"
+                            class="w-full h-full object-cover" />
                     </div>
-                    <div class="p-8 md:p-10 flex items-start justify-between gap-6">
-                        <div class="flex gap-7 items-start">
-                            <span class="numeral text-4xl leading-none">ii</span>
-                            <div>
-                                <h3 class="font-heading text-3xl font-semibold text-ink mb-3">FakeOut BOSS</h3>
-                                <p class="font-body italic text-ink-soft max-w-2xl">Stealth-comedy simulation (GDA JAM,
-                                    1st Place). NPC awareness and gaze systems, adaptive time dilation, and customisable
-                                    pathfinding (A*, BFS, DFS).</p>
-                                <div class="flex flex-wrap gap-3 mt-6">
-                                    <span class="chip label text-[0.58rem] px-3 py-1">Stealth AI</span>
-                                    <span class="chip label text-[0.58rem] px-3 py-1">Pathfinding</span>
-                                </div>
-                                <div class="flex flex-wrap gap-3 mt-6">
-                                    <a href="https://alikassab.dev/FakeOutBoss/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary" data-desktop-only>Play the Game <span aria-hidden="true">&#10148;</span></a>
-                                    <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener noreferrer" class="btn-card">Check the Repo <span aria-hidden="true">&#10148;</span></a>
-                                </div>
-                            </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-display text-xl text-ink">FakeOut BOSS</h3>
+                            <span class="chip">1st place</span>
+                        </div>
+                        <p class="text-sm text-body mt-3">Stealth-comedy simulation built at GDA JAM. NPC awareness and
+                            gaze systems, adaptive time dilation, and customisable pathfinding (A*, BFS, DFS).</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Stealth AI</span><span class="chip">Pathfinding</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5 mt-6">
+                            <a href="https://alikassab.dev/FakeOutBoss/" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-primary" data-desktop-only>Play <span class="arrow">&rarr;</span></a>
+                            <a href="https://github.com/AliKassab/OfficeBoy" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-outline">View source</a>
                         </div>
                     </div>
                 </article>
+
                 <!-- Table For None -->
-                <article class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[26rem] md:max-w-[26rem] block overflow-hidden">
-                    <div class="plate aspect-video overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" src="Images/table-for-none.gif" alt="Table For None gameplay" class="w-full h-full object-cover" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[25rem] md:max-w-[25rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/table-for-none.gif" alt="Table For None gameplay"
+                            class="w-full h-full object-cover" />
                     </div>
-                    <div class="p-8 md:p-10 flex items-start justify-between gap-6">
-                        <div class="flex gap-7 items-start">
-                            <span class="numeral text-4xl leading-none">iii</span>
-                            <div>
-                                <h3 class="font-heading text-3xl font-semibold text-ink mb-3">Table For None</h3>
-                                <p class="font-body italic text-ink-soft max-w-2xl">Multiplayer detective co-op. Lead
-                                    programmer (team of 3): multiplayer via Unity Netcode, FSM-driven customer AI, and
-                                    a
-                                    flexible cooking-actions system.</p>
-                                <div class="flex flex-wrap gap-3 mt-6">
-                                    <span class="chip label text-[0.58rem] px-3 py-1">Multiplayer</span>
-                                    <span class="chip label text-[0.58rem] px-3 py-1">Netcode</span>
-                                </div>
-                                <a href="https://youtu.be/9nGm4p8mKxk?si=D745AnGGadAqQOpV" target="_blank" rel="noopener noreferrer" class="btn-card mt-6">Watch the Trailer <span aria-hidden="true">&#10148;</span></a>
-                            </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl text-ink">Table For None</h3>
+                        <p class="text-sm text-body mt-3">Multiplayer detective co-op. Lead programmer on a team of
+                            three: multiplayer via Unity Netcode, FSM-driven customer AI, and a flexible cooking-actions
+                            system.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">Multiplayer</span><span class="chip">Netcode</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5 mt-6">
+                            <a href="https://youtu.be/9nGm4p8mKxk?si=D745AnGGadAqQOpV" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-outline">Watch the trailer <span class="arrow">&rarr;</span></a>
                         </div>
                     </div>
                 </article>
+
                 <!-- Dungeon of the Skeletons -->
-                <article class="notice card-link min-w-[82%] max-w-[82%] flex-shrink-0 snap-start md:min-w-[26rem] md:max-w-[26rem] block overflow-hidden">
-                    <div class="plate aspect-video overflow-hidden m-3 mb-0">
-                        <img loading="lazy" decoding="async" src="Images/dungeon.gif" alt="Dungeon Of The Skeletons gameplay" class="w-full h-full object-cover" />
+                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[25rem] md:max-w-[25rem]">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/dungeon.gif"
+                            alt="Dungeon Of The Skeletons gameplay" class="w-full h-full object-cover" />
                     </div>
-                    <div class="p-8 md:p-10 flex items-start justify-between gap-6">
-                        <div class="flex gap-7 items-start">
-                            <span class="numeral text-4xl leading-none">iv</span>
-                            <div>
-                                <h3 class="font-heading text-3xl font-semibold text-ink mb-3">Dungeon of the Skeletons
-                                </h3>
-                                <p class="font-body italic text-ink-soft max-w-2xl">2D platformer built in C++ / SFML
-                                    (team
-                                    of 6). Collision handling for jump states, character animation &amp; movement, and
-                                    patrol/turret enemy behaviours.</p>
-                                <div class="flex flex-wrap gap-3 mt-6">
-                                    <span class="chip label text-[0.58rem] px-3 py-1">C++ / SFML</span>
-                                    <span class="chip label text-[0.58rem] px-3 py-1">2D Platformer</span>
-                                </div>
-                                <div class="flex flex-wrap gap-3 mt-6">
-                                    <a href="https://alikassab.dev/DungeonOfTheSkeletons/" target="_blank" rel="noopener noreferrer" class="btn-card is-primary" data-desktop-only>Play the Game <span aria-hidden="true">&#10148;</span></a>
-                                    <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank" rel="noopener noreferrer" class="btn-card">Check the Repo <span aria-hidden="true">&#10148;</span></a>
-                                </div>
-                            </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl text-ink">Dungeon of the Skeletons</h3>
+                        <p class="text-sm text-body mt-3">2D platformer built in C++ and SFML with a team of six.
+                            Collision handling for jump states, character animation and movement, and patrol/turret
+                            enemy behaviours.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="chip">C++ / SFML</span><span class="chip">2D Platformer</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5 mt-6">
+                            <a href="https://alikassab.dev/DungeonOfTheSkeletons/" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-primary" data-desktop-only>Play <span class="arrow">&rarr;</span></a>
+                            <a href="https://github.com/AliKassab/DungeonOfTheSkeletons" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-outline">View source</a>
                         </div>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- Colophon / Contact -->
-        <section id="contact" class="relative py-28 md:py-40 px-6 overflow-hidden scroll-mt-20">
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <span class="watermark text-[40vw] leading-none">AK</span>
-            </div>
-            <div class="notice reveal relative z-10 max-w-3xl mx-auto px-8 py-16 md:px-16 text-center">
-                <p class="font-heading text-8xl text-oxblood leading-none mb-2 opacity-60" aria-hidden="true">&#8220;</p>
-                <blockquote class="font-heading text-3xl md:text-4xl italic leading-snug text-ink">
-                    Precision in the shadows is where the most impactful gameplay emerges. Every line of code is a
-                    brushstroke in a player's memory.
-                </blockquote>
-                <div class="ornament ornament-light max-w-xs mx-auto my-10"><span aria-hidden="true">&#10086;</span>
-                </div>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <a class="btn-seal btn-seal-primary px-10 py-4" href="mailto:ali.mohammed.kassab@gmail.com">Get in
-                        Touch</a>
+        <!-- Contact -->
+        <section id="contact" class="bg-canvas-2 border-t border-line scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+                <div class="reveal max-w-2xl">
+                    <p class="eyebrow mb-6">04 &nbsp;/&nbsp; Contact</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a class="btn btn-primary" href="mailto:ali.mohammed.kassab@gmail.com">ali.mohammed.kassab@gmail.com</a>
+                        <a class="btn btn-outline" href="https://www.linkedin.com/in/ali-kassab-" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a>
+                        <a class="btn btn-outline" href="https://github.com/AliKassab" target="_blank"
+                            rel="noopener noreferrer">GitHub</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1236,56 +948,67 @@
 
     <!-- Back to top -->
     <button id="to-top"
-        class="to-top fixed bottom-6 right-6 z-40 w-12 h-12 flex items-center justify-center bg-[#7a2818] text-[#f4ead6] border border-[#9a7c32]/50 text-xl shadow-[0_6px_24px_rgba(0,0,0,0.55)] hover:bg-[#601e12]"
+        class="to-top fixed bottom-6 right-6 z-40 w-11 h-11 flex items-center justify-center rounded-lg bg-ink text-canvas shadow-lg"
         aria-label="Back to top">&#8593;</button>
 
-    <!-- Desktop-only warning toast -->
+    <!-- Desktop-only toast -->
     <div id="mobile-warning" role="alert" aria-live="assertive"
         class="fixed inset-x-0 bottom-6 z-[60] flex justify-center px-4 pointer-events-none">
-        <div class="notice max-w-sm px-7 py-5 text-center pointer-events-auto">
-            <p class="label text-oxblood mb-2">Hold On, Traveller</p>
-            <p class="font-body text-ink text-[0.96rem] leading-snug">The playable build runs on desktop only. Open this
-                page on a computer to play, or check the repo to browse the source.</p>
+        <div class="card max-w-sm px-6 py-4 text-center pointer-events-auto">
+            <p class="eyebrow mb-1.5">Desktop only</p>
+            <p class="text-sm text-body">This build runs on desktop. Open the page on a computer to play, or view the
+                source on GitHub.</p>
         </div>
     </div>
 
-    <!-- Footer / Colophon -->
-    <footer class="relative z-10 border-t border-[#7a6438]/25 bg-[#080604] py-16 px-8 flex flex-col items-center gap-8">
-        <p class="brand text-2xl text-[#c8a060]">Ali Kassab</p>
-        <p class="label text-[0.6rem]">Unity Game Developer</p>
-        <div class="flex flex-wrap justify-center gap-10 label text-[0.62rem]">
-            <a class="nav-link" href="mailto:ali.mohammed.kassab@gmail.com">Email</a>
-            <a class="nav-link" href="https://www.linkedin.com/in/ali-kassab-" target="_blank"
-                rel="noopener noreferrer">LinkedIn</a>
-            <a class="nav-link" href="https://github.com/AliKassab" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a class="nav-link" href="https://alikassab.dev/CV/" target="_blank"
-                rel="noopener noreferrer">View CV</a>
+    <!-- Footer -->
+    <footer class="border-t border-line bg-canvas">
+        <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p class="font-display text-base text-ink">Ali Kassab</p>
+            <p class="text-xs text-muted">&copy; 2026 &middot; Cairo, Egypt</p>
         </div>
-        <div class="ornament ornament-dark max-w-[10rem]"><span aria-hidden="true">&#10087;</span></div>
-        <p class="font-body italic text-[#7a6438] text-sm text-center">&copy; 2026 Ali Kassab &middot; Cairo, Egypt</p>
     </footer>
+
     <script>
+        // Theme toggle (initial value is set by the inline script in <head>)
+        const themeToggle = document.getElementById('theme-toggle');
+        const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            themeToggle.setAttribute('aria-label',
+                theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+        applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+
+        themeToggle.addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            try { localStorage.setItem('theme', next); } catch (e) { }
+            applyTheme(next);
+        });
+
+        // Follow the system setting until the visitor picks a side
+        darkQuery.addEventListener('change', e => {
+            let stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (err) { }
+            if (!stored) applyTheme(e.matches ? 'dark' : 'light');
+        });
+
         const navLinks = document.querySelectorAll('.nav-link');
-        const sections = ['work', 'expertise', 'labs', 'contact'].map(id => document.getElementById(id));
+        const sections = ['work', 'expertise', 'projects', 'contact'].map(id => document.getElementById(id));
 
         function setActive(id) {
-            navLinks.forEach(link => {
-                link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-            });
+            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
         }
 
         const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) setActive(entry.target.id);
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); });
         }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
-
         sections.forEach(s => s && observer.observe(s));
 
-        // Mobile menu toggle
+        // Mobile menu
         const navToggle = document.getElementById('nav-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-
         function closeMenu() {
             mobileMenu.classList.add('hidden');
             navToggle.setAttribute('aria-expanded', 'false');
@@ -1299,7 +1022,6 @@
         navToggle.addEventListener('click', () => {
             mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu();
         });
-
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 const href = link.getAttribute('href');
@@ -1308,54 +1030,41 @@
             });
         });
 
-        // Scroll-reveal for sections and cards
-        const revealEls = document.querySelectorAll('.reveal');
+        // Scroll reveal
         const revObserver = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in');
-                    obs.unobserve(entry.target);
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('in'); obs.unobserve(entry.target); }
             });
         }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-        revealEls.forEach(el => revObserver.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => revObserver.observe(el));
 
-        // Back-to-top button
+        // Back to top
         const toTop = document.getElementById('to-top');
         window.addEventListener('scroll', () => {
             toTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
         }, { passive: true });
-        toTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        // Block desktop-only links (playable builds) on mobile / touch devices
+        // Desktop-only guard
         function isMobileDevice() {
             return window.matchMedia('(max-width: 768px)').matches
                 || (window.matchMedia('(pointer: coarse)').matches && window.matchMedia('(hover: none)').matches);
         }
-
         const warning = document.getElementById('mobile-warning');
         let warnTimer;
-        function showWarning() {
-            warning.classList.add('show');
-            clearTimeout(warnTimer);
-            warnTimer = setTimeout(() => warning.classList.remove('show'), 4500);
-        }
-
         document.querySelectorAll('[data-desktop-only]').forEach(btn => {
             btn.addEventListener('click', e => {
                 if (isMobileDevice()) {
                     e.preventDefault();
-                    showWarning();
+                    warning.classList.add('show');
+                    clearTimeout(warnTimer);
+                    warnTimer = setTimeout(() => warning.classList.remove('show'), 4500);
                 }
             });
         });
-
-        // Dismiss the warning when tapping it
         warning.addEventListener('click', () => warning.classList.remove('show'));
 
-        // Steam showcase: data refreshed daily by a GitHub Action into steam-data.json
+        // Steam showcase
         (function () {
             const el = id => document.getElementById(id);
             const esc = s => String(s).replace(/[&<>"']/g, c =>
@@ -1367,7 +1076,7 @@
                     if (p.name) el('steam-name').textContent = p.name;
                     if (p.avatar) { const a = el('steam-avatar'); a.src = p.avatar; a.classList.remove('hidden'); }
                     const sub = [];
-                    if (p.memberSince) sub.push('Steam member since ' + p.memberSince);
+                    if (p.memberSince) sub.push('Member since ' + p.memberSince);
                     if (p.country && p.country.name) sub.push((p.country.flag ? p.country.flag + ' ' : '') + p.country.name);
                     if (sub.length) el('steam-state').textContent = sub.join('  ·  ');
                     if (p.level != null || p.gameCount != null || p.totalHours != null || p.achievements != null) {
@@ -1381,11 +1090,11 @@
                         el('steam-stats').classList.remove('hidden');
                     }
                     const gameCard = (g, meta) => `
-                        <a href="https://store.steampowered.com/app/${encodeURIComponent(g.appid)}/" target="_blank" rel="noopener noreferrer" class="block flex-shrink-0 border border-ink/30 overflow-hidden w-[150px]">
+                        <a href="https://store.steampowered.com/app/${encodeURIComponent(g.appid)}/" target="_blank" rel="noopener noreferrer" class="block flex-shrink-0 w-[140px] rounded border border-line overflow-hidden">
                             <img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy" decoding="async" class="w-full h-auto" />
                             <div class="px-2 py-2">
-                                <p class="font-body text-ink text-[0.8rem] leading-tight">${esc(g.name)}</p>
-                                <p class="label text-[0.5rem] text-faded mt-1">${meta}</p>
+                                <p class="text-[0.72rem] text-ink leading-tight">${esc(g.name)}</p>
+                                <p class="text-[0.62rem] text-muted mt-0.5">${meta}</p>
                             </div>
                         </a>`;
                     if (Array.isArray(d.mostPlayed) && d.mostPlayed.length) {
@@ -1402,97 +1111,20 @@
                         el('steam-updated').textContent = 'Updated ' +
                             new Date(d.updated).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
                     }
-                    // Recompute the Steam card's custom scrollbars now that content is in
                     document.querySelectorAll('.card-hscroll, .card-vscroll')
                         .forEach(s => s.dispatchEvent(new Event('sb-refresh')));
                 })
-                .catch(() => { /* keep static fallback (name + View Profile button) */ });
+                .catch(() => { });
         })();
 
-        // Custom always-visible scrollbars (both axes) that stay shown when scrollable
-        function attachScrollbar(scroller, axis) {
-            const horizontal = axis !== 'y';
-            const bar = document.createElement('div');
-            bar.className = 'card-scrollbar' + (horizontal ? '' : ' card-scrollbar-v');
-            const thumb = document.createElement('div');
-            thumb.className = 'card-scrollbar-thumb';
-            bar.appendChild(thumb);
-            if (horizontal) scroller.after(bar);
-            else scroller.parentElement.appendChild(bar);
-
-            const update = () => {
-                const size = horizontal ? scroller.scrollWidth : scroller.scrollHeight;
-                const view = horizontal ? scroller.clientWidth : scroller.clientHeight;
-                const pos = horizontal ? scroller.scrollLeft : scroller.scrollTop;
-                if (size <= view + 1) { bar.style.display = 'none'; return; }
-                bar.style.display = 'block';
-                const track = horizontal ? bar.clientWidth : bar.clientHeight;
-                const t = Math.max(track * (view / size), 28);
-                const maxScroll = size - view;
-                const maxThumb = track - t;
-                const offset = maxScroll > 0 ? (pos / maxScroll) * maxThumb : 0;
-                if (horizontal) {
-                    thumb.style.width = t + 'px';
-                    thumb.style.transform = 'translateX(' + offset + 'px)';
-                } else {
-                    thumb.style.height = t + 'px';
-                    thumb.style.transform = 'translateY(' + offset + 'px)';
-                }
-            };
-
-            scroller.addEventListener('scroll', update, { passive: true });
-            window.addEventListener('resize', update);
-            window.addEventListener('load', update);
-            scroller.addEventListener('sb-refresh', update);
-            setTimeout(update, 300);
-            update();
-
-            // Drag the thumb to scroll
-            let start = 0, startScroll = 0, dragging = false;
-            thumb.addEventListener('pointerdown', e => {
-                dragging = true;
-                start = horizontal ? e.clientX : e.clientY;
-                startScroll = horizontal ? scroller.scrollLeft : scroller.scrollTop;
-                thumb.classList.add('dragging');
-                thumb.setPointerCapture(e.pointerId);
-                e.preventDefault();
-            });
-            thumb.addEventListener('pointermove', e => {
-                if (!dragging) return;
-                const size = horizontal ? scroller.scrollWidth : scroller.scrollHeight;
-                const view = horizontal ? scroller.clientWidth : scroller.clientHeight;
-                const track = horizontal ? bar.clientWidth : bar.clientHeight;
-                const maxThumb = track - thumb[horizontal ? 'offsetWidth' : 'offsetHeight'];
-                const delta = (horizontal ? e.clientX : e.clientY) - start;
-                const scrollDelta = maxThumb > 0 ? (delta / maxThumb) * (size - view) : 0;
-                if (horizontal) scroller.scrollLeft = startScroll + scrollDelta;
-                else scroller.scrollTop = startScroll + scrollDelta;
-            });
-            const endDrag = () => { dragging = false; thumb.classList.remove('dragging'); };
-            thumb.addEventListener('pointerup', endDrag);
-            thumb.addEventListener('pointercancel', endDrag);
-
-            // Click the track to jump
-            bar.addEventListener('pointerdown', e => {
-                if (e.target === thumb) return;
-                const size = horizontal ? scroller.scrollWidth : scroller.scrollHeight;
-                const view = horizontal ? scroller.clientWidth : scroller.clientHeight;
-                const rect = bar.getBoundingClientRect();
-                const click = horizontal ? e.clientX - rect.left : e.clientY - rect.top;
-                const track = horizontal ? bar.clientWidth : bar.clientHeight;
-                const target = (click / track) * (size - view) - view / 2;
-                scroller.scrollTo(horizontal ? { left: target, behavior: 'smooth' } : { top: target, behavior: 'smooth' });
-            });
-        }
-
-        // Dot pagination indicators for horizontal carousels (one dot per card)
+        // Dot pagination for horizontal carousels
         function attachDots(scroller) {
             const dots = document.createElement('div');
             dots.className = 'card-dots';
             scroller.after(dots);
             let count = -1;
 
-            const setActive = () => {
+            const setActiveDot = () => {
                 const n = dots.children.length;
                 if (!n) return;
                 const maxScroll = scroller.scrollWidth - scroller.clientWidth;
@@ -1518,10 +1150,10 @@
                     }
                 }
                 dots.style.display = (n <= 1 || scroller.scrollWidth <= scroller.clientWidth + 1) ? 'none' : 'flex';
-                setActive();
+                setActiveDot();
             };
 
-            scroller.addEventListener('scroll', setActive, { passive: true });
+            scroller.addEventListener('scroll', setActiveDot, { passive: true });
             window.addEventListener('resize', build);
             window.addEventListener('load', build);
             scroller.addEventListener('sb-refresh', build);
@@ -1529,8 +1161,52 @@
             build();
         }
 
+        // Vertical scrollbar for the Steam card
+        function attachVScrollbar(scroller) {
+            const bar = document.createElement('div');
+            bar.className = 'card-scrollbar-v';
+            const thumb = document.createElement('div');
+            thumb.className = 'card-scrollbar-thumb';
+            bar.appendChild(thumb);
+            scroller.parentElement.appendChild(bar);
+
+            const update = () => {
+                const { scrollHeight, clientHeight, scrollTop } = scroller;
+                if (scrollHeight <= clientHeight + 1) { bar.style.display = 'none'; return; }
+                bar.style.display = 'block';
+                const track = bar.clientHeight;
+                const t = Math.max(track * (clientHeight / scrollHeight), 24);
+                const maxScroll = scrollHeight - clientHeight;
+                const offset = maxScroll > 0 ? (scrollTop / maxScroll) * (track - t) : 0;
+                thumb.style.height = t + 'px';
+                thumb.style.transform = 'translateY(' + offset + 'px)';
+            };
+
+            scroller.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            window.addEventListener('load', update);
+            scroller.addEventListener('sb-refresh', update);
+            setTimeout(update, 300);
+            update();
+
+            let start = 0, startScroll = 0, dragging = false;
+            thumb.addEventListener('pointerdown', e => {
+                dragging = true; start = e.clientY; startScroll = scroller.scrollTop;
+                thumb.classList.add('dragging'); thumb.setPointerCapture(e.pointerId); e.preventDefault();
+            });
+            thumb.addEventListener('pointermove', e => {
+                if (!dragging) return;
+                const maxThumb = bar.clientHeight - thumb.offsetHeight;
+                const delta = e.clientY - start;
+                scroller.scrollTop = startScroll + (maxThumb > 0 ? (delta / maxThumb) * (scroller.scrollHeight - scroller.clientHeight) : 0);
+            });
+            const endDrag = () => { dragging = false; thumb.classList.remove('dragging'); };
+            thumb.addEventListener('pointerup', endDrag);
+            thumb.addEventListener('pointercancel', endDrag);
+        }
+
         document.querySelectorAll('.card-scroll, .card-hscroll').forEach(attachDots);
-        document.querySelectorAll('.card-vscroll').forEach(s => attachScrollbar(s, 'y'));
+        document.querySelectorAll('.card-vscroll').forEach(attachVScrollbar);
     </script>
 </body>
 
