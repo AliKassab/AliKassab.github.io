@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-06T07:14:01.278Z",
+  "updated": "2026-08-07T06:44:10.978Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -15,14 +15,14 @@
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 20,
+      "hours2w": 18.7,
       "hoursTotal": 468,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
       "appid": 1091500,
       "name": "Cyberpunk 2077",
-      "hours2w": 6.5,
+      "hours2w": 5.4,
       "hoursTotal": 97,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_231x87.jpg"
     }
