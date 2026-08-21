@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T06:29:52.872Z",
+  "updated": "2026-08-21T06:30:04.485Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,15 +8,15 @@
     "country": null,
     "level": 11,
     "gameCount": 55,
-    "totalHours": 1767,
+    "totalHours": 1769,
     "achievements": 491
   },
   "recent": [
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 4.4,
-      "hoursTotal": 472,
+      "hours2w": 5.2,
+      "hoursTotal": 473,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
@@ -29,8 +29,8 @@
     {
       "appid": 2622380,
       "name": "ELDEN RING NIGHTREIGN",
-      "hours2w": 1.3,
-      "hoursTotal": 101,
+      "hours2w": 2.1,
+      "hoursTotal": 102,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622380/capsule_231x87.jpg"
     }
   ],
@@ -44,13 +44,13 @@
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hoursTotal": 472,
+      "hoursTotal": 473,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
       "appid": 2622380,
       "name": "ELDEN RING NIGHTREIGN",
-      "hoursTotal": 101,
+      "hoursTotal": 102,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622380/capsule_231x87.jpg"
     },
     {
