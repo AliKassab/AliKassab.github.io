@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-31T06:51:28.450Z",
+  "updated": "2026-09-01T06:43:36.256Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,22 +8,22 @@
     "country": null,
     "level": 11,
     "gameCount": 55,
-    "totalHours": 1786,
+    "totalHours": 1789,
     "achievements": 491
   },
   "recent": [
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 14.2,
-      "hoursTotal": 492,
+      "hours2w": 17,
+      "hoursTotal": 495,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
       "appid": 2622380,
       "name": "ELDEN RING NIGHTREIGN",
-      "hours2w": 5.4,
-      "hoursTotal": 105,
+      "hours2w": 5.6,
+      "hoursTotal": 106,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622380/capsule_231x87.jpg"
     },
     {
@@ -38,7 +38,7 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hoursTotal": 492,
+      "hoursTotal": 495,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
@@ -50,7 +50,7 @@
     {
       "appid": 2622380,
       "name": "ELDEN RING NIGHTREIGN",
-      "hoursTotal": 105,
+      "hoursTotal": 106,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622380/capsule_231x87.jpg"
     },
     {
