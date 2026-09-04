@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-03T06:42:43.207Z",
+  "updated": "2026-09-04T06:41:26.970Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -22,16 +22,16 @@
     {
       "appid": 2622380,
       "name": "ELDEN RING NIGHTREIGN",
-      "hours2w": 4.7,
+      "hours2w": 3.8,
       "hoursTotal": 106,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622380/capsule_231x87.jpg"
     },
     {
-      "appid": 2434310,
-      "name": "Maximum Apocalypse",
-      "hours2w": 0.8,
-      "hoursTotal": 473,
-      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
+      "appid": 480,
+      "name": "Spacewar",
+      "hours2w": 0.1,
+      "hoursTotal": 45,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/480/capsule_231x87.jpg"
     }
   ],
   "mostPlayed": [
