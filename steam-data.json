@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04T06:41:26.970Z",
+  "updated": "2026-09-05T06:37:12.185Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,15 +8,15 @@
     "country": null,
     "level": 11,
     "gameCount": 55,
-    "totalHours": 1790,
-    "achievements": 491
+    "totalHours": 1791,
+    "achievements": 492
   },
   "recent": [
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 17,
-      "hoursTotal": 495,
+      "hours2w": 17.5,
+      "hoursTotal": 497,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
@@ -29,16 +29,23 @@
     {
       "appid": 480,
       "name": "Spacewar",
-      "hours2w": 0.1,
-      "hoursTotal": 45,
+      "hours2w": 0.9,
+      "hoursTotal": 46,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/480/capsule_231x87.jpg"
+    },
+    {
+      "appid": 774361,
+      "name": "Blasphemous",
+      "hours2w": 0,
+      "hoursTotal": 31,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/774361/capsule_231x87.jpg"
     }
   ],
   "mostPlayed": [
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hoursTotal": 495,
+      "hoursTotal": 497,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
