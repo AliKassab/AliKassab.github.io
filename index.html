@@ -269,6 +269,34 @@
             gap: 0.4rem;
             margin-top: 1rem;
         }
+        .carousel-controls {
+            display: grid;
+            grid-template-columns: 44px minmax(0, 1fr) 44px;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .carousel-controls[hidden] { display: none; }
+        .carousel-controls .card-dots { margin-top: 0; }
+        .carousel-arrow {
+            width: 44px; height: 44px;
+            border: 1px solid rgb(var(--c-line-strong));
+            border-radius: 50%;
+            background: rgb(var(--c-surface));
+            color: rgb(var(--c-ink));
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .carousel-arrow:hover:not(:disabled) { background: rgb(var(--c-hover)); }
+        .carousel-arrow:disabled { opacity: 0.35; cursor: default; }
+        .carousel-arrow:focus-visible, .card-dot:focus-visible,
+        .card-scroll:focus-visible, .card-hscroll:focus-visible {
+            outline: 2px solid rgb(var(--c-accent)); outline-offset: 3px;
+        }
+        .card-scroll.is-dragging, .card-hscroll.is-dragging {
+            scroll-snap-type: none; cursor: grabbing; user-select: none;
+        }
+
         .card-dot {
             width: 7px; height: 7px; padding: 0;
             border-radius: 9999px;
@@ -496,8 +524,7 @@
                         <p class="text-xs text-muted mt-1">October 2020 &ndash; July 2024</p>
                         <span class="chip mt-3">First Class Honours</span>
                     </div>
-                    <p class="text-sm text-body mt-5">Graduated July 2024. Completed the military exemption process
-                        from July to November 2024 before joining Mega Cat Studios.</p>
+                    <p class="text-sm text-body mt-5">Graduated July 2024.</p>
                 </article>
             </div>
         </section>
@@ -1180,47 +1207,135 @@
                 .catch(() => { });
         })();
 
-        // Dot pagination for horizontal carousels
-        function attachDots(scroller) {
+        // Mouse, touch, keyboard, and button navigation for horizontal carousels.
+        function attachDots(scroller, index) {
+            const label = scroller.id === 'steam-featured' ? 'Most played games'
+                : scroller.id === 'steam-recent' ? 'Recently played games'
+                : scroller.closest('section')?.querySelector('h2')?.textContent.trim() || 'Profile';
+            if (!scroller.id) scroller.id = 'carousel-' + index;
+            scroller.tabIndex = 0;
+            scroller.setAttribute('aria-label', label);
+            const controls = document.createElement('div');
+            controls.className = 'carousel-controls';
             const dots = document.createElement('div');
             dots.className = 'card-dots';
-            scroller.after(dots);
-            let count = -1;
-
-            const setActiveDot = () => {
-                const n = dots.children.length;
-                if (!n) return;
-                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-                const idx = maxScroll > 0 ? Math.round((scroller.scrollLeft / maxScroll) * (n - 1)) : 0;
-                Array.from(dots.children).forEach((dot, i) => dot.classList.toggle('active', i === idx));
+            const arrow = (direction, text) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'carousel-arrow';
+                button.textContent = text;
+                button.setAttribute('aria-label', direction + ': ' + label);
+                button.setAttribute('aria-controls', scroller.id);
+                return button;
             };
-
+            const previous = arrow('Scroll left', '←');
+            const next = arrow('Scroll right', '→');
+            controls.append(previous, dots, next);
+            scroller.after(controls);
+            let count = -1;
+            const maxScroll = () => Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+            const positions = () => [...scroller.children].map(child => Math.min(maxScroll(),
+                child.getBoundingClientRect().left - scroller.getBoundingClientRect().left + scroller.scrollLeft));
+            const go = left => scroller.scrollTo({left,
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+            const step = direction => {
+                const stops = positions();
+                const target = direction > 0 ? stops.find(left => left > scroller.scrollLeft + 2)
+                    : stops.reverse().find(left => left < scroller.scrollLeft - 2);
+                go(target ?? (direction > 0 ? maxScroll() : 0));
+            };
+            previous.addEventListener('click', () => step(-1));
+            next.addEventListener('click', () => step(1));
+            const update = () => {
+                const stops = positions();
+                const closest = stops.reduce((best, left, i) =>
+                    Math.abs(left - scroller.scrollLeft) < Math.abs(stops[best] - scroller.scrollLeft) ? i : best, 0);
+                [...dots.children].forEach((dot, i) => {
+                    dot.classList.toggle('active', i === closest);
+                    dot.setAttribute('aria-current', i === closest ? 'true' : 'false');
+                });
+                previous.disabled = scroller.scrollLeft <= 2;
+                next.disabled = scroller.scrollLeft >= maxScroll() - 2;
+            };
             const build = () => {
                 const n = scroller.children.length;
                 if (n !== count) {
                     count = n;
-                    dots.innerHTML = '';
+                    dots.replaceChildren();
                     for (let i = 0; i < n; i++) {
                         const dot = document.createElement('button');
                         dot.type = 'button';
                         dot.className = 'card-dot';
-                        dot.setAttribute('aria-label', 'Go to item ' + (i + 1));
-                        dot.addEventListener('click', () => {
-                            const max = scroller.scrollWidth - scroller.clientWidth;
-                            scroller.scrollTo({ left: n > 1 ? (i / (n - 1)) * max : 0, behavior: 'smooth' });
-                        });
+                        dot.setAttribute('aria-label', label + ': go to item ' + (i + 1));
+                        dot.addEventListener('click', () => go(positions()[i]));
                         dots.appendChild(dot);
                     }
                 }
-                dots.style.display = (n <= 1 || scroller.scrollWidth <= scroller.clientWidth + 1) ? 'none' : 'flex';
-                setActiveDot();
+                controls.hidden = maxScroll() <= 1;
+                scroller.tabIndex = controls.hidden ? -1 : 0;
+                update();
             };
-
-            scroller.addEventListener('scroll', setActiveDot, { passive: true });
+            scroller.addEventListener('keydown', e => {
+                if (e.target !== scroller || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+                e.preventDefault();
+                if (e.key === 'Home') go(0);
+                else if (e.key === 'End') go(maxScroll());
+                else step(e.key === 'ArrowRight' ? 1 : -1);
+            });
+            let lastWheel = 0;
+            scroller.addEventListener('wheel', e => {
+                if (e.ctrlKey || e.shiftKey || Math.abs(e.deltaX) >= Math.abs(e.deltaY)
+                    || e.target.closest('.card-scroll, .card-hscroll') !== scroller
+                    || e.target.closest('.card-vscroll')) return;
+                const direction = Math.sign(e.deltaY);
+                if (!direction || maxScroll() <= 1 || (direction < 0 && scroller.scrollLeft <= 2)
+                    || (direction > 0 && scroller.scrollLeft >= maxScroll() - 2)) return;
+                e.preventDefault();
+                if (performance.now() - lastWheel > 180) {
+                    step(direction);
+                    lastWheel = performance.now();
+                }
+            }, {passive: false});
+            let drag = null, suppressClick = false;
+            scroller.addEventListener('pointerdown', e => {
+                if (e.pointerType !== 'mouse' || e.button !== 0 || maxScroll() <= 1
+                    || e.target.closest('.card-scroll, .card-hscroll') !== scroller
+                    || e.target.closest('button, input, textarea, select')
+                    || (scroller.classList.contains('card-scroll') && e.target.closest('.card-vscroll'))) return;
+                drag = {id: e.pointerId, x: e.clientX, left: scroller.scrollLeft, moved: false};
+            });
+            scroller.addEventListener('dragstart', e => { if (drag) e.preventDefault(); });
+            scroller.addEventListener('pointermove', e => {
+                if (!drag || e.pointerId !== drag.id) return;
+                const delta = e.clientX - drag.x;
+                if (!drag.moved && Math.abs(delta) < 6) return;
+                if (!drag.moved) {
+                    drag.moved = true;
+                    scroller.classList.add('is-dragging');
+                    scroller.setPointerCapture(e.pointerId);
+                }
+                e.preventDefault();
+                scroller.scrollLeft = drag.left - delta;
+            });
+            const endDrag = e => {
+                if (!drag || e.pointerId !== drag.id) return;
+                suppressClick = drag.moved;
+                drag = null;
+                scroller.classList.remove('is-dragging');
+                if (scroller.hasPointerCapture(e.pointerId)) scroller.releasePointerCapture(e.pointerId);
+                setTimeout(() => { suppressClick = false; }, 0);
+            };
+            scroller.addEventListener('pointerup', endDrag);
+            scroller.addEventListener('pointercancel', endDrag);
+            scroller.addEventListener('pointerleave', () => { if (drag && !drag.moved) drag = null; });
+            scroller.addEventListener('click', e => {
+                if (suppressClick) { e.preventDefault(); e.stopPropagation(); }
+            }, true);
+            scroller.addEventListener('scroll', update, {passive: true});
             window.addEventListener('resize', build);
             window.addEventListener('load', build);
             scroller.addEventListener('sb-refresh', build);
-            setTimeout(build, 300);
+            new ResizeObserver(build).observe(scroller);
             build();
         }
 
