@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-16T06:43:36.315Z",
+  "updated": "2026-09-17T06:44:14.871Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,15 +8,15 @@
     "country": null,
     "level": 11,
     "gameCount": 55,
-    "totalHours": 1810,
+    "totalHours": 1816,
     "achievements": 493
   },
   "recent": [
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 17.7,
-      "hoursTotal": 513,
+      "hours2w": 20.4,
+      "hoursTotal": 515,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
@@ -29,14 +29,14 @@
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 2.9,
-      "hoursTotal": 476,
+      "hours2w": 6.1,
+      "hoursTotal": 479,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
       "appid": 2622380,
       "name": "ELDEN RING NIGHTREIGN",
-      "hours2w": 0.6,
+      "hours2w": 0.3,
       "hoursTotal": 106,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2622380/capsule_231x87.jpg"
     },
@@ -52,13 +52,13 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hoursTotal": 513,
+      "hoursTotal": 515,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hoursTotal": 476,
+      "hoursTotal": 479,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
