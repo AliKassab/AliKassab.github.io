@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-24T06:44:07.751Z",
+  "updated": "2026-09-25T06:45:05.990Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -16,13 +16,13 @@
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
       "hours2w": 18.3,
-      "hoursTotal": 524,
+      "hoursTotal": 525,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 6.6,
+      "hours2w": 6,
       "hoursTotal": 481,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     }
@@ -31,7 +31,7 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hoursTotal": 524,
+      "hoursTotal": 525,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
