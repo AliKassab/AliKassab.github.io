@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27T06:42:46.550Z",
+  "updated": "2026-09-28T06:59:31.035Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,15 +8,15 @@
     "country": null,
     "level": 11,
     "gameCount": 77,
-    "totalHours": 1833,
+    "totalHours": 1834,
     "achievements": 493
   },
   "recent": [
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 22.1,
-      "hoursTotal": 530,
+      "hours2w": 22.6,
+      "hoursTotal": 531,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
@@ -31,7 +31,7 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hoursTotal": 530,
+      "hoursTotal": 531,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
