@@ -1,28 +1,28 @@
 {
-  "updated": "2026-09-28T06:59:31.035Z",
+  "updated": "2026-09-29T06:46:59.839Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
     "url": "https://steamcommunity.com/profiles/76561198980920161/",
     "memberSince": 2019,
     "country": null,
-    "level": 11,
-    "gameCount": 77,
-    "totalHours": 1834,
+    "level": 12,
+    "gameCount": 79,
+    "totalHours": 1835,
     "achievements": 493
   },
   "recent": [
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 22.6,
-      "hoursTotal": 531,
+      "hours2w": 22.8,
+      "hoursTotal": 533,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 6.1,
+      "hours2w": 5.1,
       "hoursTotal": 481,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     }
@@ -31,7 +31,7 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hoursTotal": 531,
+      "hoursTotal": 533,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
