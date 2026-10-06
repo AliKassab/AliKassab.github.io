@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05T07:05:02.649Z",
+  "updated": "2026-10-06T06:47:42.795Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,29 +8,29 @@
     "country": null,
     "level": 12,
     "gameCount": 79,
-    "totalHours": 1859,
+    "totalHours": 1868,
     "achievements": 496
   },
   "recent": [
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 17.9,
-      "hoursTotal": 540,
+      "hours2w": 17.4,
+      "hoursTotal": 541,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
       "appid": 292030,
       "name": "The Witcher 3: Wild Hunt — Remastered",
-      "hours2w": 13.3,
-      "hoursTotal": 67,
+      "hours2w": 14.8,
+      "hoursTotal": 68,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/capsule_231x87.jpg"
     },
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 2.5,
-      "hoursTotal": 483,
+      "hours2w": 9.2,
+      "hoursTotal": 490,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
@@ -45,13 +45,13 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hoursTotal": 540,
+      "hoursTotal": 541,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hoursTotal": 483,
+      "hoursTotal": 490,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
