@@ -23,9 +23,9 @@
         });
 
         const navLinks = document.querySelectorAll('.nav-link');
-        const currentPage = location.pathname.split('/').pop() || 'index.html';
+        const currentPage = document.body.dataset.navPage || location.pathname.split('/').pop() || 'index.html';
         navLinks.forEach(link => {
-            const active = link.getAttribute('href') === currentPage;
+            const active = link.getAttribute('href').split('/').pop() === currentPage;
             link.classList.toggle('active', active);
             if (active) link.setAttribute('aria-current', 'page');
         });
@@ -167,7 +167,8 @@
             scroller.after(controls);
             let count = -1;
             const maxScroll = () => Math.max(0, scroller.scrollWidth - scroller.clientWidth);
-            const positions = () => [...scroller.children].map(child => Math.min(maxScroll(),
+            const visibleItems = () => [...scroller.children].filter(child => !child.hidden);
+            const positions = () => visibleItems().map(child => Math.min(maxScroll(),
                 child.getBoundingClientRect().left - scroller.getBoundingClientRect().left + scroller.scrollLeft));
             const go = left => scroller.scrollTo({left,
                 behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
@@ -191,7 +192,7 @@
                 next.disabled = scroller.scrollLeft >= maxScroll() - 2;
             };
             const build = () => {
-                const n = scroller.children.length;
+                const n = visibleItems().length;
                 if (n !== count) {
                     count = n;
                     dots.replaceChildren();
@@ -321,3 +322,21 @@
 
 // Submission transport is separate so a protected Edge endpoint can replace it later.
 window.Perspectives?.bindForms(document);
+
+const projectList = document.getElementById('project-list');
+if (projectList) {
+    const filters = document.querySelectorAll('[data-project-filter]');
+    const items = [...projectList.querySelectorAll('[data-project-category]')];
+    const applyFilter = filter => {
+        items.forEach(item => { item.hidden = filter !== 'all' && item.dataset.projectCategory !== filter; });
+        filters.forEach(button => {
+            const active = button.dataset.projectFilter === filter;
+            button.setAttribute('aria-pressed', String(active));
+            button.classList.toggle('btn-primary', active);
+            button.classList.toggle('btn-outline', !active);
+        });
+        document.getElementById('project-count').textContent = items.filter(item => !item.hidden).length + ' projects';
+    };
+    filters.forEach(button => button.addEventListener('click', () => applyFilter(button.dataset.projectFilter)));
+    applyFilter('all');
+}

@@ -7,7 +7,7 @@
     <script src="scripts/public-config.js"></script>
     <script src="scripts/config.js"></script>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Work // Ali Kassab</title>
+    <title>Work &amp; Projects // Ali Kassab</title>
     <meta name="description"
         content="Ali Kassab, Intermediate Game Programmer at Mega Cat Studios, based in Cairo. Cross-platform gameplay architecture, multiplayer, AI, and performance optimisation." />
     <meta name="author" content="Ali Kassab" />
@@ -15,11 +15,11 @@
     <link rel="canonical" href="https://alikassab.dev/work.html" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://alikassab.dev/work.html" />
-    <meta property="og:title" content="Work // Ali Kassab" />
+    <meta property="og:title" content="Work &amp; Projects // Ali Kassab" />
     <meta property="og:description"
         content="Intermediate Game Programmer at Mega Cat Studios. Cross-platform gameplay architecture, multiplayer systems, AI behaviour, and performance optimisation." />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Work // Ali Kassab" />
+    <meta name="twitter:title" content="Work &amp; Projects // Ali Kassab" />
     <meta name="twitter:description"
         content="Intermediate Game Programmer at Mega Cat Studios. Cross-platform gameplay architecture, multiplayer systems, AI behaviour, and performance optimisation." />
     <script>
@@ -78,8 +78,6 @@
                     <a class="nav-link" href="index.html">Home</a>
 
                     <a class="nav-link" href="work.html">Work</a>
-
-                    <a class="nav-link" href="projects.html">Projects</a>
                     <a class="nav-link" href="explore.html">Explore with me</a>
                     <a class="nav-link" href="#contact">Contact</a>
                 </div>
@@ -105,8 +103,6 @@
             <a class="nav-link py-3" href="index.html">Home</a>
 
             <a class="nav-link py-3" href="work.html">Work</a>
-
-            <a class="nav-link py-3" href="projects.html">Projects</a>
             <a class="nav-link py-3" href="explore.html">Explore with me</a>
             <a class="nav-link py-3" href="#contact">Contact</a>
         </div>
@@ -115,372 +111,228 @@
     <main id="top" class="relative flex-1 pt-20 md:pt-24">
         <section id="work" class="max-w-6xl mx-auto px-6 py-12 md:py-16 scroll-mt-20">
             <header class="reveal mb-10 md:mb-12">
-                <p class="eyebrow mb-3">Professional work</p>
-                <h1 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Released titles</h1>
+                <p class="eyebrow mb-3">Professional &amp; personal work</p>
+                <h1 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Work &amp; Projects</h1>
                 <div class="rule mt-6"></div>
             </header>
 
-            <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6">
+            <div class="project-filters flex flex-wrap gap-2 mb-6" role="group" aria-label="Filter work and projects">
+                <button type="button" class="btn btn-primary" data-project-filter="all" aria-pressed="true" aria-controls="project-list">All</button>
+                <button type="button" class="btn btn-outline" data-project-filter="released" aria-pressed="false" aria-controls="project-list">Released Titles</button>
+                <button type="button" class="btn btn-outline" data-project-filter="soon" aria-pressed="false" aria-controls="project-list">Releasing Soon</button>
+                <button type="button" class="btn btn-outline" data-project-filter="personal" aria-pressed="false" aria-controls="project-list">Personal</button>
+                <button type="button" class="btn btn-outline" data-project-filter="ports" aria-pressed="false" aria-controls="project-list">Ports</button>
+                <button type="button" class="btn btn-outline" data-project-filter="simulations" aria-pressed="false" aria-controls="project-list">Simulations</button>
+            </div>
+<p id="project-count" class="text-sm text-muted mb-4" role="status"></p>
+<div id="project-list" aria-label="Work and projects" class="reveal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
                 <!-- God of War -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                <article data-project-category="released" class="card card-hover overflow-hidden min-w-0 flex flex-col">
                     <div class="media aspect-video bg-canvas-2 flex items-center justify-center overflow-hidden">
                         <img loading="lazy" decoding="async" alt="God of War: Sons of Sparta"
                             class="w-full h-full object-contain p-5" src="Images/GoWSoS_Logo.jpg" />
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <p class="eyebrow">Mega Cat Studios</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">God of War: Sons of Sparta</h3>
-                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Intermediate Game Programmer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">PS4, PS5</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip">Pit of Agonies</span><span class="chip">AI</span>
-                            <span class="chip">Economy &amp; Inventory</span><span class="chip">YAML Balancing</span>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">God of War: Sons of Sparta</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/god-of-war-sons-of-sparta.html" class="btn btn-primary" aria-label="View God of War: Sons of Sparta">View <span class="arrow">&rarr;</span></a>
                         </div>
-                        <ul class="mt-4 space-y-2 text-sm text-body list-disc pl-4">
-                            <li>Architected Pit of Agonies roguelike systems: reward and enemy seeding, shop,
-                                progression, economy, inventory, and legacy system rework.</li>
-                            <li>Built modular NPC behaviours using Behaviour Trees and FSMs for 10+ archetypes.</li>
-                            <li>Built YAML-driven balancing so designers can tune values without code changes.</li>
-                        </ul>
-                        <a href="https://www.playstation.com/en-us/games/god-of-war-sons-of-sparta/" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-outline mt-6">View on PlayStation <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
 
                 <!-- Sinai Heroes -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                <article data-project-category="released" class="card card-hover overflow-hidden min-w-0 flex flex-col">
                     <div class="media aspect-video bg-canvas-2 flex items-center justify-center overflow-hidden">
                         <img loading="lazy" decoding="async" alt="Sinai Heroes" class="w-full h-full object-contain p-5"
                             src="Images/sinaiheroes.jpg" />
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <p class="eyebrow">Genesis Creations S.A.E</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Sinai Heroes</h3>
-                        <p class="text-xs text-muted mt-1">Aug 2023 &ndash; Jul 2024</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Unity Game Developer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">Android, iOS</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip">Core Systems</span><span class="chip">Photon PUN</span>
-                            <span class="chip">Matchmaking</span>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Sinai Heroes</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/sinai-heroes.html" class="btn btn-primary" aria-label="View Sinai Heroes">View <span class="arrow">&rarr;</span></a>
                         </div>
-                        <ul class="mt-4 space-y-2 text-sm text-body list-disc pl-4">
-                            <li>Designed error handling, UI, user access, and command prompting systems.</li>
-                            <li>Integrated Photon PUN multiplayer, reducing connection issues by 70%, and authored
-                                matchmaking filters for fair player lobbies.</li>
-                            <li>Reduced draw calls by 75% through environment and mesh optimisation, and set up
-                                lighting for Mission 1.</li>
-                        </ul>
-                        <a href="https://www.sinaiheroes.com" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Backyard Baseball 2026 -->
+                <article data-project-category="released" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball 2026" class="w-full h-full object-cover"
+                            src="Images/backyard-baseball-2026.jpg" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball 2026</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/backyard-baseball-2026.html" class="btn btn-primary" aria-label="View Backyard Baseball 2026">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Maximum Apocalypse -->
+                <article data-project-category="soon" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Maximum Apocalypse" class="w-full h-full object-cover"
+                            src="Images/maximum-apocalypse.jpg" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Maximum Apocalypse</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/maximum-apocalypse.html" class="btn btn-primary" aria-label="View Maximum Apocalypse">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article data-project-category="personal" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/mysticsands.gif" alt="Mystic Sands gameplay"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Personal</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Mystic Sands</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/mystic-sands.html" class="btn btn-primary" aria-label="View Mystic Sands">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article data-project-category="personal" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/fakeout-boss.gif" alt="FakeOut BOSS gameplay"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Personal</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">FakeOut BOSS</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/fakeout-boss.html" class="btn btn-primary" aria-label="View FakeOut BOSS">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article data-project-category="personal" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/table-for-none.gif" alt="Table For None gameplay"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Personal</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Table For None</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/table-for-none.html" class="btn btn-primary" aria-label="View Table For None">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article data-project-category="personal" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" src="Images/dungeon.gif"
+                            alt="Dungeon Of The Skeletons gameplay" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Personal</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Dungeon of the Skeletons</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/dungeon-of-the-skeletons.html" class="btn btn-primary" aria-label="View Dungeon of the Skeletons">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Backyard Soccer '98 -->
+                <article data-project-category="ports" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Soccer '98" class="w-full h-full object-cover"
+                            src="Images/backyard-soccer-98.jpg" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Soccer '98</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/backyard-soccer-98.html" class="btn btn-primary" aria-label="View Backyard Soccer &#x27;98">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Backyard Baseball '97 -->
+                <article data-project-category="ports" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball '97" class="w-full h-full object-cover"
+                            src="Images/backyard-baseball-97.jpg" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball '97</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/backyard-baseball-97.html" class="btn btn-primary" aria-label="View Backyard Baseball &#x27;97">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Backyard Baseball '01 -->
+                <article data-project-category="ports" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Baseball '01" class="w-full h-full object-cover"
+                            src="Images/backyard-baseball-01.jpg" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball '01</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/backyard-baseball-01.html" class="btn btn-primary" aria-label="View Backyard Baseball &#x27;01">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Backyard Basketball '01 -->
+                <article data-project-category="ports" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Basketball '01" class="w-full h-full object-cover"
+                            src="Images/backyard-basketball-01.jpg" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Basketball '01</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/backyard-basketball-01.html" class="btn btn-primary" aria-label="View Backyard Basketball &#x27;01">View <span class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Backyard Football '99 -->
+                <article data-project-category="ports" class="card card-hover overflow-hidden min-w-0 flex flex-col">
+                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
+                        <img loading="lazy" decoding="async" alt="Backyard Football '99" class="w-full h-full object-cover"
+                            src="Images/backyard-football-99.jpg" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="eyebrow">Mega Cat Studios</p>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Football '99</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/backyard-football-99.html" class="btn btn-primary" aria-label="View Backyard Football &#x27;99">View <span class="arrow">&rarr;</span></a>
+                        </div>
                     </div>
                 </article>
 
                 <!-- VR Surgical -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
+                <article data-project-category="simulations" class="card card-hover overflow-hidden min-w-0 flex flex-col">
                     <div class="media aspect-video bg-canvas-2 overflow-hidden">
                         <img loading="lazy" decoding="async" alt="VR Surgical Clean Room Training Simulation"
                             class="w-full h-full object-cover"
                             src="https://img.youtube.com/vi/mTNFCkmr_Sk/maxresdefault.jpg"
                             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/mTNFCkmr_Sk/hqdefault.jpg'" />
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <p class="eyebrow">Genesis Creations S.A.E</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">VR Surgical Clean Room Training</h3>
-                        <p class="text-xs text-muted mt-1">Aug 2023 &ndash; Jul 2024</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Unity Game Developer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">VR</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip">Hand Pose Tracking</span><span class="chip">Interactions</span>
+                        <h2 class="font-display text-xl text-ink mt-2 leading-snug">VR Surgical Clean Room Training</h2>
+                        <div class="mt-auto pt-6">
+                            <a href="projects/vr-surgical-clean-room-training.html" class="btn btn-primary" aria-label="View VR Surgical Clean Room Training">View <span class="arrow">&rarr;</span></a>
                         </div>
-                        <p class="text-sm text-body mt-4">Built VR hand pose tracking and object interaction features
-                            for realistic, immersive training scenarios.</p>
-                        <a href="https://youtu.be/mTNFCkmr_Sk?si=rF7hWUe8dwzE3wgJ" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-outline mt-6">Watch the demo <span class="arrow">&rarr;</span></a>
                     </div>
                 </article>
-
-                <!-- Backyard Baseball 2026 -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
-                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
-                        <img loading="lazy" decoding="async" alt="Backyard Baseball 2026" class="w-full h-full object-cover"
-                            src="Images/backyard-baseball-2026.jpg" />
-                    </div>
-                    <div class="p-6">
-                        <p class="eyebrow">Mega Cat Studios</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball 2026</h3>
-                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Intermediate Game Programmer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">PC, Nintendo, PlayStation, Xbox</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip">Game Feel</span><span class="chip">Physics</span><span class="chip">Gameplay</span>
-                        </div>
-                        <p class="text-sm text-body mt-4">Implemented gameplay feel systems across physics, camera,
-                            input, and UI, alongside state-driven animation sequencing.</p>
-                        <a href="https://store.steampowered.com/app/3935020/Backyard_Baseball/" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-outline mt-6">View on Steam <span class="arrow">&rarr;</span></a>
-                    </div>
-                </article>
-
-                <!-- Maximum Apocalypse -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
-                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
-                        <img loading="lazy" decoding="async" alt="Maximum Apocalypse" class="w-full h-full object-cover"
-                            src="Images/maximum-apocalypse.jpg" />
-                    </div>
-                    <div class="p-6">
-                        <p class="eyebrow">Mega Cat Studios</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Maximum Apocalypse</h3>
-                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Intermediate Game Programmer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">PC, Steam Deck</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="chip">Input</span><span class="chip">Localisation</span>
-                            <span class="chip">Save Architecture</span><span class="chip">Demo Pipeline</span>
-                        </div>
-                        <ul class="mt-4 space-y-2 text-sm text-body list-disc pl-4">
-                            <li>Decoupled input from gameplay, with action and map blocking across multiple layers.</li>
-                            <li>Built localisation pipelines and runtime string management with fallback support.</li>
-                            <li>Authored the demo shipping pipeline, including content locking and progress persistence
-                                into the main game.</li>
-                            <li>Designed save architecture with backups, corrupted data recovery, schema versioning,
-                                encoding, and file hashing.</li>
-                        </ul>
-                        <a href="https://store.steampowered.com/app/2434310/Maximum_Apocalypse/" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-outline mt-6">View on Steam <span class="arrow">&rarr;</span></a>
-                    </div>
-                </article>
-
-                <!-- Backyard Soccer '98 -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
-                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
-                        <img loading="lazy" decoding="async" alt="Backyard Soccer '98" class="w-full h-full object-cover"
-                            src="Images/backyard-soccer-98.jpg" />
-                    </div>
-                    <div class="p-6">
-                        <p class="eyebrow">Mega Cat Studios</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Soccer '98</h3>
-                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Porting Engineer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
-                        <a href="https://www.backyardsports.com/games/soccer98" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
-                    </div>
-                </article>
-
-                <!-- Backyard Baseball '97 -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
-                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
-                        <img loading="lazy" decoding="async" alt="Backyard Baseball '97" class="w-full h-full object-cover"
-                            src="Images/backyard-baseball-97.jpg" />
-                    </div>
-                    <div class="p-6">
-                        <p class="eyebrow">Mega Cat Studios</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball '97</h3>
-                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Porting Engineer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
-                        <a href="https://www.backyardsports.com/games/baseball97" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
-                    </div>
-                </article>
-
-                <!-- Backyard Baseball '01 -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
-                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
-                        <img loading="lazy" decoding="async" alt="Backyard Baseball '01" class="w-full h-full object-cover"
-                            src="Images/backyard-baseball-01.jpg" />
-                    </div>
-                    <div class="p-6">
-                        <p class="eyebrow">Mega Cat Studios</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Baseball '01</h3>
-                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Porting Engineer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
-                        <a href="https://www.backyardsports.com/games/baseball01" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
-                    </div>
-                </article>
-
-                <!-- Backyard Basketball '01 -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
-                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
-                        <img loading="lazy" decoding="async" alt="Backyard Basketball '01" class="w-full h-full object-cover"
-                            src="Images/backyard-basketball-01.jpg" />
-                    </div>
-                    <div class="p-6">
-                        <p class="eyebrow">Mega Cat Studios</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Basketball '01</h3>
-                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Porting Engineer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
-                        <a href="https://www.backyardsports.com/games/basketball01" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
-                    </div>
-                </article>
-
-                <!-- Backyard Football '99 -->
-                <article class="card card-hover overflow-hidden min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[21rem] md:max-w-[21rem]">
-                    <div class="media aspect-video bg-canvas-2 overflow-hidden">
-                        <img loading="lazy" decoding="async" alt="Backyard Football '99" class="w-full h-full object-cover"
-                            src="Images/backyard-football-99.jpg" />
-                    </div>
-                    <div class="p-6">
-                        <p class="eyebrow">Mega Cat Studios</p>
-                        <h3 class="font-display text-xl text-ink mt-2 leading-snug">Backyard Football '99</h3>
-                        <p class="text-xs text-muted mt-1">Nov 2024 &ndash; Present</p>
-                        <dl class="mt-5 text-sm">
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Role</dt>
-                                <dd class="text-ink text-right">Porting Engineer</dd>
-                            </div>
-                            <div class="flex justify-between gap-4 py-2 border-t border-line">
-                                <dt class="text-muted">Platforms</dt>
-                                <dd class="text-ink text-right">Android, Nintendo, iOS</dd>
-                            </div>
-                        </dl>
-                        <div class="flex flex-wrap gap-1.5 mt-4"><span class="chip">Android Port (C++)</span></div>
-                        <a href="https://www.backyardsports.com/games/football99" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-outline mt-6">Visit site <span class="arrow">&rarr;</span></a>
-                    </div>
-                </article>
-            </div>
-        </section>
-        <section id="expertise" class="bg-canvas-2 border-y border-line scroll-mt-20">
-            <div class="max-w-6xl mx-auto px-6 py-12 md:py-16">
-                <header class="reveal mb-10 md:mb-12">
-                    <p class="eyebrow mb-3">Technical Capabilities</p>
-                    <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Expertise</h2>
-                    <div class="rule mt-6"></div>
-                </header>
-
-                <div class="card-scroll reveal flex overflow-x-auto snap-x snap-mandatory gap-5 md:grid md:grid-cols-3 md:gap-6">
-                    <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none">
-                        <p class="eyebrow">Languages &amp; engines</p>
-                        <h3 class="font-display text-xl text-ink mt-2 mb-3">Core technologies</h3>
-                        <p class="text-sm text-body mb-5">Unity and C# gameplay systems across console, PC, and mobile,
-                            with C++ porting work and SFML game development.</p>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="chip">Unity</span><span class="chip">C#</span>
-                            <span class="chip">C++</span><span class="chip">SFML</span>
-                            <span class="chip">Photon PUN</span><span class="chip">Photon Fusion</span>
-                            <span class="chip">Unity Netcode</span>
-                        </div>
-                    </article>
-
-                    <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none">
-                        <p class="eyebrow">Systems &amp; architecture</p>
-                        <h3 class="font-display text-xl text-ink mt-2 mb-3">Scalable design</h3>
-                        <p class="text-sm text-body mb-5">Modular gameplay architecture, resilient save systems, and
-                            YAML-driven balancing tools built for designer iteration and long-term maintainability.</p>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="chip">OOP</span><span class="chip">Design Patterns</span>
-                            <span class="chip">System Architecture</span><span class="chip">Multithreading</span>
-                            <span class="chip">Async</span><span class="chip">Data-Driven Tooling</span>
-                            <span class="chip">Save Systems</span>
-                        </div>
-                    </article>
-
-                    <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-0 md:max-w-none">
-                        <p class="eyebrow">Gameplay, AI &amp; networking</p>
-                        <h3 class="font-display text-xl text-ink mt-2 mb-3">Systems in motion</h3>
-                        <p class="text-sm text-body mb-5">AI behaviour, multiplayer, and the performance tuning that
-                            keeps it all shipping at frame rate.</p>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="chip">Behaviour Trees</span><span class="chip">FSM</span>
-                            <span class="chip">Pathfinding A*</span><span class="chip">BFS / DFS</span>
-                            <span class="chip">Multiplayer</span><span class="chip">Networking</span>
-                            <span class="chip">Localisation</span><span class="chip">Performance</span>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="reveal mt-8 card px-7 py-6">
-                    <p class="eyebrow mb-3">Shipped across</p>
-                    <div class="flex flex-wrap gap-x-6 gap-y-2 text-ink">
-                        <span>PlayStation 5</span><span class="text-line">|</span>
-                        <span>PlayStation 4</span><span class="text-line">|</span>
-                        <span>PC</span><span class="text-line">|</span>
-                        <span>Android</span><span class="text-line">|</span>
-                        <span>iOS</span>
-                    </div>
-                </div>
             </div>
         </section>
     </main>

@@ -320,3 +320,6 @@ html:not([data-explore-enabled="true"]) a[href="explore.html"] { display: none; 
         letter-spacing: 0.07em;
     }
 }
+
+[data-project-category][hidden] { display: none !important; }
+.project-filters .btn:focus-visible { outline: 2px solid rgb(var(--c-accent)); outline-offset: 3px; }

@@ -1,5 +1,6 @@
-import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { pathToFileURL } from 'node:url';
 
 export function publicConfig(env) {
     const url = env.PUBLIC_SUPABASE_URL || '';
@@ -15,19 +16,20 @@ export function publicConfig(env) {
     return { supabaseUrl: url.replace(/\/$/, ''), supabaseKey: key, exploreEnabled: enabled };
 }
 
-if (import.meta.url === new URL(process.argv[1], 'file:').href) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     const config = publicConfig(process.env);
     await rm('dist', { recursive: true, force: true });
     await mkdir('dist/scripts', { recursive: true });
     // Explicit public asset allowlist: server code, secrets, and tests never ship.
-    for (const file of ['index.html', 'work.html', 'projects.html', 'explore.html', 'styles.css', 'steam-data.json', 'AliKassabCV.pdf', 'CNAME', 'Images']) {
+    for (const file of ['index.html', 'work.html', 'projects.html', 'explore.html', 'styles.css', 'steam-data.json', 'AliKassabCV.pdf', 'CNAME', 'Images', 'projects']) {
         await cp(file, `dist/${file}`, { recursive: true });
     }
     for (const file of ['config.js', 'site.js', 'perspectives.js']) await cp(`scripts/${file}`, `dist/scripts/${file}`);
     await writeFile('dist/scripts/public-config.js', `window.PORTFOLIO_ENV = Object.freeze(${JSON.stringify(config)});\n`);
     // A changed launch flag/key gets a new URL instead of reusing cached fallback settings.
     const version = createHash('sha256').update(JSON.stringify(config)).digest('hex').slice(0, 12);
-    for (const page of ['index.html', 'work.html', 'projects.html', 'explore.html']) {
+    const projectPages = (await readdir('projects')).filter(file => file.endsWith('.html')).map(file => `projects/${file}`);
+    for (const page of ['index.html', 'work.html', 'projects.html', 'explore.html', ...projectPages]) {
         const html = await readFile(`dist/${page}`, 'utf8');
         await writeFile(`dist/${page}`, html.replace('scripts/public-config.js', `scripts/public-config.js?v=${version}`));
     }
