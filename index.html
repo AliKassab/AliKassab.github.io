@@ -391,7 +391,7 @@
             </div>
 
             <!-- Quick stats -->
-            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line rounded-lg overflow-hidden">
+            <div class="mt-14 grid grid-cols-2 md:grid-cols-3 gap-px bg-line border border-line rounded-lg overflow-hidden">
                 <div class="bg-surface px-5 py-6">
                     <p class="font-display text-3xl text-accent">5 x 4</p>
                     <p class="eyebrow mt-1">Shipped Titles x Ports</p>
@@ -407,121 +407,11 @@
             </div>
         </section>
 
-        <!-- About / Skills / Steam -->
-        <section class="max-w-6xl mx-auto px-6 pb-20 md:pb-28">
-            <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6">
-                <!-- About -->
-                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
-                    <p class="eyebrow mb-4">About</p>
-                    <p class="text-body">I currently work as a Game Developer at Mega Cat Studios. My journey started with Genesis Creations S.A.E.</p>
-                    <p class="text-body mt-4">My goal is to be a creative director, crafting my the experience that I will be presenting to the player. Helping the team reach the visions I build with them, and support them in their own separate journeys to reach their full potential.</p>
-                    <p class="text-body mt-4">On the technical side, I use my programming skills to help bring ideas to life by building the blocks that make up the games I work on. scalable gameplay architecture, multiplayer systems, AI
-                        behaviour design, and performance optimisation, clean architecture, modular systems, and long-term maintainability is what you can find in my works.</p>
-                </article>
-
-                <!-- Core skills -->
-                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
-                    <div class="flex items-baseline justify-between mb-5">
-                        <p class="eyebrow">Areas of Interest and Exploration</p>
-                    </div>
-                    <dl class="space-y-4 text-sm">
-                        <div>
-                            <dt class="eyebrow text-[0.6rem] mb-1">Narrative</dt>
-                            <dd class="text-ink">How can world elements serve the narrative, and how can the narrative influence the world.</dd>
-                        </div>
-                        <div>
-                            <dt class="eyebrow text-[0.6rem] mb-1">Mechanics</dt>
-                            <dd class="text-ink">How can gameplay mechanics be driven from the world and its narrative, and how can the mechanics develop over time due to world factors.</dd>
-                        </div>
-                        <div>
-                            <dt class="eyebrow text-[0.6rem] mb-1">World Building</dt>
-                            <dd class="text-ink">How deep the world's history can be before its history starts developing from lore to a series of chronicles</dd>
-                        </div>
-                        <div>
-                            <dt class="eyebrow text-[0.6rem] mb-1">Technology serving the design</dt>
-                            <dd class="text-ink">How can the technology be leveraged to break the technical barriers that limit creative expression.</dd>
-                        </div>
-                    </dl>
-                </article>
-
-                <!-- Steam -->
-                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem] flex flex-col max-h-[28rem]">
-                    <div class="flex items-baseline justify-between mb-5 flex-shrink-0">
-                        <p class="eyebrow">On Steam</p>
-                        <p id="steam-updated" class="text-[0.62rem] text-muted"></p>
-                    </div>
-                    <div class="relative flex-1 min-h-0">
-                        <div class="card-vscroll h-full overflow-y-auto pr-4">
-                            <div class="flex items-center gap-4">
-                                <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
-                                    class="w-14 h-14 rounded-lg border border-line object-cover hidden" />
-                                <div>
-                                    <h3 id="steam-name" class="font-display text-lg text-ink leading-tight">Ali Kassab</h3>
-                                    <p id="steam-state" class="text-xs text-muted mt-0.5"></p>
-                                </div>
-                            </div>
-
-                            <div id="steam-stats" class="grid grid-cols-2 gap-3 mt-6 hidden">
-                                <div class="border border-line rounded py-3 text-center">
-                                    <p id="steam-level" class="font-display text-xl text-accent">--</p>
-                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Level</p>
-                                </div>
-                                <div class="border border-line rounded py-3 text-center">
-                                    <p id="steam-games" class="font-display text-xl text-accent">--</p>
-                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Games</p>
-                                </div>
-                                <div class="border border-line rounded py-3 text-center">
-                                    <p id="steam-hours" class="font-display text-xl text-accent">--</p>
-                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Hours</p>
-                                </div>
-                                <div id="steam-ach-tile" class="border border-line rounded py-3 text-center hidden">
-                                    <p id="steam-ach" class="font-display text-xl text-accent">--</p>
-                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Achievements</p>
-                                </div>
-                            </div>
-
-                            <div id="steam-featured-wrap" class="mt-6 hidden">
-                                <p class="eyebrow mb-3">Most played</p>
-                                <div id="steam-featured" class="card-hscroll flex gap-3 overflow-x-auto pb-1"></div>
-                            </div>
-
-                            <div id="steam-recent-wrap" class="mt-6 hidden">
-                                <p class="eyebrow mb-3">Recently played</p>
-                                <div id="steam-recent" class="card-hscroll flex gap-3 overflow-x-auto pb-1"></div>
-                            </div>
-
-                            <div class="mt-6">
-                                <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank"
-                                    rel="noopener noreferrer" class="btn btn-outline">View profile <span class="arrow">&rarr;</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Education -->
-                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
-                    <p class="eyebrow mb-4">Education</p>
-                    <h3 class="font-display text-lg text-ink leading-snug">Bachelor of Computer and Information Sciences</h3>
-                    <p class="text-sm text-body mt-2">Ain Shams University &middot; Cairo, Egypt</p>
-                    <p class="text-xs text-muted mt-1">October 2020 &ndash; July 2024</p>
-                    <div class="border-t border-line mt-5 pt-5">
-                        <h3 class="font-display text-lg text-ink leading-snug">Bachelor of Science, Software Engineering</h3>
-                        <p class="text-sm text-body mt-2">University of East London &middot; London, UK</p>
-                        <p class="text-xs text-muted mt-1">October 2020 &ndash; July 2024</p>
-                        <span class="chip mt-3">First Class Honours</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
         <!-- Work -->
         <section id="work" class="max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
             <header class="reveal mb-10 md:mb-12">
-                <p class="eyebrow mb-3">01 &nbsp;/&nbsp; Professional work</p>
-                <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Selected titles</h2>
-                <p class="mt-4 text-body max-w-2xl">Gameplay systems, AI, and production tooling at Mega Cat Studios and
-                    Genesis Creations. C++ porting contributions across five shipped Backyard Sports titles include
-                    memory management and rendering work for performance and feature parity on Android and iOS.</p>
+                <p class="eyebrow mb-3">Professional work</p>
+                <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Released titles</h2>
                 <div class="rule mt-6"></div>
             </header>
 
@@ -828,11 +718,118 @@
             </div>
         </section>
 
+        <!-- About / Skills / Steam -->
+        <section class="max-w-6xl mx-auto px-6 pb-20 md:pb-28">
+            <div class="card-scroll flex overflow-x-auto snap-x snap-mandatory gap-5 md:gap-6">
+                <!-- About -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
+                    <p class="eyebrow mb-4">About</p>
+                    <p class="text-body">I currently work as a Game Developer at Mega Cat Studios. My journey started with Genesis Creations S.A.E.</p>
+                    <p class="text-body mt-4">My goal is to be a creative director, crafting my the experience that I will be presenting to the player. Helping the team reach the visions I build with them, and support them in their own separate journeys to reach their full potential.</p>
+                    <p class="text-body mt-4">On the technical side, I use my programming skills to help bring ideas to life by building the blocks that make up the games I work on. scalable gameplay architecture, multiplayer systems, AI
+                        behaviour design, and performance optimisation, clean architecture, modular systems, and long-term maintainability is what you can find in my works.</p>
+                </article>
+
+                <!-- Core skills -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
+                    <div class="flex items-baseline justify-between mb-5">
+                        <p class="eyebrow">Areas of Interest and Exploration</p>
+                    </div>
+                    <dl class="space-y-4 text-sm">
+                        <div>
+                            <dt class="eyebrow text-[0.6rem] mb-1">Narrative</dt>
+                            <dd class="text-ink">How can world elements serve the narrative, and how can the narrative influence the world.</dd>
+                        </div>
+                        <div>
+                            <dt class="eyebrow text-[0.6rem] mb-1">Mechanics</dt>
+                            <dd class="text-ink">How can gameplay mechanics be driven from the world and its narrative, and how can the mechanics develop over time due to world factors.</dd>
+                        </div>
+                        <div>
+                            <dt class="eyebrow text-[0.6rem] mb-1">World Building</dt>
+                            <dd class="text-ink">How deep the world's history can be before its history starts developing from lore to a series of chronicles</dd>
+                        </div>
+                        <div>
+                            <dt class="eyebrow text-[0.6rem] mb-1">Technology serving the design</dt>
+                            <dd class="text-ink">How can the technology be leveraged to break the technical barriers that limit creative expression.</dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <!-- Steam -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem] flex flex-col max-h-[28rem]">
+                    <div class="flex items-baseline justify-between mb-5 flex-shrink-0">
+                        <p class="eyebrow">On Steam</p>
+                        <p id="steam-updated" class="text-[0.62rem] text-muted"></p>
+                    </div>
+                    <div class="relative flex-1 min-h-0">
+                        <div class="card-vscroll h-full overflow-y-auto pr-4">
+                            <div class="flex items-center gap-4">
+                                <img id="steam-avatar" src="" alt="Steam avatar" loading="lazy" decoding="async"
+                                    class="w-14 h-14 rounded-lg border border-line object-cover hidden" />
+                                <div>
+                                    <h3 id="steam-name" class="font-display text-lg text-ink leading-tight">Ali Kassab</h3>
+                                    <p id="steam-state" class="text-xs text-muted mt-0.5"></p>
+                                </div>
+                            </div>
+
+                            <div id="steam-stats" class="grid grid-cols-2 gap-3 mt-6 hidden">
+                                <div class="border border-line rounded py-3 text-center">
+                                    <p id="steam-level" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Level</p>
+                                </div>
+                                <div class="border border-line rounded py-3 text-center">
+                                    <p id="steam-games" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Games</p>
+                                </div>
+                                <div class="border border-line rounded py-3 text-center">
+                                    <p id="steam-hours" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Hours</p>
+                                </div>
+                                <div id="steam-ach-tile" class="border border-line rounded py-3 text-center hidden">
+                                    <p id="steam-ach" class="font-display text-xl text-accent">--</p>
+                                    <p class="eyebrow mt-0.5 text-[0.58rem]">Achievements</p>
+                                </div>
+                            </div>
+
+                            <div id="steam-featured-wrap" class="mt-6 hidden">
+                                <p class="eyebrow mb-3">Most played</p>
+                                <div id="steam-featured" class="card-hscroll flex gap-3 overflow-x-auto pb-1"></div>
+                            </div>
+
+                            <div id="steam-recent-wrap" class="mt-6 hidden">
+                                <p class="eyebrow mb-3">Recently played</p>
+                                <div id="steam-recent" class="card-hscroll flex gap-3 overflow-x-auto pb-1"></div>
+                            </div>
+
+                            <div class="mt-6">
+                                <a href="https://steamcommunity.com/profiles/76561198980920161/" target="_blank"
+                                    rel="noopener noreferrer" class="btn btn-outline">View profile <span class="arrow">&rarr;</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Education -->
+                <article class="card p-7 min-w-[85%] max-w-[85%] flex-shrink-0 snap-start md:min-w-[23rem] md:max-w-[23rem]">
+                    <p class="eyebrow mb-4">Education</p>
+                    <h3 class="font-display text-lg text-ink leading-snug">Bachelor of Computer and Information Sciences</h3>
+                    <p class="text-sm text-body mt-2">Ain Shams University &middot; Cairo, Egypt</p>
+                    <p class="text-xs text-muted mt-1">October 2020 &ndash; July 2024</p>
+                    <div class="border-t border-line mt-5 pt-5">
+                        <h3 class="font-display text-lg text-ink leading-snug">Bachelor of Science, Software Engineering</h3>
+                        <p class="text-sm text-body mt-2">University of East London &middot; London, UK</p>
+                        <p class="text-xs text-muted mt-1">October 2020 &ndash; July 2024</p>
+                        <span class="chip mt-3">First Class Honours</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <!-- Expertise -->
         <section id="expertise" class="bg-canvas-2 border-y border-line scroll-mt-20">
             <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
                 <header class="reveal mb-10 md:mb-12">
-                    <p class="eyebrow mb-3">02 &nbsp;/&nbsp; Capabilities</p>
+                    <p class="eyebrow mb-3">Technical Capabilities</p>
                     <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Expertise</h2>
                     <div class="rule mt-6"></div>
                 </header>
@@ -894,10 +891,8 @@
         <!-- Projects -->
         <section id="projects" class="max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
             <header class="reveal mb-10 md:mb-12">
-                <p class="eyebrow mb-3">03 &nbsp;/&nbsp; Personal work</p>
+                <p class="eyebrow mb-3">Personal work</p>
                 <h2 class="font-display text-3xl md:text-4xl font-600 text-ink tracking-tight">Projects</h2>
-                <p class="mt-4 text-body max-w-2xl">Award-winning jam games, a C++ platformer, and a multiplayer
-                    detective co-op in development. Explore playable builds, source code, and the latest trailer.</p>
                 <div class="rule mt-6"></div>
             </header>
 
@@ -1008,7 +1003,7 @@
         <section id="contact" class="bg-canvas-2 border-t border-line scroll-mt-20">
             <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
                 <div class="reveal max-w-2xl">
-                    <p class="eyebrow mb-6">04 &nbsp;/&nbsp; Contact</p>
+                    <p class="eyebrow mb-6">Contact</p>
                     <div class="flex flex-wrap gap-3">
                         <a class="btn btn-primary" href="mailto:ali.mohammed.kassab@gmail.com">ali.mohammed.kassab@gmail.com</a>
                         <a class="btn btn-outline" href="https://www.linkedin.com/in/ali-kassab-" target="_blank"
