@@ -319,47 +319,5 @@
         document.querySelectorAll('.card-scroll, .card-hscroll').forEach(attachDots);
         document.querySelectorAll('.card-vscroll').forEach(attachVScrollbar);
 
-// Explore answers are sent only to the configured backend.
-document.querySelectorAll('.explore-answer').forEach(form => {
-    const field = form.elements.answer;
-    const status = form.querySelector('.answer-status');
-    const button = form.querySelector('button[type="submit"]');
-    let sending = false;
-    form.addEventListener('submit', async event => {
-        event.preventDefault();
-        if (sending) return;
-        const answer = field.value.trim();
-        if (!answer) {
-            status.textContent = 'Add your perspective before sharing.';
-            field.focus();
-            return;
-        }
-        const endpoint = window.SITE_CONFIG?.explore.endpoint;
-        if (!endpoint) {
-            status.textContent = 'Answers aren’t open yet. Please check back soon.';
-            return;
-        }
-        sending = true;
-        button.disabled = true;
-        field.readOnly = true;
-        button.textContent = 'Sharing…';
-        status.textContent = '';
-        try {
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ questionId: form.dataset.questionId, answer })
-            });
-            if (!response.ok) throw new Error('Answer was not accepted');
-            field.value = '';
-            status.textContent = 'Thanks for sharing your perspective.';
-        } catch (_) {
-            status.textContent = 'Couldn’t send your answer. Please try again.';
-        } finally {
-            sending = false;
-            button.disabled = false;
-            field.readOnly = false;
-            button.textContent = 'Share your perspective';
-        }
-    });
-});
+// Submission transport is separate so a protected Edge endpoint can replace it later.
+window.Perspectives?.bindForms(document);

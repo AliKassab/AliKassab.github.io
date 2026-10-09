@@ -1,0 +1,4 @@
+project_id = "ali-kassab-portfolio"
+
+[functions.notify-perspective]
+verify_jwt = false

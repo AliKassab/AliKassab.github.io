@@ -1,9 +1,11 @@
-// Launch Explore by setting enabled to true and providing your answer endpoint.
-// POST body: { questionId: string, answer: string }. Return 2xx after saving.
+// Browser settings come from the generated public configuration.
 window.SITE_CONFIG = Object.freeze({
+    supabase: Object.freeze({
+        url: window.PORTFOLIO_ENV?.supabaseUrl || '',
+        key: window.PORTFOLIO_ENV?.supabaseKey || ''
+    }),
     explore: Object.freeze({
-        enabled: true,
-        endpoint: ''
+        enabled: window.PORTFOLIO_ENV?.exploreEnabled === true
     })
 });
 
