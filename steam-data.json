@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T06:39:52.070Z",
+  "updated": "2026-10-18T06:40:03.598Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,15 +8,15 @@
     "country": null,
     "level": 12,
     "gameCount": 79,
-    "totalHours": 1910,
+    "totalHours": 1912,
     "achievements": 496
   },
   "recent": [
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 32.1,
-      "hoursTotal": 569,
+      "hours2w": 29.6,
+      "hoursTotal": 570,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
@@ -27,18 +27,25 @@
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
-      "appid": 292030,
-      "name": "The Witcher 3: Wild Hunt — Remastered",
-      "hours2w": 2.7,
-      "hoursTotal": 68,
-      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/capsule_231x87.jpg"
-    },
-    {
       "appid": 1422450,
       "name": "Deadlock",
       "hours2w": 2.6,
       "hoursTotal": 3,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1422450/capsule_231x87.jpg"
+    },
+    {
+      "appid": 292030,
+      "name": "The Witcher 3: Wild Hunt — Remastered",
+      "hours2w": 2.2,
+      "hoursTotal": 68,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/capsule_231x87.jpg"
+    },
+    {
+      "appid": 365670,
+      "name": "Blender",
+      "hours2w": 1.4,
+      "hoursTotal": 8,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/365670/capsule_231x87.jpg"
     },
     {
       "appid": 20900,
@@ -52,7 +59,7 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hoursTotal": 569,
+      "hoursTotal": 570,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
