@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25T06:41:11.911Z",
+  "updated": "2026-10-26T06:58:17.250Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -15,23 +15,16 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 25.5,
+      "hours2w": 21.7,
       "hoursTotal": 576,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 18.2,
+      "hours2w": 16.6,
       "hoursTotal": 512,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
-    },
-    {
-      "appid": 1422450,
-      "name": "Deadlock",
-      "hours2w": 1.4,
-      "hoursTotal": 3,
-      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1422450/capsule_231x87.jpg"
     },
     {
       "appid": 365670,
@@ -43,7 +36,7 @@
     {
       "appid": 20900,
       "name": "The Witcher: Enhanced Edition",
-      "hours2w": 1.1,
+      "hours2w": 0.4,
       "hoursTotal": 2,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/20900/capsule_231x87.jpg"
     },
