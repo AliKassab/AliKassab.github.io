@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31T06:26:20.843Z",
+  "updated": "2026-11-01T06:28:11.744Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -22,16 +22,9 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 7.1,
+      "hours2w": 6.2,
       "hoursTotal": 576,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
-    },
-    {
-      "appid": 365670,
-      "name": "Blender",
-      "hours2w": 1.4,
-      "hoursTotal": 8,
-      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/365670/capsule_231x87.jpg"
     },
     {
       "appid": 2835570,
