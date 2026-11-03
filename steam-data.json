@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-02T16:04:37.045Z",
+  "updated": "2026-11-03T14:23:33.737Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,29 +8,29 @@
     "country": null,
     "level": 12,
     "gameCount": 81,
-    "totalHours": 1936,
-    "achievements": 501
+    "totalHours": 1944,
+    "achievements": 504
   },
   "recent": [
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 6.6,
-      "hoursTotal": 512,
+      "hours2w": 9.9,
+      "hoursTotal": 515,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
       "appid": 4115450,
       "name": "Phantom Blade Zero",
-      "hours2w": 6,
-      "hoursTotal": 6,
+      "hours2w": 9.6,
+      "hoursTotal": 10,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/4115450/capsule_231x87.jpg"
     },
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hours2w": 4.7,
-      "hoursTotal": 576,
+      "hours2w": 4.1,
+      "hoursTotal": 577,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     }
   ],
@@ -38,13 +38,13 @@
     {
       "appid": 359550,
       "name": "Tom Clancy's Rainbow Six Siege",
-      "hoursTotal": 576,
+      "hoursTotal": 577,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
     },
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hoursTotal": 512,
+      "hoursTotal": 515,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
