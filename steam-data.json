@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07T13:10:43.517Z",
+  "updated": "2026-11-08T13:31:07.780Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,15 +8,15 @@
     "country": null,
     "level": 12,
     "gameCount": 81,
-    "totalHours": 1979,
-    "achievements": 522
+    "totalHours": 1990,
+    "achievements": 539
   },
   "recent": [
     {
       "appid": 4115450,
       "name": "Phantom Blade Zero",
-      "hours2w": 34,
-      "hoursTotal": 34,
+      "hours2w": 44.9,
+      "hoursTotal": 45,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/4115450/capsule_231x87.jpg"
     },
     {
