@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08T13:31:07.780Z",
+  "updated": "2026-11-09T16:29:50.963Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,22 +8,22 @@
     "country": null,
     "level": 12,
     "gameCount": 81,
-    "totalHours": 1990,
-    "achievements": 539
+    "totalHours": 1996,
+    "achievements": 542
   },
   "recent": [
     {
       "appid": 4115450,
       "name": "Phantom Blade Zero",
-      "hours2w": 44.9,
-      "hoursTotal": 45,
+      "hours2w": 47.9,
+      "hoursTotal": 48,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/4115450/capsule_231x87.jpg"
     },
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 13.6,
-      "hoursTotal": 525,
+      "hours2w": 15.9,
+      "hoursTotal": 528,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
@@ -32,6 +32,13 @@
       "hours2w": 1.6,
       "hoursTotal": 578,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/359550/capsule_231x87.jpg"
+    },
+    {
+      "appid": 431960,
+      "name": "Wallpaper Engine",
+      "hours2w": 0.1,
+      "hoursTotal": 7,
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/431960/capsule_231x87.jpg"
     }
   ],
   "mostPlayed": [
@@ -44,7 +51,7 @@
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hoursTotal": 525,
+      "hoursTotal": 528,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
