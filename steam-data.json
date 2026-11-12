@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-11T14:28:46.948Z",
+  "updated": "2026-11-12T15:20:40.070Z",
   "profile": {
     "name": "Ali",
     "avatar": "https://avatars.steamstatic.com/829c326cfa1fcbaac3cfefcd613d837834e57905_full.jpg",
@@ -8,22 +8,22 @@
     "country": null,
     "level": 12,
     "gameCount": 81,
-    "totalHours": 2004,
-    "achievements": 560
+    "totalHours": 2006,
+    "achievements": 562
   },
   "recent": [
     {
       "appid": 4115450,
       "name": "Phantom Blade Zero",
-      "hours2w": 55.1,
-      "hoursTotal": 55,
+      "hours2w": 55.6,
+      "hoursTotal": 56,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/4115450/capsule_231x87.jpg"
     },
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hours2w": 17,
-      "hoursTotal": 529,
+      "hours2w": 18.4,
+      "hoursTotal": 530,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
@@ -51,7 +51,7 @@
     {
       "appid": 2434310,
       "name": "Maximum Apocalypse",
-      "hoursTotal": 529,
+      "hoursTotal": 530,
       "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/2434310/capsule_231x87.jpg"
     },
     {
